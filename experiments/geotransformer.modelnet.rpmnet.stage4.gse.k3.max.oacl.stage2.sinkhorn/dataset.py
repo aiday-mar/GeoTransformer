@@ -98,6 +98,8 @@ def test_data_loader(cfg):
         return_normals=False,
         return_occupancy=True,
     )
+    print('train_dataset : ', train_dataset)
+    
     neighbor_limits = calibrate_neighbors_stack_mode(
         train_dataset,
         registration_collate_fn_stack_mode,
@@ -124,6 +126,8 @@ def test_data_loader(cfg):
         return_normals=False,
         return_occupancy=True,
     )
+    print('test_dataset : ', test_dataset)
+
     test_loader = build_dataloader_stack_mode(
         test_dataset,
         registration_collate_fn_stack_mode,

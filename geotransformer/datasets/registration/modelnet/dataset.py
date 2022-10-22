@@ -213,6 +213,7 @@ class ModelNetPairDataset(torch.utils.data.Dataset):
             ref_points, ref_normals = voxel_downsample(ref_points, self.voxel_size, normals=ref_normals)
             src_points, src_normals = voxel_downsample(src_points, self.voxel_size, normals=src_normals)
 
+        # do we need the label and the index in the data_dict that is returned
         new_data_dict = {
             'raw_points': raw_points.astype(np.float32),
             'ref_points': ref_points.astype(np.float32),
