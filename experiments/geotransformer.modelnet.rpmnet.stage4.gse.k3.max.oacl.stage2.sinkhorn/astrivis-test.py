@@ -5,9 +5,9 @@ import numpy as np
 import open3d as o3d 
 import os
 
-print(os.getcwd())
-os.chdir('../../')
-print(os.getcwd())
+# print(os.getcwd())
+# os.chdir('../../')
+# print(os.getcwd())
 
 from geotransformer.utils.data import registration_collate_fn_stack_mode
 from geotransformer.utils.torch import to_cuda, release_cuda
