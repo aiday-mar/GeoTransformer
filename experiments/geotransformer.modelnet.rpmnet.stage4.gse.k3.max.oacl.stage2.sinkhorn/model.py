@@ -71,7 +71,7 @@ class GeoTransformer(nn.Module):
 
         # Downsample point clouds
         feats = data_dict['features'].detach()
-        transform = data_dict['transform'].detach()
+        # transform = data_dict['transform'].detach()
 
         ref_length_c = data_dict['lengths'][-1][0].item()
         ref_length_f = data_dict['lengths'][0][0].item()
@@ -107,6 +107,7 @@ class GeoTransformer(nn.Module):
         ref_node_knn_points = index_select(ref_padded_points_f, ref_node_knn_indices, dim=0)
         src_node_knn_points = index_select(src_padded_points_f, src_node_knn_indices, dim=0)
 
+        '''
         gt_node_corr_indices, gt_node_corr_overlaps = get_node_correspondences(
             ref_points_c,
             src_points_c,
@@ -122,6 +123,7 @@ class GeoTransformer(nn.Module):
 
         output_dict['gt_node_corr_indices'] = gt_node_corr_indices
         output_dict['gt_node_corr_overlaps'] = gt_node_corr_overlaps
+        '''
 
         # 2. KPFCNN Encoder
         feats_list = self.backbone(feats, data_dict)
@@ -160,10 +162,12 @@ class GeoTransformer(nn.Module):
             output_dict['src_node_corr_indices'] = src_node_corr_indices
 
             # 7 Random select ground truth node correspondences during training
+            '''
             if self.training:
                 ref_node_corr_indices, src_node_corr_indices, node_corr_scores = self.coarse_target(
                     gt_node_corr_indices, gt_node_corr_overlaps
                 )
+            '''
 
         # 7.2 Generate batched node points & feats
         ref_node_corr_knn_indices = ref_node_knn_indices[ref_node_corr_indices]  # (P, K)
