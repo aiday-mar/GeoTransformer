@@ -65,8 +65,8 @@ def main():
 
     # prepare data
     data_dict = load_data(args)
-    # default setting in 3DMatch?
-    # 3 numbers set because there are 4 numbers of stages
+    print('data loaded : ', data_dict)
+    # 3 numbers set because there are 4 numbers of stages, random numbers 
     neighbor_limits = [38, 36, 36]  
     data_dict = registration_collate_fn_stack_mode(
         [data_dict], cfg.backbone.num_stages, cfg.backbone.init_voxel_size, cfg.backbone.init_radius, neighbor_limits
@@ -80,6 +80,7 @@ def main():
     # prediction
     data_dict = to_cuda(data_dict)
     output_dict = model(data_dict)
+    print('evaluating : ', output_dict)
     data_dict = release_cuda(data_dict)
     output_dict = release_cuda(output_dict)
 
@@ -93,10 +94,8 @@ def main():
     # visualization
     ref_pcd = make_open3d_point_cloud(ref_points)
     ref_pcd.estimate_normals()
-    ref_pcd.paint_uniform_color(get_color("custom_yellow"))
     src_pcd = make_open3d_point_cloud(src_points)
     src_pcd.estimate_normals()
-    src_pcd.paint_uniform_color(get_color("custom_blue"))
     # transformed witht the transformation
     src_pcd = src_pcd.transform(estimated_transform)
     o3d.io.write_point_cloud(args.output, src_pcd)

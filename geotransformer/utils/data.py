@@ -156,6 +156,7 @@ def registration_collate_fn_stack_mode(
     Returns:
         collated_dict (Dict)
     """
+    print('entered into registration_collate_fn_stack_mode')
     batch_size = len(data_dicts)
     # merge data with the same key from different samples into a list
     collated_dict = {}
