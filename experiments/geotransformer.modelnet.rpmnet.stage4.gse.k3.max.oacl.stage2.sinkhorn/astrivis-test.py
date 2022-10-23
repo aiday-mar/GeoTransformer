@@ -65,7 +65,6 @@ def main():
 
     # prepare data
     data_dict = load_data(args)
-    # print('data loaded : ', data_dict)
     # 3 numbers set because there are 4 numbers of stages, random numbers 
     neighbor_limits = [38, 36, 36]  
     data_dict = registration_collate_fn_stack_mode(
@@ -80,7 +79,6 @@ def main():
     # prediction
     data_dict = to_cuda(data_dict)
     output_dict = model(data_dict)
-    # print('evaluating : ', output_dict)
     data_dict = release_cuda(data_dict)
     output_dict = release_cuda(output_dict)
 
