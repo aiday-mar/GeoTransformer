@@ -211,7 +211,7 @@ class CustomDataset(torch.utils.data.Dataset):
             new_data_dict['ref_feats'] = np.ones_like(ref_points[:, :1]).astype(np.float32)
             new_data_dict['src_feats'] = np.ones_like(src_points[:, :1]).astype(np.float32)
 
-        print('new_data_dict : ', new_data_dict)
+        # print('new_data_dict : ', new_data_dict)
         return new_data_dict
 
     def __len__(self):
