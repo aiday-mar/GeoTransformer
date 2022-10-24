@@ -65,7 +65,7 @@ def build_dataloader(
     data_loader = torch.utils.data.DataLoader(
         dataset,
         batch_size=batch_size,
-        num_workers=0 # num_workers,
+        num_workers=0, # num_workers,
         shuffle=shuffle,
         sampler=sampler,
         collate_fn=collate_fn,
