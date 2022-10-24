@@ -192,6 +192,8 @@ class IterBasedTrainer(BaseTrainer):
                 )
                 self.logger.info(message)
                 self.write_event('train', summary_dict, self.iteration)
+                if self.scheduler is not None and self.iteration % self.grad_acc_steps == 0:
+                    self.scheduler.step()
 
             # snapshot & validation
             # if self.iteration % self.snapshot_steps == 0:
@@ -203,8 +205,6 @@ class IterBasedTrainer(BaseTrainer):
             #        os.remove(last_snapshot)
             self.inference()
             # scheduler
-            if self.scheduler is not None and self.iteration % self.grad_acc_steps == 0:
-                self.scheduler.step()
             torch.cuda.empty_cache()
 
         self.after_train()
