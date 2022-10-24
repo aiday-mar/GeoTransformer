@@ -110,6 +110,7 @@ class IterBasedTrainer(BaseTrainer):
         summary_board = SummaryBoard(adaptive=True)
         timer = Timer()
         total_iterations = len(self.val_loader)
+        # Presumably iterating over the validation loader
         pbar = tqdm.tqdm(enumerate(self.val_loader), total=total_iterations)
         for iteration, data_dict in pbar:
             self.inner_iteration = iteration + 1
@@ -131,6 +132,7 @@ class IterBasedTrainer(BaseTrainer):
             torch.cuda.empty_cache()
         self.after_val()
         summary_dict = summary_board.summary()
+        # IMPORTANT: Printing the validation string in the console
         message = '[Val] ' + get_log_string(summary_dict, iteration=self.iteration, timer=timer)
         self.logger.critical(message)
         self.write_event('val', summary_dict, self.iteration // self.snapshot_steps)
@@ -152,16 +154,19 @@ class IterBasedTrainer(BaseTrainer):
         train_loader = CycleLoader(self.train_loader, self.epoch, self.distributed)
         self.before_train()
         self.optimizer.zero_grad()
-        # Maybe will need to place an outer loop for the epoch number and then reset the iteration number
+        # In one iteration, we are looping over 15 different things?
+        # After every single iteration, the model and the snapshot are saved 
         while self.iteration < self.max_iteration:
             self.iteration += 1
-            print('iteration : ', self.iteration)
+            print('Iteration : ', self.iteration)
             data_dict = next(train_loader)
+            print('data_dict : ', data_dict)
             data_dict = to_cuda(data_dict)
             # print('data_dict : ', data_dict)
             self.before_train_step(self.iteration, data_dict)
             self.timer.add_prepare_time()
             # forward
+            # The output_dict and result_dict contain the information we require and that we are printing
             output_dict, result_dict = self.train_step(self.iteration, data_dict)
             # backward & optimization
             result_dict['loss'].backward()
@@ -174,17 +179,18 @@ class IterBasedTrainer(BaseTrainer):
             result_dict = self.release_tensors(result_dict)
             self.summary_board.update_from_result_dict(result_dict)
             # logging
-            if self.iteration % self.log_steps == 0:
-                summary_dict = self.summary_board.summary()
-                message = get_log_string(
-                    result_dict=summary_dict,
-                    iteration=self.iteration,
-                    max_iteration=self.max_iteration,
-                    lr=self.get_lr(),
-                    timer=self.timer,
-                )
-                self.logger.info(message)
-                self.write_event('train', summary_dict, self.iteration)
+            # REMOVED: if self.iteration % self.log_steps == 0:
+            summary_dict = self.summary_board.summary()
+            message = get_log_string(
+                result_dict=summary_dict,
+                iteration=self.iteration,
+                max_iteration=self.max_iteration,
+                lr=self.get_lr(),
+                timer=self.timer,
+            )
+            self.logger.info(message)
+            self.write_event('train', summary_dict, self.iteration)
+
             # snapshot & validation
             if self.iteration % self.snapshot_steps == 0:
                 self.epoch = train_loader.last_epoch

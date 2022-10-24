@@ -74,7 +74,7 @@ _C.optim.weight_decay = 1e-6
 _C.optim.warmup_steps = 10000
 _C.optim.eta_init = 0.1
 _C.optim.eta_min = 0.1
-_C.optim.max_iteration = 10 # IMPORTANT: Max iterations don't need to be so high, before was 400000
+_C.optim.max_iteration = 5 # IMPORTANT: Max iterations for number of times to do the whole training
 _C.optim.snapshot_steps = 1 # IMPORTANT: Presumably the number of steps after which to run the snapshot
 _C.optim.grad_acc_steps = 1
 
