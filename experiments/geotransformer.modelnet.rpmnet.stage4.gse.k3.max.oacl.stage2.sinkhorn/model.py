@@ -71,7 +71,7 @@ class GeoTransformer(nn.Module):
 
         # Downsample point clouds
         feats = data_dict['features'].detach()
-        transform = data_dict['transform'] # TODO .detach()
+        transform = data_dict['transform'].detach()
 
         ref_length_c = data_dict['lengths'][-1][0].item()
         ref_length_f = data_dict['lengths'][0][0].item()

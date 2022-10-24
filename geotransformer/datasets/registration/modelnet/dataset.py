@@ -115,7 +115,7 @@ class CustomDataset(torch.utils.data.Dataset):
         if self.overfitting_index is not None:
             index = self.overfitting_index
 
-        transform = self.transformations[index]
+        transform = np.array(self.transformations[index])
 
         ref_point_cloud = o3d.io.read_point_cloud(self.tgt[index])
         ref_point_cloud.estimate_normals()
