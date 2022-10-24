@@ -47,8 +47,8 @@ class SingleTester(BaseTester):
         total_iterations = len(self.test_loader)
         pbar = tqdm(enumerate(self.test_loader), total=total_iterations)
         for iteration, data_dict in pbar:
-            print('iteration : ', iteration)
-            print('data dict : ', data_dict)
+            # print('iteration : ', iteration)
+            # print('data dict : ', data_dict)
             # on start
             self.iteration = iteration + 1
             data_dict = to_cuda(data_dict)
