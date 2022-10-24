@@ -158,7 +158,7 @@ class IterBasedTrainer(BaseTrainer):
             print('iteration : ', self.iteration)
             data_dict = next(train_loader)
             data_dict = to_cuda(data_dict)
-            print('data_dict : ', data_dict)
+            # print('data_dict : ', data_dict)
             self.before_train_step(self.iteration, data_dict)
             self.timer.add_prepare_time()
             # forward
