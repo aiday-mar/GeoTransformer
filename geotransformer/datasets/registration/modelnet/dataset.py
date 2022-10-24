@@ -93,8 +93,8 @@ class CustomDataset(torch.utils.data.Dataset):
             for line in lines:
                 pair = line.split(',')
 
-                self.tgt.append('../../../OverlapPredator/data/modelnet40_ply_hdf5_2048/train/astrivis-data-small' + pair[0])
-                self.src.append('../../../OverlapPredator/data/modelnet40_ply_hdf5_2048/train/astrivis-data-small' + pair[1][:-1])
+                self.tgt.append('../../../OverlapPredator/data/modelnet40_ply_hdf5_2048/train/astrivis-data-small/' + pair[0])
+                self.src.append('../../../OverlapPredator/data/modelnet40_ply_hdf5_2048/train/astrivis-data-small/' + pair[1][:-1])
                 se4 = f[pair[1][:-1]]
                 self.transformations.append(se4)
         elif subset == 'val':
@@ -106,8 +106,8 @@ class CustomDataset(torch.utils.data.Dataset):
             for line in lines:
                 pair = line.split(',')
 
-                self.tgt.append('../../../OverlapPredator/data/modelnet40_ply_hdf5_2048/train/astrivis-data-small' + pair[0])
-                self.src.append('../../../OverlapPredator/data/modelnet40_ply_hdf5_2048/train/astrivis-data-small' + pair[1][:-1])
+                self.tgt.append('../../../OverlapPredator/data/modelnet40_ply_hdf5_2048/train/astrivis-data-small/' + pair[0])
+                self.src.append('../../../OverlapPredator/data/modelnet40_ply_hdf5_2048/train/astrivis-data-small/' + pair[1][:-1])
                 se4 = f[pair[1][:-1]]
                 self.transformations.append(se4)
 
