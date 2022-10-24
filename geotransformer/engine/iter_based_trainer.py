@@ -188,6 +188,7 @@ class IterBasedTrainer(BaseTrainer):
                 lr=self.get_lr(),
                 timer=self.timer,
             )
+            print('message : ', message)
             self.logger.info(message)
             self.write_event('train', summary_dict, self.iteration)
 
