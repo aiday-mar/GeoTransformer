@@ -74,11 +74,11 @@ class CustomDataset(torch.utils.data.Dataset):
         self.estimate_normal = estimate_normal
         self.overfitting_index = overfitting_index
 
-        data_list = load_pickle(osp.join(dataset_root, f'{subset}.pkl'))
-        data_list = [x for x in data_list if x['label'] in self.class_indices]
-        if overfitting_index is not None and deterministic:
-            data_list = [data_list[overfitting_index]]
-        self.data_list = data_list
+        # data_list = load_pickle(osp.join(dataset_root, f'{subset}.pkl'))
+        # data_list = [x for x in data_list if x['label'] in self.class_indices]
+        # if overfitting_index is not None and deterministic:
+        #    data_list = [data_list[overfitting_index]]
+        # self.data_list = data_list
 
         self.src = []
         self.tgt = []
@@ -188,7 +188,7 @@ class CustomDataset(torch.utils.data.Dataset):
 
         # do we need the label and the index in the data_dict that is returned
         new_data_dict = {
-            'raw_points': raw_points.astype(np.float32),
+            # 'raw_points': raw_points.astype(np.float32),
             'ref_points': ref_points.astype(np.float32),
             'src_points': src_points.astype(np.float32),
             'transform': transform.astype(np.float32),
@@ -215,7 +215,8 @@ class CustomDataset(torch.utils.data.Dataset):
         return new_data_dict
 
     def __len__(self):
-        return len(self.data_list)
+        return len(self.src)
+        # return len(self.data_list)
 
     
 
