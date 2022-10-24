@@ -156,55 +156,57 @@ class IterBasedTrainer(BaseTrainer):
         self.before_train()
         self.optimizer.zero_grad()
         # In one iteration, we are looping over 15 different things?
-        # After every single iteration, the model and the snapshot are saved 
-        while self.iteration < self.max_iteration:
-            self.iteration += 1
-            print('Iteration : ', self.iteration)
-            data_dict = next(train_loader)
-            data_dict = to_cuda(data_dict)
-            # print('data_dict : ', data_dict)
-            self.before_train_step(self.iteration, data_dict)
-            self.timer.add_prepare_time()
-            # forward
-            # The output_dict and result_dict contain the information we require and that we are printing
-            output_dict, result_dict = self.train_step(self.iteration, data_dict)
-            # backward & optimization
-            result_dict['loss'].backward()
-            self.after_backward(self.iteration, data_dict, output_dict, result_dict)
-            self.check_gradients(self.iteration, data_dict, output_dict, result_dict)
-            self.optimizer_step(self.iteration)
-            # after training
-            self.timer.add_process_time()
-            self.after_train_step(self.iteration, data_dict, output_dict, result_dict)
-            result_dict = self.release_tensors(result_dict)
-            self.summary_board.update_from_result_dict(result_dict)
-            # logging
-            # REMOVED: if self.iteration % self.log_steps == 0:
-            summary_dict = self.summary_board.summary()
-            message = get_log_string(
-                result_dict=summary_dict,
-                iteration=self.iteration,
-                max_iteration=self.max_iteration,
-                lr=self.get_lr(),
-                timer=self.timer,
-            )
-            print('message : ', message)
-            self.logger.info(message)
-            self.write_event('train', summary_dict, self.iteration)
+        # After every single iteration, the model and the snapshot are saved
+        for epoch in range(0, 5):
+            self.iteration = 0
+            # Setting the max_iterations to 10'500 which is the number of elements in our training dataset
+            while self.iteration < self.max_iteration:
+                self.iteration += 1
+                print('Epoch : ', epoch, '. Iteration : ', self.iteration, ' out of ', self.max_iteration)
+                data_dict = next(train_loader)
+                data_dict = to_cuda(data_dict)
+                self.before_train_step(self.iteration, data_dict)
+                self.timer.add_prepare_time()
+                # forward
+                # The output_dict and result_dict contain the information we require and that we are printing
+                output_dict, result_dict = self.train_step(self.iteration, data_dict)
+                # backward & optimization
+                result_dict['loss'].backward()
+                self.after_backward(self.iteration, data_dict, output_dict, result_dict)
+                self.check_gradients(self.iteration, data_dict, output_dict, result_dict)
+                self.optimizer_step(self.iteration)
+                # after training
+                self.timer.add_process_time()
+                self.after_train_step(self.iteration, data_dict, output_dict, result_dict)
+                result_dict = self.release_tensors(result_dict)
+                self.summary_board.update_from_result_dict(result_dict)
+                # logging
+                # REMOVED: if self.iteration % self.log_steps == 0:
+                summary_dict = self.summary_board.summary()
+                message = get_log_string(
+                    result_dict=summary_dict,
+                    iteration=self.iteration,
+                    max_iteration=self.max_iteration,
+                    lr=self.get_lr(),
+                    timer=self.timer,
+                )
+                self.logger.info(message)
+                self.write_event('train', summary_dict, self.iteration)
 
             # snapshot & validation
-            if self.iteration % self.snapshot_steps == 0:
-                self.epoch = train_loader.last_epoch
-                self.save_snapshot(f'iter-{self.iteration}.pth.tar')
-                if not self.save_all_snapshots:
-                    last_snapshot = f'iter_{self.iteration - self.snapshot_steps}.pth.tar'
-                    if osp.exists(last_snapshot):
-                        os.remove(last_snapshot)
-                self.inference()
+            # if self.iteration % self.snapshot_steps == 0:
+            # self.epoch = train_loader.last_epoch
+            self.save_snapshot(f'weights-{epoch}.pth.tar')
+            # if not self.save_all_snapshots:
+            #    last_snapshot = f'iter_{self.iteration - self.snapshot_steps}.pth.tar'
+            #    if osp.exists(last_snapshot):
+            #        os.remove(last_snapshot)
+            self.inference()
             # scheduler
             if self.scheduler is not None and self.iteration % self.grad_acc_steps == 0:
                 self.scheduler.step()
             torch.cuda.empty_cache()
+
         self.after_train()
         message = 'Training finished.'
         self.logger.critical(message)
