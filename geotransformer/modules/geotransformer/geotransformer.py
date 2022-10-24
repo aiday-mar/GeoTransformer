@@ -40,7 +40,9 @@ class GeometricStructureEmbedding(nn.Module):
 
         # k = self.angle_k
         k = 0
-        knn_indices = dist_map.topk(k=k + 1, dim=2, largest=False)[1][:, :, 1:]  # (B, N, k)
+        print('dist_map : ', dist_map)
+        # IMPORTANT: changing one to zero
+        knn_indices = dist_map.topk(k=k + 1, dim=2, largest=False)[0][:, :, 1:]  # (B, N, k)
         knn_indices = knn_indices.unsqueeze(3).expand(batch_size, num_point, k, 3)  # (B, N, k, 3)
         expanded_points = points.unsqueeze(1).expand(batch_size, num_point, num_point, 3)  # (B, N, N, 3)
         knn_points = torch.gather(expanded_points, dim=2, index=knn_indices)  # (B, N, k, 3)
