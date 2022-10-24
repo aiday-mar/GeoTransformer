@@ -1,9 +1,81 @@
-from geotransformer.datasets.registration.modelnet.dataset import ModelNetPairDataset
+from geotransformer.datasets.registration.modelnet.dataset import ModelNetPairDataset, CustomDataset
 from geotransformer.utils.data import (
     registration_collate_fn_stack_mode,
     calibrate_neighbors_stack_mode,
     build_dataloader_stack_mode,
 )
+
+def astrivis_data_loader(cfg, distributed):
+    train_dataset = CustomDataset(
+        cfg.data.dataset_root,
+        "train",
+        num_points=cfg.data.num_points,
+        voxel_size=cfg.data.voxel_size,
+        rotation_magnitude=cfg.data.rotation_magnitude,
+        translation_magnitude=cfg.data.translation_magnitude,
+        noise_magnitude=cfg.train.noise_magnitude,
+        keep_ratio=cfg.data.keep_ratio,
+        crop_method=cfg.data.crop_method,
+        asymmetric=cfg.data.asymmetric,
+        class_indices=cfg.train.class_indices,
+        deterministic=False,
+        twice_sample=cfg.data.twice_sample,
+        twice_transform=cfg.data.twice_transform,
+        return_normals=False,
+        return_occupancy=True,
+    )
+    neighbor_limits = calibrate_neighbors_stack_mode(
+        train_dataset,
+        registration_collate_fn_stack_mode,
+        cfg.backbone.num_stages,
+        cfg.backbone.init_voxel_size,
+        cfg.backbone.init_radius,
+    )
+    train_loader = build_dataloader_stack_mode(
+        train_dataset,
+        registration_collate_fn_stack_mode,
+        cfg.backbone.num_stages,
+        cfg.backbone.init_voxel_size,
+        cfg.backbone.init_radius,
+        neighbor_limits,
+        batch_size=cfg.train.batch_size,
+        num_workers=cfg.train.num_workers,
+        shuffle=True,
+        distributed=distributed,
+    )
+
+    valid_dataset = CustomDataset(
+        cfg.data.dataset_root,
+        "val",
+        num_points=cfg.data.num_points,
+        voxel_size=cfg.data.voxel_size,
+        rotation_magnitude=cfg.data.rotation_magnitude,
+        translation_magnitude=cfg.data.translation_magnitude,
+        noise_magnitude=cfg.test.noise_magnitude,
+        keep_ratio=cfg.data.keep_ratio,
+        crop_method=cfg.data.crop_method,
+        asymmetric=cfg.data.asymmetric,
+        class_indices=cfg.test.class_indices,
+        deterministic=True,
+        twice_sample=cfg.data.twice_sample,
+        twice_transform=cfg.data.twice_transform,
+        return_normals=False,
+        return_occupancy=True,
+    )
+    valid_loader = build_dataloader_stack_mode(
+        valid_dataset,
+        registration_collate_fn_stack_mode,
+        cfg.backbone.num_stages,
+        cfg.backbone.init_voxel_size,
+        cfg.backbone.init_radius,
+        neighbor_limits,
+        batch_size=cfg.test.batch_size,
+        num_workers=cfg.test.num_workers,
+        shuffle=False,
+        distributed=distributed,
+    )
+
+    return train_loader, valid_loader, neighbor_limits
 
 
 def train_valid_data_loader(cfg, distributed):

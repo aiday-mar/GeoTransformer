@@ -5,6 +5,7 @@ import numpy as np
 import torch.utils.data
 import open3d as o3d
 from IPython import embed
+import h5py
 
 from geotransformer.utils.common import load_pickle
 from geotransformer.utils.pointcloud import random_sample_transform, apply_transform, inverse_transform, regularize_normals
@@ -20,6 +21,203 @@ from geotransformer.transforms.functional import (
     random_crop_point_cloud_with_point,
 )
 
+class CustomDataset(torch.utils.data.Dataset):
+
+    def __init__(
+        self,
+        dataset_root: str,
+        subset: str,
+        num_points: int = 1024,
+        voxel_size: Optional[float] = None,
+        rotation_magnitude: float = 45.0,
+        translation_magnitude: float = 0.5,
+        noise_magnitude: Optional[float] = None,
+        keep_ratio: float = 0.7,
+        crop_method: str = 'plane',
+        asymmetric: bool = True,
+        class_indices: str = 'all',
+        deterministic: bool = False,
+        twice_sample: bool = False,
+        twice_transform: bool = False,
+        return_normals: bool = True,
+        return_occupancy: bool = False,
+        min_overlap: Optional[float] = None,
+        max_overlap: Optional[float] = None,
+        estimate_normal: bool = False,
+        overfitting_index: Optional[int] = None,
+    ):
+        super(CustomDataset, self).__init__()
+
+        # Depending on the value of subset, load one or the other of the data
+        assert subset in ['train', 'val', 'test']
+        assert crop_method in ['plane', 'point']
+
+        self.dataset_root = dataset_root
+        self.subset = subset
+
+        self.num_points = num_points
+        self.voxel_size = voxel_size
+        self.rotation_magnitude = rotation_magnitude
+        self.translation_magnitude = translation_magnitude
+        self.noise_magnitude = noise_magnitude
+        self.keep_ratio = keep_ratio
+        self.crop_method = crop_method
+        self.asymmetric = asymmetric
+        self.deterministic = deterministic
+        self.twice_sample = twice_sample
+        self.twice_transform = twice_transform
+        self.return_normals = return_normals
+        self.return_occupancy = return_occupancy
+        self.min_overlap = min_overlap
+        self.max_overlap = max_overlap
+        self.check_overlap = self.min_overlap is not None or self.max_overlap is not None
+        self.estimate_normal = estimate_normal
+        self.overfitting_index = overfitting_index
+
+        data_list = load_pickle(osp.join(dataset_root, f'{subset}.pkl'))
+        data_list = [x for x in data_list if x['label'] in self.class_indices]
+        if overfitting_index is not None and deterministic:
+            data_list = [data_list[overfitting_index]]
+        self.data_list = data_list
+
+        self.src = []
+        self.tgt = []
+        self.transformations = []
+        
+        if subset == 'train':
+            # Read from data under the predator folder until all the data copied to the separate folder
+            pairs = open('../../../../../../OverlapPredator/datasets/astrivis-data-small/pairs.txt', 'r') 
+            lines = pairs.readlines()
+            f = h5py.File('../../../../../../OverlapPredator/datasets/astrivis-data-small/se4.h5', "r")
+            
+            for line in lines:
+                pair = line.split(',')
+
+                self.tgt.append('../../../../../../OverlapPredator/data/modelnet40_ply_hdf5_2048/train/astrivis-data-small' + pair[0])
+                self.src.append('../../../../../../OverlapPredator/data/modelnet40_ply_hdf5_2048/train/astrivis-data-small' + pair[1][:-1])
+                se4 = f[pair[1][:-1]]
+                self.transformations.append(se4)
+        elif subset == 'val':
+            # Read from data under the predator folder until all the data copied to the separate folder
+            pairs = open('../../../../../../OverlapPredator/datasets/astrivis-data-small/pairs.txt', 'r') 
+            lines = pairs.readlines()
+            f = h5py.File('../../../../../../OverlapPredator/datasets/astrivis-data-small/se4.h5', "r")
+            
+            for line in lines:
+                pair = line.split(',')
+
+                self.tgt.append('../../../../../../OverlapPredator/data/modelnet40_ply_hdf5_2048/train/astrivis-data-small' + pair[0])
+                self.src.append('../../../../../../OverlapPredator/data/modelnet40_ply_hdf5_2048/train/astrivis-data-small' + pair[1][:-1])
+                se4 = f[pair[1][:-1]]
+                self.transformations.append(se4)
+
+    def __getitem__(self, index):
+        if self.overfitting_index is not None:
+            index = self.overfitting_index
+
+        transform = self.transformations[index]
+
+        ref_point_cloud = o3d.io.read_point_cloud(self.tgt[index])
+        ref_point_cloud.estimate_normals()
+        ref_points = np.array(ref_point_cloud.points)
+        ref_normals = np.array(ref_point_cloud.normals)
+
+        src_point_cloud = o3d.io.read_point_cloud(self.src[index])
+        src_point_cloud.estimate_normals()
+        src_points = np.array(src_point_cloud.points)
+        src_normals = np.array(src_point_cloud.normals)
+
+        raw_ref_points = ref_points
+        raw_ref_normals = ref_normals
+        raw_src_points = src_points
+        raw_src_normals = src_normals
+
+        while True:
+            ref_points = raw_ref_points
+            ref_normals = raw_ref_normals
+            src_points = raw_src_points
+            src_normals = raw_src_normals
+            # crop
+            if self.keep_ratio is not None:
+                if self.crop_method == 'plane':
+                    ref_points, ref_normals = random_crop_point_cloud_with_plane(
+                        ref_points, keep_ratio=self.keep_ratio, normals=ref_normals
+                    )
+                    src_points, src_normals = random_crop_point_cloud_with_plane(
+                        src_points, keep_ratio=self.keep_ratio, normals=src_normals
+                    )
+                else:
+                    viewpoint = random_sample_viewpoint()
+                    ref_points, ref_normals = random_crop_point_cloud_with_point(
+                        ref_points, viewpoint=viewpoint, keep_ratio=self.keep_ratio, normals=ref_normals
+                    )
+                    src_points, src_normals = random_crop_point_cloud_with_point(
+                        src_points, viewpoint=viewpoint, keep_ratio=self.keep_ratio, normals=src_normals
+                    )
+
+            # data check
+            is_available = True
+            # check overlap
+            if self.check_overlap:
+                overlap = compute_overlap(ref_points, src_points, transform, positive_radius=0.05)
+                if self.min_overlap is not None:
+                    is_available = is_available and overlap >= self.min_overlap
+                if self.max_overlap is not None:
+                    is_available = is_available and overlap <= self.max_overlap
+            if is_available:
+                break
+
+        if self.twice_sample:
+            # twice sample on both point clouds
+            ref_points, ref_normals = random_sample_points(ref_points, self.num_points, normals=ref_normals)
+            src_points, src_normals = random_sample_points(src_points, self.num_points, normals=src_normals)
+
+        # random jitter
+        if self.noise_magnitude is not None:
+            ref_points = random_jitter_points(ref_points, scale=0.01, noise_magnitude=self.noise_magnitude)
+            src_points = random_jitter_points(src_points, scale=0.01, noise_magnitude=self.noise_magnitude)
+
+        # random shuffle
+        ref_points, ref_normals = random_shuffle_points(ref_points, normals=ref_normals)
+        src_points, src_normals = random_shuffle_points(src_points, normals=src_normals)
+
+        if self.voxel_size is not None:
+            # voxel downsample reference point cloud
+            ref_points, ref_normals = voxel_downsample(ref_points, self.voxel_size, normals=ref_normals)
+            src_points, src_normals = voxel_downsample(src_points, self.voxel_size, normals=src_normals)
+
+        # do we need the label and the index in the data_dict that is returned
+        new_data_dict = {
+            'raw_points': raw_points.astype(np.float32),
+            'ref_points': ref_points.astype(np.float32),
+            'src_points': src_points.astype(np.float32),
+            'transform': transform.astype(np.float32),
+            # 'label': int(label),
+            'index': int(index),
+        }
+
+        if self.estimate_normal:
+            ref_normals = estimate_normals(ref_points)
+            ref_normals = regularize_normals(ref_points, ref_normals)
+            src_normals = estimate_normals(src_points)
+            src_normals = regularize_normals(src_points, src_normals)
+
+        if self.return_normals:
+            new_data_dict['raw_normals'] = raw_normals.astype(np.float32)
+            new_data_dict['ref_normals'] = ref_normals.astype(np.float32)
+            new_data_dict['src_normals'] = src_normals.astype(np.float32)
+
+        if self.return_occupancy:
+            new_data_dict['ref_feats'] = np.ones_like(ref_points[:, :1]).astype(np.float32)
+            new_data_dict['src_feats'] = np.ones_like(src_points[:, :1]).astype(np.float32)
+
+        print('new_data_dict : ', new_data_dict)
+        return new_data_dict
+
+    def __len__(self):
+        return len(self.data_list)
+
+    
 
 class ModelNetPairDataset(torch.utils.data.Dataset):
     # fmt: off
@@ -154,7 +352,7 @@ class ModelNetPairDataset(torch.utils.data.Dataset):
         transform = random_sample_transform(self.rotation_magnitude, self.translation_magnitude)
         inv_transform = inverse_transform(transform)
         src_points, src_normals = apply_transform(src_points, inv_transform, normals=src_normals)
-
+        
         # REMOVE ALL ABOVE FOR OUR TRAINING - after understanding how data should be
         # Remove the label until you find out why needed
         # Find what raw points corresponds to versus ref versus src pointss
