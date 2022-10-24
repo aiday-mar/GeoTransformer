@@ -65,6 +65,7 @@ class ModelNetPairDataset(torch.utils.data.Dataset):
     ):
         super(ModelNetPairDataset, self).__init__()
 
+        # Depending on the value of subset, load one or the other of the data
         assert subset in ['train', 'val', 'test']
         assert crop_method in ['plane', 'point']
 
@@ -154,6 +155,9 @@ class ModelNetPairDataset(torch.utils.data.Dataset):
         inv_transform = inverse_transform(transform)
         src_points, src_normals = apply_transform(src_points, inv_transform, normals=src_normals)
 
+        # REMOVE ALL ABOVE FOR OUR TRAINING - after understanding how data should be
+        # Remove the label until you find out why needed
+        # Find what raw points corresponds to versus ref versus src pointss
         raw_ref_points = ref_points
         raw_ref_normals = ref_normals
         raw_src_points = src_points
@@ -238,6 +242,7 @@ class ModelNetPairDataset(torch.utils.data.Dataset):
             new_data_dict['ref_feats'] = np.ones_like(ref_points[:, :1]).astype(np.float32)
             new_data_dict['src_feats'] = np.ones_like(src_points[:, :1]).astype(np.float32)
 
+        print('new_data_dict : ', new_data_dict)
         return new_data_dict
 
     def __len__(self):
