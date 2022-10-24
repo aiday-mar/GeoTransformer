@@ -11,7 +11,6 @@ from geotransformer.utils.torch import build_dataloader
 
 
 def precompute_data_stack_mode(points, lengths, num_stages, voxel_size, radius, neighbor_limits):
-    print('num_stages : ', num_stages)
     assert num_stages == len(neighbor_limits)
 
     points_list = []
@@ -156,7 +155,6 @@ def registration_collate_fn_stack_mode(
     Returns:
         collated_dict (Dict)
     """
-    print('entered into registration_collate_fn_stack_mode')
     batch_size = len(data_dicts)
     # merge data with the same key from different samples into a list
     collated_dict = {}
