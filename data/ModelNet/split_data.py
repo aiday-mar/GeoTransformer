@@ -16,7 +16,8 @@ def process(subset):
     all_labels = []
     for line in lines:
         filename = line.strip()
-        h5file = h5py.File(f'modelnet40_ply_hdf5_2048/{filename}', 'r')
+        print('filename : ', filename[5:])
+        h5file = h5py.File(f'{filename[5:]}', 'r')
         all_points.append(h5file['data'][:])
         all_normals.append(h5file['normal'][:])
         all_labels.append(h5file['label'][:].flatten().astype(np.int))
