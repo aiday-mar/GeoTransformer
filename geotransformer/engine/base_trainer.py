@@ -109,7 +109,7 @@ class BaseTrainer(abc.ABC):
         self.training = True
         self.grad_acc_steps = grad_acc_steps
 
-    def save_snapshot(self, filename):
+    def save_snapshot(self, filename_model, filename_snapshot):
         if self.local_rank != 0:
             return
 
@@ -119,7 +119,7 @@ class BaseTrainer(abc.ABC):
             model_state_dict = OrderedDict([(key[7:], value) for key, value in model_state_dict.items()])
 
         # save model
-        filename = osp.join(self.snapshot_dir, filename)
+        filename = osp.join(self.snapshot_dir, filename_model)
         state_dict = {
             'epoch': self.epoch,
             'iteration': self.iteration,
@@ -129,7 +129,7 @@ class BaseTrainer(abc.ABC):
         self.logger.info('Model saved to "{}"'.format(filename))
 
         # save snapshot
-        snapshot_filename = osp.join(self.snapshot_dir, 'snapshot.pth.tar')
+        snapshot_filename = osp.join(self.snapshot_dir, filename_snapshot)
         state_dict['optimizer'] = self.optimizer.state_dict()
         if self.scheduler is not None:
             state_dict['scheduler'] = self.scheduler.state_dict()

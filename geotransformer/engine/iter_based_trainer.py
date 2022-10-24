@@ -198,13 +198,12 @@ class IterBasedTrainer(BaseTrainer):
             # snapshot & validation
             # if self.iteration % self.snapshot_steps == 0:
             # self.epoch = train_loader.last_epoch
-            self.save_snapshot(f'weights-{epoch}.pth.tar')
+            self.save_snapshot(f'weights-{epoch}.pth.tar', f'snapshot-{epoch}.pth.tar')
             # if not self.save_all_snapshots:
             #    last_snapshot = f'iter_{self.iteration - self.snapshot_steps}.pth.tar'
             #    if osp.exists(last_snapshot):
             #        os.remove(last_snapshot)
             self.inference()
-            # scheduler
             torch.cuda.empty_cache()
 
         self.after_train()
