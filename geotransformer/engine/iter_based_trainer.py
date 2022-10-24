@@ -152,10 +152,13 @@ class IterBasedTrainer(BaseTrainer):
         train_loader = CycleLoader(self.train_loader, self.epoch, self.distributed)
         self.before_train()
         self.optimizer.zero_grad()
+        # Maybe will need to place an outer loop for the epoch number and then reset the iteration number
         while self.iteration < self.max_iteration:
             self.iteration += 1
+            print('iteration : ', self.iteration)
             data_dict = next(train_loader)
             data_dict = to_cuda(data_dict)
+            print('data_dict : ', data_dict)
             self.before_train_step(self.iteration, data_dict)
             self.timer.add_prepare_time()
             # forward
