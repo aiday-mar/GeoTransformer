@@ -128,6 +128,7 @@ class IterBasedTrainer(BaseTrainer):
                 max_iteration=total_iterations,
                 timer=timer,
             )
+            # IMPORTANT: The part out of 15 is for the validation
             pbar.set_description(message)
             torch.cuda.empty_cache()
         self.after_val()
@@ -160,7 +161,6 @@ class IterBasedTrainer(BaseTrainer):
             self.iteration += 1
             print('Iteration : ', self.iteration)
             data_dict = next(train_loader)
-            print('data_dict : ', data_dict)
             data_dict = to_cuda(data_dict)
             # print('data_dict : ', data_dict)
             self.before_train_step(self.iteration, data_dict)
