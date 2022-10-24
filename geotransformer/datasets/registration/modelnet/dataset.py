@@ -85,29 +85,27 @@ class CustomDataset(torch.utils.data.Dataset):
         self.transformations = []
         
         if subset == 'train':
-            # Read from data under the predator folder until all the data copied to the separate folder
-            pairs = open('../../../OverlapPredator/datasets/astrivis-data-small/pairs.txt', 'r') 
+            pairs = open('../../../OverlapPredator/datasets/astrivis-data-training/pairs.txt', 'r') 
             lines = pairs.readlines()
-            f = h5py.File('../../../OverlapPredator/datasets/astrivis-data-small/se4.h5', "r")
+            f = h5py.File('../../../OverlapPredator/datasets/astrivis-data-training/se4.h5', "r")
             
             for line in lines:
                 pair = line.split(',')
 
-                self.tgt.append('../../../OverlapPredator/data/modelnet40_ply_hdf5_2048/train/astrivis-data-small/' + pair[0])
-                self.src.append('../../../OverlapPredator/data/modelnet40_ply_hdf5_2048/train/astrivis-data-small/' + pair[1][:-1])
+                self.tgt.append('../../../OverlapPredator/data/modelnet40_ply_hdf5_2048/train/astrivis-data-training/' + pair[0])
+                self.src.append('../../../OverlapPredator/data/modelnet40_ply_hdf5_2048/train/astrivis-data-training/' + pair[1][:-1])
                 se4 = f[pair[1][:-1]]
                 self.transformations.append(se4)
         elif subset == 'val':
-            # Read from data under the predator folder until all the data copied to the separate folder
-            pairs = open('../../../OverlapPredator/datasets/astrivis-data-small/pairs.txt', 'r') 
+            pairs = open('../../../OverlapPredator/datasets/astrivis-data-validation/pairs.txt', 'r') 
             lines = pairs.readlines()
-            f = h5py.File('../../../OverlapPredator/datasets/astrivis-data-small/se4.h5', "r")
+            f = h5py.File('../../../OverlapPredator/datasets/astrivis-data-validation/se4.h5', "r")
             
             for line in lines:
                 pair = line.split(',')
 
-                self.tgt.append('../../../OverlapPredator/data/modelnet40_ply_hdf5_2048/train/astrivis-data-small/' + pair[0])
-                self.src.append('../../../OverlapPredator/data/modelnet40_ply_hdf5_2048/train/astrivis-data-small/' + pair[1][:-1])
+                self.tgt.append('../../../OverlapPredator/data/modelnet40_ply_hdf5_2048/train/astrivis-data-validation/' + pair[0])
+                self.src.append('../../../OverlapPredator/data/modelnet40_ply_hdf5_2048/train/astrivis-data-validation/' + pair[1][:-1])
                 se4 = f[pair[1][:-1]]
                 self.transformations.append(se4)
 
