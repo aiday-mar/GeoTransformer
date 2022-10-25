@@ -117,7 +117,7 @@ def main():
         transformations = set()
         for i in range(0, len(super_points_of_interest)):
             for j in range(0, len(super_points_of_interest[i])):
-                if np.linalg.norm(np.array(super_points_of_interest[i][j]) - np.array(point)) < 0.02: # before was 0.01
+                if np.linalg.norm(np.array(super_points_of_interest[i][j]) - np.array(point)) < 0.04: # before was 0.01
                     transformations.add((i, np.linalg.norm(np.array(super_points_of_interest[i][j]) - np.array(point))))
         
         total_weight = 0
