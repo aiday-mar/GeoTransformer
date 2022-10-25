@@ -142,7 +142,8 @@ class GeoTransformer(nn.Module):
 
         # 2. KPFCNN Encoder
         feats_list = self.backbone(feats, data_dict)
-        print('feats_list.shape : ', feats_list.shape)
+        print('feats_list[:1] : ', feats_list[:1])
+        print('len(feats_list) : ', len(feats_list))
 
         feats_c = feats_list[-1]
         feats_f = feats_list[0]
