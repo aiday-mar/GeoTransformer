@@ -124,8 +124,8 @@ def main():
                 tmp_pcd.transform(batch_transforms[transformation['index']])
                 final_pcd += transformation['weight']/total_weight*np.array(tmp_pcd.points)
         
-        print('final_pcd[None, :] : ', final_pcd[None, :])
-        np.append(final_total_pcd, final_pcd[None, :], axis=0)
+        print('final_pcd[None, :] : ', final_pcd)
+        np.append(final_total_pcd, final_pcd, axis=0)
     
     print('final_total_pcd[:5] :', final_total_pcd[:5])
                      
