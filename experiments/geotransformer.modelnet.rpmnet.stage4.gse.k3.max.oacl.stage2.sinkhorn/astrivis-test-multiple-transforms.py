@@ -103,12 +103,12 @@ def main():
         for i in range(0, len(super_points_of_interest)):
             for j in range(0, len(super_points_of_interest[i])):
                 if np.linalg.norm(np.array(super_points_of_interest[i][j]) - np.array(point)) < 0.01:
-                    transformations.add({'index' : i, 'weight' : np.linalg.norm(np.array(super_points_of_interest[i][j]) - np.array(point))})
+                    transformations.add((i, np.linalg.norm(np.array(super_points_of_interest[i][j]) - np.array(point))))
         
         print('transformations : ', transformations)
         total_weight = 0
         for trans in transformations :
-            total_weight += trans['weight']
+            total_weight += trans[1]
                       
         initial_pcd = make_open3d_point_cloud(np.array(point[None, :]))
         final_pcd = np.array([0.,0.,0.])
@@ -121,10 +121,10 @@ def main():
         else:
             for transformation in transformations:
                 tmp_pcd = initial_pcd
-                tmp_pcd.transform(batch_transforms[transformation['index']])
-                final_pcd += transformation['weight']/total_weight*np.array(tmp_pcd.points)
+                tmp_pcd.transform(batch_transforms[transformation[0]])
+                final_pcd += transformation[1]/total_weight*np.array(tmp_pcd.points)
         
-        print('final_pcd[None, :] : ', final_pcd)
+        print('final_pcd: ', final_pcd)
         np.append(final_total_pcd, final_pcd, axis=0)
     
     print('final_total_pcd[:5] :', final_total_pcd[:5])
