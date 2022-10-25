@@ -198,7 +198,8 @@ class IterBasedTrainer(BaseTrainer):
             # snapshot & validation
             # if self.iteration % self.snapshot_steps == 0:
             # self.epoch = train_loader.last_epoch
-            self.save_snapshot(f'model-{epoch}.pth.tar', f'snapshot-{epoch}.pth.tar')
+            # IMPORTANT: adding 5 to the epoch number
+            self.save_snapshot(f'model-{epoch + 5 }.pth.tar', f'snapshot-{epoch + 5}.pth.tar')
             # if not self.save_all_snapshots:
             #    last_snapshot = f'iter_{self.iteration - self.snapshot_steps}.pth.tar'
             #    if osp.exists(last_snapshot):
