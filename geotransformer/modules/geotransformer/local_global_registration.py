@@ -3,6 +3,7 @@ from typing import Optional
 import numpy as np
 import torch
 import torch.nn as nn
+import open3d as o3d
 
 from geotransformer.modules.ops import apply_transform
 from geotransformer.modules.registration import WeightedProcrustes
@@ -404,6 +405,15 @@ class AstrivisLocalGlobalRegistration(nn.Module):
         print('global_ref_corr_points : ', global_ref_corr_points)
         print('global_src_corr_points : ', global_src_corr_points)
         print('global_corr_scores : ', global_corr_scores)
+        
+        pcd_ref = o3d.geometry.PointCloud()
+        pcd_ref.points = o3d.utility.Vector3dVector(global_ref_corr_points)
+
+        pcd_src = o3d.geometry.PointCloud()
+        pcd_src.points = o3d.utility.Vector3dVector(global_src_corr_points)
+
+        o3d.io.write_point_cloud('../../../experiments/geotransformer.modelnet.rpmnet.stage4.gse.k3.max.oacl.stage2.sinkhorn/output_ref.ply', pcd_ref)
+        o3d.io.write_point_cloud('../../../experiments/geotransformer.modelnet.rpmnet.stage4.gse.k3.max.oacl.stage2.sinkhorn/output_src.ply', pcd_src)
 
         # build verification set
         if self.correspondence_limit is not None and global_corr_scores.shape[0] > self.correspondence_limit:
