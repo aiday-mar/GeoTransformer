@@ -114,14 +114,12 @@ def main():
     
     final_total_pcd = []
     for point in src_points:
-        print('np.array(point) : ', np.array(point))
         transformations = set()
         for i in range(0, len(super_points_of_interest)):
             for j in range(0, len(super_points_of_interest[i])):
                 if np.linalg.norm(np.array(super_points_of_interest[i][j]) - np.array(point)) < 0.02: # before was 0.01
                     transformations.add((i, np.linalg.norm(np.array(super_points_of_interest[i][j]) - np.array(point))))
         
-        print('transformations : ', transformations)
         total_weight = 0
         for trans in transformations :
             total_weight += trans[1]
@@ -131,8 +129,6 @@ def main():
         if not transformations:
             tmp_pcd = initial_pcd
             tmp_pcd.transform(estimated_transform)
-            print('np.array(tmp_pcd.points) : ', np.array(tmp_pcd.points))
-            print('np.transpose(np.array(tmp_pcd.points)) : ', np.transpose(np.array(tmp_pcd.points)))
             final_pcd += np.array(tmp_pcd.points).squeeze()
         else:
             for transformation in transformations:
@@ -140,11 +136,8 @@ def main():
                 tmp_pcd.transform(batch_transforms[transformation[0]])
                 final_pcd += transformation[1]/total_weight*np.array(tmp_pcd.points).squeeze()
         
-        print('final_pcd: ', final_pcd)
         final_total_pcd.append(final_pcd.tolist())
-    
-    print('final_total_pcd :', final_total_pcd)
-                     
+                         
     final_total_pcd = make_open3d_point_cloud(np.array(final_total_pcd))
     final_total_pcd.estimate_normals()
     o3d.io.write_point_cloud('multiple-transforms.ply', final_total_pcd)
