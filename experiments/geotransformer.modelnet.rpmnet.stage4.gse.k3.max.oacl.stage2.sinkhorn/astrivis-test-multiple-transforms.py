@@ -127,7 +127,7 @@ def main():
         print('final_pcd: ', final_pcd)
         np.append(final_total_pcd, final_pcd, axis=0)
     
-    print('final_total_pcd[:5] :', final_total_pcd[:5])
+    print('final_total_pcd :', final_total_pcd)
                      
     final_total_pcd = make_open3d_point_cloud(final_total_pcd)
     final_total_pcd.estimate_normals()
