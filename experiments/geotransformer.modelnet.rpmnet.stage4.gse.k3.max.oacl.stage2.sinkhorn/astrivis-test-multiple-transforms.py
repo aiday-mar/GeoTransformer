@@ -115,6 +115,7 @@ def main():
         if not transformations:
             tmp_pcd = initial_pcd
             tmp_pcd.transform(estimated_transform)
+            print('np.array(tmp_pcd.points) : ', np.array(tmp_pcd.points))
             print('np.transpose(np.array(tmp_pcd.points)) : ', np.transpose(np.array(tmp_pcd.points)))
             final_pcd += np.transpose(np.array(tmp_pcd.points))
         else:
