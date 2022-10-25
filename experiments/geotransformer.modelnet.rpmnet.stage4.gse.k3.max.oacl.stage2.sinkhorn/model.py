@@ -80,6 +80,8 @@ class GeoTransformer(nn.Module):
         self.optimal_transport = LearnableLogOptimalTransport(cfg.model.num_sinkhorn_iterations)
 
     def forward(self, data_dict):
+        
+        print('data_dict : ', data_dict)
         output_dict = {}
 
         # Downsample point clouds

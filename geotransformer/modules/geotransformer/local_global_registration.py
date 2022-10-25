@@ -428,6 +428,9 @@ class AstrivisLocalGlobalRegistration(nn.Module):
         
         print('chunks : ', chunks)
         batch_size = len(chunks)
+        batch_transforms = [] 
+        super_points_of_interest = []
+        
         if batch_size > 0:
             # local registration
             batch_ref_corr_points, batch_src_corr_points, batch_corr_scores = self.convert_to_batch(
@@ -474,6 +477,7 @@ class AstrivisLocalGlobalRegistration(nn.Module):
             print('cur_corr_scores : ', cur_corr_scores)
         else:
             # degenerate: initialize transformation with all correspondences
+            # when the points are too far away from each other, we don't have multiple transformations
             estimated_transform = self.procrustes(src_corr_points, ref_corr_points, corr_scores)
             cur_corr_scores = self.recompute_correspondence_scores(
                 ref_corr_points, src_corr_points, corr_scores, estimated_transform

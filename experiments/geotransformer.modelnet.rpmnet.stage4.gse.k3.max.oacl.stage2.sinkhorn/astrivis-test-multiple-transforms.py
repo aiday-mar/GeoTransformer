@@ -105,7 +105,13 @@ def main():
     
     ####### MODIFIED TRANSFORM
     
-    # visualization
+    # When the points are so far that we enter into the degenerate case we have to redo the transformation before doing the final transformation
+    # This acts as an intermediate transformation
+    
+    if not batch_transforms:
+        print('Entered into the case when the batch transform is initially empty')
+        # apply the model once again in order to bring the point clouds close together before doing again the computation
+    
     final_total_pcd = []
     for point in src_points:
         print('np.array(point) : ', np.array(point))
@@ -119,7 +125,7 @@ def main():
         total_weight = 0
         for trans in transformations :
             total_weight += trans[1]
-                      
+                    
         initial_pcd = make_open3d_point_cloud(np.array(point[None, :]))
         final_pcd = np.array([0.,0.,0.])
         if not transformations:
