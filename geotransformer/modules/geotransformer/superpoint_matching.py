@@ -40,6 +40,8 @@ class SuperPointMatching(nn.Module):
             src_matching_scores = matching_scores / matching_scores.sum(dim=0, keepdim=True)
             matching_scores = ref_matching_scores * src_matching_scores
         num_correspondences = min(self.num_correspondences, matching_scores.numel())
+        print('num_correspondences : ', num_correspondences)
+        # Can increase num_correspondences in order to have higher value
         corr_scores, corr_indices = matching_scores.view(-1).topk(k=num_correspondences, largest=True)
         ref_sel_indices = corr_indices // matching_scores.shape[1]
         src_sel_indices = corr_indices % matching_scores.shape[1]
