@@ -448,6 +448,8 @@ class AstrivisLocalGlobalRegistration(nn.Module):
             print('batch_corr_residuals : ', batch_corr_residuals)
             print('self.acceptance_radius : ', self.acceptance_radius)
             batch_inlier_masks = torch.lt(batch_corr_residuals, self.acceptance_radius)  # (P, N)
+            
+            print('src_corr_points : ', src_corr_points)
             print('batch_inlier_masks : ', batch_inlier_masks)
             
             super_points_of_interest = []
