@@ -114,11 +114,14 @@ def main():
         # apply the model once again in order to bring the point clouds close together before doing again the computation
     
     final_total_pcd = []
+    length_pcd = np.shape(src_points)[0]
+    k = 1
     for point in src_points:
+        print('k/total = ', k, '/', length_pcd)
+        k += 1
         transformations = set()
         for i in range(0, len(super_points_of_interest)):
             for j in range(0, len(super_points_of_interest[i])):
-                print('batch : ', i + 1, '/',  len(super_points_of_interest), ' super points of interest : ', j + 1, '/', len(super_points_of_interest[i]))
                 if np.linalg.norm(np.array(super_points_of_interest[i][j]) - np.array(point)) < 0.04: # before was 0.01
                     norm = np.linalg.norm(np.array(super_points_of_interest[i][j]) - np.array(point))
                     if norm != 0:
