@@ -85,27 +85,27 @@ class CustomDataset(torch.utils.data.Dataset):
         self.transformations = []
         
         if subset == 'train':
-            pairs = open('../../../OverlapPredator/datasets/astrivis-data-training/pairs.txt', 'r') 
+            pairs = open('../../../../dataset/TrainingData/astrivis-data-training/pairs.txt', 'r') 
             lines = pairs.readlines()
-            f = h5py.File('../../../OverlapPredator/datasets/astrivis-data-training/se4.h5', "r")
+            f = h5py.File('../../../../dataset/TrainingData/astrivis-data-training/se4.h5', "r")
             
             for line in lines:
                 pair = line.split(',')
 
-                self.tgt.append('../../../OverlapPredator/data/modelnet40_ply_hdf5_2048/train/astrivis-data-training/' + pair[0])
-                self.src.append('../../../OverlapPredator/data/modelnet40_ply_hdf5_2048/train/astrivis-data-training/' + pair[1][:-1])
+                self.tgt.append('../../../../dataset/TrainingData/astrivis-data-training/' + pair[0])
+                self.src.append('../../../../dataset/TrainingData/astrivis-data-training/' + pair[1][:-1])
                 se4 = f[pair[1][:-1]]
                 self.transformations.append(se4)
         elif subset == 'val':
-            pairs = open('../../../OverlapPredator/datasets/astrivis-data-validation/pairs.txt', 'r') 
+            pairs = open('../../../../dataset/TrainingData/astrivis-data-validation/pairs.txt', 'r') 
             lines = pairs.readlines()
-            f = h5py.File('../../../OverlapPredator/datasets/astrivis-data-validation/se4.h5', "r")
+            f = h5py.File('../../../../dataset/TrainingData/astrivis-data-validation/se4.h5', "r")
             
             for line in lines:
                 pair = line.split(',')
 
-                self.tgt.append('../../../OverlapPredator/data/modelnet40_ply_hdf5_2048/train/astrivis-data-validation/' + pair[0])
-                self.src.append('../../../OverlapPredator/data/modelnet40_ply_hdf5_2048/train/astrivis-data-validation/' + pair[1][:-1])
+                self.tgt.append('../../../../dataset/TrainingData/astrivis-data-validation/' + pair[0])
+                self.src.append('../../../../dataset/TrainingData/astrivis-data-validation/' + pair[1][:-1])
                 se4 = f[pair[1][:-1]]
                 self.transformations.append(se4)
 
