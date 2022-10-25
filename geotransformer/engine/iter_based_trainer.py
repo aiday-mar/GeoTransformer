@@ -157,7 +157,7 @@ class IterBasedTrainer(BaseTrainer):
         self.optimizer.zero_grad()
         # In one iteration, we are looping over 15 different things?
         # After every single iteration, the model and the snapshot are saved
-        for epoch in range(0, 5):
+        for epoch in range(0, 20):
             self.iteration = 0
             # Setting the max_iterations to 10'500 which is the number of elements in our training dataset
             while self.iteration < self.max_iteration:
