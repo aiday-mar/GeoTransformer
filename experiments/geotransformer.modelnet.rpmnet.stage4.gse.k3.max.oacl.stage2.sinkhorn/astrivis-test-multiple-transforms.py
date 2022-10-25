@@ -108,7 +108,7 @@ def main():
     # When the points are so far that we enter into the degenerate case we have to redo the transformation before doing the final transformation
     # This acts as an intermediate transformation
     
-    if not batch_transforms:
+    if not len(batch_transforms):
         raise Exception('Entered into the case when the batch of transforms is empty')
         # apply the model once again in order to bring the point clouds close together before doing again the computation
     
