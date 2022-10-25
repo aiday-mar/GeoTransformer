@@ -122,7 +122,7 @@ def main():
             for transformation in transformations:
                 tmp_pcd = initial_pcd
                 tmp_pcd.transform(batch_transforms[transformation[0]])
-                final_pcd += transformation[1]/total_weight*np.array(tmp_pcd.points)
+                final_pcd += transformation[1]/total_weight*np.array(tmp_pcd.points).squeeze()
         
         print('final_pcd: ', final_pcd)
         np.append(final_total_pcd, final_pcd, axis=0)
