@@ -95,6 +95,16 @@ def main():
     print('estimated_transform : ', estimated_transform)
     # transform = data_dict["transform"]
 
+    ######### Normal Transform
+    
+    src_pcd = make_open3d_point_cloud(src_points)
+    src_pcd.estimate_normals()
+    # transformed with the transformation
+    src_pcd = src_pcd.transform(estimated_transform)
+    o3d.io.write_point_cloud('normal-output.ply', src_pcd)
+    
+    ####### MODIFIED TRANSFORM
+    
     # visualization
     final_total_pcd = []
     for point in src_points:
@@ -131,7 +141,7 @@ def main():
                      
     final_total_pcd = make_open3d_point_cloud(np.array(final_total_pcd))
     final_total_pcd.estimate_normals()
-    o3d.io.write_point_cloud(args.output, final_total_pcd)
+    o3d.io.write_point_cloud('multiple-transforms.ply', final_total_pcd)
 
 
 if __name__ == "__main__":
