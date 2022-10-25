@@ -75,11 +75,11 @@ array_src = np.array([[-0.0660,  0.0459, -0.0437],
 [-0.0190, -0.0797,  0.0015],
 [-0.0686,  0.0453, -0.0412]])
 
-pcd_ref = o3d.PointCloud()
-pcd_ref.points = o3d.Vector3dVector(array_ref)
+pcd_ref = o3d.geometry.PointCloud()
+pcd_ref.points = o3d.utility.Vector3dVector(array_ref)
 
-pcd_src = o3d.PointCloud()
-pcd_src.points = o3d.Vector3dVector(array_src)
+pcd_src = o3d.geometry.PointCloud()
+pcd_src.points = o3d.utility.Vector3dVector(array_src)
 
 o3d.write_point_cloud('output_ref.ply', pcd_ref)
 o3d.write_point_cloud('output_src.ply', pcd_src)
