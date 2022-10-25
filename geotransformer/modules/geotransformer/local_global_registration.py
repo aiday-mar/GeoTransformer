@@ -161,7 +161,8 @@ class LocalGlobalRegistration(nn.Module):
         chunks = [
             (x, y) for x, y in zip(unique_indices[:-1], unique_indices[1:]) if y - x >= self.correspondence_threshold
         ]
-
+        print('chunks : ', chunks)
+        
         batch_size = len(chunks)
         if batch_size > 0:
             # local registration
@@ -169,13 +170,22 @@ class LocalGlobalRegistration(nn.Module):
                 global_ref_corr_points, global_src_corr_points, global_corr_scores, chunks
             )
             batch_transforms = self.procrustes(batch_src_corr_points, batch_ref_corr_points, batch_corr_scores)
+            print('batch_transforms : ', batch_transforms)
+            print('batch_transforms.shape : ', batch_transforms.shape)
             batch_aligned_src_corr_points = apply_transform(src_corr_points.unsqueeze(0), batch_transforms)
+            print('batch_aligned_src_corr_points : ', batch_aligned_src_corr_points)
+            
             batch_corr_residuals = torch.linalg.norm(
                 ref_corr_points.unsqueeze(0) - batch_aligned_src_corr_points, dim=2
             )
+            print('batch_corr_residuals : ', batch_corr_residuals)
+            print('self.acceptance_radius) : ', self.acceptance_radius)
             batch_inlier_masks = torch.lt(batch_corr_residuals, self.acceptance_radius)  # (P, N)
+            print('batch_inlier_masks : ', batch_inlier_masks)
             best_index = batch_inlier_masks.sum(dim=1).argmax()
+            print('best_index : ', best_index)
             cur_corr_scores = corr_scores * batch_inlier_masks[best_index].float()
+            print('cur_corr_scores : ', cur_corr_scores)
         else:
             # degenerate: initialize transformation with all correspondences
             estimated_transform = self.procrustes(src_corr_points, ref_corr_points, corr_scores)
