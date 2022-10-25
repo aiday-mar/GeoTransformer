@@ -85,6 +85,7 @@ def main():
     output_dict = release_cuda(output_dict)
 
     # get results
+    # In order to get more points, decrease the base radius and increased the number of stages from 3 to 10
     ref_points = output_dict["ref_points"]
     src_points = output_dict["src_points"]
     estimated_transform = output_dict["estimated_transform"]
@@ -117,6 +118,7 @@ def main():
         transformations = set()
         for i in range(0, len(super_points_of_interest)):
             for j in range(0, len(super_points_of_interest[i])):
+                print('batch : ', i + 1, '/',  len(super_points_of_interest), ' super points of interest : ', j + 1, '/', len(super_points_of_interest[i]))
                 if np.linalg.norm(np.array(super_points_of_interest[i][j]) - np.array(point)) < 0.04: # before was 0.01
                     norm = np.linalg.norm(np.array(super_points_of_interest[i][j]) - np.array(point))
                     if norm != 0:
