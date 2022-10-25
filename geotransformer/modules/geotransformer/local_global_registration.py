@@ -433,6 +433,9 @@ class AstrivisLocalGlobalRegistration(nn.Module):
             batch_ref_corr_points, batch_src_corr_points, batch_corr_scores = self.convert_to_batch(
                 global_ref_corr_points, global_src_corr_points, global_corr_scores, chunks
             )
+            print('batch_ref_corr_points : ', batch_ref_corr_points)
+            print('batch_src_corr_points : ', batch_src_corr_points)
+            print('batch_corr_scores : ', batch_corr_scores)
             batch_transforms = self.procrustes(batch_src_corr_points, batch_ref_corr_points, batch_corr_scores)
             print('batch_transforms : ', batch_transforms)
             print('batch_transforms.shape : ', batch_transforms.shape)
