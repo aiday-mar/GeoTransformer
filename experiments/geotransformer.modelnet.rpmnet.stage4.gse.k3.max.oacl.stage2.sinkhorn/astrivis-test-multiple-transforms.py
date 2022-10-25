@@ -111,7 +111,7 @@ def main():
             total_weight += trans['weight']
                       
         initial_pcd = make_open3d_point_cloud(np.array(point[None, :]))
-        final_pcd = np.array([0,0,0])
+        final_pcd = np.array([0.,0.,0.])
         if not transformations:
             tmp_pcd = initial_pcd
             tmp_pcd.transform(estimated_transform)
