@@ -96,7 +96,7 @@ def main():
     # transform = data_dict["transform"]
 
     # visualization
-    final_total_pcd = np.array([])
+    final_total_pcd = []
     for point in src_points:
         print('np.array(point) : ', np.array(point))
         transformations = set()
@@ -125,11 +125,11 @@ def main():
                 final_pcd += transformation[1]/total_weight*np.array(tmp_pcd.points).squeeze()
         
         print('final_pcd: ', final_pcd)
-        final_total_pcd = np.append(final_total_pcd, final_pcd, axis=0)
+        final_total_pcd.append(final_pcd.tolist())
     
     print('final_total_pcd :', final_total_pcd)
                      
-    final_total_pcd = make_open3d_point_cloud(final_total_pcd)
+    final_total_pcd = make_open3d_point_cloud(np.array(final_total_pcd))
     final_total_pcd.estimate_normals()
     o3d.io.write_point_cloud(args.output, final_total_pcd)
 
