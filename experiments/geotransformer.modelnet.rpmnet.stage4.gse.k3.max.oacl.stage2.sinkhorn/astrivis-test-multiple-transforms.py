@@ -96,17 +96,19 @@ def main():
     # visualization
     final_total_pcd = np.array([])
     for point in src_points:
+        print('np.array(point) : ', np.array(point))
         transformations = set()
         for i in range(0, len(super_points_of_interest)):
             for j in range(0, len(super_points_of_interest[i])):
                 if np.linalg.norm(np.array(super_points_of_interest[i][j]) - np.array(point)) < 0.01:
                     transformations.add({'index' : i, 'weight' : np.linalg.norm(np.array(super_points_of_interest[i][j]) - np.array(point))})
         
+        print('transformations : ', transformations)
         total_weight = 0
         for trans in transformations :
             total_weight += trans['weight']
                       
-        initial_pcd = make_open3d_point_cloud(point)
+        initial_pcd = make_open3d_point_cloud(np.array(point))
         final_pcd = np.array([0,0,0])
         if not transformations:
             tmp_pcd = initial_pcd
