@@ -81,5 +81,5 @@ pcd_ref.points = o3d.utility.Vector3dVector(array_ref)
 pcd_src = o3d.geometry.PointCloud()
 pcd_src.points = o3d.utility.Vector3dVector(array_src)
 
-o3d.write_point_cloud('output_ref.ply', pcd_ref)
-o3d.write_point_cloud('output_src.ply', pcd_src)
+o3d.io.write_point_cloud('output_ref.ply', pcd_ref)
+o3d.io.write_point_cloud('output_src.ply', pcd_src)
