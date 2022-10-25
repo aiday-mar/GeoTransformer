@@ -142,11 +142,12 @@ class GeoTransformer(nn.Module):
 
         # 2. KPFCNN Encoder
         feats_list = self.backbone(feats, data_dict)
-        print('feats_list[:1] : ', feats_list[:1])
         print('len(feats_list) : ', len(feats_list))
 
         feats_c = feats_list[-1]
+        print('feats_c : ', feats_c.shape)
         feats_f = feats_list[0]
+        print('feats_f : ', feats_f.shape)
 
         # 3. Conditional Transformer
         ref_feats_c = feats_c[:ref_length_c]
