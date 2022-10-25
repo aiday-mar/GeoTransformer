@@ -451,9 +451,9 @@ class AstrivisLocalGlobalRegistration(nn.Module):
             print('batch_inlier_masks : ', batch_inlier_masks)
             
             super_points_of_interest = []
-            rows, columns = src_corr_points.get_shape()
+            rows = src_corr_points.size(dim=0)
             for i in range(0, rows):
-                rows_int, columns_int = src_corr_points[i].get_shape()
+                rows_int = src_corr_points[i].size(dim=0)
                 super_points_of_interest.append([])
                 for j in range(0, rows_int):
                     if batch_inlier_masks[i][j]:
