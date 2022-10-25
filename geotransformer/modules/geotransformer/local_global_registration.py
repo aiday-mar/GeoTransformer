@@ -388,23 +388,13 @@ class AstrivisLocalGlobalRegistration(nn.Module):
         return new_corr_scores
 
     def local_to_global_registration(self, ref_knn_points, src_knn_points, score_mat, corr_mat):
-        print('ref_knn_points : ', ref_knn_points)
-        print('src_knn_points : ', src_knn_points)
-        print('score_mat : ', score_mat)
-        print('corr_mat : ', corr_mat)
-        
+
         # extract dense correspondences
         batch_indices, ref_indices, src_indices = torch.nonzero(corr_mat, as_tuple=True)
-        print('batch_indices : ', batch_indices)
-        print('ref_indices : ', ref_indices)
-        print('src_indices : ', src_indices)
-        
         global_ref_corr_points = ref_knn_points[batch_indices, ref_indices]
         global_src_corr_points = src_knn_points[batch_indices, src_indices]
         global_corr_scores = score_mat[batch_indices, ref_indices, src_indices]
-        print('global_ref_corr_points : ', global_ref_corr_points)
-        print('global_src_corr_points : ', global_src_corr_points)
-        print('global_corr_scores : ', global_corr_scores)
+
         
         pcd_ref = o3d.geometry.PointCloud()
         pcd_ref.points = o3d.utility.Vector3dVector(np.array(global_ref_corr_points.cpu()))
@@ -436,7 +426,6 @@ class AstrivisLocalGlobalRegistration(nn.Module):
             (x, y) for x, y in zip(unique_indices[:-1], unique_indices[1:]) if y - x >= self.correspondence_threshold
         ]
         
-        print('chunks : ', chunks)
         batch_size = len(chunks)
         batch_transforms = [] 
         super_points_of_interest = []
@@ -446,20 +435,11 @@ class AstrivisLocalGlobalRegistration(nn.Module):
             batch_ref_corr_points, batch_src_corr_points, batch_corr_scores = self.convert_to_batch(
                 global_ref_corr_points, global_src_corr_points, global_corr_scores, chunks
             )
-            print('batch_ref_corr_points : ', batch_ref_corr_points)
-            print('batch_src_corr_points : ', batch_src_corr_points)
-            print('batch_corr_scores : ', batch_corr_scores)
             batch_transforms = self.procrustes(batch_src_corr_points, batch_ref_corr_points, batch_corr_scores)
-            print('batch_transforms : ', batch_transforms)
-            print('batch_transforms.shape : ', batch_transforms.shape)
-            batch_aligned_src_corr_points = apply_transform(src_corr_points.unsqueeze(0), batch_transforms)
-            print('batch_aligned_src_corr_points : ', batch_aligned_src_corr_points)
-            
+            batch_aligned_src_corr_points = apply_transform(src_corr_points.unsqueeze(0), batch_transforms)          
             batch_corr_residuals = torch.linalg.norm(
                 ref_corr_points.unsqueeze(0) - batch_aligned_src_corr_points, dim=2
             )
-            print('batch_corr_residuals : ', batch_corr_residuals)
-            print('self.acceptance_radius : ', self.acceptance_radius)
             batch_inlier_masks = torch.lt(batch_corr_residuals, self.acceptance_radius)  # (P, N)
             
             src_corr_points_list = []
@@ -467,9 +447,6 @@ class AstrivisLocalGlobalRegistration(nn.Module):
                 src_corr_points_list.append(src_corr_points.tolist())
             
             src_corr_points_list = torch.tensor(src_corr_points_list)
-            print('src_corr_points : ', src_corr_points_list)
-            print('batch_inlier_masks : ', batch_inlier_masks)
-            
             super_points_of_interest = []
             rows = src_corr_points_list.size(dim=0)
             for i in range(0, rows):
@@ -478,13 +455,9 @@ class AstrivisLocalGlobalRegistration(nn.Module):
                 for j in range(0, rows_int):
                     if batch_inlier_masks[i][j]:
                         super_points_of_interest[-1].append(src_corr_points_list[i][j].tolist())
-            
-            print('super points of interest : ', super_points_of_interest)
-         
+                     
             best_index = batch_inlier_masks.sum(dim=1).argmax()
-            print('best_index : ', best_index)
             cur_corr_scores = corr_scores * batch_inlier_masks[best_index].float()
-            print('cur_corr_scores : ', cur_corr_scores)
         else:
             # degenerate: initialize transformation with all correspondences
             # when the points are too far away from each other, we don't have multiple transformations
