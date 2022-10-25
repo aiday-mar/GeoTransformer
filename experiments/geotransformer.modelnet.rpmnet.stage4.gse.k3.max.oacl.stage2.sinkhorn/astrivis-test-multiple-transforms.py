@@ -90,8 +90,8 @@ def main():
     estimated_transform = output_dict["estimated_transform"]
     batch_transforms = output_dict["batch_transforms"]
     super_points_of_interest = output_dict["super_points_of_interest"]
-    print('batch_transforms : ', batch_transforms)
-    print('super_points_of_interest : ', super_points_of_interest)
+    print('len(batch_transforms) : ', len(batch_transforms))
+    print('len(super_points_of_interest) : ', len(super_points_of_interest))
     print('estimated_transform : ', estimated_transform)
     # transform = data_dict["transform"]
 
