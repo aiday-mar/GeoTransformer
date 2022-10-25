@@ -449,17 +449,18 @@ class AstrivisLocalGlobalRegistration(nn.Module):
             print('self.acceptance_radius : ', self.acceptance_radius)
             batch_inlier_masks = torch.lt(batch_corr_residuals, self.acceptance_radius)  # (P, N)
             
-            print('src_corr_points : ', src_corr_points)
+            src_corr_points_unsqueeze = src_corr_points.unsqueeze(0)
+            print('src_corr_points : ', src_corr_points_unsqueeze)
             print('batch_inlier_masks : ', batch_inlier_masks)
             
             super_points_of_interest = []
-            rows = src_corr_points.size(dim=0)
+            rows = src_corr_points_unsqueeze.size(dim=0)
             for i in range(0, rows):
-                rows_int = src_corr_points[i].size(dim=0)
+                rows_int = src_corr_points_unsqueeze[i].size(dim=0)
                 super_points_of_interest.append([])
                 for j in range(0, rows_int):
                     if batch_inlier_masks[i][j]:
-                        super_points_of_interest[-1].append(src_corr_points[i][j])
+                        super_points_of_interest[-1].append(src_corr_points_unsqueeze[i][j])
             
             super_points_of_interest = torch.tensor(super_points_of_interest)
             print('super points of interest : ', super_points_of_interest)
