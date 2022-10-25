@@ -449,6 +449,19 @@ class AstrivisLocalGlobalRegistration(nn.Module):
             print('self.acceptance_radius : ', self.acceptance_radius)
             batch_inlier_masks = torch.lt(batch_corr_residuals, self.acceptance_radius)  # (P, N)
             print('batch_inlier_masks : ', batch_inlier_masks)
+            
+            super_points_of_interest = []
+            rows, columns = src_corr_points.get_shape()
+            for i in range(0, rows):
+                rows_int, columns_int = src_corr_points[i].get_shape()
+                super_points_of_interest.append([])
+                for j in range(0, rows_int):
+                    if batch_inlier_masks[i][j]:
+                        super_points_of_interest[-1].append(src_corr_points[i][j])
+            
+            super_points_of_interest = torch.tensor(super_points_of_interest)
+            print('super points of interest : ', super_points_of_interest)
+            
             best_index = batch_inlier_masks.sum(dim=1).argmax()
             print('best_index : ', best_index)
             cur_corr_scores = corr_scores * batch_inlier_masks[best_index].float()
@@ -468,7 +481,7 @@ class AstrivisLocalGlobalRegistration(nn.Module):
             )
             estimated_transform = self.procrustes(src_corr_points, ref_corr_points, cur_corr_scores)
 
-        return global_ref_corr_points, global_src_corr_points, global_corr_scores, estimated_transform
+        return global_ref_corr_points, global_src_corr_points, global_corr_scores, estimated_transform, batch_transforms
 
     def forward(
         self,
