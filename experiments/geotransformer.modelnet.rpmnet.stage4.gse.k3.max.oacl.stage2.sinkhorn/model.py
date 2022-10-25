@@ -142,6 +142,7 @@ class GeoTransformer(nn.Module):
 
         # 2. KPFCNN Encoder
         feats_list = self.backbone(feats, data_dict)
+        print('feats_list.shape : ', feats_list.shape)
 
         feats_c = feats_list[-1]
         feats_f = feats_list[0]
@@ -173,7 +174,7 @@ class GeoTransformer(nn.Module):
             print('src_feats_c_norm.shape : ', src_feats_c_norm.shape)
             print('ref_node_masks.shape : ', ref_node_masks.shape)
             print('src_node_masks.shape : ', src_node_masks.shape)
-            
+
             ref_node_corr_indices, src_node_corr_indices, node_corr_scores = self.coarse_matching(
                 ref_feats_c_norm, src_feats_c_norm, ref_node_masks, src_node_masks
             )
