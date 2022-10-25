@@ -212,7 +212,7 @@ class GeoTransformer(nn.Module):
             if not self.astrivis_fine_matching.use_dustbin:
                 matching_scores = matching_scores[:, :-1, :-1]
 
-            ref_corr_points, src_corr_points, corr_scores, estimated_transform, batch_transforms = self.astrivis_fine_matching(
+            ref_corr_points, src_corr_points, corr_scores, estimated_transform, batch_transforms, super_points_of_interest = self.astrivis_fine_matching(
                 ref_node_corr_knn_points,
                 src_node_corr_knn_points,
                 ref_node_corr_knn_masks,
@@ -225,6 +225,8 @@ class GeoTransformer(nn.Module):
             output_dict['src_corr_points'] = src_corr_points
             output_dict['corr_scores'] = corr_scores
             output_dict['estimated_transform'] = estimated_transform
+            output_dict['batch_transforms'] = batch_transforms
+            output_dict['super_points_of_interest'] = super_points_of_interest
 
         return output_dict
 

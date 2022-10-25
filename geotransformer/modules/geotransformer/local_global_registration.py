@@ -467,9 +467,7 @@ class AstrivisLocalGlobalRegistration(nn.Module):
                         super_points_of_interest[-1].append(src_corr_points_list[i][j].tolist())
             
             print('super points of interest : ', super_points_of_interest)
-            super_points_of_interest = torch.as_tensor(super_points_of_interest)
-            
-            
+         
             best_index = batch_inlier_masks.sum(dim=1).argmax()
             print('best_index : ', best_index)
             cur_corr_scores = corr_scores * batch_inlier_masks[best_index].float()
@@ -489,7 +487,7 @@ class AstrivisLocalGlobalRegistration(nn.Module):
             )
             estimated_transform = self.procrustes(src_corr_points, ref_corr_points, cur_corr_scores)
 
-        return global_ref_corr_points, global_src_corr_points, global_corr_scores, estimated_transform, batch_transforms
+        return global_ref_corr_points, global_src_corr_points, global_corr_scores, estimated_transform, batch_transforms, super_points_of_interest
 
     def forward(
         self,
