@@ -209,10 +209,10 @@ class GeoTransformer(nn.Module):
 
         # 9. Generate final correspondences during testing
         with torch.no_grad():
-            if not self.fine_matching.use_dustbin:
+            if not self.astrivis_fine_matching.use_dustbin:
                 matching_scores = matching_scores[:, :-1, :-1]
 
-            ref_corr_points, src_corr_points, corr_scores, estimated_transform = self.fine_matching(
+            ref_corr_points, src_corr_points, corr_scores, estimated_transform = self.astrivis_fine_matching(
                 ref_node_corr_knn_points,
                 src_node_corr_knn_points,
                 ref_node_corr_knn_masks,
