@@ -96,7 +96,7 @@ def main():
     ref_pcd.estimate_normals()
     src_pcd = make_open3d_point_cloud(src_points)
     src_pcd.estimate_normals()
-    # transformed witht the transformation
+    # transformed with the transformation
     src_pcd = src_pcd.transform(estimated_transform)
     o3d.io.write_point_cloud(args.output, src_pcd)
 

@@ -11,6 +11,7 @@ from geotransformer.modules.geotransformer import (
     SuperPointMatching,
     SuperPointTargetGenerator,
     LocalGlobalRegistration,
+    AstrivisLocalGlobalRegistration
 )
 
 from backbone import KPConvFPN
@@ -53,6 +54,18 @@ class GeoTransformer(nn.Module):
         )
 
         self.fine_matching = LocalGlobalRegistration(
+            cfg.fine_matching.topk,
+            cfg.fine_matching.acceptance_radius,
+            mutual=cfg.fine_matching.mutual,
+            confidence_threshold=cfg.fine_matching.confidence_threshold,
+            use_dustbin=cfg.fine_matching.use_dustbin,
+            use_global_score=cfg.fine_matching.use_global_score,
+            correspondence_threshold=cfg.fine_matching.correspondence_threshold,
+            correspondence_limit=cfg.fine_matching.correspondence_limit,
+            num_refinement_steps=cfg.fine_matching.num_refinement_steps,
+        )
+        
+        self.astrivis_fine_matching = AstrivisLocalGlobalRegistration(
             cfg.fine_matching.topk,
             cfg.fine_matching.acceptance_radius,
             mutual=cfg.fine_matching.mutual,
