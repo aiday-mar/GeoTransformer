@@ -524,8 +524,8 @@ class AstrivisLocalGlobalRegistration(nn.Module):
             score_mat = score_mat * global_scores.view(-1, 1, 1)
         score_mat = score_mat * corr_mat.float()
 
-        ref_corr_points, src_corr_points, corr_scores, estimated_transform, _, _ = self.local_to_global_registration(
+        ref_corr_points, src_corr_points, corr_scores, estimated_transform, batch_transforms, super_points_of_interest = self.local_to_global_registration(
             ref_knn_points, src_knn_points, score_mat, corr_mat
         )
 
-        return ref_corr_points, src_corr_points, corr_scores, estimated_transform
+        return ref_corr_points, src_corr_points, corr_scores, estimated_transform, batch_transforms, super_points_of_interest
