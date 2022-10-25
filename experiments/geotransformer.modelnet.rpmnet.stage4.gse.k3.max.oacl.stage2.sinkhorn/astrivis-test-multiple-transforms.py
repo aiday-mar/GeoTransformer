@@ -110,7 +110,7 @@ def main():
         for trans in transformations :
             total_weight += trans['weight']
                       
-        initial_pcd = make_open3d_point_cloud(np.array(point))
+        initial_pcd = make_open3d_point_cloud(np.array(point[None, :]))
         final_pcd = np.array([0,0,0])
         if not transformations:
             tmp_pcd = initial_pcd
