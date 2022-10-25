@@ -135,11 +135,23 @@ class LocalGlobalRegistration(nn.Module):
         return new_corr_scores
 
     def local_to_global_registration(self, ref_knn_points, src_knn_points, score_mat, corr_mat):
+        print('ref_knn_points : ', ref_knn_points)
+        print('src_knn_points : ', src_knn_points)
+        print('score_mat : ', score_mat)
+        print('corr_mat : ', corr_mat)
+        
         # extract dense correspondences
         batch_indices, ref_indices, src_indices = torch.nonzero(corr_mat, as_tuple=True)
+        print('batch_indices : ', batch_indices)
+        print('ref_indices : ', ref_indices)
+        print('src_indices : ', src_indices)
+        
         global_ref_corr_points = ref_knn_points[batch_indices, ref_indices]
         global_src_corr_points = src_knn_points[batch_indices, src_indices]
         global_corr_scores = score_mat[batch_indices, ref_indices, src_indices]
+        print('global_ref_corr_points : ', global_ref_corr_points)
+        print('global_src_corr_points : ', global_src_corr_points)
+        print('global_corr_scores : ', global_corr_scores)
 
         # build verification set
         if self.correspondence_limit is not None and global_corr_scores.shape[0] > self.correspondence_limit:
@@ -179,7 +191,7 @@ class LocalGlobalRegistration(nn.Module):
                 ref_corr_points.unsqueeze(0) - batch_aligned_src_corr_points, dim=2
             )
             print('batch_corr_residuals : ', batch_corr_residuals)
-            print('self.acceptance_radius) : ', self.acceptance_radius)
+            print('self.acceptance_radius : ', self.acceptance_radius)
             batch_inlier_masks = torch.lt(batch_corr_residuals, self.acceptance_radius)  # (P, N)
             print('batch_inlier_masks : ', batch_inlier_masks)
             best_index = batch_inlier_masks.sum(dim=1).argmax()

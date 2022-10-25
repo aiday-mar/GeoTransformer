@@ -34,8 +34,10 @@ def load_data(args):
     # ref_points = np.load(args.ref_file)
     src_points = o3d.io.read_point_cloud(args.source)
     src_points = np.array(src_points.points)
+    print('src_points : ', src_points)
     ref_points = o3d.io.read_point_cloud(args.target)
     ref_points = np.array(ref_points.points)
+    print('ref_points : ', ref_points)
     # The features is just a numpy array of one
     src_feats = np.ones_like(src_points[:, :1])
     ref_feats = np.ones_like(ref_points[:, :1])
