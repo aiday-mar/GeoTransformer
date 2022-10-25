@@ -169,6 +169,11 @@ class GeoTransformer(nn.Module):
 
         # 6. Select topk nearest node correspondences
         with torch.no_grad():
+            print('ref_feats_c_norm.shape : ', ref_feats_c_norm.shape)
+            print('src_feats_c_norm.shape : ', src_feats_c_norm.shape)
+            print('ref_node_masks.shape : ', ref_node_masks.shape)
+            print('src_node_masks.shape : ', src_node_masks.shape)
+            
             ref_node_corr_indices, src_node_corr_indices, node_corr_scores = self.coarse_matching(
                 ref_feats_c_norm, src_feats_c_norm, ref_node_masks, src_node_masks
             )
