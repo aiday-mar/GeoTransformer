@@ -460,7 +460,7 @@ class AstrivisLocalGlobalRegistration(nn.Module):
                 super_points_of_interest.append([])
                 for j in range(0, rows_int):
                     if batch_inlier_masks[i][j]:
-                        super_points_of_interest[-1].append(src_corr_points_unsqueeze[i][j])
+                        super_points_of_interest[-1].append(list(src_corr_points_unsqueeze[i][j]))
             
             print('super points of interest : ', super_points_of_interest)
             super_points_of_interest = torch.as_tensor(super_points_of_interest)
