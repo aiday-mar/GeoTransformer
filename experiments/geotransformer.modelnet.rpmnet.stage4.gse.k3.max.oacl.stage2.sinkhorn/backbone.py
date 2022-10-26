@@ -42,6 +42,11 @@ class KPConvFPN(nn.Module):
         neighbors_list = data_dict['neighbors']
         subsampling_list = data_dict['subsampling']
         upsampling_list = data_dict['upsampling']
+        
+        print('points_list.shape : ', points_list.shape)
+        print('neighbors_list.shape : ', neighbors_list.shape)
+        print('subsampling_list.shape : ', subsampling_list.shape)
+        print('upsampling_list.shape : ', upsampling_list.shape)
 
         feats_s1 = feats
         feats_s1 = self.encoder1_1(feats_s1, points_list[0], points_list[0], neighbors_list[0])
