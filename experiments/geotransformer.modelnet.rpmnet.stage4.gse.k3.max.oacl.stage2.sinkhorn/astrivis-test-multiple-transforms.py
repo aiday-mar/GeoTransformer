@@ -96,9 +96,12 @@ def main():
     astrivis_corr_points = output_dict['astrivis_corr_points']
     
     print('len(batch_transforms) : ', len(batch_transforms))
-    print('len(super_points_of_interest) : ', len(super_points_of_interest))
+    # print('len(super_points_of_interest) : ', len(super_points_of_interest))
     print('estimated_transform : ', estimated_transform)
     print('sorted_indices : ', sorted_indices)
+    print('astrivis_corr_points.shape : ', np.array(astrivis_corr_points).shape)
+    print('batch_inlier_masks.shape : ', np.array(batch_inlier_masks).shape)
+    print('batch_transforms.shape : ', np.array(batch_transforms).shape)
     # transform = data_dict["transform"]
 
     ######### Normal Transform
@@ -117,10 +120,6 @@ def main():
     if not len(batch_transforms):
         raise Exception('Entered into the case when the batch of transforms is empty')
         # apply the model once again in order to bring the point clouds close together before doing again the computation
-    
-    print('astrivis_corr_points.shape : ', astrivis_corr_points.shape)
-    print('batch_inlier_masks.shape : ', batch_inlier_masks.shape)
-    print('batch_transforms.shape : ', batch_transforms.shape)
     
     superpoint_to_transform = {}
     for i in range(0, len(batch_inlier_masks)):
