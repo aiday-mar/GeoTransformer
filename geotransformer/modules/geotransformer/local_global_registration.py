@@ -465,7 +465,7 @@ class AstrivisLocalGlobalRegistration(nn.Module):
                 ref_corr_points.unsqueeze(0) - batch_aligned_src_corr_points, dim=2
             )
             print('batch_corr_residuals.shape : ', batch_corr_residuals.shape)
-            optimal_transformations_per_superpoint = torch.argmin(batch_corr_residuals, dim=1)
+            optimal_transformations_per_superpoint = torch.argmin(batch_corr_residuals, dim=0)
             print('optimal_transformations_per_superpoint.shape : ', optimal_transformations_per_superpoint.shape)
             batch_inlier_masks = torch.lt(batch_corr_residuals, self.acceptance_radius)  # (P, N)
             print('batch_inlier_masks.shape : ', batch_inlier_masks.shape)
