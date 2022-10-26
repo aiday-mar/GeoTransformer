@@ -80,7 +80,7 @@ _C.optim.grad_acc_steps = 1
 
 # model - backbone
 _C.backbone = edict()
-_C.backbone.num_stages = 2 # seems to be correlated with number of super points
+_C.backbone.num_stages = 3 # smaller means less points chosen in c version
 _C.backbone.init_voxel_size = 0.05
 _C.backbone.kernel_size = 15
 _C.backbone.base_radius = 0.1 # used to be 2.5?
