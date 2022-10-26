@@ -2,6 +2,7 @@ bash -O extglob
 
 for i in 005 018 036 053 057 068 070 082 094 100 101 113 116 141 166 175; do
 
+echo $i
 cd model-${i}-sampled005
     rm -- !(dense*.ply)
 cd ..
