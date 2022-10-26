@@ -68,7 +68,7 @@ def main():
     # prepare data
     data_dict = load_data(args)
     # 3 numbers set because there are 4 numbers of stages, random numbers 
-    neighbor_limits = [38]  
+    neighbor_limits = [38, 38]  
     data_dict = registration_collate_fn_stack_mode(
         [data_dict], cfg.backbone.num_stages, cfg.backbone.init_voxel_size, cfg.backbone.init_radius, neighbor_limits # setting precompute_data to false, so don't need to precompute it
     )
