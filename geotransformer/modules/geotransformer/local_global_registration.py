@@ -405,6 +405,7 @@ class AstrivisLocalGlobalRegistration(nn.Module):
         # Could increase the number 128 which is the number of correspondences 
         # Or the number of points in the neighborhood, 130, but this would not increase the number of points, because size of batch_indices is fixed.
         
+        # Could decide to use everything, by not using the corr_mat statement above. 
         global_ref_corr_points = ref_knn_points[batch_indices, ref_indices]
         global_src_corr_points = src_knn_points[batch_indices, src_indices]
         global_corr_scores = score_mat[batch_indices, ref_indices, src_indices]
