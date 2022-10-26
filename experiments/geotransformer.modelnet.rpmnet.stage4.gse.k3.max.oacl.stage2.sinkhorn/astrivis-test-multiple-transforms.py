@@ -70,7 +70,7 @@ def main():
     # 3 numbers set because there are 4 numbers of stages, random numbers 
     neighbor_limits = [38, 36, 36, 38, 36, 36, 38, 36, 36, 36]  
     data_dict = registration_collate_fn_stack_mode(
-        [data_dict], cfg.backbone.num_stages, cfg.backbone.init_voxel_size, cfg.backbone.init_radius, neighbor_limits
+        [data_dict], cfg.backbone.num_stages, cfg.backbone.init_voxel_size, cfg.backbone.init_radius, neighbor_limits, False # setting precompute_data to false, so don't need to precompute it
     )
 
     # prepare model
