@@ -95,7 +95,7 @@ _C.backbone.output_dim = 256
 # model - Global
 _C.model = edict()
 _C.model.ground_truth_matching_radius = 0.05
-_C.model.num_points_in_patch = 1 # the number of points inside of the neighborhood in a center
+_C.model.num_points_in_patch = 3 # the number of points inside of the neighborhood in a center
 _C.model.num_sinkhorn_iterations = 100
 
 # model - Coarse Matching
