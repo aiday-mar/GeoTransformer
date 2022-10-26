@@ -1,8 +1,7 @@
-echo "Before calling extglob"
+# chmod +x test_dynamic_motion_astrivis.sh
+# ./test_dynamic_motion_astrivis.sh
 
 shopt -s extglob
-
-echo "After calling extglob"
 
 for i in 005 018 036 053 057 068 070 082 094 100 101 113 116 141 166 175; do
 
