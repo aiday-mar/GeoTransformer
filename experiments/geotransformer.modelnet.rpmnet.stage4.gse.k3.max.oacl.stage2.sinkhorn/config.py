@@ -80,10 +80,10 @@ _C.optim.grad_acc_steps = 1
 
 # model - backbone
 _C.backbone = edict()
-_C.backbone.num_stages = 3 # smaller means less points chosen in c version
-_C.backbone.init_voxel_size = 0.004
+_C.backbone.num_stages = 3 # Does not work when smaller than 3
+_C.backbone.init_voxel_size = 0.004 # voxel soze used in initial grid downsampling
 _C.backbone.kernel_size = 15
-_C.backbone.base_radius = 2.5 # used to be 2.5?
+_C.backbone.base_radius = 2.5 # Set to default
 _C.backbone.base_sigma = 2.0
 _C.backbone.init_radius = _C.backbone.base_radius * _C.backbone.init_voxel_size
 _C.backbone.init_sigma = _C.backbone.base_sigma * _C.backbone.init_voxel_size
@@ -95,7 +95,7 @@ _C.backbone.output_dim = 256
 # model - Global
 _C.model = edict()
 _C.model.ground_truth_matching_radius = 0.05
-_C.model.num_points_in_patch = 128
+_C.model.num_points_in_patch = 128 # potentiall increase the number of points in the patches
 _C.model.num_sinkhorn_iterations = 100
 
 # model - Coarse Matching

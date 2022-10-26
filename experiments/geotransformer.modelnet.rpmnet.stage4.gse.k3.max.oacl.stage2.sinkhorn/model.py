@@ -118,9 +118,15 @@ class GeoTransformer(nn.Module):
         _, ref_node_masks, ref_node_knn_indices, ref_node_knn_masks = point_to_node_partition(
             ref_points_f, ref_points_c, self.num_points_in_patch
         )
+        print('ref_node_masks : ', ref_node_masks)
+        print('ref_node_knn_indices : ', ref_node_knn_indices)
+        print('ref_node_knn_masks : ', ref_node_knn_masks)
         _, src_node_masks, src_node_knn_indices, src_node_knn_masks = point_to_node_partition(
             src_points_f, src_points_c, self.num_points_in_patch
         )
+        print('src_node_masks : ', src_node_masks)
+        print('src_node_knn_indices : ', src_node_knn_indices)
+        print('src_node_knn_masks : ', src_node_knn_masks)
 
         ref_padded_points_f = torch.cat([ref_points_f, torch.zeros_like(ref_points_f[:1])], dim=0)
         src_padded_points_f = torch.cat([src_points_f, torch.zeros_like(src_points_f[:1])], dim=0)
@@ -146,8 +152,11 @@ class GeoTransformer(nn.Module):
             ref_feats_c.unsqueeze(0),
             src_feats_c.unsqueeze(0),
         )
+        print('ref_feats_c : ', ref_feats_c)
+        print('src_feats_c : ', src_feats_c)
         ref_feats_c_norm = F.normalize(ref_feats_c.squeeze(0), p=2, dim=1)
         src_feats_c_norm = F.normalize(src_feats_c.squeeze(0), p=2, dim=1)
+        
 
         output_dict['ref_feats_c'] = ref_feats_c_norm
         output_dict['src_feats_c'] = src_feats_c_norm
@@ -170,7 +179,9 @@ class GeoTransformer(nn.Module):
             )
 
             output_dict['ref_node_corr_indices'] = ref_node_corr_indices
+            print('ref_node_corr_indices : ', ref_node_corr_indices)
             output_dict['src_node_corr_indices'] = src_node_corr_indices
+            print('src_node_corr_indices : ', src_node_corr_indices)
 
             # 7 Random select ground truth node correspondences during training
             '''

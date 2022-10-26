@@ -402,8 +402,8 @@ class AstrivisLocalGlobalRegistration(nn.Module):
         pcd_src = o3d.geometry.PointCloud()
         pcd_src.points = o3d.utility.Vector3dVector(np.array(global_src_corr_points.cpu()))
 
-        o3d.io.write_point_cloud('output_ref.ply', pcd_ref)
-        o3d.io.write_point_cloud('output_src.ply', pcd_src)
+        o3d.io.write_point_cloud('superpoints_ref.ply', pcd_ref)
+        o3d.io.write_point_cloud('superpoints_src.ply', pcd_src)
 
         # build verification set
         if self.correspondence_limit is not None and global_corr_scores.shape[0] > self.correspondence_limit:
