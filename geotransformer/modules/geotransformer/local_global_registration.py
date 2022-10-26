@@ -461,25 +461,6 @@ class AstrivisLocalGlobalRegistration(nn.Module):
             )
             batch_inlier_masks = torch.lt(batch_corr_residuals, self.acceptance_radius)  # (P, N)
             
-            '''
-            src_corr_points_list = []
-            for i in range(0, batch_transforms.size(dim=0)):
-                src_corr_points_list.append(src_corr_points.tolist())
-            
-            src_corr_points_list = torch.tensor(src_corr_points_list)
-            
-            # instead of doing the following, could do this later by returning these values and calculating everything in one go
-            
-            super_points_of_interest = []
-            rows = src_corr_points_list.size(dim=0)
-            for i in range(0, rows):
-                rows_int = src_corr_points_list[i].size(dim=0)
-                super_points_of_interest.append([])
-                for j in range(0, rows_int):
-                    print('Row : ', i, '/', rows, '. Column : ', j, '/', rows_int)
-                    if batch_inlier_masks[i][j]:
-                        super_points_of_interest[-1].append(src_corr_points_list[i][j].tolist())
-            '''
             best_index = batch_inlier_masks.sum(dim=1).argmax()
             sorted_indices = np.argsort(batch_inlier_masks.sum(dim=1).cpu())
             cur_corr_scores = corr_scores * batch_inlier_masks[best_index].float()

@@ -138,7 +138,7 @@ def main():
                     superpoint_to_transform[j].append(i)
                     n_transforms += 1
 
-                if n_transforms == 3:
+                if n_transforms == 2:
                     break
     
     print('superpoint_to_transform found')
@@ -161,7 +161,8 @@ def main():
                     else:
                         transformations.add((tuple(superpoint_to_transform[point_idx]), 1/0.0001))
                         total_weight += 1/0.0001*len(superpoint_to_transform[point_idx])
-            
+        
+        print('size of transformation set : ', len(transformations))
         initial_pcd = make_open3d_point_cloud(np.array(point[None, :]))
         final_pcd = np.array([0.,0.,0.])
         if not transformations:
