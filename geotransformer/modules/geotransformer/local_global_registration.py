@@ -458,7 +458,7 @@ class AstrivisLocalGlobalRegistration(nn.Module):
                         super_points_of_interest[-1].append(src_corr_points_list[i][j].tolist())
                      
             best_index = batch_inlier_masks.sum(dim=1).argmax()
-            sorted_indices = np.argsort(batch_inlier_masks.sum(dim=1))
+            sorted_indices = np.argsort(batch_inlier_masks.sum(dim=1).cpu())
             cur_corr_scores = corr_scores * batch_inlier_masks[best_index].float()
         else:
             # degenerate: initialize transformation with all correspondences
