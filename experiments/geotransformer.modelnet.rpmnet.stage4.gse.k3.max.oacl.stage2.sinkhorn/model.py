@@ -131,8 +131,10 @@ class GeoTransformer(nn.Module):
         ref_padded_points_f = torch.cat([ref_points_f, torch.zeros_like(ref_points_f[:1])], dim=0)
         src_padded_points_f = torch.cat([src_points_f, torch.zeros_like(src_points_f[:1])], dim=0)
         ref_node_knn_points = index_select(ref_padded_points_f, ref_node_knn_indices, dim=0)
+        print('ref_node_knn_points.shape : ', ref_node_knn_points.shape)
         src_node_knn_points = index_select(src_padded_points_f, src_node_knn_indices, dim=0)
-
+        print('src_node_knn_points.shape : ', src_node_knn_points.shape)
+        
         # 2. KPFCNN Encoder
         feats_list = self.backbone(feats, data_dict)
         print('len(feats_list) : ', len(feats_list))
