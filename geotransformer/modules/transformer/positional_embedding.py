@@ -26,6 +26,7 @@ class SinusoidalPositionalEmbedding(nn.Module):
         """
         input_shape = emb_indices.shape
         omegas = emb_indices.view(-1, 1, 1) * self.div_term.view(1, -1, 1)  # (-1, d_model/2, 1)
+        print('omegas.shape : ', omegas.shape)
         sin_embeddings = torch.sin(omegas)
         cos_embeddings = torch.cos(omegas)
         embeddings = torch.cat([sin_embeddings, cos_embeddings], dim=2)  # (-1, d_model/2, 2)
