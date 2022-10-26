@@ -1,3 +1,6 @@
+# --- CONFIG INFO ---
+# COMMIT NUMBER: 
+
 import os
 import os.path as osp
 import argparse
