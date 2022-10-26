@@ -397,6 +397,14 @@ class AstrivisLocalGlobalRegistration(nn.Module):
         print('batch_indices.shape : ', batch_indices.shape)
         print('ref_indices.shape : ', ref_indices.shape)
         print('src_indices.shape : ', src_indices.shape)
+        
+        # From what I understand the batch_indices indicates in which central point-cloud we want to be in
+        # The ref_indices indicates in which point inside of the specific batch, we want to be in
+        # Now we have 1111 such batch indices and 1111 such indices inside of the neighborhoods, this indicates the number of super ponits in the end
+        
+        # Could increase the number 128 which is the number of correspondences 
+        # Or the number of points in the neighborhood, 130, but this would not increase the number of points, because size of batch_indices is fixed.
+        
         global_ref_corr_points = ref_knn_points[batch_indices, ref_indices]
         global_src_corr_points = src_knn_points[batch_indices, src_indices]
         global_corr_scores = score_mat[batch_indices, ref_indices, src_indices]
@@ -521,6 +529,7 @@ class AstrivisLocalGlobalRegistration(nn.Module):
             score_mat = score_mat * global_scores.view(-1, 1, 1)
         score_mat = score_mat * corr_mat.float()
 
+        # corr_mat decides how manz final super points we will have
         ref_corr_points, src_corr_points, corr_scores, estimated_transform, batch_transforms, super_points_of_interest, sorted_indices = self.local_to_global_registration(
             ref_knn_points, src_knn_points, score_mat, corr_mat
         )
