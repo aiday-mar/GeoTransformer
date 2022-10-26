@@ -197,7 +197,7 @@ def main():
         k += 1
         total_weight = 0
         transformations = set()
-        for point_idx in range(0, len(astrivis_corr_points)):
+        for point_idx in superpoint_to_transform: # removed because too long and the part to the left is sufficient, range(0, len(astrivis_corr_points)):
             if np.linalg.norm(np.array(astrivis_corr_points[point_idx]) - np.array(point)) < 0.01: # before was 0.01
                     norm = np.linalg.norm(np.array(astrivis_corr_points[point_idx]) - np.array(point))
                     if norm != 0:
