@@ -131,7 +131,7 @@ def main():
                     superpoint_to_transform[j] = []
                     superpoint_to_transform[j].append(i)
     
-    print('superpoint_to_transform : ', superpoint_to_transform)
+    print('superpoint_to_transform found')
     
     # could for example decide to only consider maximu two transformations from the points around it
     final_total_pcd = []
