@@ -1,6 +1,6 @@
 echo "Before calling extglob"
 
-bash -O extglob
+shopt -s extglob
 
 echo "After calling extglob"
 
