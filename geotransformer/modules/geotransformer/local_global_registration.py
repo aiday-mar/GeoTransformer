@@ -470,6 +470,7 @@ class AstrivisLocalGlobalRegistration(nn.Module):
                 rows_int = src_corr_points_list[i].size(dim=0)
                 super_points_of_interest.append([])
                 for j in range(0, rows_int):
+                    print('Row : ', i, '/', rows, '. Column : ', j, '/', rows_int)
                     if batch_inlier_masks[i][j]:
                         super_points_of_interest[-1].append(src_corr_points_list[i][j].tolist())
                      
