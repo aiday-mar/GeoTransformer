@@ -455,7 +455,11 @@ class AstrivisLocalGlobalRegistration(nn.Module):
                 global_ref_corr_points, global_src_corr_points, global_corr_scores, chunks
             )
             batch_transforms = self.procrustes(batch_src_corr_points, batch_ref_corr_points, batch_corr_scores)
-            batch_aligned_src_corr_points = apply_transform(src_corr_points.unsqueeze(0), batch_transforms)          
+            print('batch_transforms.shape : ', batch_transforms.shape )
+            print('src_corr_points.shape : ', src_corr_points.shape)
+            batch_aligned_src_corr_points = apply_transform(src_corr_points.unsqueeze(0), batch_transforms)
+            print('ref_corr_points.shape : ', ref_corr_points.shape)
+            print('batch_aligned_src_corr_points.shape : ', batch_aligned_src_corr_points.shape)         
             batch_corr_residuals = torch.linalg.norm(
                 ref_corr_points.unsqueeze(0) - batch_aligned_src_corr_points, dim=2
             )
