@@ -110,6 +110,11 @@ class GeoTransformer(nn.Module):
         output_dict['src_points'] = src_points
 
         print('ref_points_c.shape : ', ref_points_c.shape)
+        print('ref_points_f.shape : ', ref_points_f.shape)
+        
+        print('src_points_c.shape : ', src_points_c.shape)
+        print('src_points_f.shape : ', src_points_f.shape)
+        
         # 1. Generate ground truth node correspondences
         _, ref_node_masks, ref_node_knn_indices, ref_node_knn_masks = point_to_node_partition(
             ref_points_f, ref_points_c, self.num_points_in_patch
