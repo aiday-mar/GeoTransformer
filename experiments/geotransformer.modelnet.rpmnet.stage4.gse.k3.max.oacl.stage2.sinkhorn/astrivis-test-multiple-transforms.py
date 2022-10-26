@@ -90,7 +90,7 @@ def main():
     src_points = output_dict["src_points"]
     estimated_transform = output_dict["estimated_transform"]
     batch_transforms = output_dict["batch_transforms"]
-    super_points_of_interest = output_dict["super_points_of_interest"]
+    # super_points_of_interest = output_dict["super_points_of_interest"]
     sorted_indices = output_dict["sorted_indices"]
     batch_inlier_masks = output_dict['batch_inlier_masks']
     astrivis_corr_points = output_dict['astrivis_corr_points']
