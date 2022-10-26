@@ -186,7 +186,7 @@ def main():
                          
     final_total_pcd = make_open3d_point_cloud(np.array(final_total_pcd))
     final_total_pcd.estimate_normals()
-    o3d.io.write_point_cloud('multiple-transforms.ply', final_total_pcd)
+    o3d.io.write_point_cloud('multiple-transforms-1.ply', final_total_pcd)
     '''
     ####### MODIFED TRANSFORM WHERE WE USE BEST TRANSFORM PER POINT CLOUD
     
@@ -225,7 +225,7 @@ def main():
                          
     final_total_pcd = make_open3d_point_cloud(np.array(final_total_pcd))
     final_total_pcd.estimate_normals()
-    o3d.io.write_point_cloud('multiple-transforms-individual-transforms.ply', final_total_pcd)
+    o3d.io.write_point_cloud('multiple-transforms-2.ply', final_total_pcd)
     '''
     ###### MODIFIED TRANSFORM - 3
     
