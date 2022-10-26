@@ -127,24 +127,6 @@ class GeoTransformer(nn.Module):
         ref_node_knn_points = index_select(ref_padded_points_f, ref_node_knn_indices, dim=0)
         src_node_knn_points = index_select(src_padded_points_f, src_node_knn_indices, dim=0)
 
-        '''
-        gt_node_corr_indices, gt_node_corr_overlaps = get_node_correspondences(
-            ref_points_c,
-            src_points_c,
-            ref_node_knn_points,
-            src_node_knn_points,
-            transform,
-            self.matching_radius,
-            ref_masks=ref_node_masks,
-            src_masks=src_node_masks,
-            ref_knn_masks=ref_node_knn_masks,
-            src_knn_masks=src_node_knn_masks,
-        )
-
-        output_dict['gt_node_corr_indices'] = gt_node_corr_indices
-        output_dict['gt_node_corr_overlaps'] = gt_node_corr_overlaps
-        '''
-
         # 2. KPFCNN Encoder
         feats_list = self.backbone(feats, data_dict)
         print('len(feats_list) : ', len(feats_list))
@@ -157,6 +139,7 @@ class GeoTransformer(nn.Module):
         # 3. Conditional Transformer
         ref_feats_c = feats_c[:ref_length_c]
         src_feats_c = feats_c[ref_length_c:]
+        
         ref_feats_c, src_feats_c = self.transformer(
             ref_points_c.unsqueeze(0),
             src_points_c.unsqueeze(0),
