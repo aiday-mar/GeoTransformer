@@ -229,6 +229,7 @@ def main():
     '''
     ###### MODIFIED TRANSFORM - 3
     
+    '''
     print('Third modified pcd')
     
     final_total_pcd = []
@@ -241,7 +242,7 @@ def main():
         for point_idx in superpoint_to_transform:
                 
             if np.linalg.norm(np.array(astrivis_corr_points[point_idx]) - np.array(point)) < 0.01: # before was 0.01
-                initial_pcd.transform(batch_transforms[optimal_transformations_per_superpoint[point_idx]])
+                initial_pcd.transform(batch_transforms[optimal_transformations_per_superpoint.indices[point_idx]])
                 final_pcd = np.array(initial_pcd.points).squeeze()
                 final_total_pcd.append(final_pcd.tolist())
                 found = True
@@ -252,6 +253,39 @@ def main():
             final_pcd = np.array(initial_pcd.points).squeeze()
             final_total_pcd.append(final_pcd.tolist())
            
+                         
+    final_total_pcd = make_open3d_point_cloud(np.array(final_total_pcd))
+    final_total_pcd.estimate_normals()
+    o3d.io.write_point_cloud('multiple-transforms-3.ply', final_total_pcd)
+    '''
+    
+    #########
+    
+    # instead find all the super points and there associated transformations around the point and choose the one having the lowest residual
+    # increase the radius of search
+    # create a mesh and see if it looks good
+    
+    print('Fourth modified pcd')
+    
+    final_total_pcd = []
+    for point in src_points:
+        
+        initial_pcd = make_open3d_point_cloud(np.array(point[None, :]))
+        residual = 10000 # random big value
+        optimal_transformation_index = -1
+        
+        for point_idx in superpoint_to_transform:
+            if np.linalg.norm(np.array(astrivis_corr_points[point_idx]) - np.array(point)) < 0.01 and optimal_transformations_per_superpoint.values[point_idx] < residual:
+                residual = optimal_transformations_per_superpoint.values[point_idx]
+                optimal_transformation_index = optimal_transformations_per_superpoint.indices[point_idx]
+        
+        if optimal_transformation_index == -1:
+            initial_pcd.transform(estimated_transform)
+        else:
+            initial_pcd.transform(batch_transforms[optimal_transformations_per_superpoint.indices[optimal_transformation_index]])
+        
+        final_pcd = np.array(initial_pcd.points).squeeze()
+        final_total_pcd.append(final_pcd.tolist())
                          
     final_total_pcd = make_open3d_point_cloud(np.array(final_total_pcd))
     final_total_pcd.estimate_normals()
