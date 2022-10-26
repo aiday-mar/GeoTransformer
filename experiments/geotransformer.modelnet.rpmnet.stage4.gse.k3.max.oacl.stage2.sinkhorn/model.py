@@ -230,7 +230,7 @@ class GeoTransformer(nn.Module):
             print('matching_scores.shape : ', matching_scores.shape)
             print('node_corr_scores.shape : ', node_corr_scores.shape)
             
-            ref_corr_points, src_corr_points, corr_scores, estimated_transform, batch_transforms, super_points_of_interest, sorted_indices = self.astrivis_fine_matching(
+            ref_corr_points, src_corr_points, corr_scores, estimated_transform, batch_transforms, batch_inlier_masks, astrivis_corr_points, sorted_indices = self.astrivis_fine_matching(
                 ref_node_corr_knn_points,
                 src_node_corr_knn_points,
                 ref_node_corr_knn_masks,
@@ -244,7 +244,9 @@ class GeoTransformer(nn.Module):
             output_dict['corr_scores'] = corr_scores
             output_dict['estimated_transform'] = estimated_transform
             output_dict['batch_transforms'] = batch_transforms
-            output_dict['super_points_of_interest'] = super_points_of_interest
+            output_dict['batch_inlier_masks'] = batch_inlier_masks
+            output_dict['astrivis_corr_points'] = astrivis_corr_points
+            # output_dict['super_points_of_interest'] = super_points_of_interest
             output_dict['sorted_indices'] = sorted_indices
 
         return output_dict

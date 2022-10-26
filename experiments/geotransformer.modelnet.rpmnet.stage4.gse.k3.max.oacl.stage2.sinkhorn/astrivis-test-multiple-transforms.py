@@ -92,6 +92,8 @@ def main():
     batch_transforms = output_dict["batch_transforms"]
     super_points_of_interest = output_dict["super_points_of_interest"]
     sorted_indices = output_dict["sorted_indices"]
+    batch_inlier_masks = output_dict['batch_inlier_masks']
+    astrivis_corr_points = output_dict['astrivis_corr_points']
     
     print('len(batch_transforms) : ', len(batch_transforms))
     print('len(super_points_of_interest) : ', len(super_points_of_interest))
@@ -122,20 +124,19 @@ def main():
     for point in src_points:
         print('k/total = ', k, '/', length_pcd)
         k += 1
+        total_weight = 0
         transformations = set()
-        for i in range(0, len(super_points_of_interest)):
-            for j in range(0, len(super_points_of_interest[i])):
-                if np.linalg.norm(np.array(super_points_of_interest[i][j]) - np.array(point)) < 0.01: # before was 0.01
-                    norm = np.linalg.norm(np.array(super_points_of_interest[i][j]) - np.array(point))
+        for i in range(0, len(batch_inlier_masks)):
+            for j in range(0, len(batch_inlier_masks[i])):
+                if batch_inlier_masks[i][j] == True and np.linalg.norm(np.array(astrivis_corr_points[j]) - np.array(point)) < 0.01: # before was 0.01
+                    norm = np.linalg.norm(np.array(astrivis_corr_points[j]) - np.array(point))
                     if norm != 0:
                         transformations.add((i, 1/norm))
+                        total_weight += 1/norm
                     else:
                         transformations.add((i, 1/0.0001))
-        
-        total_weight = 0
-        for trans in transformations :
-            total_weight += trans[1]
-                    
+                        total_weight += 1/0.0001
+            
         initial_pcd = make_open3d_point_cloud(np.array(point[None, :]))
         final_pcd = np.array([0.,0.,0.])
         if not transformations:
