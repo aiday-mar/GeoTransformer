@@ -118,6 +118,10 @@ def main():
         raise Exception('Entered into the case when the batch of transforms is empty')
         # apply the model once again in order to bring the point clouds close together before doing again the computation
     
+    print('astrivis_corr_points.shape : ', astrivis_corr_points.shape)
+    print('batch_inlier_masks.shape : ', batch_inlier_masks.shape)
+    print('batch_transforms.shape : ', batch_transforms.shape)
+    
     final_total_pcd = []
     length_pcd = np.shape(src_points)[0]
     k = 1
