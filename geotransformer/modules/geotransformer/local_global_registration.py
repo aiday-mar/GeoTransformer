@@ -423,7 +423,7 @@ class AstrivisLocalGlobalRegistration(nn.Module):
         o3d.io.write_point_cloud('superpoints_src.ply', pcd_src)
 
         # attempting to visualize the lines and the two point-clouds
-        points = torch.cat((global_src_corr_points, global_ref_corr_points), 0)
+        points = np.array(torch.cat((global_src_corr_points, global_ref_corr_points), 0))
         lines = [[i, i+global_ref_corr_points.shape[0]] for i in range(0, global_ref_corr_points.shape[0])]
         line_set = o3d.geometry.LineSet(
             points=o3d.utility.Vector3dVector(points),
