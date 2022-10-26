@@ -29,6 +29,8 @@ def precompute_data_stack_mode(points, lengths, num_stages, voxel_size, radius, 
     for i in range(num_stages):
         if i > 0:
             points, lengths = grid_subsample(points, lengths, voxel_size=voxel_size)
+            print('points.shape : ', points.shape)
+            print('lengths.shape : ', lengths.shape)
         points_list.append(points)
         lengths_list.append(lengths)
         voxel_size *= 2
