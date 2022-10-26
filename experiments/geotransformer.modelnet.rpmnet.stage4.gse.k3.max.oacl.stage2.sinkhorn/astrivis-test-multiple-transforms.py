@@ -94,6 +94,7 @@ def main():
     sorted_indices = output_dict["sorted_indices"]
     batch_inlier_masks = output_dict['batch_inlier_masks']
     astrivis_corr_points = output_dict['astrivis_corr_points']
+    optimal_transformations_per_superpoint = output_dict['optimal_transformations_per_superpoint']
     
     sorted_batch_inlier_masks = [batch_inlier_masks[i] for i in sorted_indices]
     sorted_batch_transforms = [batch_transforms[i] for i in sorted_indices]
@@ -105,6 +106,7 @@ def main():
     print('astrivis_corr_points.shape : ', np.array(astrivis_corr_points).shape)
     print('batch_inlier_masks.shape : ', np.array(batch_inlier_masks).shape)
     print('batch_transforms.shape : ', np.array(batch_transforms).shape)
+    print('optimal_transformations_per_superpoint : ', optimal_transformations_per_superpoint)
     # transform = data_dict["transform"]
 
     ######### Normal Transform
@@ -116,6 +118,8 @@ def main():
     o3d.io.write_point_cloud('normal-output.ply', src_pcd)
     
     ####### MODIFIED TRANSFORM
+    
+    print('First modified pcd')
     
     # When the points are so far that we enter into the degenerate case we have to redo the transformation before doing the final transformation
     # This acts as an intermediate transformation
@@ -182,6 +186,45 @@ def main():
     final_total_pcd = make_open3d_point_cloud(np.array(final_total_pcd))
     final_total_pcd.estimate_normals()
     o3d.io.write_point_cloud('multiple-transforms.ply', final_total_pcd)
+    
+    ####### MODIFED TRANSFORM WHERE WE USE BEST TRANSFORM PER POINT CLOUD
+    
+    print('Second modified pcd')
+    
+    final_total_pcd = []
+    k = 1
+    for point in src_points:
+        k += 1
+        total_weight = 0
+        transformations = set()
+        for point_idx in range(0, len(astrivis_corr_points)):
+            if np.linalg.norm(np.array(astrivis_corr_points[point_idx]) - np.array(point)) < 0.01: # before was 0.01
+                    norm = np.linalg.norm(np.array(astrivis_corr_points[point_idx]) - np.array(point))
+                    if norm != 0:
+                        transformations.add((point_idx, 1/norm))
+                        total_weight += 1/norm
+                    else:
+                        transformations.add((point_idx, 1/0.0001))
+                        total_weight += 1/0.0001
+        
+        initial_pcd = make_open3d_point_cloud(np.array(point[None, :]))
+        final_pcd = np.array([0.,0.,0.])
+        if not transformations:
+            tmp_pcd = initial_pcd
+            tmp_pcd.transform(estimated_transform)
+            final_pcd += np.array(tmp_pcd.points).squeeze()
+        else:
+            for transformation in transformations:
+                tmp_pcd = initial_pcd
+                tmp_pcd.transform(batch_transforms[transformation[0]])
+                final_pcd += transformation[1]/total_weight*np.array(tmp_pcd.points).squeeze()
+        
+        final_total_pcd.append(final_pcd.tolist())
+                         
+    final_total_pcd = make_open3d_point_cloud(np.array(final_total_pcd))
+    final_total_pcd.estimate_normals()
+    o3d.io.write_point_cloud('multiple-transforms-individual-transforms.ply', final_total_pcd)
+    
 
 
 if __name__ == "__main__":

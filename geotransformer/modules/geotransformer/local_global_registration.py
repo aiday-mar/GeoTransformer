@@ -448,6 +448,7 @@ class AstrivisLocalGlobalRegistration(nn.Module):
         batch_inlier_masks = []
         super_points_of_interest = []
         sorted_indices = []
+        optimal_transformations_per_superpoint = []
         
         if batch_size > 0:
             # local registration
@@ -458,14 +459,15 @@ class AstrivisLocalGlobalRegistration(nn.Module):
             print('batch_transforms.shape : ', batch_transforms.shape )
             print('src_corr_points.shape : ', src_corr_points.shape)
             batch_aligned_src_corr_points = apply_transform(src_corr_points.unsqueeze(0), batch_transforms)
-            print('ref_corr_points.shape : ', ref_corr_points.shape)
+            print('ref_corr_points.shape : ', ref_corr_points.unsqueeze(0).shape)
             print('batch_aligned_src_corr_points.shape : ', batch_aligned_src_corr_points.shape)         
             batch_corr_residuals = torch.linalg.norm(
                 ref_corr_points.unsqueeze(0) - batch_aligned_src_corr_points, dim=2
             )
             print('batch_corr_residuals.shape : ', batch_corr_residuals.shape)
+            optimal_transformations_per_superpoint = torch.argmin(batch_corr_residuals, dim=2)
             batch_inlier_masks = torch.lt(batch_corr_residuals, self.acceptance_radius)  # (P, N)
-            
+            print('batch_inlier_masks.shape : ', batch_inlier_masks.shape)
             best_index = batch_inlier_masks.sum(dim=1).argmax()
             sorted_indices = np.argsort(batch_inlier_masks.sum(dim=1).cpu())
             cur_corr_scores = corr_scores * batch_inlier_masks[best_index].float()
@@ -485,7 +487,7 @@ class AstrivisLocalGlobalRegistration(nn.Module):
             )
             estimated_transform = self.procrustes(src_corr_points, ref_corr_points, cur_corr_scores)
 
-        return global_ref_corr_points, global_src_corr_points, global_corr_scores, estimated_transform, batch_transforms, batch_inlier_masks, src_corr_points, sorted_indices
+        return global_ref_corr_points, global_src_corr_points, global_corr_scores, estimated_transform, batch_transforms, batch_inlier_masks, src_corr_points, sorted_indices, optimal_transformations_per_superpoint
 
     def forward(
         self,
@@ -523,8 +525,8 @@ class AstrivisLocalGlobalRegistration(nn.Module):
         score_mat = score_mat * corr_mat.float()
 
         # corr_mat decides how manz final super points we will have
-        global_ref_corr_points, global_src_corr_points, global_corr_scores, estimated_transform, batch_transforms, batch_inlier_masks, src_corr_points, sorted_indices = self.local_to_global_registration(
+        global_ref_corr_points, global_src_corr_points, global_corr_scores, estimated_transform, batch_transforms, batch_inlier_masks, src_corr_points, sorted_indices, optimal_transformations_per_superpoint = self.local_to_global_registration(
             ref_knn_points, src_knn_points, score_mat, corr_mat
         )
 
-        return global_ref_corr_points, global_src_corr_points, global_corr_scores, estimated_transform, batch_transforms, batch_inlier_masks, src_corr_points, sorted_indices 
+        return global_ref_corr_points, global_src_corr_points, global_corr_scores, estimated_transform, batch_transforms, batch_inlier_masks, src_corr_points, sorted_indices, optimal_transformations_per_superpoint
