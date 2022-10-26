@@ -43,7 +43,7 @@ class KPConvFPN(nn.Module):
         subsampling_list = data_dict['subsampling']
         upsampling_list = data_dict['upsampling']
         
-        print('points_list.shape : ', points_list.shape)
+        print('len(points_list) : ', len(points_list))
         print('neighbors_list.shape : ', neighbors_list.shape)
         print('subsampling_list.shape : ', subsampling_list.shape)
         print('upsampling_list.shape : ', upsampling_list.shape)
