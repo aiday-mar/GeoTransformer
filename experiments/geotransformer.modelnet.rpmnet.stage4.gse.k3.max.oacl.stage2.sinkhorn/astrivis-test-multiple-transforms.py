@@ -146,10 +146,10 @@ def main():
             if np.linalg.norm(np.array(astrivis_corr_points[point_idx]) - np.array(point)) < 0.01: # before was 0.01
                     norm = np.linalg.norm(np.array(astrivis_corr_points[point_idx]) - np.array(point))
                     if norm != 0:
-                        transformations.add((superpoint_to_transform[point_idx], 1/norm))
+                        transformations.add((tuple(superpoint_to_transform[point_idx]), 1/norm))
                         total_weight += 1/norm*len(superpoint_to_transform[point_idx])
                     else:
-                        transformations.add((superpoint_to_transform[point_idx], 1/0.0001))
+                        transformations.add((tuple(superpoint_to_transform[point_idx]), 1/0.0001))
                         total_weight += 1/0.0001*len(superpoint_to_transform[point_idx])
                         
         '''
