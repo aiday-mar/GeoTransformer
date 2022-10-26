@@ -20,7 +20,7 @@ class LocalGlobalRegistration(nn.Module):
         use_global_score: bool = False,
         correspondence_threshold: int = 3,
         correspondence_limit: Optional[int] = None,
-        num_refinement_steps: int = 5,
+        num_refinement_steps: int = 5
     ):
         r"""Point Matching with Local-to-Global Registration.
 
@@ -136,23 +136,12 @@ class LocalGlobalRegistration(nn.Module):
         return new_corr_scores
 
     def local_to_global_registration(self, ref_knn_points, src_knn_points, score_mat, corr_mat):
-        print('ref_knn_points : ', ref_knn_points)
-        print('src_knn_points : ', src_knn_points)
-        print('score_mat : ', score_mat)
-        print('corr_mat : ', corr_mat)
         
         # extract dense correspondences
         batch_indices, ref_indices, src_indices = torch.nonzero(corr_mat, as_tuple=True)
-        print('batch_indices : ', batch_indices)
-        print('ref_indices : ', ref_indices)
-        print('src_indices : ', src_indices)
-        
         global_ref_corr_points = ref_knn_points[batch_indices, ref_indices]
         global_src_corr_points = src_knn_points[batch_indices, src_indices]
         global_corr_scores = score_mat[batch_indices, ref_indices, src_indices]
-        print('global_ref_corr_points : ', global_ref_corr_points)
-        print('global_src_corr_points : ', global_src_corr_points)
-        print('global_corr_scores : ', global_corr_scores)
 
         # build verification set
         if self.correspondence_limit is not None and global_corr_scores.shape[0] > self.correspondence_limit:
@@ -164,9 +153,6 @@ class LocalGlobalRegistration(nn.Module):
             src_corr_points = global_src_corr_points
             corr_scores = global_corr_scores
 
-        # compute starting and ending index of each patch correspondence.
-        # torch.nonzero is row-major, so the correspondences from the same patch correspondence are consecutive.
-        # find the first occurrence of each batch index, then the chunk of this batch can be obtained.
         unique_masks = torch.ne(batch_indices[1:], batch_indices[:-1])
         unique_indices = torch.nonzero(unique_masks, as_tuple=True)[0] + 1
         unique_indices = unique_indices.detach().cpu().numpy().tolist()
@@ -175,7 +161,6 @@ class LocalGlobalRegistration(nn.Module):
             (x, y) for x, y in zip(unique_indices[:-1], unique_indices[1:]) if y - x >= self.correspondence_threshold
         ]
         
-        print('chunks : ', chunks)
         batch_size = len(chunks)
         if batch_size > 0:
             # local registration
@@ -183,22 +168,13 @@ class LocalGlobalRegistration(nn.Module):
                 global_ref_corr_points, global_src_corr_points, global_corr_scores, chunks
             )
             batch_transforms = self.procrustes(batch_src_corr_points, batch_ref_corr_points, batch_corr_scores)
-            print('batch_transforms : ', batch_transforms)
-            print('batch_transforms.shape : ', batch_transforms.shape)
-            batch_aligned_src_corr_points = apply_transform(src_corr_points.unsqueeze(0), batch_transforms)
-            print('batch_aligned_src_corr_points : ', batch_aligned_src_corr_points)
-            
+            batch_aligned_src_corr_points = apply_transform(src_corr_points.unsqueeze(0), batch_transforms)            
             batch_corr_residuals = torch.linalg.norm(
                 ref_corr_points.unsqueeze(0) - batch_aligned_src_corr_points, dim=2
             )
-            print('batch_corr_residuals : ', batch_corr_residuals)
-            print('self.acceptance_radius : ', self.acceptance_radius)
             batch_inlier_masks = torch.lt(batch_corr_residuals, self.acceptance_radius)  # (P, N)
-            print('batch_inlier_masks : ', batch_inlier_masks)
             best_index = batch_inlier_masks.sum(dim=1).argmax()
-            print('best_index : ', best_index)
             cur_corr_scores = corr_scores * batch_inlier_masks[best_index].float()
-            print('cur_corr_scores : ', cur_corr_scores)
         else:
             # degenerate: initialize transformation with all correspondences
             estimated_transform = self.procrustes(src_corr_points, ref_corr_points, corr_scores)
@@ -273,6 +249,7 @@ class AstrivisLocalGlobalRegistration(nn.Module):
         correspondence_threshold: int = 3,
         correspondence_limit: Optional[int] = None,
         num_refinement_steps: int = 5,
+        directory: str | None = None
     ):
         r"""Point Matching with Local-to-Global Registration.
 
@@ -298,6 +275,7 @@ class AstrivisLocalGlobalRegistration(nn.Module):
         self.correspondence_limit = correspondence_limit
         self.num_refinement_steps = num_refinement_steps
         self.procrustes = WeightedProcrustes(return_transform=True)
+        self.directory = directory
 
     def compute_correspondence_matrix(self, score_mat, ref_knn_masks, src_knn_masks):
         r"""Compute matching matrix and score matrix for each patch correspondence."""
@@ -397,15 +375,7 @@ class AstrivisLocalGlobalRegistration(nn.Module):
         print('batch_indices.shape : ', batch_indices.shape)
         print('ref_indices.shape : ', ref_indices.shape)
         print('src_indices.shape : ', src_indices.shape)
-        
-        # From what I understand the batch_indices indicates in which central point-cloud we want to be in
-        # The ref_indices indicates in which point inside of the specific batch, we want to be in
-        # Now we have 1111 such batch indices and 1111 such indices inside of the neighborhoods, this indicates the number of super ponits in the end
-        
-        # Could increase the number 128 which is the number of correspondences 
-        # Or the number of points in the neighborhood, 130, but this would not increase the number of points, because size of batch_indices is fixed.
-        
-        # Could decide to use everything, by not using the corr_mat statement above. 
+    
         global_ref_corr_points = ref_knn_points[batch_indices, ref_indices]
         global_src_corr_points = src_knn_points[batch_indices, src_indices]
         global_corr_scores = score_mat[batch_indices, ref_indices, src_indices]
@@ -419,8 +389,9 @@ class AstrivisLocalGlobalRegistration(nn.Module):
         pcd_src = o3d.geometry.PointCloud()
         pcd_src.points = o3d.utility.Vector3dVector(np.array(global_src_corr_points.cpu()))
 
-        o3d.io.write_point_cloud('superpoints_ref.ply', pcd_ref)
-        o3d.io.write_point_cloud('superpoints_src.ply', pcd_src)
+        if self.directory:
+            o3d.io.write_point_cloud(self.directory + '/superpoints_ref.ply', pcd_ref)
+            o3d.io.write_point_cloud(self.directory + '/superpoints_src.ply', pcd_src)
 
         # attempting to visualize the lines and the two point-clouds
         points = np.array(torch.cat((global_src_corr_points, global_ref_corr_points), 0).cpu())
@@ -429,7 +400,9 @@ class AstrivisLocalGlobalRegistration(nn.Module):
             points=o3d.utility.Vector3dVector(points),
             lines=o3d.utility.Vector2iVector(lines),
         )
-        o3d.io.write_line_set("line_set.ply", line_set)
+
+        if self.directory:
+            o3d.io.write_line_set(self.directory + "/line_set.ply", line_set)
         
         # build verification set
         if self.correspondence_limit is not None and global_corr_scores.shape[0] > self.correspondence_limit:
@@ -441,9 +414,6 @@ class AstrivisLocalGlobalRegistration(nn.Module):
             src_corr_points = global_src_corr_points
             corr_scores = global_corr_scores
 
-        # compute starting and ending index of each patch correspondence.
-        # torch.nonzero is row-major, so the correspondences from the same patch correspondence are consecutive.
-        # find the first occurrence of each batch index, then the chunk of this batch can be obtained.
         unique_masks = torch.ne(batch_indices[1:], batch_indices[:-1])
         unique_indices = torch.nonzero(unique_masks, as_tuple=True)[0] + 1
         unique_indices = unique_indices.detach().cpu().numpy().tolist()
@@ -485,8 +455,6 @@ class AstrivisLocalGlobalRegistration(nn.Module):
             sorted_indices = np.argsort(batch_inlier_masks.sum(dim=1).cpu())
             cur_corr_scores = corr_scores * batch_inlier_masks[best_index].float()
         else:
-            # degenerate: initialize transformation with all correspondences
-            # when the points are too far away from each other, we don't have multiple transformations
             estimated_transform = self.procrustes(src_corr_points, ref_corr_points, corr_scores)
             cur_corr_scores = self.recompute_correspondence_scores(
                 ref_corr_points, src_corr_points, corr_scores, estimated_transform

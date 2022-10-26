@@ -18,10 +18,11 @@ from backbone import KPConvFPN
 
 
 class GeoTransformer(nn.Module):
-    def __init__(self, cfg):
+    def __init__(self, cfg, directory = None):
         super(GeoTransformer, self).__init__()
         self.num_points_in_patch = cfg.model.num_points_in_patch
         self.matching_radius = cfg.model.ground_truth_matching_radius
+        self.directory = directory
 
         self.backbone = KPConvFPN(
             cfg.backbone.input_dim,
@@ -62,7 +63,7 @@ class GeoTransformer(nn.Module):
             use_global_score=cfg.fine_matching.use_global_score,
             correspondence_threshold=cfg.fine_matching.correspondence_threshold,
             correspondence_limit=cfg.fine_matching.correspondence_limit,
-            num_refinement_steps=cfg.fine_matching.num_refinement_steps,
+            num_refinement_steps=cfg.fine_matching.num_refinement_steps
         )
         
         self.astrivis_fine_matching = AstrivisLocalGlobalRegistration(
@@ -75,6 +76,7 @@ class GeoTransformer(nn.Module):
             correspondence_threshold=cfg.fine_matching.correspondence_threshold,
             correspondence_limit=cfg.fine_matching.correspondence_limit,
             num_refinement_steps=cfg.fine_matching.num_refinement_steps,
+            directory = self.directory
         )
 
         self.optimal_transport = LearnableLogOptimalTransport(cfg.model.num_sinkhorn_iterations)
@@ -253,8 +255,8 @@ class GeoTransformer(nn.Module):
         return output_dict
 
 
-def create_model(cfg):
-    model = GeoTransformer(cfg)
+def create_model(cfg, directory = None):
+    model = GeoTransformer(cfg, directory)
     return model
 
 
