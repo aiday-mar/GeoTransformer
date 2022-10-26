@@ -81,7 +81,6 @@ class GeoTransformer(nn.Module):
 
     def forward(self, data_dict):
         
-        print('data_dict : ', data_dict)
         output_dict = {}
 
         # Downsample point clouds
