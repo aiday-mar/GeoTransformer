@@ -275,9 +275,9 @@ def main():
         optimal_transformation_index = -1
         
         for point_idx in superpoint_to_transform:
-            if np.linalg.norm(np.array(astrivis_corr_points[point_idx]) - np.array(point)) < 0.01 and optimal_transformations_per_superpoint.values[point_idx] < residual:
-                residual = optimal_transformations_per_superpoint.values[point_idx]
-                optimal_transformation_index = optimal_transformations_per_superpoint.indices[point_idx]
+            if np.linalg.norm(np.array(astrivis_corr_points[point_idx]) - np.array(point)) < 0.01 and optimal_transformations_per_superpoint['values'][point_idx] < residual:
+                residual = optimal_transformations_per_superpoint['values'][point_idx]
+                optimal_transformation_index = optimal_transformations_per_superpoint['indices'][point_idx]
         
         if optimal_transformation_index == -1:
             initial_pcd.transform(estimated_transform)
