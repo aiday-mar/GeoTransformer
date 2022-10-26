@@ -275,7 +275,7 @@ def main():
         optimal_transformation_index = -1
         
         for point_idx in superpoint_to_transform:
-            if np.linalg.norm(np.array(astrivis_corr_points[point_idx]) - np.array(point)) < 0.05 and optimal_transformations_per_superpoint['values'][point_idx] < residual:
+            if np.linalg.norm(np.array(astrivis_corr_points[point_idx]) - np.array(point)) < 0.02 and optimal_transformations_per_superpoint['values'][point_idx] < residual:
                 residual = optimal_transformations_per_superpoint['values'][point_idx]
                 optimal_transformation_index = optimal_transformations_per_superpoint['indices'][point_idx]
         
@@ -303,7 +303,7 @@ def main():
         optimal_transformation_index = -1
         
         for point_idx in superpoint_to_transform:
-            if np.linalg.norm(np.array(astrivis_corr_points[point_idx]) - np.array(point)) < 0.05 and np.linalg.norm(estimated_transform - batch_transforms[optimal_transformations_per_superpoint['indices'][point_idx]]) < residual:
+            if np.linalg.norm(np.array(astrivis_corr_points[point_idx]) - np.array(point)) < 0.02 and np.linalg.norm(estimated_transform - batch_transforms[optimal_transformations_per_superpoint['indices'][point_idx]]) < residual:
                 residual = np.linalg.norm(estimated_transform - batch_transforms[optimal_transformations_per_superpoint['indices'][point_idx]])
                 optimal_transformation_index = optimal_transformations_per_superpoint['indices'][point_idx]
         
