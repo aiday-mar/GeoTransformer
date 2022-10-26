@@ -395,6 +395,8 @@ class AstrivisLocalGlobalRegistration(nn.Module):
         global_src_corr_points = src_knn_points[batch_indices, src_indices]
         global_corr_scores = score_mat[batch_indices, ref_indices, src_indices]
 
+        print('global_ref_corr_points.shape : ', global_ref_corr_points.shape)
+        print('global_src_corr_points.shape : ', global_src_corr_points.shape)
         
         pcd_ref = o3d.geometry.PointCloud()
         pcd_ref.points = o3d.utility.Vector3dVector(np.array(global_ref_corr_points.cpu()))
