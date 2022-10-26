@@ -118,7 +118,7 @@ def main():
     o3d.io.write_point_cloud('normal-output.ply', src_pcd)
     
     ####### MODIFIED TRANSFORM
-    
+    ''' DO NOT DELETE
     print('First modified pcd')
     
     # When the points are so far that we enter into the degenerate case we have to redo the transformation before doing the final transformation
@@ -186,7 +186,7 @@ def main():
     final_total_pcd = make_open3d_point_cloud(np.array(final_total_pcd))
     final_total_pcd.estimate_normals()
     o3d.io.write_point_cloud('multiple-transforms.ply', final_total_pcd)
-    
+    '''
     ####### MODIFED TRANSFORM WHERE WE USE BEST TRANSFORM PER POINT CLOUD
     
     print('Second modified pcd')
