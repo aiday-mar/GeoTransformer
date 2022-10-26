@@ -95,6 +95,9 @@ def main():
     batch_inlier_masks = output_dict['batch_inlier_masks']
     astrivis_corr_points = output_dict['astrivis_corr_points']
     
+    sorted_batch_inlier_masks = [batch_inlier_masks[i] for i in sorted_indices]
+    sorted_batch_transforms = [batch_transforms[i] for i in sorted_indices]
+    
     print('len(batch_transforms) : ', len(batch_transforms))
     # print('len(super_points_of_interest) : ', len(super_points_of_interest))
     print('estimated_transform : ', estimated_transform)
@@ -121,15 +124,22 @@ def main():
         raise Exception('Entered into the case when the batch of transforms is empty')
         # apply the model once again in order to bring the point clouds close together before doing again the computation
     
+    # Don't want to necessarily consider all of the transformations, only consider the first three transformations for each point for example
     superpoint_to_transform = {}
-    for i in range(0, len(batch_inlier_masks)):
+    for i in range(0, len(sorted_batch_inlier_masks)):
+        n_transforms = 0
         for j in range(0, len(astrivis_corr_points)):
-            if batch_inlier_masks[i][j] == True:
+            if sorted_batch_inlier_masks[i][j] == True:
                 if j in superpoint_to_transform:
                     superpoint_to_transform[j].append(i)
+                    n_transforms += 1
                 else:
                     superpoint_to_transform[j] = []
                     superpoint_to_transform[j].append(i)
+                    n_transforms += 1
+
+                if n_transforms == 3:
+                    break
     
     print('superpoint_to_transform found')
     
@@ -151,19 +161,6 @@ def main():
                     else:
                         transformations.add((tuple(superpoint_to_transform[point_idx]), 1/0.0001))
                         total_weight += 1/0.0001*len(superpoint_to_transform[point_idx])
-                        
-        '''
-        for i in range(0, len(batch_inlier_masks)):
-            for j in range(0, len(batch_inlier_masks[i])):
-                if batch_inlier_masks[i][j] == True and np.linalg.norm(np.array(astrivis_corr_points[j]) - np.array(point)) < 0.01: # before was 0.01
-                    norm = np.linalg.norm(np.array(astrivis_corr_points[j]) - np.array(point))
-                    if norm != 0:
-                        transformations.add((i, 1/norm))
-                        total_weight += 1/norm
-                    else:
-                        transformations.add((i, 1/0.0001))
-                        total_weight += 1/0.0001
-        '''
             
         initial_pcd = make_open3d_point_cloud(np.array(point[None, :]))
         final_pcd = np.array([0.,0.,0.])
@@ -176,7 +173,7 @@ def main():
                 weight = transformation[1]
                 for subtrans in transformation[0]:
                     tmp_pcd = initial_pcd
-                    tmp_pcd.transform(batch_transforms[subtrans])
+                    tmp_pcd.transform(sorted_batch_transforms[subtrans])
                     final_pcd += weight/total_weight*np.array(tmp_pcd.points).squeeze()
         
         final_total_pcd.append(final_pcd.tolist())
