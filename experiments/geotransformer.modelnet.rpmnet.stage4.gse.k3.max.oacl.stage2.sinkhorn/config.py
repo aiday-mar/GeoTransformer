@@ -81,9 +81,9 @@ _C.optim.grad_acc_steps = 1
 # model - backbone
 _C.backbone = edict()
 _C.backbone.num_stages = 3 # smaller means less points chosen in c version
-_C.backbone.init_voxel_size = 0.004
+_C.backbone.init_voxel_size = 0.0045
 _C.backbone.kernel_size = 15
-_C.backbone.base_radius = 0.003 # used to be 2.5?
+_C.backbone.base_radius = 2.5 # used to be 2.5?
 _C.backbone.base_sigma = 2.0
 _C.backbone.init_radius = _C.backbone.base_radius * _C.backbone.init_voxel_size
 _C.backbone.init_sigma = _C.backbone.base_sigma * _C.backbone.init_voxel_size
