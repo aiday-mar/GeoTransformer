@@ -125,7 +125,7 @@ _C.fine_matching.mutual = True
 _C.fine_matching.confidence_threshold = 0.05
 _C.fine_matching.use_dustbin = False
 _C.fine_matching.use_global_score = False
-_C.fine_matching.correspondence_threshold = 3
+_C.fine_matching.correspondence_threshold = 0 # seems to regulate the number of transformations that would be outputed, used to be 3
 _C.fine_matching.correspondence_limit = None
 _C.fine_matching.num_refinement_steps = 5
 
