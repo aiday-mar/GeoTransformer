@@ -148,7 +148,7 @@ def main():
     length_pcd = np.shape(src_points)[0]
     k = 1
     for point in src_points:
-        print('k/total = ', k, '/', length_pcd)
+        # print('k/total = ', k, '/', length_pcd)
         k += 1
         total_weight = 0
         transformations = set()
@@ -162,7 +162,7 @@ def main():
                         transformations.add((tuple(superpoint_to_transform[point_idx]), 1/0.0001))
                         total_weight += 1/0.0001*len(superpoint_to_transform[point_idx])
         
-        print('size of transformation set : ', len(transformations))
+        # print('size of transformation set : ', len(transformations))
         initial_pcd = make_open3d_point_cloud(np.array(point[None, :]))
         final_pcd = np.array([0.,0.,0.])
         if not transformations:
