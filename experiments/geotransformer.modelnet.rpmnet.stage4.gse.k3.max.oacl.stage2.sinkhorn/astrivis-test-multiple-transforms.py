@@ -118,7 +118,7 @@ def main():
     o3d.io.write_point_cloud('normal-output.ply', src_pcd)
     
     ####### MODIFIED TRANSFORM
-    ''' DO NOT DELETE
+    
     print('First modified pcd')
     
     # When the points are so far that we enter into the degenerate case we have to redo the transformation before doing the final transformation
@@ -147,6 +147,7 @@ def main():
     
     print('superpoint_to_transform found')
     
+    ''' DO NOT DELETE
     # could for example decide to only consider maximu two transformations from the points around it
     final_total_pcd = []
     length_pcd = np.shape(src_points)[0]
