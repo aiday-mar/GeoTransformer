@@ -237,7 +237,6 @@ def main():
         for point_idx in superpoint_to_transform:
             
             initial_pcd = make_open3d_point_cloud(np.array(point[None, :]))
-            
             if np.linalg.norm(np.array(astrivis_corr_points[point_idx]) - np.array(point)) < 0.01: # before was 0.01
                 initial_pcd.transform(batch_transforms[optimal_transformations_per_superpoint[point_idx]])
                 final_pcd = np.array(initial_pcd.points).squeeze()
@@ -250,7 +249,7 @@ def main():
                          
     final_total_pcd = make_open3d_point_cloud(np.array(final_total_pcd))
     final_total_pcd.estimate_normals()
-    o3d.io.write_point_cloud('multiple-transforms-individual-transforms.ply', final_total_pcd)
+    o3d.io.write_point_cloud('multiple-transforms-3.ply', final_total_pcd)
     
 if __name__ == "__main__":
     main()
