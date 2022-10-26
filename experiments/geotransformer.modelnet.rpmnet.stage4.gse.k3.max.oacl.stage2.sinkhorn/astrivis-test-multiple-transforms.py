@@ -91,9 +91,12 @@ def main():
     estimated_transform = output_dict["estimated_transform"]
     batch_transforms = output_dict["batch_transforms"]
     super_points_of_interest = output_dict["super_points_of_interest"]
+    sorted_indices = output_dict["sorted_indices"]
+    
     print('len(batch_transforms) : ', len(batch_transforms))
     print('len(super_points_of_interest) : ', len(super_points_of_interest))
     print('estimated_transform : ', estimated_transform)
+    print('sorted_indices : ', sorted_indices)
     # transform = data_dict["transform"]
 
     ######### Normal Transform

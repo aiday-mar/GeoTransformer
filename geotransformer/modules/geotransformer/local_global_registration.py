@@ -429,6 +429,7 @@ class AstrivisLocalGlobalRegistration(nn.Module):
         batch_size = len(chunks)
         batch_transforms = [] 
         super_points_of_interest = []
+        sorted_indices = []
         
         if batch_size > 0:
             # local registration
@@ -457,6 +458,7 @@ class AstrivisLocalGlobalRegistration(nn.Module):
                         super_points_of_interest[-1].append(src_corr_points_list[i][j].tolist())
                      
             best_index = batch_inlier_masks.sum(dim=1).argmax()
+            sorted_indices = np.argsort(batch_inlier_masks.sum(dim=1))
             cur_corr_scores = corr_scores * batch_inlier_masks[best_index].float()
         else:
             # degenerate: initialize transformation with all correspondences
@@ -474,7 +476,7 @@ class AstrivisLocalGlobalRegistration(nn.Module):
             )
             estimated_transform = self.procrustes(src_corr_points, ref_corr_points, cur_corr_scores)
 
-        return global_ref_corr_points, global_src_corr_points, global_corr_scores, estimated_transform, batch_transforms, super_points_of_interest
+        return global_ref_corr_points, global_src_corr_points, global_corr_scores, estimated_transform, batch_transforms, super_points_of_interest, sorted_indices
 
     def forward(
         self,
@@ -511,8 +513,8 @@ class AstrivisLocalGlobalRegistration(nn.Module):
             score_mat = score_mat * global_scores.view(-1, 1, 1)
         score_mat = score_mat * corr_mat.float()
 
-        ref_corr_points, src_corr_points, corr_scores, estimated_transform, batch_transforms, super_points_of_interest = self.local_to_global_registration(
+        ref_corr_points, src_corr_points, corr_scores, estimated_transform, batch_transforms, super_points_of_interest, sorted_indices = self.local_to_global_registration(
             ref_knn_points, src_knn_points, score_mat, corr_mat
         )
 
-        return ref_corr_points, src_corr_points, corr_scores, estimated_transform, batch_transforms, super_points_of_interest
+        return ref_corr_points, src_corr_points, corr_scores, estimated_transform, batch_transforms, super_points_of_interest, sorted_indices
