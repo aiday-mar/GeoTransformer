@@ -12,7 +12,7 @@ def grid_subsample(points, lengths, voxel_size):
     Args:
         points (Tensor): stacked points. (N, 3)
         lengths (Tensor): number of points in the stacked batch. (B,)
-        voxel_size (float): voxel size.
+        voxel_size (float): voxel.
 
     Returns:
         s_points (Tensor): stacked subsampled points (M, 3)
