@@ -40,8 +40,6 @@ class GeometricStructureEmbedding(nn.Module):
 
         k = self.angle_k
         print('k : ', k)
-        # smaller version of k chosen so no error thrown
-        # k = 1
         knn_indices = dist_map.topk(k=k + 1, dim=2, largest=False)[1][:, :, 1:]  # (B, N, k)
         knn_indices = knn_indices.unsqueeze(3).expand(batch_size, num_point, k, 3)  # (B, N, k, 3)
         expanded_points = points.unsqueeze(1).expand(batch_size, num_point, num_point, 3)  # (B, N, N, 3)
