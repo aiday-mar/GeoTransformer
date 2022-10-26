@@ -223,6 +223,13 @@ class GeoTransformer(nn.Module):
             if not self.astrivis_fine_matching.use_dustbin:
                 matching_scores = matching_scores[:, :-1, :-1]
 
+            print('ref_node_corr_knn_points.shape : ', ref_node_corr_knn_points.shape)
+            print('src_node_corr_knn_points.shape : ', src_node_corr_knn_points.shape)
+            print('ref_node_corr_knn_masks.shape : ', ref_node_corr_knn_masks.shape)
+            print('src_node_corr_knn_masks.shape : ', src_node_corr_knn_masks.shape)
+            print('matching_scores.shape : ', matching_scores.shape)
+            print('node_corr_scores.shape : ', node_corr_scores.shape)
+            
             ref_corr_points, src_corr_points, corr_scores, estimated_transform, batch_transforms, super_points_of_interest, sorted_indices = self.astrivis_fine_matching(
                 ref_node_corr_knn_points,
                 src_node_corr_knn_points,
