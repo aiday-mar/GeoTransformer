@@ -125,8 +125,8 @@ def main():
     for i in range(0, len(batch_inlier_masks)):
         for j in range(0, len(astrivis_corr_points)):
             if batch_inlier_masks[i][j] == True:
-                if superpoint_to_transform[j]:
-                    superpoint_to_transform.append(i)
+                if j in superpoint_to_transform:
+                    superpoint_to_transform[j].append(i)
                 else:
                     superpoint_to_transform[j] = []
                     superpoint_to_transform[j].append(i)
