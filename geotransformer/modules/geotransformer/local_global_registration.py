@@ -249,7 +249,7 @@ class AstrivisLocalGlobalRegistration(nn.Module):
         correspondence_threshold: int = 3,
         correspondence_limit: Optional[int] = None,
         num_refinement_steps: int = 5,
-        directory: str | None = None
+        directory = None
     ):
         r"""Point Matching with Local-to-Global Registration.
 
