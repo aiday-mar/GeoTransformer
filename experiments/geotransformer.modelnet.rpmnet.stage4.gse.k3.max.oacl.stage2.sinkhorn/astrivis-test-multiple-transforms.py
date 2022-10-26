@@ -118,9 +118,7 @@ def main():
     o3d.io.write_point_cloud('normal-output.ply', src_pcd)
     
     ####### MODIFIED TRANSFORM
-    
-    print('First modified pcd')
-    
+      
     # When the points are so far that we enter into the degenerate case we have to redo the transformation before doing the final transformation
     # This acts as an intermediate transformation
     
@@ -148,6 +146,8 @@ def main():
     print('superpoint_to_transform found')
     
     ''' DO NOT DELETE
+    print('First modified pcd')
+    
     # could for example decide to only consider maximu two transformations from the points around it
     final_total_pcd = []
     length_pcd = np.shape(src_points)[0]
@@ -190,6 +190,7 @@ def main():
     '''
     ####### MODIFED TRANSFORM WHERE WE USE BEST TRANSFORM PER POINT CLOUD
     
+    '''
     print('Second modified pcd')
     
     final_total_pcd = []
@@ -225,8 +226,31 @@ def main():
     final_total_pcd = make_open3d_point_cloud(np.array(final_total_pcd))
     final_total_pcd.estimate_normals()
     o3d.io.write_point_cloud('multiple-transforms-individual-transforms.ply', final_total_pcd)
+    '''
+    ###### MODIFIED TRANSFORM - 3
     
-
-
+    print('Third modified pcd')
+    
+    final_total_pcd = []
+    for point in src_points:
+        # no specific order considered, only one transformation applied
+        for point_idx in superpoint_to_transform:
+            
+            initial_pcd = make_open3d_point_cloud(np.array(point[None, :]))
+            
+            if np.linalg.norm(np.array(astrivis_corr_points[point_idx]) - np.array(point)) < 0.01: # before was 0.01
+                initial_pcd.transform(batch_transforms[optimal_transformations_per_superpoint[point_idx]])
+                final_pcd = np.array(initial_pcd.points).squeeze()
+                final_total_pcd.append(final_pcd.tolist())
+                break
+            
+            initial_pcd.transform(estimated_transform)
+            final_pcd = np.array(initial_pcd.points).squeeze()
+            final_total_pcd.append(final_pcd.tolist())
+                         
+    final_total_pcd = make_open3d_point_cloud(np.array(final_total_pcd))
+    final_total_pcd.estimate_normals()
+    o3d.io.write_point_cloud('multiple-transforms-individual-transforms.ply', final_total_pcd)
+    
 if __name__ == "__main__":
     main()
