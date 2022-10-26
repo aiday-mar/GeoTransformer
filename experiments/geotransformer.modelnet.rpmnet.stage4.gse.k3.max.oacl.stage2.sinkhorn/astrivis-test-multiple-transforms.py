@@ -201,10 +201,10 @@ def main():
             if np.linalg.norm(np.array(astrivis_corr_points[point_idx]) - np.array(point)) < 0.01: # before was 0.01
                     norm = np.linalg.norm(np.array(astrivis_corr_points[point_idx]) - np.array(point))
                     if norm != 0:
-                        transformations.add((point_idx, 1/norm))
+                        transformations.add((optimal_transformations_per_superpoint[point_idx], 1/norm))
                         total_weight += 1/norm
                     else:
-                        transformations.add((point_idx, 1/0.0001))
+                        transformations.add((optimal_transformations_per_superpoint[point_idx], 1/0.0001))
                         total_weight += 1/0.0001
         
         initial_pcd = make_open3d_point_cloud(np.array(point[None, :]))
