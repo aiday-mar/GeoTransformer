@@ -422,6 +422,15 @@ class AstrivisLocalGlobalRegistration(nn.Module):
         o3d.io.write_point_cloud('superpoints_ref.ply', pcd_ref)
         o3d.io.write_point_cloud('superpoints_src.ply', pcd_src)
 
+        # attempting to visualize the lines and the two point-clouds
+        points = torch.cat((global_src_corr_points, global_ref_corr_points), 0)
+        lines = [[i, i+global_ref_corr_points.shape[0]] for i in range(0, global_ref_corr_points.shape[0])]
+        line_set = o3d.geometry.LineSet(
+            points=o3d.utility.Vector3dVector(points),
+            lines=o3d.utility.Vector2iVector(lines),
+        )
+        o3d.io.write_line_set("line_set.ply", line_set)
+        
         # build verification set
         if self.correspondence_limit is not None and global_corr_scores.shape[0] > self.correspondence_limit:
             corr_scores, sel_indices = global_corr_scores.topk(k=self.correspondence_limit, largest=True)
