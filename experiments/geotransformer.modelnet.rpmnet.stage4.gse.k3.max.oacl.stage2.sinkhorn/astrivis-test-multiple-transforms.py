@@ -122,6 +122,17 @@ def main():
     print('batch_inlier_masks.shape : ', batch_inlier_masks.shape)
     print('batch_transforms.shape : ', batch_transforms.shape)
     
+    superpoint_to_transform = {}
+    for i in range(0, len(batch_inlier_masks)):
+        for j in range(0, len(astrivis_corr_points)):
+            if batch_inlier_masks[i][j] == True:
+                if superpoint_to_transform[j]:
+                    superpoint_to_transform.append(i)
+                else:
+                    superpoint_to_transform[j] = []
+                    superpoint_to_transform[j].append(i)
+    
+    # could for example decide to only consider maximu two transformations from the points around it
     final_total_pcd = []
     length_pcd = np.shape(src_points)[0]
     k = 1
@@ -130,6 +141,17 @@ def main():
         k += 1
         total_weight = 0
         transformations = set()
+        for point_idx in superpoint_to_transform:
+            if np.linalg.norm(np.array(astrivis_corr_points[point_idx]) - np.array(point)) < 0.01: # before was 0.01
+                    norm = np.linalg.norm(np.array(astrivis_corr_points[point_idx]) - np.array(point))
+                    if norm != 0:
+                        transformations.add((superpoint_to_transform[point_idx], 1/norm))
+                        total_weight += 1/norm*len(superpoint_to_transform[point_idx])
+                    else:
+                        transformations.add((superpoint_to_transform[point_idx], 1/0.0001))
+                        total_weight += 1/0.0001*len(superpoint_to_transform[point_idx])
+                        
+        '''
         for i in range(0, len(batch_inlier_masks)):
             for j in range(0, len(batch_inlier_masks[i])):
                 if batch_inlier_masks[i][j] == True and np.linalg.norm(np.array(astrivis_corr_points[j]) - np.array(point)) < 0.01: # before was 0.01
@@ -140,6 +162,7 @@ def main():
                     else:
                         transformations.add((i, 1/0.0001))
                         total_weight += 1/0.0001
+        '''
             
         initial_pcd = make_open3d_point_cloud(np.array(point[None, :]))
         final_pcd = np.array([0.,0.,0.])
@@ -149,9 +172,11 @@ def main():
             final_pcd += np.array(tmp_pcd.points).squeeze()
         else:
             for transformation in transformations:
-                tmp_pcd = initial_pcd
-                tmp_pcd.transform(batch_transforms[transformation[0]])
-                final_pcd += transformation[1]/total_weight*np.array(tmp_pcd.points).squeeze()
+                weight = transformation[1]
+                for subtrans in transformation[0]:
+                    tmp_pcd = initial_pcd
+                    tmp_pcd.transform(batch_transforms[subtrans])
+                    final_pcd += weight/total_weight*np.array(tmp_pcd.points).squeeze()
         
         final_total_pcd.append(final_pcd.tolist())
                          
