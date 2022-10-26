@@ -282,7 +282,7 @@ def main():
         if optimal_transformation_index == -1:
             initial_pcd.transform(estimated_transform)
         else:
-            initial_pcd.transform(batch_transforms[optimal_transformations_per_superpoint.indices[optimal_transformation_index]])
+            initial_pcd.transform(batch_transforms[optimal_transformations_per_superpoint['indices'][optimal_transformation_index]])
         
         final_pcd = np.array(initial_pcd.points).squeeze()
         final_total_pcd.append(final_pcd.tolist())
