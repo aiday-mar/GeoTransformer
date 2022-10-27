@@ -200,23 +200,20 @@ def main():
         print('copy_superpoint_src_corr_points.shape : ', copy_superpoint_src_corr_points.shape)
         
         mask = np.array([])
-        
-        def all_values_true(arr):
-            if arr[0] == arr[1] == arr[2] == True:
-                return True
-            else:
-                return False
-
+    
         if FILTER_POINTS_ONCE_TRANSFORMATION_FOUND:
             # Suppose that we decided to filter all the other occurences of the inlier point in the outlier points
+            i = 0
+            length = chosen_inliers_src.size
             for inlier_point in chosen_inliers_src:
+                print('i/length : ', i, '/', length)
                 if mask.size == 0:
                     mask = (copy_superpoint_src_corr_points == inlier_point)
-                    mask = np.apply_along_axis(all_values_true, 1, mask)
+                    mask = mask.all(axis=1)
                     print('mask : ', mask)
                 else:
                     mask_tmp = (copy_superpoint_src_corr_points == inlier_point)
-                    mask_tmp = np.apply_along_axis(all_values_true, 1, mask_tmp)
+                    mask_tmp = mask_tmp.all(axis=1)
                     mask = np.logical_or(mask_tmp, mask)
             
             mask = np.logical_not(mask)
