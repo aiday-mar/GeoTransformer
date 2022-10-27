@@ -51,6 +51,7 @@ def load_data(args):
     return data_dict
 
 # The smaller the acceptance radius the better the first say 10 transformations chosen will be to the final point-cloud
+# 0.1 chosen in order to have good final transform
 ACCEPTANCE_RADIUS = 0.05
 NUMBER_TRANSFORMATIONS_OF_INTEREST = 10
 
@@ -157,7 +158,7 @@ def main():
         if rotation_n < NUMBER_TRANSFORMATIONS_OF_INTEREST:
             # we want to visualize the inliers for the first say 10 transformations
             inlier_pcd = o3d.geometry.PointCloud()
-            inlier_pcd.points = copy_superpoint_src_corr_points[indices_inliers]
+            inlier_pcd.points =  o3d.utility.Vector3dVector(copy_superpoint_src_corr_points[indices_inliers])
             o3d.io.write_point_cloud(args.directory + '/src_pcd_transformed/inliers_transformation_' + str(rotation_n) + '.ply', inlier_pcd)            
             
         print('indices_outliers.shape : ', indices_outliers.shape)
