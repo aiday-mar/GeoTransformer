@@ -54,10 +54,10 @@ ACCEPTANCE_RADIUS = 0.1
 
 def compute_best_transform(superpoint_src_corr_points, superpoint_ref_corr_points, batch_transforms):
     print('Inside of compute_best_transform')
-    batch_aligned_src_corr_points = apply_transform(superpoint_src_corr_points.unsqueeze(0), batch_transforms)
+    batch_aligned_src_corr_points = apply_transform(torch.tensor(superpoint_src_corr_points).unsqueeze(0), batch_transforms)
     print('batch_aligned_src_corr_points.shape : ', batch_aligned_src_corr_points.shape) 
     batch_corr_residuals = torch.linalg.norm(
-        superpoint_ref_corr_points.unsqueeze(0) - batch_aligned_src_corr_points, dim=2
+        torch.tensor(superpoint_ref_corr_points).unsqueeze(0) - batch_aligned_src_corr_points, dim=2
     )
     batch_inlier_masks = torch.lt(batch_corr_residuals, ACCEPTANCE_RADIUS)  # (P, N)
     print('batch_inlier_masks.shape : ', batch_inlier_masks.shape)
