@@ -206,11 +206,9 @@ def main():
             i = 0
             length = chosen_inliers_src.size
             for inlier_point in chosen_inliers_src:
-                print('i/length : ', i, '/', length)
                 if mask.size == 0:
                     mask = (copy_superpoint_src_corr_points == inlier_point)
                     mask = mask.all(axis=1)
-                    print('mask : ', mask)
                 else:
                     mask_tmp = (copy_superpoint_src_corr_points == inlier_point)
                     mask_tmp = mask_tmp.all(axis=1)
