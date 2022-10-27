@@ -212,12 +212,12 @@ def main():
             for inlier_point in chosen_inliers_src:
                 if mask.size == 0:
                     mask = (copy_superpoint_src_corr_points == inlier_point)
-                    mask = map(all_values_true, mask)
+                    mask = np.apply_along_axis(all_values_true, 1, mask)
                     print('mask : ', mask)
                 else:
-                    mask = (copy_superpoint_src_corr_points == inlier_point)
-                    mask = map(all_values_true, mask)
-                    mask = mask or (copy_superpoint_src_corr_points == inlier_point)
+                    mask_tmp = (copy_superpoint_src_corr_points == inlier_point)
+                    mask_tmp = np.apply_along_axis(all_values_true, 1, mask)
+                    mask = mask or mask_tmp
             
             mask = np.logical_not(mask)
             print('mask.shape : ', mask.shape)
