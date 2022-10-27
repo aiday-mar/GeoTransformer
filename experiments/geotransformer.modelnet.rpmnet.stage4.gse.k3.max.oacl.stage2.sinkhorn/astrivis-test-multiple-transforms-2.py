@@ -141,7 +141,7 @@ def main():
         # apply the transformation also to the final point-cloud in order to be able to visualize the transformation
         src_points = o3d.io.read_point_cloud(args.source)
         src_points = src_points.transform(transform)
-        o3d.io.write_point_cloud(args.directory + "/src_pcd_transformed_${rotation_n}.ply", src_points)
+        o3d.io.write_point_cloud(args.directory + 'src_pcd_transformed/src_pcd_transformed_' + rotation_n + '.ply', src_points)
         rotation_n += 1
     
     print('number of rotations used : ', rotation_n)
@@ -149,6 +149,7 @@ def main():
     if n_rows != 0:
         transformed_superpoints_pcd.append(apply_transform(torch.tensor(copy_superpoint_src_corr_points), torch.tensor(estimated_transform)))
     
+    print('np.array(transformed_superpoints_pcd).shape : ', np.array(transformed_superpoints_pcd).shape)
     final_total_pcd = make_open3d_point_cloud(np.array(transformed_superpoints_pcd))
     final_total_pcd.estimate_normals()
     o3d.io.write_point_cloud(args.directory + '/multiple-trans-1.ply', final_total_pcd)
