@@ -94,7 +94,7 @@ def main():
     print('astrivis_corr_points.shape : ', np.array(astrivis_corr_points).shape)
     print('batch_inlier_masks.shape : ', np.array(batch_inlier_masks).shape)
     print('batch_transforms.shape : ', np.array(batch_transforms).shape)
-    print('optimal_transformations_per_superpoint : ', optimal_transformations_per_superpoint)
+    # print('optimal_transformations_per_superpoint : ', optimal_transformations_per_superpoint)
     # transform = data_dict["transform"]
 
     ######### Normal Transform
