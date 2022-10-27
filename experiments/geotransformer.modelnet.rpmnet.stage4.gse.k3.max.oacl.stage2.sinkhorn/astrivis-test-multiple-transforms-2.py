@@ -217,8 +217,8 @@ def main():
             mask = np.logical_not(mask)
             print('mask.shape : ', mask.shape)
             
-            copy_superpoint_src_corr_points[mask]
-            copy_superpoint_ref_corr_points[mask]
+            copy_superpoint_src_corr_points = copy_superpoint_src_corr_points[mask]
+            copy_superpoint_ref_corr_points = copy_superpoint_ref_corr_points[mask]
         
         print('copy_superpoint_src_corr_points.shape : ', copy_superpoint_src_corr_points.shape)
         print('copy_superpoint_ref_corr_points.shape : ', copy_superpoint_ref_corr_points.shape)
