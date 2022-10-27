@@ -216,7 +216,7 @@ def main():
                     print('mask : ', mask)
                 else:
                     mask_tmp = (copy_superpoint_src_corr_points == inlier_point)
-                    mask_tmp = np.apply_along_axis(all_values_true, 1, mask)
+                    mask_tmp = np.apply_along_axis(all_values_true, 1, mask_tmp)
                     mask = mask or mask_tmp
             
             mask = np.logical_not(mask)
