@@ -199,14 +199,24 @@ def main():
         copy_superpoint_ref_corr_points = copy_superpoint_ref_corr_points[indices_outliers]
         print('copy_superpoint_src_corr_points.shape : ', copy_superpoint_src_corr_points.shape)
         
-        mask = np.array([])   
+        mask = np.array([])
+        
+        def all_values_true(arr):
+            if arr[0] == arr[1] == arr[2] == True:
+                return True
+            else:
+                return False
+
         if FILTER_POINTS_ONCE_TRANSFORMATION_FOUND:
             # Suppose that we decided to filter all the other occurences of the inlier point in the outlier points
             for inlier_point in chosen_inliers_src:
                 if mask.size == 0:
                     mask = (copy_superpoint_src_corr_points == inlier_point)
+                    mask = map(all_values_true, mask)
                     print('mask : ', mask)
                 else:
+                    mask = (copy_superpoint_src_corr_points == inlier_point)
+                    mask = map(all_values_true, mask)
                     mask = mask or (copy_superpoint_src_corr_points == inlier_point)
             
             mask = np.logical_not(mask)
