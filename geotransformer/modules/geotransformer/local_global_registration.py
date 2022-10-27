@@ -396,6 +396,7 @@ class AstrivisLocalGlobalRegistration(nn.Module):
         pcd_src.points = o3d.utility.Vector3dVector(np.array(global_src_corr_points.cpu()))
 
         if self.directory:
+            print('Superpoints updated')
             o3d.io.write_point_cloud(self.directory + '/superpoints_ref.ply', pcd_ref)
             o3d.io.write_point_cloud(self.directory + '/superpoints_src.ply', pcd_src)
 
@@ -408,6 +409,7 @@ class AstrivisLocalGlobalRegistration(nn.Module):
         )
 
         if self.directory:
+            print('Line set updated')
             o3d.io.write_line_set(self.directory + "/line_set.ply", line_set)
         
         # build verification set
