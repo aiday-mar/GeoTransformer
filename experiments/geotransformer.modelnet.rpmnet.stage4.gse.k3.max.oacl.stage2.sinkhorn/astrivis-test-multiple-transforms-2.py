@@ -131,7 +131,9 @@ def main():
         print('indices_outliers.shape : ', indices_outliers.shape)
         transform_to_superpoint[i] = copy_superpoint_src_corr_points[indices_inliers]
         
-        transformed_superpoints_pcd.append(apply_transform(torch.tensor(copy_superpoint_src_corr_points[indices_inliers]), torch.tensor(transform)))
+        transformed_inliers = apply_transform(torch.tensor(copy_superpoint_src_corr_points[indices_inliers]), torch.tensor(transform))
+        print('transformed_inliers.shape : ', transformed_inliers.shape)
+        transformed_superpoints_pcd.append(transformed_inliers.tolist())
         print('transformed_superpoints_pcd : ', transformed_superpoints_pcd)
         break
     
