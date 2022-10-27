@@ -110,7 +110,7 @@ def main():
         transformed_src_superpoints = apply_transform(torch.tensor(copy_superpoint_src_corr_points), torch.tensor(transform))
         print('transformed_src_superpoints.shape : ', transformed_src_superpoints.shape)
         residual = torch.linalg.norm(
-            superpoint_ref_corr_points - transformed_src_superpoints, dim=1
+            torch.tensor(superpoint_ref_corr_points) - torch.tensor(transformed_src_superpoints), dim=1
         )
         print('residual.shape : ', residual.shape)
         batch_inlier_masks = torch.lt(residual, args.acceptance_radius)
