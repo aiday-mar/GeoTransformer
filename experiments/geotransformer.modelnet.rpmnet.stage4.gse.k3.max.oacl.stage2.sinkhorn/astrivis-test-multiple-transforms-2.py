@@ -205,6 +205,7 @@ def main():
             for inlier_point in chosen_inliers_src:
                 if mask.size == 0:
                     mask = (copy_superpoint_src_corr_points == inlier_point)
+                    print('mask : ', mask)
                 else:
                     mask = mask or (copy_superpoint_src_corr_points == inlier_point)
             
