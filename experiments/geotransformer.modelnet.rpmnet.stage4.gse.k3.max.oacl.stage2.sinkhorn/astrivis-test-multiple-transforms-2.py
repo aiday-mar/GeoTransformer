@@ -122,7 +122,7 @@ def main():
         indices_outliers = batch_outlier_masks.nonzero()
         print('indices_outliers : ', indices_outliers.shape)
         transform_to_superpoint[i] = copy_superpoint_src_corr_points[indices_inliers]
-        transformed_superpoints_pcd.append(apply_transform(copy_superpoint_src_corr_points[indices_inliers], transform))
+        transformed_superpoints_pcd.append(apply_transform(torch.tensor(copy_superpoint_src_corr_points[indices_inliers]), torch.tensor(transform)))
         
         copy_superpoint_src_corr_points = copy_superpoint_src_corr_points[indices_outliers]
         print('copy_superpoint_src_corr_points.shape : ', copy_superpoint_src_corr_points.shape)
