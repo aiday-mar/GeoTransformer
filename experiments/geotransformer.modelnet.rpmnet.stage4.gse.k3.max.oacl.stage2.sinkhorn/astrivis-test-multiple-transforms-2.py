@@ -148,7 +148,10 @@ def main():
         indices_outliers = batch_outlier_masks.nonzero()
         indices_outliers = torch.squeeze(indices_outliers, 1)
         print('indices_outliers.shape : ', indices_outliers.shape)
-        transform_to_superpoint[i] = copy_superpoint_src_corr_points[indices_inliers]
+        if transform_to_superpoint[best_index]:
+            transform_to_superpoint[best_index] = np.append(transform_to_superpoint[best_index], copy_superpoint_src_corr_points[indices_inliers], axis=0)
+        else:
+            transform_to_superpoint[best_index] = copy_superpoint_src_corr_points[indices_inliers]
         
         transformed_inliers = apply_transform(torch.tensor(copy_superpoint_src_corr_points[indices_inliers]), torch.tensor(transform))
         print('transformed_inliers.dim() : ', transformed_inliers.dim())
