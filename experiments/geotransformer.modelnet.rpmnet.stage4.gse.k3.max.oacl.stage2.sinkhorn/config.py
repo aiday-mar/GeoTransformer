@@ -1,6 +1,6 @@
 # --- CONFIG INFO ---
 # COMMIT NUMBER: 0efd54b2ce5e45470dc28d3b31cd195e92e1cb52
-# good models : 005, 094, 116, 166
+# confidence threshold set to 0.9, quite high, but the correspondences are not very good
 
 import os
 import os.path as osp
@@ -99,14 +99,14 @@ _C.backbone.output_dim = 256
 # model - Global
 _C.model = edict()
 _C.model.ground_truth_matching_radius = 0.05
-_C.model.num_points_in_patch = 5 # the number of points inside of the neighborhood in a center, previously this was 128
+_C.model.num_points_in_patch = 10 # the number of points inside of the neighborhood in a center, previously this was 128
 _C.model.num_sinkhorn_iterations = 100
 
 # model - Coarse Matching
 _C.coarse_matching = edict()
 _C.coarse_matching.num_targets = 128
 _C.coarse_matching.overlap_threshold = 0.1
-_C.coarse_matching.num_correspondences = 2000 # presumably the number of centers, previously this was 128
+_C.coarse_matching.num_correspondences = 1000 # presumably the number of centers, previously this was 128
 _C.coarse_matching.dual_normalization = True
 
 # model - GeoTransformer
@@ -126,7 +126,7 @@ _C.fine_matching = edict()
 _C.fine_matching.topk = 3  # default value 3
 _C.fine_matching.acceptance_radius = 0.1
 _C.fine_matching.mutual = True
-_C.fine_matching.confidence_threshold = 0.8 # Increase this value in order to have more reliable correspondences, default 0.05
+_C.fine_matching.confidence_threshold = 0.9 # Increase this value in order to have more reliable correspondences, default 0.05
 _C.fine_matching.use_dustbin = False
 _C.fine_matching.use_global_score = False
 _C.fine_matching.correspondence_threshold = 0 # seems to regulate the number of final batch transformations that would be outputed, used to be 3
