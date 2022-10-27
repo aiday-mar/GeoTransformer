@@ -135,7 +135,7 @@ def main():
         print('transformed_inliers.dim() : ', transformed_inliers.dim())
         
         if transformed_inliers.dim() == 1:
-            transformed_inliers[None, :]
+            transformed_inliers = np.expand_dims(transformed_inliers, axis=0)
         
         print('transformed_inliers.shape : ', transformed_inliers.shape)
         
