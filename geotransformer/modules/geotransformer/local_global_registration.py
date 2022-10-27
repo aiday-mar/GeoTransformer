@@ -477,6 +477,7 @@ class AstrivisLocalGlobalRegistration(nn.Module):
             batch_inlier_masks = torch.lt(batch_corr_residuals, self.acceptance_radius)  # (P, N)
             print('batch_inlier_masks.shape : ', batch_inlier_masks.shape)
             best_index = batch_inlier_masks.sum(dim=1).argmax()
+            print('best_index : ', best_index)
             sorted_indices = np.argsort(batch_inlier_masks.sum(dim=1).cpu())
             cur_corr_scores = corr_scores * batch_inlier_masks[best_index].float()
         else:

@@ -9,6 +9,7 @@ from geotransformer.utils.data import registration_collate_fn_stack_mode
 from geotransformer.utils.torch import to_cuda, release_cuda
 from geotransformer.utils.open3d import make_open3d_point_cloud, get_color, draw_geometries
 from geotransformer.utils.registration import compute_registration_error
+from geotransformer.modules.ops import apply_transform
 
 from config import make_cfg
 from model import create_model
@@ -86,8 +87,8 @@ def main():
     superpoint_ref_corr_points = output_dict['superpoint_ref_corr_points'] 
     optimal_transformations_per_superpoint = output_dict['optimal_transformations_per_superpoint']
     
-    sorted_batch_inlier_masks = [batch_inlier_masks[i] for i in sorted_indices]
-    sorted_batch_transforms = [batch_transforms[i] for i in sorted_indices]
+    batch_sorted_inlier_masks = [batch_inlier_masks[i] for i in sorted_indices]
+    batch_sorted_transforms = [batch_transforms[i] for i in sorted_indices]
     
     print('len(batch_transforms) : ', len(batch_transforms))
     print('estimated_transform : ', estimated_transform)
@@ -95,7 +96,55 @@ def main():
     print('superpoint_src_corr_points.shape : ', np.array(superpoint_src_corr_points).shape) # presumably similar to the src_points
     print('superpoint_ref_corr_points.shape : ', np.array(superpoint_ref_corr_points).shape) # presumably similar to the src_points
     print('batch_inlier_masks.shape : ', np.array(batch_inlier_masks).shape)
-    print('batch_transforms.shape : ', np.array(batch_transforms).shape)    
+    print('batch_transforms.shape : ', np.array(batch_transforms).shape)
+    
+    transform_to_superpoint = {}
+    copy_superpoint_src_corr_points = superpoint_src_corr_points
+    transformed_superpoints_pcd = []
+    n_rows = 0
+    rotation_n = 0
+    
+    for i in sorted_indices:
+        transform = batch_transforms[i]
+        print('transform.shape : ', transform.shape)
+        transformed_src_superpoints = apply_transform(copy_superpoint_src_corr_points, transform)
+        print('transformed_src_superpoints.shape : ', transformed_src_superpoints.shape)
+        residual = torch.linalg.norm(
+            superpoint_ref_corr_points - transformed_src_superpoints, dim=1
+        )
+        print('residual.shape : ', residual.shape)
+        batch_inlier_masks = torch.lt(residual, args.acceptance_radius)
+        batch_outlier_masks = torch.gt(residual, args.acceptance_radius)
+        print('batch_inlier_masks.shape : ', batch_inlier_masks.shape)
+        print('batch_outlier_masks.shape : ', batch_inlier_masks.shape)
+        indices_inliers = batch_inlier_masks.nonzero()
+        print('indices_inliers : ', indices_inliers.shape)
+        indices_outliers = batch_outlier_masks.nonzero()
+        print('indices_outliers : ', indices_outliers.shape)
+        transform_to_superpoint[i] = copy_superpoint_src_corr_points[indices_inliers]
+        transformed_superpoints_pcd.append(apply_transform(copy_superpoint_src_corr_points[indices_inliers], transform))
+        
+        copy_superpoint_src_corr_points = copy_superpoint_src_corr_points[indices_outliers]
+        print('copy_superpoint_src_corr_points.shape : ', copy_superpoint_src_corr_points.shape)
+        
+        # maybe should only apply no more than a specific number of rotations, break after this has been attained
+        n_rows = np.shape(copy_superpoint_src_corr_points)[0]
+        if n_rows < 1000:
+            break
+            
+        # apply the transformation also to the final point-cloud in order to be able to visualize the transformation
+        src_points = o3d.io.read_point_cloud(args.source)
+        src_points = src_points.transform(transform)
+        o3d.io.write_point_cloud(args.directory + "/src_pcd_transformed_${rotation_n}.ply", src_points)
+        rotation_n += 1
+    
+    # last points are transformed with the estimated transform
+    if n_rows != 0:
+        transformed_superpoints_pcd.append(apply_transform(copy_superpoint_src_corr_points, estimated_transform))
+    
+    final_total_pcd = make_open3d_point_cloud(np.array(transformed_superpoints_pcd))
+    final_total_pcd.estimate_normals()
+    o3d.io.write_point_cloud(args.directory + '/multiple-trans-1.ply', final_total_pcd)
     
 if __name__ == "__main__":
     main()
