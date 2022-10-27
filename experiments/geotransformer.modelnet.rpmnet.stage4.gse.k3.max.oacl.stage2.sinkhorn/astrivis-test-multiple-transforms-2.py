@@ -101,7 +101,7 @@ def main():
     transform_to_superpoint = {}
     copy_superpoint_src_corr_points = superpoint_src_corr_points
     copy_superpoint_ref_corr_points = superpoint_ref_corr_points
-    transformed_superpoints_pcd = None
+    transformed_superpoints_pcd = np.array([])
     n_rows = 0
     rotation_n = 0
     
@@ -133,7 +133,7 @@ def main():
         
         transformed_inliers = apply_transform(torch.tensor(copy_superpoint_src_corr_points[indices_inliers]), torch.tensor(transform))
         print('transformed_inliers.shape : ', transformed_inliers.shape)
-        if transformed_superpoints_pcd == None:
+        if transformed_superpoints_pcd.size() == 0:
             transformed_superpoints_pcd = np.array(transformed_inliers)
         else:
             transformed_superpoints_pcd = np.append(transformed_superpoints_pcd, np.array(transformed_inliers), axis=0)
