@@ -118,6 +118,7 @@ def main():
     copy_superpoint_ref_corr_points = superpoint_ref_corr_points
     transformed_superpoints_pcd = np.array([])
     n_rows = 0
+    global_best_index = -1
     rotation_n = 0
     
     files = glob.glob(args.directory + '/src_pcd_transformed/*')
@@ -128,6 +129,9 @@ def main():
     # transform = batch_transforms[i]
     while True:
         best_index = compute_best_transform(copy_superpoint_src_corr_points, copy_superpoint_ref_corr_points, batch_transforms)
+        if global_best_index == -1:
+            global_best_index = best_index
+            
         print('best_index : ', best_index)
         transform = batch_transforms[best_index]
         print('transform.shape : ', transform.shape)
@@ -188,8 +192,9 @@ def main():
     # last points are transformed with the estimated transform
     if n_rows != 0:
         last_batch = apply_transform(torch.tensor(copy_superpoint_src_corr_points), torch.tensor(estimated_transform))
+        transform_to_superpoint[global_best_index] = copy_superpoint_src_corr_points
         transformed_superpoints_pcd = np.append(transformed_superpoints_pcd, np.array(last_batch), axis=0)
-    
+        
     print('transformed_superpoints_pcd.shape : ', transformed_superpoints_pcd.shape)
     final_total_pcd = make_open3d_point_cloud(transformed_superpoints_pcd)
     final_total_pcd.estimate_normals()
