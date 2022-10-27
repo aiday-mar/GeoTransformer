@@ -381,6 +381,10 @@ class AstrivisLocalGlobalRegistration(nn.Module):
         print('batch_indices.shape : ', batch_indices.shape)
         print('ref_indices.shape : ', ref_indices.shape)
         print('src_indices.shape : ', src_indices.shape)
+        
+        print('batch_indices : ', batch_indices)
+        print('ref_indices : ', ref_indices)
+        print('src_indices : ', src_indices)
     
         global_ref_corr_points = ref_knn_points[batch_indices, ref_indices]
         global_src_corr_points = src_knn_points[batch_indices, src_indices]
