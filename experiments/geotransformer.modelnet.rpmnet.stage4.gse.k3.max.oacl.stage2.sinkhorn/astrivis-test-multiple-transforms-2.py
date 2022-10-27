@@ -54,6 +54,9 @@ def load_data(args):
 # 0.1 chosen in order to have good final transform
 ACCEPTANCE_RADIUS = 0.05
 NUMBER_TRANSFORMATIONS_OF_INTEREST = 10
+# Once the superpoint has a transformation that is found, we can decide to filter this point in the remaining outliers, or not
+# Choosing True, means we will have a hard constraint
+FILTER_POINTS_ONCE_TRANSFORMATION_FOUND = True
 
 def compute_best_transform(superpoint_src_corr_points, superpoint_ref_corr_points, batch_transforms):
     print('Inside of compute_best_transform')
@@ -134,10 +137,18 @@ def main():
         best_index = int(compute_best_transform(copy_superpoint_src_corr_points, copy_superpoint_ref_corr_points, batch_transforms))
         if global_best_index == -1:
             global_best_index = best_index
-            
+        
+        # Only save the first 10 transformations, because we are not interested in all of them
         print('best_index : ', best_index)
         transform = batch_transforms[best_index]
         print('transform.shape : ', transform.shape)
+        
+        if rotation_n < NUMBER_TRANSFORMATIONS_OF_INTEREST:
+            src_points = o3d.io.read_point_cloud(args.source)
+            src_points = src_points.transform(transform)
+            o3d.io.write_point_cloud(args.directory + '/src_pcd_transformed/src_pcd_transformed_' + str(rotation_n) + '.ply', src_points)
+            
+        # Finding the inlier and outlier indices
         print('copy_superpoint_src_corr_points.shape : ', copy_superpoint_src_corr_points.shape)
         transformed_src_superpoints = apply_transform(torch.tensor(copy_superpoint_src_corr_points), torch.tensor(transform))
         print('transformed_src_superpoints.shape : ', transformed_src_superpoints.shape)
@@ -154,47 +165,60 @@ def main():
         print('indices_inliers.shape : ', indices_inliers.shape)
         indices_outliers = batch_outlier_masks.nonzero()
         indices_outliers = torch.squeeze(indices_outliers, 1)
+        print('indices_outliers.shape : ', indices_outliers.shape)
+        chosen_inliers_src = copy_superpoint_src_corr_points[indices_inliers]
         
         if rotation_n < NUMBER_TRANSFORMATIONS_OF_INTEREST:
             # we want to visualize the inliers for the first say 10 transformations
             inlier_pcd = o3d.geometry.PointCloud()
-            inlier_pcd.points =  o3d.utility.Vector3dVector(copy_superpoint_src_corr_points[indices_inliers])
-            o3d.io.write_point_cloud(args.directory + '/src_pcd_transformed/inliers_transformation_' + str(rotation_n) + '.ply', inlier_pcd)            
-            
-        print('indices_outliers.shape : ', indices_outliers.shape)
+            inlier_pcd.points =  o3d.utility.Vector3dVector(chosen_inliers_src)
+            o3d.io.write_point_cloud(args.directory + '/src_pcd_transformed/inliers_transformation_' + str(rotation_n) + '.ply', inlier_pcd)               
+        
         if best_index in transform_to_superpoint:
-            transform_to_superpoint[best_index] = np.append(transform_to_superpoint[best_index], copy_superpoint_src_corr_points[indices_inliers], axis=0)
+            transform_to_superpoint[best_index] = np.append(transform_to_superpoint[best_index], chosen_inliers_src, axis=0)
         else:
-            transform_to_superpoint[best_index] = copy_superpoint_src_corr_points[indices_inliers]
+            transform_to_superpoint[best_index] = chosen_inliers_src
         
-        transformed_inliers = apply_transform(torch.tensor(copy_superpoint_src_corr_points[indices_inliers]), torch.tensor(transform))
+        # Transforming the inliers and adding it to the final pcd
+        transformed_inliers = apply_transform(torch.tensor(chosen_inliers_src), torch.tensor(transform))
         print('transformed_inliers.dim() : ', transformed_inliers.dim())
-        
         if transformed_inliers.dim() == 1:
             transformed_inliers = np.expand_dims(transformed_inliers, axis=0)
         
         print('transformed_inliers.shape : ', transformed_inliers.shape)
-        
         if transformed_superpoints_pcd.size == 0:
             transformed_superpoints_pcd = np.array(transformed_inliers)
         else:
             transformed_superpoints_pcd = np.append(transformed_superpoints_pcd, np.array(transformed_inliers), axis=0)
+            
         print('transformed_superpoints_pcd : ', transformed_superpoints_pcd)
-    
         print('len(transformed_superpoints_pcd) : ', len(transformed_superpoints_pcd))
+        
+        # Treating the outliers, potentiall making the outlier array smaller by filtering
         copy_superpoint_src_corr_points = copy_superpoint_src_corr_points[indices_outliers]
         copy_superpoint_ref_corr_points = copy_superpoint_ref_corr_points[indices_outliers]
         print('copy_superpoint_src_corr_points.shape : ', copy_superpoint_src_corr_points.shape)
         
+        mask = None   
+        if FILTER_POINTS_ONCE_TRANSFORMATION_FOUND:
+            # Suppose that we decided to filter all the other occurences of the inlier point in the outlier points
+            for inlier_point in chosen_inliers_src:
+                if mask == None:
+                    mask = (copy_superpoint_src_corr_points == inlier_point)
+                else:
+                    mask = mask or (copy_superpoint_src_corr_points == inlier_point)
+            
+            mask = np.logical_not(mask)
+            print('mask.shape : ', mask.shape)
+            
+            copy_superpoint_src_corr_points[mask]
+            copy_superpoint_ref_corr_points[mask]
+        
+        print('copy_superpoint_src_corr_points.shape : ', copy_superpoint_src_corr_points.shape)
+        print('copy_superpoint_ref_corr_points.shape : ', copy_superpoint_ref_corr_points.shape)
+        
         # maybe should only apply no more than a specific number of rotations, break after this has been attained
         n_rows = np.shape(copy_superpoint_src_corr_points)[0]
-
-        # Only save the first 10 transformations, because we are not interested in all of them
-        if rotation_n < NUMBER_TRANSFORMATIONS_OF_INTEREST:
-            src_points = o3d.io.read_point_cloud(args.source)
-            src_points = src_points.transform(transform)
-            o3d.io.write_point_cloud(args.directory + '/src_pcd_transformed/src_pcd_transformed_' + str(rotation_n) + '.ply', src_points)
-            
         rotation_n += 1
         
         if n_rows < 1000:
