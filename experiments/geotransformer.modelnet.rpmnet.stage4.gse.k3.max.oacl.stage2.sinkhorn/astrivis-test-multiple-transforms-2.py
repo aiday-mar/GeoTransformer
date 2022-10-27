@@ -52,7 +52,7 @@ def load_data(args):
 
 # The smaller the acceptance radius the better the first say 10 transformations chosen will be to the final point-cloud
 # 0.1 chosen in order to have good final transform
-ACCEPTANCE_RADIUS = 0.05
+ACCEPTANCE_RADIUS = 0.01
 NUMBER_TRANSFORMATIONS_OF_INTEREST = 10
 # Once the superpoint has a transformation that is found, we can decide to filter this point in the remaining outliers, or not
 # Choosing True, means we will have a hard constraint
