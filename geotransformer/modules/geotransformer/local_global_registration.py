@@ -279,17 +279,22 @@ class AstrivisLocalGlobalRegistration(nn.Module):
 
     def compute_correspondence_matrix(self, score_mat, ref_knn_masks, src_knn_masks):
         r"""Compute matching matrix and score matrix for each patch correspondence."""
+        # mask_mat is defined in the beginning, however the matrix is calculated and refined here
         mask_mat = torch.logical_and(ref_knn_masks.unsqueeze(2), src_knn_masks.unsqueeze(1))
 
         batch_size, ref_length, src_length = score_mat.shape
         batch_indices = torch.arange(batch_size).cuda()
 
         # correspondences from reference side
+        print('Inside of compute_correspondence_matrix')
+        print('self.k : ', self.k)
         ref_topk_scores, ref_topk_indices = score_mat.topk(k=self.k, dim=2)  # (B, N, K)
+        print('ref_topk_scores.shape: ', ref_topk_scores.shape)
         ref_batch_indices = batch_indices.view(batch_size, 1, 1).expand(-1, ref_length, self.k)  # (B, N, K)
         ref_indices = torch.arange(ref_length).cuda().view(1, ref_length, 1).expand(batch_size, -1, self.k)  # (B, N, K)
         ref_score_mat = torch.zeros_like(score_mat)
         ref_score_mat[ref_batch_indices, ref_indices, ref_topk_indices] = ref_topk_scores
+        print('self.confidence_threshold : ', self.confidence_threshold)
         ref_corr_mat = torch.gt(ref_score_mat, self.confidence_threshold)
 
         # correspondences from source side
@@ -497,6 +502,9 @@ class AstrivisLocalGlobalRegistration(nn.Module):
         """
         score_mat = torch.exp(score_mat)
 
+        print('score_mat.shape : ', score_mat.shape)
+        print('ref_knn_masks.shape : ', ref_knn_masks.shape)
+        print('src_knn_masks.shape : ', src_knn_masks.shape)
         corr_mat = self.compute_correspondence_matrix(score_mat, ref_knn_masks, src_knn_masks)  # (B, K, K)
 
         if self.use_dustbin:
