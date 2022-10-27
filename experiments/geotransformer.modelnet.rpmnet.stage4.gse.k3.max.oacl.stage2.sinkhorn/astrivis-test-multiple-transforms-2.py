@@ -133,6 +133,9 @@ def main():
         
         transformed_inliers = apply_transform(torch.tensor(copy_superpoint_src_corr_points[indices_inliers]), torch.tensor(transform))
         print('transformed_inliers.shape : ', transformed_inliers.shape)
+        if transformed_inliers.dim() == 1:
+            transformed_inliers[None, :]
+            
         if transformed_superpoints_pcd.size == 0:
             transformed_superpoints_pcd = np.array(transformed_inliers)
         else:
@@ -152,7 +155,7 @@ def main():
         # apply the transformation also to the final point-cloud in order to be able to visualize the transformation
         src_points = o3d.io.read_point_cloud(args.source)
         src_points = src_points.transform(transform)
-        o3d.io.write_point_cloud(args.directory + '/src_pcd_transformed/src_pcd_transformed_' + str(rotation_n) + '.ply', src_points)
+        o3d.io.write_point_cloud('src_pcd_transformed/src_pcd_transformed_' + str(rotation_n) + '.ply', src_points)
         rotation_n += 1
     
     print('number of rotations used : ', rotation_n)
