@@ -82,7 +82,8 @@ def main():
     batch_transforms = output_dict["batch_transforms"]
     sorted_indices = output_dict["sorted_indices"]
     batch_inlier_masks = output_dict['batch_inlier_masks']
-    astrivis_corr_points = output_dict['astrivis_corr_points']
+    superpoint_src_corr_points = output_dict['superpoint_src_corr_points'] # used to be astrivis_corr_points
+    superpoint_ref_corr_points = output_dict['superpoint_ref_corr_points'] 
     optimal_transformations_per_superpoint = output_dict['optimal_transformations_per_superpoint']
     
     sorted_batch_inlier_masks = [batch_inlier_masks[i] for i in sorted_indices]
@@ -90,15 +91,16 @@ def main():
     
     print('len(batch_transforms) : ', len(batch_transforms))
     print('estimated_transform : ', estimated_transform)
-    print('sorted_indices : ', sorted_indices)
-    print('astrivis_corr_points.shape : ', np.array(astrivis_corr_points).shape)
+    print('sorted_indices : ', sorted_indices) # sorted indices of best transformations in order
+    print('superpoint_src_corr_points.shape : ', np.array(superpoint_src_corr_points).shape) # presumably similar to the src_points
+    print('superpoint_ref_corr_points.shape : ', np.array(superpoint_ref_corr_points).shape) # presumably similar to the src_points
     print('batch_inlier_masks.shape : ', np.array(batch_inlier_masks).shape)
     print('batch_transforms.shape : ', np.array(batch_transforms).shape)
-    # print('optimal_transformations_per_superpoint : ', optimal_transformations_per_superpoint)
     # transform = data_dict["transform"]
 
-    ######### Normal Transform
+    ######### Finding SuperPoint to Transform
     
+    '''
     src_pcd = make_open3d_point_cloud(src_points)
     src_pcd.estimate_normals()
     src_pcd = src_pcd.transform(estimated_transform)
@@ -110,7 +112,7 @@ def main():
     superpoint_to_transform = {}
     for i in range(0, len(sorted_batch_inlier_masks)):
         n_transforms = 0
-        for j in range(0, len(astrivis_corr_points)):
+        for j in range(0, len(superpoint_ref_corr_points)):
             if sorted_batch_inlier_masks[i][j] == True:
                 if j in superpoint_to_transform:
                     superpoint_to_transform[j].append(i)
@@ -125,6 +127,7 @@ def main():
     
     print('Found superpoint_to_transform')
     print('Finding the non-rigid transformations')
+    '''
     
     ####### MODIFIED TRANSFORM - 1
 
@@ -244,6 +247,7 @@ def main():
     
     ####### MODIFIED TRANSFORM - 4
     
+    '''
     print('Fourth modified pcd')
     
     final_total_pcd = []
@@ -269,9 +273,11 @@ def main():
     final_total_pcd = make_open3d_point_cloud(np.array(final_total_pcd))
     final_total_pcd.estimate_normals()
     o3d.io.write_point_cloud(args.directory + '/multiple-transforms-4.ply', final_total_pcd)
+    '''
     
     ####### MODIFIED TRANSFORM - 5
     
+    '''
     print('Fifth modified pcd')
     
     final_total_pcd = []
@@ -297,6 +303,10 @@ def main():
     final_total_pcd = make_open3d_point_cloud(np.array(final_total_pcd))
     final_total_pcd.estimate_normals()
     o3d.io.write_point_cloud(args.directory + '/multiple-transforms-5.ply', final_total_pcd)
+    '''
+    
+    ######## MODIFIED TRANSFORM - 6
+    
     
 if __name__ == "__main__":
     main()
