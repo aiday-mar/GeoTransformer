@@ -107,7 +107,7 @@ def main():
     for i in sorted_indices:
         transform = batch_transforms[i]
         print('transform.shape : ', transform.shape)
-        transformed_src_superpoints = apply_transform(torch.tensor(copy_superpoint_src_corr_points), transform)
+        transformed_src_superpoints = apply_transform(torch.tensor(copy_superpoint_src_corr_points), torch.tensor(transform))
         print('transformed_src_superpoints.shape : ', transformed_src_superpoints.shape)
         residual = torch.linalg.norm(
             superpoint_ref_corr_points - transformed_src_superpoints, dim=1
