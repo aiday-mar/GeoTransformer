@@ -144,9 +144,10 @@ def main():
         o3d.io.write_point_cloud(args.directory + "/src_pcd_transformed_${rotation_n}.ply", src_points)
         rotation_n += 1
     
+    print('number of rotations used : ', rotation_n)
     # last points are transformed with the estimated transform
     if n_rows != 0:
-        transformed_superpoints_pcd.append(apply_transform(copy_superpoint_src_corr_points, estimated_transform))
+        transformed_superpoints_pcd.append(apply_transform(torch.tensor(copy_superpoint_src_corr_points), torch.tensor(estimated_transform)))
     
     final_total_pcd = make_open3d_point_cloud(np.array(transformed_superpoints_pcd))
     final_total_pcd.estimate_normals()
