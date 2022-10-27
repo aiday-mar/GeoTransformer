@@ -375,6 +375,7 @@ class AstrivisLocalGlobalRegistration(nn.Module):
         # extract dense correspondences
         batch_indices, ref_indices, src_indices = torch.nonzero(corr_mat, as_tuple=True)
         
+        print('Inside local_to_global_registration')
         print('ref_knn_points.shape : ', ref_knn_points.shape)
         print('src_knn_points.shape : ', src_knn_points.shape)
         print('batch_indices.shape : ', batch_indices.shape)
