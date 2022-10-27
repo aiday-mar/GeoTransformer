@@ -107,7 +107,7 @@ _C.model.num_sinkhorn_iterations = 100
 # model - Coarse Matching
 _C.coarse_matching = edict()
 _C.coarse_matching.num_targets = 128
-_C.coarse_matching.overlap_threshold = 0.1 # Randomly select "num_targets" correspondences whose overlap is above "overlap_threshold"
+_C.coarse_matching.overlap_threshold = 0.5 # Randomly select "num_targets" correspondences whose overlap is above "overlap_threshold"
 _C.coarse_matching.num_correspondences = 1000 # presumably the number of centers, previously this was 128
 _C.coarse_matching.dual_normalization = True
 
