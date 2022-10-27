@@ -189,16 +189,25 @@ def main():
             break
     
     print('number of rotations used : ', rotation_n)
-    # last points are transformed with the estimated transform
-    if n_rows != 0:
+    # last points are transformed with the global best transform
+    if n_rows != 0:   
+        transform_to_superpoint[global_best_index] = np.append(transform_to_superpoint[global_best_index], copy_superpoint_src_corr_points, axis=0)
         last_batch = apply_transform(torch.tensor(copy_superpoint_src_corr_points), torch.tensor(estimated_transform))
-        transform_to_superpoint[global_best_index] = copy_superpoint_src_corr_points
         transformed_superpoints_pcd = np.append(transformed_superpoints_pcd, np.array(last_batch), axis=0)
         
     print('transformed_superpoints_pcd.shape : ', transformed_superpoints_pcd.shape)
     final_total_pcd = make_open3d_point_cloud(transformed_superpoints_pcd)
     final_total_pcd.estimate_normals()
     o3d.io.write_point_cloud(args.directory + '/multiple-trans-1.ply', final_total_pcd)
+    
+    points = np.array(torch.cat((torch.tensor(transformed_superpoints_pcd), torch.tensor(superpoint_ref_corr_points)), 0).cpu())
+    lines = [[i, i+transformed_superpoints_pcd.shape[0]] for i in range(0, superpoint_ref_corr_points.shape[0])]
+    line_set = o3d.geometry.LineSet(
+        points=o3d.utility.Vector3dVector(points),
+        lines=o3d.utility.Vector2iVector(lines),
+    )
+    o3d.io.write_line_set(args.directory + "/line_set_inliers.ply", line_set)
+    print('Line set updated')
     
 if __name__ == "__main__":
     main()
