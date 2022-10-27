@@ -390,7 +390,7 @@ class AstrivisLocalGlobalRegistration(nn.Module):
         global_src_corr_points = src_knn_points[batch_indices, src_indices]
         
         # for a modified version of the indices chosen, find the indices in the vector here where the minimal distance is attained between the correspondences (or below a certain threshold, and chosen)
-        correspondence_distances = torch.norm(global_ref_corr_points - global_src_corr_points, dim = 0)
+        correspondence_distances = torch.norm(global_ref_corr_points - global_src_corr_points, dim = 1)
         print('correspondence_distances.shape : ', correspondence_distances.shape)
         correspondence_masks = torch.lt(correspondence_distances, 0.2)
         print('correspondence_masks.shape : ', correspondence_masks.shape)
