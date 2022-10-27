@@ -128,7 +128,7 @@ def main():
     # for i in sorted_indices:
     # transform = batch_transforms[i]
     while True:
-        best_index = compute_best_transform(copy_superpoint_src_corr_points, copy_superpoint_ref_corr_points, batch_transforms)
+        best_index = int(compute_best_transform(copy_superpoint_src_corr_points, copy_superpoint_ref_corr_points, batch_transforms))
         if global_best_index == -1:
             global_best_index = best_index
             
