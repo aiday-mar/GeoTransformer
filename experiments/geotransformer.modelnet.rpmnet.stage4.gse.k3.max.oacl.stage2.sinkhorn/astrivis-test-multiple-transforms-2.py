@@ -50,7 +50,20 @@ def load_data(args):
     '''
     return data_dict
 
+ACCEPTANCE_RADIUS = 0.1
 
+def compute_best_transform(superpoint_src_corr_points, superpoint_ref_corr_points, batch_transforms):
+    print('Inside of compute_best_transform')
+    batch_aligned_src_corr_points = apply_transform(superpoint_src_corr_points.unsqueeze(0), batch_transforms)
+    print('batch_aligned_src_corr_points.shape : ', batch_aligned_src_corr_points.shape) 
+    batch_corr_residuals = torch.linalg.norm(
+        superpoint_ref_corr_points.unsqueeze(0) - batch_aligned_src_corr_points, dim=2
+    )
+    batch_inlier_masks = torch.lt(batch_corr_residuals, ACCEPTANCE_RADIUS)  # (P, N)
+    print('batch_inlier_masks.shape : ', batch_inlier_masks.shape)
+    best_index = batch_inlier_masks.sum(dim=1).argmax()
+    return best_index
+            
 def main():
     parser = make_parser()
     args = parser.parse_args()
@@ -109,8 +122,12 @@ def main():
     for f in files:
         os.remove(f)
     
-    for i in sorted_indices:
-        transform = batch_transforms[i]
+    # for i in sorted_indices:
+    # transform = batch_transforms[i]
+    while True:
+        best_index = compute_best_transform(copy_superpoint_src_corr_points, copy_superpoint_ref_corr_points, batch_transforms)
+        print('best_index : ', best_index)
+        transform = batch_transforms[best_index]
         print('transform.shape : ', transform.shape)
         print('copy_superpoint_src_corr_points.shape : ', copy_superpoint_src_corr_points.shape)
         transformed_src_superpoints = apply_transform(torch.tensor(copy_superpoint_src_corr_points), torch.tensor(transform))
@@ -119,8 +136,8 @@ def main():
             torch.tensor(copy_superpoint_ref_corr_points) - transformed_src_superpoints, dim=1
         )
         print('residual.shape : ', residual.shape)
-        batch_inlier_masks = torch.lt(residual, 0.3) # cfg.fine_matching.acceptance_radius)
-        batch_outlier_masks = torch.gt(residual, 0.3) # cfg.fine_matching.acceptance_radius)
+        batch_inlier_masks = torch.lt(residual, ACCEPTANCE_RADIUS) # cfg.fine_matching.acceptance_radius)
+        batch_outlier_masks = torch.gt(residual, ACCEPTANCE_RADIUS) # cfg.fine_matching.acceptance_radius)
         print('batch_inlier_masks.shape : ', batch_inlier_masks.shape)
         print('batch_outlier_masks.shape : ', batch_inlier_masks.shape)
         indices_inliers = batch_inlier_masks.nonzero()
@@ -152,14 +169,15 @@ def main():
         
         # maybe should only apply no more than a specific number of rotations, break after this has been attained
         n_rows = np.shape(copy_superpoint_src_corr_points)[0]
-        if n_rows < 1000:
-            break
-            
+
         # apply the transformation also to the final point-cloud in order to be able to visualize the transformation
         src_points = o3d.io.read_point_cloud(args.source)
         src_points = src_points.transform(transform)
         o3d.io.write_point_cloud(args.directory + '/src_pcd_transformed/src_pcd_transformed_' + str(rotation_n) + '.ply', src_points)
         rotation_n += 1
+        
+        if n_rows < 1000:
+            break
     
     print('number of rotations used : ', rotation_n)
     # last points are transformed with the estimated transform
