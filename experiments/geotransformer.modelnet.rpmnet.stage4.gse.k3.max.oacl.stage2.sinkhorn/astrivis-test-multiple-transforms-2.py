@@ -132,10 +132,13 @@ def main():
         transform_to_superpoint[i] = copy_superpoint_src_corr_points[indices_inliers]
         
         transformed_inliers = apply_transform(torch.tensor(copy_superpoint_src_corr_points[indices_inliers]), torch.tensor(transform))
-        print('transformed_inliers.shape : ', transformed_inliers.shape)
+        print('transformed_inliers.dim() : ', transformed_inliers.dim())
+        
         if transformed_inliers.dim() == 1:
             transformed_inliers[None, :]
-            
+        
+        print('transformed_inliers.shape : ', transformed_inliers.shape)
+        
         if transformed_superpoints_pcd.size == 0:
             transformed_superpoints_pcd = np.array(transformed_inliers)
         else:
