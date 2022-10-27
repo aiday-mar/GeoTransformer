@@ -119,8 +119,8 @@ def main():
             torch.tensor(copy_superpoint_ref_corr_points) - transformed_src_superpoints, dim=1
         )
         print('residual.shape : ', residual.shape)
-        batch_inlier_masks = torch.lt(residual, 0.1) # cfg.fine_matching.acceptance_radius)
-        batch_outlier_masks = torch.gt(residual, 0.1) # cfg.fine_matching.acceptance_radius)
+        batch_inlier_masks = torch.lt(residual, 0.3) # cfg.fine_matching.acceptance_radius)
+        batch_outlier_masks = torch.gt(residual, 0.3) # cfg.fine_matching.acceptance_radius)
         print('batch_inlier_masks.shape : ', batch_inlier_masks.shape)
         print('batch_outlier_masks.shape : ', batch_inlier_masks.shape)
         indices_inliers = batch_inlier_masks.nonzero()
