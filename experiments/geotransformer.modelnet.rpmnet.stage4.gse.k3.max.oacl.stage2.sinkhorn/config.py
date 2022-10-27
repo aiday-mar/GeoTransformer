@@ -1,5 +1,6 @@
 # --- CONFIG INFO ---
-# COMMIT NUMBER: 
+# COMMIT NUMBER: 0efd54b2ce5e45470dc28d3b31cd195e92e1cb52
+# good models : 005, 094, 116, 166
 
 import os
 import os.path as osp
