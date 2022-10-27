@@ -50,7 +50,7 @@ def load_data(args):
     '''
     return data_dict
 
-ACCEPTANCE_RADIUS = 0.05
+ACCEPTANCE_RADIUS = 0.8
 
 def compute_best_transform(superpoint_src_corr_points, superpoint_ref_corr_points, batch_transforms):
     print('Inside of compute_best_transform')
