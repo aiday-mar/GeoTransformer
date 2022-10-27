@@ -10,6 +10,7 @@ cd model-${i}-sampled005
     rm !(dense1.ply|dense2.ply)
 cd ..
 
-python astrivis-test-multiple-transforms.py --source="model-${i}-sampled005/dense1.ply" --target="model-${i}-sampled005/dense2.ply" --output="model-${i}-sampled005/output.ply" --weights="../../output/geotransformer.modelnet.rpmnet.stage4.gse.k3.max.oacl.stage2.sinkhorn/snapshots/model-39.pth.tar" --directory="model-${i}-sampled005"
+# python astrivis-test-multiple-transforms-1.py
+python astrivis-test-multiple-transforms-2.py --source="model-${i}-sampled005/dense1.ply" --target="model-${i}-sampled005/dense2.ply" --output="model-${i}-sampled005/output.ply" --weights="../../output/geotransformer.modelnet.rpmnet.stage4.gse.k3.max.oacl.stage2.sinkhorn/snapshots/model-39.pth.tar" --directory="model-${i}-sampled005"
 
 done
