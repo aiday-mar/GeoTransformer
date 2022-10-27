@@ -222,14 +222,15 @@ def main():
         
         print('copy_superpoint_src_corr_points.shape : ', copy_superpoint_src_corr_points.shape)
         print('copy_superpoint_ref_corr_points.shape : ', copy_superpoint_ref_corr_points.shape)
-        
+
         # maybe should only apply no more than a specific number of rotations, break after this has been attained
         n_rows = np.shape(copy_superpoint_src_corr_points)[0]
         rotation_n += 1
         
-        if n_rows < 1000:
+        if n_rows < 100:
             break
     
+    print('number of unique points in pcd : ', np.unique(superpoint_src_corr_points, axis=0))
     print('number of rotations used : ', rotation_n)
     # last points are transformed with the global best transform
     if n_rows != 0:   
