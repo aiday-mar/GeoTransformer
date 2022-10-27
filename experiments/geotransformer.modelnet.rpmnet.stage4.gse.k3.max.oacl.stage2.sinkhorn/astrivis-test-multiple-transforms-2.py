@@ -13,7 +13,7 @@ from geotransformer.modules.ops import apply_transform
 
 from config import make_cfg
 from model import create_model
-
+import glob
 
 def make_parser():
     parser = argparse.ArgumentParser()
@@ -105,6 +105,10 @@ def main():
     n_rows = 0
     rotation_n = 0
     
+    files = glob.glob(args.directory + '/src_pcd_transformed/*')
+    for f in files:
+        os.remove(f)
+    
     for i in sorted_indices:
         transform = batch_transforms[i]
         print('transform.shape : ', transform.shape)
@@ -141,7 +145,7 @@ def main():
         # apply the transformation also to the final point-cloud in order to be able to visualize the transformation
         src_points = o3d.io.read_point_cloud(args.source)
         src_points = src_points.transform(transform)
-        o3d.io.write_point_cloud(args.directory + 'src_pcd_transformed/src_pcd_transformed_' + rotation_n + '.ply', src_points)
+        o3d.io.write_point_cloud(args.directory + '/src_pcd_transformed/src_pcd_transformed_' + rotation_n + '.ply', src_points)
         rotation_n += 1
     
     print('number of rotations used : ', rotation_n)
