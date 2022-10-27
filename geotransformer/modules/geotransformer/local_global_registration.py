@@ -390,16 +390,17 @@ class AstrivisLocalGlobalRegistration(nn.Module):
         global_src_corr_points = src_knn_points[batch_indices, src_indices]
         
         # for a modified version of the indices chosen, find the indices in the vector here where the minimal distance is attained between the correspondences (or below a certain threshold, and chosen)
-        correspondence_distances = torch.norm(global_ref_corr_points - global_src_corr_points, dim = 1)
-        print('correspondence_distances.shape : ', correspondence_distances.shape)
-        correspondence_masks = torch.lt(correspondence_distances, 0.2)
-        print('correspondence_masks.shape : ', correspondence_masks.shape)
-        batch_indices = batch_indices[correspondence_masks]
-        ref_indices = ref_indices[correspondence_masks]
-        src_indices = src_indices[correspondence_masks]
-        print('batch_indices.shape : ', batch_indices.shape)
-        print('ref_indices.shape : ', ref_indices.shape)
-        print('src_indices.shape : ', src_indices.shape)
+        # Idea of filtering the correspondences according to the distance between them can be placed on the side for now
+        # correspondence_distances = torch.norm(global_ref_corr_points - global_src_corr_points, dim = 1)
+        # print('correspondence_distances.shape : ', correspondence_distances.shape)
+        # correspondence_masks = torch.lt(correspondence_distances, 0.2)
+        # print('correspondence_masks.shape : ', correspondence_masks.shape)
+        # batch_indices = batch_indices[correspondence_masks]
+        # ref_indices = ref_indices[correspondence_masks]
+        # src_indices = src_indices[correspondence_masks]
+        # print('batch_indices.shape : ', batch_indices.shape)
+        # print('ref_indices.shape : ', ref_indices.shape)
+        # print('src_indices.shape : ', src_indices.shape)
         
         global_corr_scores = score_mat[batch_indices, ref_indices, src_indices]
 
