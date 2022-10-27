@@ -100,6 +100,7 @@ def main():
     
     transform_to_superpoint = {}
     copy_superpoint_src_corr_points = superpoint_src_corr_points
+    copy_superpoint_ref_corr_points = superpoint_ref_corr_points
     transformed_superpoints_pcd = []
     n_rows = 0
     rotation_n = 0
@@ -111,7 +112,7 @@ def main():
         transformed_src_superpoints = apply_transform(torch.tensor(copy_superpoint_src_corr_points), torch.tensor(transform))
         print('transformed_src_superpoints.shape : ', transformed_src_superpoints.shape)
         residual = torch.linalg.norm(
-            torch.tensor(superpoint_ref_corr_points) - transformed_src_superpoints, dim=1
+            torch.tensor(copy_superpoint_ref_corr_points) - transformed_src_superpoints, dim=1
         )
         print('residual.shape : ', residual.shape)
         batch_inlier_masks = torch.lt(residual, cfg.fine_matching.acceptance_radius)
@@ -129,6 +130,7 @@ def main():
         transformed_superpoints_pcd.append(apply_transform(torch.tensor(copy_superpoint_src_corr_points[indices_inliers]), torch.tensor(transform)))
         print('len(transformed_superpoints_pcd) : ', len(transformed_superpoints_pcd))
         copy_superpoint_src_corr_points = copy_superpoint_src_corr_points[indices_outliers]
+        copy_superpoint_ref_corr_points = copy_superpoint_ref_corr_points[indices_outliers]
         print('copy_superpoint_src_corr_points.shape : ', copy_superpoint_src_corr_points.shape)
         
         # maybe should only apply no more than a specific number of rotations, break after this has been attained
