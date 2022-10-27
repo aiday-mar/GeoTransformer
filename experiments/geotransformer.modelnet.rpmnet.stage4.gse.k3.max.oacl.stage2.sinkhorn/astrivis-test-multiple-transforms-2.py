@@ -230,7 +230,7 @@ def main():
         if n_rows < 100:
             break
     
-    print('number of unique points in pcd : ', np.unique(superpoint_src_corr_points, axis=0))
+    print('number of unique points in pcd : ', len(np.unique(superpoint_src_corr_points, axis=0)))
     print('number of rotations used : ', rotation_n)
     # last points are transformed with the global best transform
     if n_rows != 0:   
