@@ -50,7 +50,9 @@ def load_data(args):
     '''
     return data_dict
 
-ACCEPTANCE_RADIUS = 0.1
+# The smaller the acceptance radius the better the first say 10 transformations chosen will be to the final point-cloud
+ACCEPTANCE_RADIUS = 0.05
+NUMBER_TRANSFORMATIONS_OF_INTEREST = 10
 
 def compute_best_transform(superpoint_src_corr_points, superpoint_ref_corr_points, batch_transforms):
     print('Inside of compute_best_transform')
@@ -151,6 +153,13 @@ def main():
         print('indices_inliers.shape : ', indices_inliers.shape)
         indices_outliers = batch_outlier_masks.nonzero()
         indices_outliers = torch.squeeze(indices_outliers, 1)
+        
+        if rotation_n < NUMBER_TRANSFORMATIONS_OF_INTEREST:
+            # we want to visualize the inliers for the first say 10 transformations
+            inlier_pcd = o3d.geometry.PointCloud()
+            inlier_pcd.points = copy_superpoint_src_corr_points[indices_inliers]
+            o3d.io.write_point_cloud(args.directory + '/src_pcd_transformed/inliers_transformation_' + str(rotation_n) + '.ply', inlier_pcd)            
+            
         print('indices_outliers.shape : ', indices_outliers.shape)
         if best_index in transform_to_superpoint:
             transform_to_superpoint[best_index] = np.append(transform_to_superpoint[best_index], copy_superpoint_src_corr_points[indices_inliers], axis=0)
@@ -179,10 +188,12 @@ def main():
         # maybe should only apply no more than a specific number of rotations, break after this has been attained
         n_rows = np.shape(copy_superpoint_src_corr_points)[0]
 
-        # apply the transformation also to the final point-cloud in order to be able to visualize the transformation
-        src_points = o3d.io.read_point_cloud(args.source)
-        src_points = src_points.transform(transform)
-        o3d.io.write_point_cloud(args.directory + '/src_pcd_transformed/src_pcd_transformed_' + str(rotation_n) + '.ply', src_points)
+        # Only save the first 10 transformations, because we are not interested in all of them
+        if rotation_n < NUMBER_TRANSFORMATIONS_OF_INTEREST:
+            src_points = o3d.io.read_point_cloud(args.source)
+            src_points = src_points.transform(transform)
+            o3d.io.write_point_cloud(args.directory + '/src_pcd_transformed/src_pcd_transformed_' + str(rotation_n) + '.ply', src_points)
+            
         rotation_n += 1
         
         if n_rows < 1000:
