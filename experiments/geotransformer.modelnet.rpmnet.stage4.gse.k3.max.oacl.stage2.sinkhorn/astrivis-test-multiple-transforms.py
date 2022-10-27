@@ -123,7 +123,8 @@ def main():
                 if n_transforms == 2:
                     break
     
-    print('superpoint_to_transform found')
+    print('Found superpoint_to_transform')
+    print('Finding the non-rigid transformations')
     
     ####### MODIFIED TRANSFORM - 1
 
