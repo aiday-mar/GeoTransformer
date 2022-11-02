@@ -95,14 +95,14 @@ _C.backbone.output_dim = 256
 # model - Global
 _C.model = edict()
 _C.model.ground_truth_matching_radius = 0.05
-_C.model.num_points_in_patch = 128
+_C.model.num_points_in_patch = 5
 _C.model.num_sinkhorn_iterations = 100
 
 # model - Coarse Matching
 _C.coarse_matching = edict()
 _C.coarse_matching.num_targets = 128
 _C.coarse_matching.overlap_threshold = 0.1
-_C.coarse_matching.num_correspondences = 128
+_C.coarse_matching.num_correspondences = 2000
 _C.coarse_matching.dual_normalization = True
 
 # model - GeoTransformer
