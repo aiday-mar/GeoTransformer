@@ -1,5 +1,6 @@
 #!/bin/bash 
 
+# Need to update with the new measures like in overlap predator
 FILE_PATH='./dense.ply'
 FILE_NAME='dense'
 FILE_EXTENSION='.ply'
