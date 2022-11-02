@@ -191,7 +191,6 @@ def main():
         else:
             transformed_superpoints_pcd = np.append(transformed_superpoints_pcd, np.array(transformed_inliers), axis=0)
             
-        print('transformed_superpoints_pcd : ', transformed_superpoints_pcd)
         print('len(transformed_superpoints_pcd) : ', len(transformed_superpoints_pcd))
         
         # Treating the outliers, potentiall making the outlier array smaller by filtering
