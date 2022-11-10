@@ -26,7 +26,6 @@ def make_parser():
     parser.add_argument("--output", required=True, help="output file where to save transformed src point cloud")
     parser.add_argument("--output_trans", required=True, help="output file where to save the transformation matrix")
     # parser.add_argument("--gt_file", required=True, help="ground-truth transformation file")
-    # Use modelnet pretrained weights before using my own weights
     parser.add_argument("--weights", required=True, help="model weights file")
     return parser
 
