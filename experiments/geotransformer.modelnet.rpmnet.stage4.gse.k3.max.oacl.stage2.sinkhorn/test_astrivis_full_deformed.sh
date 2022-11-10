@@ -19,8 +19,8 @@ for i in $(seq 0 $end); do
 		touch ${base}/model${k}/output_geo/${file_number1}_${file_number2}_se4.h5
 
         python3 astrivis-test.py --source="FullDeformedData/TestingData/model${k}/transformed/${file_number1}.ply" --target="FullDeformedData/TestingData/model${k}/transformed/${file_number2}.ply"  --output="FullDeformedData/TestingData/model${k}/output_geo/${file_number1}_${file_number2}.ply" --output_trans="FullDeformedData/TestingData/model${k}/output_geo/${file_number1}_${file_number2}_se4.h5" --weights='../../../../code/GeoTransformer/weights/model-39.pth.tar'
-		python3 ../../code/sfm/python/graphics/mesh/compute_relative_transformation_error.py --part1="${base}/model${k}/transformed/${file_number1}_se4.h5" --part2="${base}/model${k}/transformed/${file_number2}_se4.h5" --pred="${base}/model${k}/output_geo/${file_number1}_${file_number2}_se4.h5"
-        python3 ../../code/sfm/python/graphics/mesh/compute_pointcloud_rmse_ir.py --input1="${base}/model${k}/output_geo/${file_number1}_${file_number2}.ply" --input2="${base}/model${k}/transformed/${file_number2}.ply" --matches="${base}/model${k}/matches/${file_number1}_${file_number2}.npz"
+		python3 ../../../../code/sfm/python/graphics/mesh/compute_relative_transformation_error.py --part1="${base}/model${k}/transformed/${file_number1}_se4.h5" --part2="${base}/model${k}/transformed/${file_number2}_se4.h5" --pred="${base}/model${k}/output_geo/${file_number1}_${file_number2}_se4.h5"
+        python3 ../../../../code/sfm/python/graphics/mesh/compute_pointcloud_rmse_ir.py --input1="${base}/model${k}/output_geo/${file_number1}_${file_number2}.ply" --input2="${base}/model${k}/transformed/${file_number2}.ply" --matches="${base}/model${k}/matches/${file_number1}_${file_number2}.npz"
 
     done
 done
