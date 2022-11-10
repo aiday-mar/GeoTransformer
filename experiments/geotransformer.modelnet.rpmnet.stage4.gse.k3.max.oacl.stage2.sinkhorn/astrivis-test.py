@@ -4,6 +4,7 @@ import torch
 import numpy as np
 import open3d as o3d 
 import os
+import h5py
 
 # print(os.getcwd())
 # os.chdir('../../')
@@ -23,6 +24,7 @@ def make_parser():
     parser.add_argument("--source", required=True, help="src point cloud numpy file")
     parser.add_argument("--target", required=True, help="target point cloud numpy file")
     parser.add_argument("--output", required=True, help="output file where to save transformed src point cloud")
+    parser.add_argument("--output_trans", required=True, help="output file where to save the transformation matrix")
     # parser.add_argument("--gt_file", required=True, help="ground-truth transformation file")
     # Use modelnet pretrained weights before using my own weights
     parser.add_argument("--weights", required=True, help="model weights file")
@@ -32,9 +34,10 @@ def make_parser():
 def load_data(args):
     # src_points = np.load(args.src_file)
     # ref_points = np.load(args.ref_file)
-    src_points = o3d.io.read_point_cloud(args.source)
+    path = '/home/aiday.kyzy/dataset/Synthetic/'
+    src_points = o3d.io.read_point_cloud(path + args.source)
     src_points = np.array(src_points.points)
-    ref_points = o3d.io.read_point_cloud(args.target)
+    ref_points = o3d.io.read_point_cloud(path + args.target)
     ref_points = np.array(ref_points.points)
     # The features is just a numpy array of one
     src_feats = np.ones_like(src_points[:, :1])
@@ -60,6 +63,7 @@ def load_data(args):
 def main():
     parser = make_parser()
     args = parser.parse_args()
+    path = '/home/aiday.kyzy/dataset/Synthetic/'
 
     cfg = make_cfg()
 
@@ -87,7 +91,12 @@ def main():
     src_points = output_dict["src_points"]
     estimated_transform = output_dict["estimated_transform"]
     print('estimated_transform : ', estimated_transform)
+
     # transform = data_dict["transform"]
+    if args.output_trans:
+        f = h5py.File(path + args.output_trans, 'w')
+        f.create_dataset('transformation', data=np.array(estimated_transform))
+        f.close()
 
     # visualization
     ref_pcd = make_open3d_point_cloud(ref_points)
@@ -96,7 +105,7 @@ def main():
     src_pcd.estimate_normals()
     # transformed witht the transformation
     src_pcd = src_pcd.transform(estimated_transform)
-    o3d.io.write_point_cloud(args.output, src_pcd)
+    o3d.io.write_point_cloud(path + args.output, src_pcd)
 
     # compute error
 
