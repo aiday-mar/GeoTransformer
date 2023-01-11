@@ -81,10 +81,6 @@ class CustomDataset(torch.utils.data.Dataset):
         # if overfitting_index is not None and deterministic:
         #    data_list = [data_list[overfitting_index]]
         # self.data_list = data_list
-
-        self.src = []
-        self.tgt = []
-        self.transformations = []
         
         if self.td == 'full_non_deformed':
             self.base = '../../../../dataset/Synthetic/FullNonDeformedData/'
@@ -278,10 +274,8 @@ class CustomDataset(torch.utils.data.Dataset):
         return new_data_dict
 
     def __len__(self):
-        return len(self.src)
+        return self.n
         # return len(self.data_list)
-
-    
 
 class ModelNetPairDataset(torch.utils.data.Dataset):
     # fmt: off
