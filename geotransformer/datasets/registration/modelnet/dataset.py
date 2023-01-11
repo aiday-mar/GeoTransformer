@@ -83,9 +83,9 @@ class CustomDataset(torch.utils.data.Dataset):
         # self.data_list = data_list
         
         if self.td == 'full_non_deformed':
-            self.base = '~/dataset/Synthetic/FullNonDeformedData/'
+            self.base = '/home/aiday.kyzy/dataset/Synthetic/FullNonDeformedData/'
         elif self.td == 'partial_non_deformed':
-            self.base = '~/dataset/Synthetic/PartialNonDeformedData/'
+            self.base = '/home/aiday.kyzy/dataset/Synthetic/PartialNonDeformedData/'
         else:
             raise Exception('Specify valid training data')
     
