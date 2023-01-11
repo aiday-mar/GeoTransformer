@@ -155,11 +155,10 @@ class IterBasedTrainer(BaseTrainer):
         train_loader = CycleLoader(self.train_loader, self.epoch, self.distributed)
         self.before_train()
         self.optimizer.zero_grad()
-        # In one iteration, we are looping over 15 different things?
         # After every single iteration, the model and the snapshot are saved
         for epoch in range(0, 100):
             self.iteration = 0
-            # Setting the max_iterations to 10'500 which is the number of elements in our training dataset
+            # Setting the max_iterations to 160 which is the number of elements in our training dataset
             while self.iteration < self.max_iteration:
                 self.iteration += 1
                 print('Epoch : ', epoch, '. Iteration : ', self.iteration, ' out of ', self.max_iteration)
@@ -180,7 +179,6 @@ class IterBasedTrainer(BaseTrainer):
                 self.after_train_step(self.iteration, data_dict, output_dict, result_dict)
                 result_dict = self.release_tensors(result_dict)
                 self.summary_board.update_from_result_dict(result_dict)
-                # logging
                 # REMOVED: if self.iteration % self.log_steps == 0:
                 summary_dict = self.summary_board.summary()
                 message = get_log_string(
