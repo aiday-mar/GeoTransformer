@@ -45,6 +45,7 @@ class CustomDataset(torch.utils.data.Dataset):
         max_overlap: Optional[float] = None,
         estimate_normal: bool = False,
         overfitting_index: Optional[int] = None,
+        td: str = 'full_non_deformed'
     ):
         super(CustomDataset, self).__init__()
 
@@ -73,6 +74,7 @@ class CustomDataset(torch.utils.data.Dataset):
         self.check_overlap = self.min_overlap is not None or self.max_overlap is not None
         self.estimate_normal = estimate_normal
         self.overfitting_index = overfitting_index
+        self.td = td
 
         # data_list = load_pickle(osp.join(dataset_root, f'{subset}.pkl'))
         # data_list = [x for x in data_list if x['label'] in self.class_indices]
@@ -84,43 +86,106 @@ class CustomDataset(torch.utils.data.Dataset):
         self.tgt = []
         self.transformations = []
         
-        if subset == 'train':
-            pairs = open('../../../../dataset/TrainingData/astrivis-data-training/pairs.txt', 'r') 
-            lines = pairs.readlines()
-            f = h5py.File('../../../../dataset/TrainingData/astrivis-data-training/se4.h5', "r")
-            
-            for line in lines:
-                pair = line.split(',')
+        if self.td == 'full_non_deformed':
+            self.base = '../../../../dataset/Synthetic/FullNonDeformedData/'
+        elif self.td == 'partial_non_deformed':
+            self.base = '../../../../dataset/Synthetic/PartialNonDeformedData/'
+        else:
+            raise Exception('Specify valid training data')
+    
+        if self.subset == 'train':
+            self.folders = [
+                '000', '001', '003', '004', '006', '007', '009', 
+                '010', '011', '013', '014', '016', '017', '018', 
+                '020', '021', '023', '024', '026', '027', '028', 
+                '030', '031', '033', '034', '036', '037', '038',
+                '040', '041', '043', '044', '045', '047', '048', 
+                '050', '051', '053', '054', '055', '057', '058',
+                '060', '061', '063', '064', '065', '067', '068', 
+                '070', '071', '072', '074', '075', '077', '078',
+                '080', '081', '082', '084', '086', '087', '088',
+                '090', '091', '092', '094', '095', '097', '098',
+                '099', '101', '102', '104', '105', '107', '108',
+                '109', '111', '112', '114', '115', '117', '118',
+                '119', '121', '122', '124', '125', '127', '128',
+                '129', '131', '132', '134', '135', '136', '138', 
+                '139', '141', '142', '144', '145', '146', '148',
+                '149', '151', '152', '154', '155', '156', '158',
+                '159', '161', '162', '163', '165', '166', '168',
+                '169', '171', '172', '173', '175', '176', '178', 
+                '179', '181', '182', '183', '185', '186', '188',
+                '189', '190', '192', '193', '195', '196', '198', 
+                '199', '200', '202', '203', '205', '206', '208', 
+                '209', '210', '212', '213', '215', '216', '217', 
+                '219', '220', '222', '223', '224', '225'
+            ]
+            self.base = self.base + 'TrainingData/'
+            self.n = 160
 
-                self.tgt.append('../../../../dataset/TrainingData/astrivis-data-training/' + pair[0])
-                self.src.append('../../../../dataset/TrainingData/astrivis-data-training/' + pair[1][:-1])
-                se4 = f[pair[1][:-1]]
-                self.transformations.append(se4)
-        elif subset == 'val':
-            pairs = open('../../../../dataset/TrainingData/astrivis-data-validation/pairs.txt', 'r') 
-            lines = pairs.readlines()
-            f = h5py.File('../../../../dataset/TrainingData/astrivis-data-validation/se4.h5', "r")
-            
-            for line in lines:
-                pair = line.split(',')
-
-                self.tgt.append('../../../../dataset/TrainingData/astrivis-data-validation/' + pair[0])
-                self.src.append('../../../../dataset/TrainingData/astrivis-data-validation/' + pair[1][:-1])
-                se4 = f[pair[1][:-1]]
-                self.transformations.append(se4)
-
+        elif self.subset == 'val':
+            self.folders = [
+                '005', '012', '019', '025', '032', '039', '046', '052', '059', '062', '069', '076', '083', '089', '096',
+                '103', '110', '116', '123', '130', '137', '143', '150', '157', '164', '170', '177', '184', '191', '197',
+                '204', '211', '218'
+            ]
+            self.base = self.base + 'ValidationData/'
+            self.n = 33
+        
+        # if subset == 'train':
+        #    pairs = open('../../../../dataset/TrainingData/astrivis-data-training/pairs.txt', 'r') 
+        #    lines = pairs.readlines()
+        #    f = h5py.File('../../../../dataset/TrainingData/astrivis-data-training/se4.h5', "r")
+        #    for line in lines:
+        #        pair = line.split(',')
+        #        self.tgt.append('../../../../dataset/TrainingData/astrivis-data-training/' + pair[0])
+        #        self.src.append('../../../../dataset/TrainingData/astrivis-data-training/' + pair[1][:-1])
+        #        se4 = f[pair[1][:-1]]
+        #        self.transformations.append(se4)
+        # elif subset == 'val':
+        #    pairs = open('../../../../dataset/TrainingData/astrivis-data-validation/pairs.txt', 'r') 
+        #    lines = pairs.readlines()
+        #    f = h5py.File('../../../../dataset/TrainingData/astrivis-data-validation/se4.h5', "r")
+        #    for line in lines:
+        #        pair = line.split(',')
+        #        self.tgt.append('../../../../dataset/TrainingData/astrivis-data-validation/' + pair[0])
+        #        self.src.append('../../../../dataset/TrainingData/astrivis-data-validation/' + pair[1][:-1])
+        #        se4 = f[pair[1][:-1]]
+        #        self.transformations.append(se4)
+    
     def __getitem__(self, index):
         if self.overfitting_index is not None:
             index = self.overfitting_index
 
-        transform = np.array(self.transformations[index])
+        index = str(index)
+        index = index.zfill(3)
 
-        ref_point_cloud = o3d.io.read_point_cloud(self.tgt[index])
+        if self.td == 'full_non_deformed':
+            base_file = self.base + 'model' + index + '/'
+        elif self.td == 'partial_non_deformed':
+            base_file = self.base + 'model' + index + '/transformed/'
+        else:
+            raise Exception('Specify a valid dataset for training')
+        
+        source_transformation_file = base_file + 'mesh_transformed_0_se4.h5'
+        target_transformation_file = base_file + 'mesh_transformed_1_se4.h5'
+        
+        src_trans_file=h5py.File(source_transformation_file, "r")
+        src_pcd_transform = np.array(src_trans_file['transformation'])
+        
+        tgt_trans_file=h5py.File(target_transformation_file, "r")
+        tgt_pcd_transform_inverse = np.linalg.inv(np.array(tgt_trans_file['transformation']))
+
+        transform = tgt_pcd_transform_inverse@src_pcd_transform
+
+        source_file = base_file + 'mesh_transformed_0.ply'
+        target_file = base_file + 'mesh_transformed_1.ply'
+    
+        ref_point_cloud = o3d.io.read_point_cloud(target_file)
         ref_point_cloud.estimate_normals()
         ref_points = np.array(ref_point_cloud.points)
         ref_normals = np.array(ref_point_cloud.normals)
 
-        src_point_cloud = o3d.io.read_point_cloud(self.src[index])
+        src_point_cloud = o3d.io.read_point_cloud(source_file)
         src_point_cloud.estimate_normals()
         src_points = np.array(src_point_cloud.points)
         src_normals = np.array(src_point_cloud.normals)
