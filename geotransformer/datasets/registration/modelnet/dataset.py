@@ -152,13 +152,12 @@ class CustomDataset(torch.utils.data.Dataset):
         if self.overfitting_index is not None:
             index = self.overfitting_index
 
-        index = str(index)
-        index = index.zfill(3)
+        model_number = self.folders[index]
 
         if self.td == 'full_non_deformed':
-            base_file = self.base + 'model' + index + '/'
+            base_file = self.base + 'model' + model_number + '/'
         elif self.td == 'partial_non_deformed':
-            base_file = self.base + 'model' + index + '/transformed/'
+            base_file = self.base + 'model' + model_number + '/transformed/'
         else:
             raise Exception('Specify a valid dataset for training')
         
