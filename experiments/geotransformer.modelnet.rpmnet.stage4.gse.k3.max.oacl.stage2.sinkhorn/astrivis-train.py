@@ -16,6 +16,10 @@ from dataset import astrivis_data_loader
 from model import create_model
 from loss import OverallLoss, Evaluator
 
+def make_parser():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--weights", required=True, help="model weights file")
+    return parser
 
 class Trainer(IterBasedTrainer):
     def __init__(self, cfg):
@@ -31,9 +35,15 @@ class Trainer(IterBasedTrainer):
         self.logger.info(message)
         self.register_loader(train_loader, val_loader)
 
-        # model, optimizer, scheduler
+        # model
+        parser = make_parser()
         model = create_model(cfg).cuda()
+        args = parser.parse_args()
+        state_dict = torch.load(args.weights)
+        model.load_state_dict(state_dict["model"])
         model = self.register_model(model)
+
+        # optimizer, scheduler
         optimizer = optim.Adam(model.parameters(), lr=cfg.optim.lr, weight_decay=cfg.optim.weight_decay)
         self.register_optimizer(optimizer)
         scheduler = build_warmup_cosine_lr_scheduler(
@@ -64,12 +74,10 @@ class Trainer(IterBasedTrainer):
         loss_dict.update(result_dict)
         return output_dict, loss_dict
 
-
 def main():
     cfg = make_cfg()
     trainer = Trainer(cfg)
     trainer.run()
-
 
 if __name__ == '__main__':
     main()
