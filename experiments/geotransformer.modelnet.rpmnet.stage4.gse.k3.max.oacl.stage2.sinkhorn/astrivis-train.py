@@ -46,7 +46,7 @@ class Trainer(IterBasedTrainer):
         self.model = self.register_model(self.model)
 
         # optimizer, scheduler
-        optimizer = optim.Adam(model.parameters(), lr=cfg.optim.lr, weight_decay=cfg.optim.weight_decay)
+        optimizer = optim.Adam(self.model.parameters(), lr=cfg.optim.lr, weight_decay=cfg.optim.weight_decay)
         self.register_optimizer(optimizer)
         scheduler = build_warmup_cosine_lr_scheduler(
             optimizer,
