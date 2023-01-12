@@ -42,8 +42,8 @@ class Trainer(IterBasedTrainer):
         # args = parser.parse_args()
         # state_dict = torch.load(args.weights)
         # model.load_state_dict(state_dict["model"])
-        model = create_model(cfg).cuda()
-        model = self.register_model(model)
+        self.model = create_model(cfg).cuda()
+        self.model = self.register_model(self.model)
 
         # optimizer, scheduler
         optimizer = optim.Adam(model.parameters(), lr=cfg.optim.lr, weight_decay=cfg.optim.weight_decay)
