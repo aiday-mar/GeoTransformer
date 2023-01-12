@@ -17,7 +17,7 @@ from geotransformer.utils.timer import Timer
 from geotransformer.utils.torch import all_reduce_tensors, release_cuda, initialize
 from geotransformer.engine.logger import Logger
 
-
+# For resuming training!
 def inject_default_parser(parser=None):
     if parser is None:
         parser = argparse.ArgumentParser()

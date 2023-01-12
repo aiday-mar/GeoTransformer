@@ -16,10 +16,12 @@ from dataset import astrivis_data_loader
 from model import create_model
 from loss import OverallLoss, Evaluator
 
-def make_parser():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--weights", required=True, help="model weights file")
-    return parser
+# def make_parser():
+#    parser = argparse.ArgumentParser()
+#    parser.add_argument("--weights", required=True, help="model weights file")
+#    return parser
+
+# Look at the run method of IterBasedTrained where you can resume training!
 
 class Trainer(IterBasedTrainer):
     def __init__(self, cfg):
@@ -36,11 +38,11 @@ class Trainer(IterBasedTrainer):
         self.register_loader(train_loader, val_loader)
 
         # model
-        parser = make_parser()
+        # parser = make_parser()
+        # args = parser.parse_args()
+        # state_dict = torch.load(args.weights)
+        # model.load_state_dict(state_dict["model"])
         model = create_model(cfg).cuda()
-        args = parser.parse_args()
-        state_dict = torch.load(args.weights)
-        model.load_state_dict(state_dict["model"])
         model = self.register_model(model)
 
         # optimizer, scheduler
