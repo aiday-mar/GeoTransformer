@@ -155,8 +155,7 @@ class IterBasedTrainer(BaseTrainer):
         train_loader = CycleLoader(self.train_loader, self.epoch, self.distributed)
         self.before_train()
         self.optimizer.zero_grad()
-        # After every single iteration, the model and the snapshot are saved
-        for epoch in range(0, 100):
+        for epoch in range(0, 230):
             self.iteration = 0
             # Setting the max_iterations to 160 which is the number of elements in our training dataset
             while self.iteration < self.max_iteration:
@@ -196,7 +195,8 @@ class IterBasedTrainer(BaseTrainer):
             # snapshot & validation
             # if self.iteration % self.snapshot_steps == 0:
             # self.epoch = train_loader.last_epoch
-            self.save_snapshot(f'model_{epoch + 100}_full_non_deformed.pth.tar', f'snapshot_{epoch + 100}_full_non_deformed.pth.tar')
+            if (epoch + 100) % 10 == 0:
+                self.save_snapshot(f'model_{epoch + 100}_full_non_deformed.pth.tar', f'snapshot_{epoch + 100}_full_non_deformed.pth.tar')
             # if not self.save_all_snapshots:
             #    last_snapshot = f'iter_{self.iteration - self.snapshot_steps}.pth.tar'
             #    if osp.exists(last_snapshot):
