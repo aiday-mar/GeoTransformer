@@ -45,7 +45,7 @@ class CustomDataset(torch.utils.data.Dataset):
         max_overlap: Optional[float] = None,
         estimate_normal: bool = False,
         overfitting_index: Optional[int] = None,
-        td: str = 'full_non_deformed'
+        td: str = 'partial_non_deformed'
     ):
         super(CustomDataset, self).__init__()
 
@@ -82,6 +82,7 @@ class CustomDataset(torch.utils.data.Dataset):
         #    data_list = [data_list[overfitting_index]]
         # self.data_list = data_list
         
+        print('training data : ', self.td)
         if self.td == 'full_non_deformed':
             self.base = '/home/aiday.kyzy/dataset/Synthetic/FullNonDeformedData/'
         elif self.td == 'partial_non_deformed':

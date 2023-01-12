@@ -5,7 +5,8 @@ from geotransformer.utils.data import (
     build_dataloader_stack_mode,
 )
 
-def astrivis_data_loader(cfg, distributed):
+def astrivis_data_loader(cfg, distributed, training_data = 'partial_non_deformed'):
+
     train_dataset = CustomDataset(
         cfg.data.dataset_root,
         "train",
@@ -23,6 +24,7 @@ def astrivis_data_loader(cfg, distributed):
         twice_transform=cfg.data.twice_transform,
         return_normals=False,
         return_occupancy=True,
+        td = training_data
     )
     neighbor_limits = calibrate_neighbors_stack_mode(
         train_dataset,
@@ -61,6 +63,7 @@ def astrivis_data_loader(cfg, distributed):
         twice_transform=cfg.data.twice_transform,
         return_normals=False,
         return_occupancy=True,
+        td = training_data
     )
     valid_loader = build_dataloader_stack_mode(
         valid_dataset,

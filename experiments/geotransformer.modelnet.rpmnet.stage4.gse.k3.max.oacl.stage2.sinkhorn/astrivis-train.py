@@ -24,12 +24,12 @@ from loss import OverallLoss, Evaluator
 # Look at the run method of IterBasedTrained where you can resume training!
 
 class Trainer(IterBasedTrainer):
-    def __init__(self, cfg):
+    def __init__(self, cfg, training_data='partial_non_deformed'):
         super().__init__(cfg, max_iteration=cfg.optim.max_iteration, snapshot_steps=cfg.optim.snapshot_steps)
 
         # dataloader
         start_time = time.time()
-        train_loader, val_loader, neighbor_limits = astrivis_data_loader(cfg, self.distributed)
+        train_loader, val_loader, neighbor_limits = astrivis_data_loader(cfg, self.distributed, training_data)
         loading_time = time.time() - start_time
         message = 'Data loader created: {:.3f}s collapsed.'.format(loading_time)
         self.logger.info(message)
@@ -78,8 +78,9 @@ class Trainer(IterBasedTrainer):
 
 def main():
     cfg = make_cfg()
-    trainer = Trainer(cfg)
-    trainer.run()
+    training_data='partial_non_deformed'
+    trainer = Trainer(cfg, training_data)
+    trainer.run(training_data)
 
 if __name__ == '__main__':
     main()
