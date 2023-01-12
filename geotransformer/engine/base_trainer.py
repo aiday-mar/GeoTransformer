@@ -148,7 +148,8 @@ class BaseTrainer(abc.ABC):
 
         # log missing keys and unexpected keys
         snapshot_keys = set(model_dict.keys())
-        model_keys = set(self.model.model_dict().keys()) # removed the parentheses in model_dict()
+        # IMPORTANT: before it used to be model_dict
+        model_keys = set(self.model.state_dict().keys()) # removed the parentheses in model_dict()
         missing_keys = model_keys - snapshot_keys
         unexpected_keys = snapshot_keys - model_keys
         if self.distributed:
