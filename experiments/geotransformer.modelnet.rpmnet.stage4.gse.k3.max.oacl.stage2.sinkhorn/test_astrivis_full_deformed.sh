@@ -24,11 +24,11 @@ for i in $(seq 0 $end); do
 		file_number1=${arr[$i]}
 		file_number2=${arr[$j]}
 
-		echo "model ${k} i ${i} j ${j}"
-
 		folder=output_geo_td_${training_data}
-
 		touch ${base}/model${k}/${folder}/${file_number1}_${file_number2}_se4.h5
+		
+		echo "model ${k} i ${i} j ${j}"
+		echo "model ${k} i ${i} j ${j}" >> ${filename}
 
         python3 astrivis-test.py \
 		--source="FullDeformedData/TestingData/model${k}/transformed/${file_number1}.ply" \

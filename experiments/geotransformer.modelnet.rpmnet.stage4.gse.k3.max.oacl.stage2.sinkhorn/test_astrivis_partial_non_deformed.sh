@@ -15,7 +15,9 @@ do
 
     mkdir $base/model$k/${folder}
     touch ${base}/model${k}/${folder}/0_1_se4.h5
+
     echo "model ${k}"
+    echo "model ${k}" >> ${filename}
 
     python3 astrivis-test.py \
     --source="PartialNonDeformedData/TestingData/model${k}/transformed/mesh_transformed_0.ply" \

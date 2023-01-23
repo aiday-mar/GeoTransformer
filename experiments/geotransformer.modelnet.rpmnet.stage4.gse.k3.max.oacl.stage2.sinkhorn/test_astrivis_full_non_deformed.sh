@@ -15,6 +15,7 @@ do
     touch ${base}/model${k}/${folder}/0_1_se4.h5
 
     echo "model ${k}"
+    echo "model ${k}" >> ${filename}
 
     python3 astrivis-test.py \
     --source="FullNonDeformedData/TestingData/model${k}/mesh_transformed_0.ply" \
