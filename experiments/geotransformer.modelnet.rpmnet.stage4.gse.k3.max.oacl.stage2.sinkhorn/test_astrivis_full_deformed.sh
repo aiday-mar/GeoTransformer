@@ -26,7 +26,7 @@ do
 			file_number2=${arr[$j]}
 
 			touch ${base}/model${k}/${folder}/${file_number1}_${file_number2}_se4.h5
-			intermediate_output_folder='FullDeformedData/TestingData/model${k}/${folder}/corr_points/'
+			intermediate_output_folder="FullDeformedData/TestingData/model${k}/${folder}/corr_points/"
 
 			echo "model ${k} i ${i} j ${j}"
 			echo "model ${k} i ${i} j ${j}" >> ${filename}
@@ -36,7 +36,7 @@ do
 			--target="FullDeformedData/TestingData/model${k}/transformed/${file_number2}.ply"  \
 			--output="FullDeformedData/TestingData/model${k}/${folder}/${file_number1}_${file_number2}.ply" \
 			--output_trans="FullDeformedData/TestingData/model${k}/${folder}/${file_number1}_${file_number2}_se4.h5" \
-			--intermediate_output_folder=${intermediate_output_folder} \
+			--intermediate_output_folder="${intermediate_output_folder}" \
 			--save_key_points=${save_key_points} \
 			--weights="../../../../code/GeoTransformer/weights/geotransformer-modelnet.pth.tar" >> ${filename} 
 
