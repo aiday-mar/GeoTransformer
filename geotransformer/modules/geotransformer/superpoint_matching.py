@@ -47,5 +47,7 @@ class SuperPointMatching(nn.Module):
         # recover original indices
         ref_corr_indices = ref_indices[ref_sel_indices]
         src_corr_indices = src_indices[src_sel_indices]
-
+        
+        print('ref_corr_indices.shape : ', ref_corr_indices.shape)
+        print('src_corr_indices.shape : ', src_corr_indices.shape)
         return ref_corr_indices, src_corr_indices, corr_scores

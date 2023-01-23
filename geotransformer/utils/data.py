@@ -171,6 +171,8 @@ def registration_collate_fn_stack_mode(
     points_list = collated_dict.pop('ref_points') + collated_dict.pop('src_points')
     lengths = torch.LongTensor([points.shape[0] for points in points_list])
     points = torch.cat(points_list, dim=0)
+    print('Inside registration_collate_fn_stack_mode')
+    print('points.shape : ', points.shape)
 
     if batch_size == 1:
         # remove wrapping brackets if batch_size is 1

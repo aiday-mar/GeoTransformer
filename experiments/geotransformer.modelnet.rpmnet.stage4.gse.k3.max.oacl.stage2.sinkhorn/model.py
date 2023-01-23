@@ -83,8 +83,12 @@ class GeoTransformer(nn.Module):
         points_f = data_dict['points'][0].detach()
         points = data_dict['points'][0].detach()
 
+        print('points_c.shape : ', points_c.shape)
         ref_points_c = points_c[:ref_length_c]
+        print('ref_points_c.shape : ', ref_points_c.shape)
         src_points_c = points_c[ref_length_c:]
+        print('src_points_c.shape : ', src_points_c.shape)
+        
         ref_points_f = points_f[:ref_length_f]
         src_points_f = points_f[ref_length_f:]
         ref_points = points[:ref_length]
@@ -157,6 +161,8 @@ class GeoTransformer(nn.Module):
 
         # 6. Select topk nearest node correspondences
         with torch.no_grad():
+            print('ref_node_masks.shape : ', ref_node_masks.shape)
+            print('src_node_masks.shape : ', src_node_masks.shape)
             ref_node_corr_indices, src_node_corr_indices, node_corr_scores = self.coarse_matching(
                 ref_feats_c_norm, src_feats_c_norm, ref_node_masks, src_node_masks
             )
