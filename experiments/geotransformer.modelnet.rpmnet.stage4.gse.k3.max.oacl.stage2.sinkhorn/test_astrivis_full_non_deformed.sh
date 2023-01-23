@@ -7,10 +7,10 @@ training_data='pretrained'
 filename="/home/aiday.kyzy/code/GeoTransformer/experiments/geotransformer.modelnet.rpmnet.stage4.gse.k3.max.oacl.stage2.sinkhorn/output_geo_full_non_deformed_td_${training_data}.txt"
 rm ${filename}
 touch ${filename}
+folder=output_geo_td_${training_data}
 
 for k in ${model_numbers[@]}
 do
-    folder=output_geo_td_${training_data}
     mkdir $base/model$k/${folder}
     touch ${base}/model${k}/${folder}/0_1_se4.h5
 
