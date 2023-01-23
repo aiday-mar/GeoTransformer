@@ -219,7 +219,7 @@ class GeoTransformer(nn.Module):
             print('intermediate_output_folder : ', intermediate_output_folder)
             print('save_key_points : ', save_key_points)
             
-            print('number of points in src_corr_points : ', src_corr_points.shape[1])
+            print('shape of src_corr_points : ', src_corr_points.shape)
             
             if intermediate_output_folder is not None and save_key_points is True:
                 src_corr_points_pcd = o3d.geometry.PointCloud()
