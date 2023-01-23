@@ -7,6 +7,9 @@ training_data='pretrained'
 current_deformation=True
 # current_deformation=False
 
+# weights="geotransformer-modelnet.pth.tar"
+weights="model_320_partial_non_deformed.pth.tar"
+
 filename="/home/aiday.kyzy/code/GeoTransformer/experiments/geotransformer.modelnet.rpmnet.stage4.gse.k3.max.oacl.stage2.sinkhorn/output_geo_partial_non_deformed_td_${training_data}.txt"
 rm ${filename}
 touch ${filename}
@@ -31,7 +34,7 @@ if [ $current_deformation == "False" ]; then
         --output_trans="PartialNonDeformedData/TestingData/model${k}/${folder}/0_1_se4.h5" \
         --intermediate_output_folder="${intermediate_output_folder}" \
         --save_key_points=${save_key_points} \
-        --weights='../../../../code/GeoTransformer/weights/geotransformer-modelnet.pth.tar' >> ${filename}
+        --weights='../../../../code/GeoTransformer/weights/${weights}' >> ${filename}
 
         python3 ../../../../code/sfm/python/graphics/mesh/compute_relative_transformation_error.py \
         --part1="${base}/model${k}/transformed/mesh_transformed_0_se4.h5" \
@@ -66,7 +69,7 @@ if [ $current_deformation == "True" ]; then
         --output_trans="PartialNonDeformedData/TestingData/model${k}/${folder}/0_1_se4.h5" \
         --intermediate_output_folder="${intermediate_output_folder}" \
         --save_key_points=${save_key_points} \
-        --weights='../../../../code/GeoTransformer/weights/geotransformer-modelnet.pth.tar' >> ${filename}
+        --weights='../../../../code/GeoTransformer/weights/${weights}' >> ${filename}
 
         if [ "$?" != "1" ]; then
             rm "${base}/model${k}/${folder}/current_deformation.ply"
