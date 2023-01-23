@@ -81,14 +81,14 @@ if [ $current_deformation == "True" ]; then
         if [ "$?" != "1" ]; then
             rm "${base}/model${k}/${folder}/current_deformation.ply"
             
-            python3 ../../code/sfm/python/learning/fusion/fusion_cli.py \
+            python3 ../../../../code/sfm/python/learning/fusion/fusion_cli.py \
             --file1="${base}/model${k}/transformed/mesh_transformed_0.ply" \
             --file2="${base}/model${k}/transformed/mesh_transformed_1.ply" \
             --landmarks1="${base}/model${k}/${folder}/corr_points/src_corr_points.ply" \
             --landmarks2="${base}/model${k}/${folder}/corr_points/tgt_corr_points.ply" \
             --save_path="${base}/model${k}/${folder}/current_deformation.ply" >> ${filename}
 
-            python3 ../../code/sfm/python/graphics/mesh/compute_pointcloud_rmse_ir.py \
+            python3 ../../../../code/sfm/python/graphics/mesh/compute_pointcloud_rmse_ir.py \
             --final="${base}/model${k}/${folder}/current_deformation.ply" \
             --initial="${base}model${k}/transformed/mesh_transformed_0.ply" \
             --part1="${base}model${k}/transformed/mesh_transformed_0_se4.h5" \
