@@ -49,7 +49,7 @@ do
 			python3 ../../../../code/sfm/python/graphics/mesh/compute_pointcloud_rmse_ir.py \
 			--final="${base}/model${k}/${folder}/${file_number1}_${file_number2}_0_1.ply" \
 			--initial_1="${base}/model${k}/transformed/${file_number1}_0.ply" \
-			--initial_2="${base}/model${k}/transformed/${file_number1}_1.ply" \
+			--initial_2="${base}/model${k}/transformed/${file_number2}_1.ply" \
 			--matches="${base}/model${k}/matches/${file_number1}_${file_number2}_0_1.npz" \
 			--part1="${base}/model${k}/transformed/${file_number1}_0_se4.h5" \
 			--part2="${base}/model${k}/transformed/${file_number2}_1_se4.h5" >> ${filename}
