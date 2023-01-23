@@ -222,8 +222,8 @@ class GeoTransformer(nn.Module):
             if intermediate_output_folder is not None and save_key_points is True:
                 src_corr_points_pcd = o3d.geometry.PointCloud()
                 ref_corr_points_pcd = o3d.geometry.PointCloud()
-                src_corr_points_pcd.points = o3d.utility.Vector3dVector(np.array(src_corr_points))
-                ref_corr_points_pcd.points = o3d.utility.Vector3dVector(np.array(ref_corr_points))
+                src_corr_points_pcd.points = o3d.utility.Vector3dVector(np.array(src_corr_points.cpu()))
+                ref_corr_points_pcd.points = o3d.utility.Vector3dVector(np.array(ref_corr_points.cpu()))
                 o3d.io.write_point_cloud(path + intermediate_output_folder + '/src_corr_points.ply', src_corr_points_pcd)
                 o3d.io.write_point_cloud(path + intermediate_output_folder + '/ref_corr_points.ply', ref_corr_points_pcd)
 
