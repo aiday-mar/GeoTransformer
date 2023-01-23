@@ -17,6 +17,9 @@ Relative Rotation Error :  2.6336786976908306
 Relative Translation Error :  2.048069410665347
 strict inlier ratio threshold :  0.01
 relaxed inlier ratio threshold :  0.03
+RMSE :  0.1970504344748576
+Strict IR :  0.0
+Relaxed IR :  0.0
 model 042 i 0 j 1
 intermediate_output_folder :  PartialDeformedData/TestingData/model042/output_geo_td_pretrained/corr_points/
 save_key_points :  False
@@ -36,6 +39,9 @@ Relative Rotation Error :  2.7774166236428948
 Relative Translation Error :  2.2346098938766046
 strict inlier ratio threshold :  0.01
 relaxed inlier ratio threshold :  0.03
+RMSE :  0.2054362678251307
+Strict IR :  0.0
+Relaxed IR :  0.01334388782087527
 model 085 i 0 j 1
 intermediate_output_folder :  PartialDeformedData/TestingData/model085/output_geo_td_pretrained/corr_points/
 save_key_points :  False
@@ -55,9 +61,9 @@ Relative Rotation Error :  1.0684406581907255
 Relative Translation Error :  0.44613400099509226
 strict inlier ratio threshold :  0.01
 relaxed inlier ratio threshold :  0.03
-RMSE :  0.3280073454965938
+RMSE :  0.09653907804332454
 Strict IR :  0.0
-Relaxed IR :  0.07559145989613388
+Relaxed IR :  0.07616849394114253
 model 126 i 0 j 1
 intermediate_output_folder :  PartialDeformedData/TestingData/model126/output_geo_td_pretrained/corr_points/
 save_key_points :  False
@@ -77,6 +83,9 @@ Relative Rotation Error :  2.1769206110797383
 Relative Translation Error :  1.5611907775105458
 strict inlier ratio threshold :  0.01
 relaxed inlier ratio threshold :  0.03
+RMSE :  0.2221449870282441
+Strict IR :  0.0
+Relaxed IR :  0.0009685230024213075
 model 167 i 0 j 1
 intermediate_output_folder :  PartialDeformedData/TestingData/model167/output_geo_td_pretrained/corr_points/
 save_key_points :  False
@@ -96,6 +105,9 @@ Relative Rotation Error :  1.4967131033111505
 Relative Translation Error :  1.1090414905413628
 strict inlier ratio threshold :  0.01
 relaxed inlier ratio threshold :  0.03
+RMSE :  0.06428228043261486
+Strict IR :  0.00025516713447307985
+Relaxed IR :  0.13345241132942076
 model 207 i 0 j 1
 intermediate_output_folder :  PartialDeformedData/TestingData/model207/output_geo_td_pretrained/corr_points/
 save_key_points :  False
@@ -115,6 +127,6 @@ Relative Rotation Error :  2.499125142472459
 Relative Translation Error :  1.8645415285023765
 strict inlier ratio threshold :  0.01
 relaxed inlier ratio threshold :  0.03
-RMSE :  0.591274984376514
-Strict IR :  0.0007265681763138775
-Relaxed IR :  0.028093969484136595
+RMSE :  0.10848057604209815
+Strict IR :  0.004359409057883265
+Relaxed IR :  0.07168806006296924
