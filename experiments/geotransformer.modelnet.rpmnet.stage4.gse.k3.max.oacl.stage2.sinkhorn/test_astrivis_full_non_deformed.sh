@@ -13,6 +13,7 @@ for k in ${model_numbers[@]}
 do
     mkdir $base/model$k/${folder}
     touch ${base}/model${k}/${folder}/0_1_se4.h5
+    intermediate_output_folder='FullNonDeformedData/TestingData/model${k}/${folder}/corr_points/'
 
     echo "model ${k}"
     echo "model ${k}" >> ${filename}
@@ -22,6 +23,8 @@ do
     --target="FullNonDeformedData/TestingData/model${k}/mesh_transformed_1.ply" \
     --output="FullNonDeformedData/TestingData/model${k}/${folder}/0_1.ply" \
     --output_trans="FullNonDeformedData/TestingData/model${k}/${folder}/0_1_se4.h5" \
+    --intermediate_output_folder=${intermediate_output_folder} \
+    --save_key_points=${save_key_points} \
     --weights='../../../../code/GeoTransformer/weights/geotransformer-modelnet.pth.tar' >> ${filename}
 
     python3 ../../../../code/sfm/python/graphics/mesh/compute_relative_transformation_error.py \

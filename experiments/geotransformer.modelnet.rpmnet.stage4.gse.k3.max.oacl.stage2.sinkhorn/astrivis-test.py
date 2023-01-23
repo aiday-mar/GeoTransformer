@@ -81,7 +81,11 @@ def main():
 
     # prediction
     data_dict = to_cuda(data_dict)
-    output_dict = model(data_dict)
+
+    intermediate_output_folder = args.intermediate_output_folder if args.intermediate_output_folder else None
+    save_key_points = True if args.save_key_points and args.save_key_points == 'True' else False
+
+    output_dict = model(data_dict, intermediate_output_folder, save_key_points)
     data_dict = release_cuda(data_dict)
     output_dict = release_cuda(output_dict)
 

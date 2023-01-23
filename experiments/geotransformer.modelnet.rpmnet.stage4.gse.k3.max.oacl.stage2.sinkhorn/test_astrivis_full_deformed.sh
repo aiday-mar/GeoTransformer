@@ -8,6 +8,7 @@ filename="/home/aiday.kyzy/code/GeoTransformer/experiments/geotransformer.modeln
 rm ${filename}
 touch ${filename}
 folder=output_geo_td_${training_data}
+save_key_points=True
 
 for k in ${model_numbers[@]}
 do
@@ -25,7 +26,8 @@ do
 			file_number2=${arr[$j]}
 
 			touch ${base}/model${k}/${folder}/${file_number1}_${file_number2}_se4.h5
-			
+			intermediate_output_folder='FullDeformedData/TestingData/model${k}/${folder}/corr_points/'
+
 			echo "model ${k} i ${i} j ${j}"
 			echo "model ${k} i ${i} j ${j}" >> ${filename}
 
@@ -34,6 +36,8 @@ do
 			--target="FullDeformedData/TestingData/model${k}/transformed/${file_number2}.ply"  \
 			--output="FullDeformedData/TestingData/model${k}/${folder}/${file_number1}_${file_number2}.ply" \
 			--output_trans="FullDeformedData/TestingData/model${k}/${folder}/${file_number1}_${file_number2}_se4.h5" \
+			--intermediate_output_folder=${intermediate_output_folder} \
+			--save_key_points=${save_key_points} \
 			--weights="../../../../code/GeoTransformer/weights/geotransformer-modelnet.pth.tar" >> ${filename} 
 
 			python3 ../../../../code/sfm/python/graphics/mesh/compute_relative_transformation_error.py \

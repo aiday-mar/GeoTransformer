@@ -14,7 +14,10 @@ from geotransformer.modules.geotransformer import (
 )
 
 from backbone import KPConvFPN
+import open3d as o3d
+import numpy as np
 
+path = '/home/aiday.kyzy/dataset/Synthetic/'
 
 class GeoTransformer(nn.Module):
     def __init__(self, cfg):
@@ -66,7 +69,7 @@ class GeoTransformer(nn.Module):
 
         self.optimal_transport = LearnableLogOptimalTransport(cfg.model.num_sinkhorn_iterations)
 
-    def forward(self, data_dict):
+    def forward(self, data_dict, intermediate_output_folder = None, save_key_points = True):
         output_dict = {}
 
         # Downsample point clouds
@@ -212,6 +215,17 @@ class GeoTransformer(nn.Module):
             output_dict['src_corr_points'] = src_corr_points
             output_dict['corr_scores'] = corr_scores
             output_dict['estimated_transform'] = estimated_transform
+
+            print('intermediate_output_folder : ', intermediate_output_folder)
+            print('save_key_points : ', save_key_points)
+            
+            if intermediate_output_folder is not None and save_key_points is True:
+                src_corr_points_pcd = o3d.geometry.PointCloud()
+                ref_corr_points_pcd = o3d.geometry.PointCloud()
+                src_corr_points_pcd.points = o3d.utility.Vector3dVector(np.array(src_corr_points))
+                ref_corr_points_pcd.points = o3d.utility.Vector3dVector(np.array(ref_corr_points))
+                o3d.io.write_point_cloud(path + intermediate_output_folder + '/src_corr_points.ply', src_corr_points_pcd)
+                o3d.io.write_point_cloud(path + intermediate_output_folder + '/ref_corr_points.ply', ref_corr_points_pcd)
 
         return output_dict
 
