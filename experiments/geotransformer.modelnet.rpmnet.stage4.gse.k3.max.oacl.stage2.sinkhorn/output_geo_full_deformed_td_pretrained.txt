@@ -1,4 +1,6 @@
 model 002 i 0 j 1
+intermediate_output_folder :  FullDeformedData/TestingData/model002/output_geo_td_pretrained/corr_points/
+save_key_points :  True
 estimated_transform :  [[ 0.23518069 -0.0605689   0.9700626   0.59827954]
  [-0.89845777  0.3671709   0.24074659  1.5542569 ]
  [-0.3707605  -0.92817944  0.03193305  0.6589498 ]
@@ -19,6 +21,8 @@ RMSE :  0.13890446622005692
 Strict IR :  0.00040899795501022495
 Relaxed IR :  0.010224948875255624
 model 042 i 0 j 1
+intermediate_output_folder :  FullDeformedData/TestingData/model042/output_geo_td_pretrained/corr_points/
+save_key_points :  True
 estimated_transform :  [[ 0.85271204  0.5123062  -0.10210064 -0.17827827]
  [-0.22444247  0.18281132 -0.95718634  1.2507112 ]
  [-0.47170734  0.83912003  0.2708687   0.8848727 ]
@@ -39,6 +43,8 @@ RMSE :  0.14238729004523823
 Strict IR :  0.0
 Relaxed IR :  0.0010584250635055038
 model 085 i 0 j 1
+intermediate_output_folder :  FullDeformedData/TestingData/model085/output_geo_td_pretrained/corr_points/
+save_key_points :  True
 estimated_transform :  [[-0.27161676  0.5116225   0.81514835 -0.38082075]
  [-0.4574268   0.6765752  -0.57706773  0.8579923 ]
  [-0.8467499  -0.5296117   0.05026081  0.9636669 ]
@@ -59,6 +65,8 @@ RMSE :  0.15046407978239615
 Strict IR :  0.003865979381443299
 Relaxed IR :  0.03479381443298969
 model 126 i 0 j 1
+intermediate_output_folder :  FullDeformedData/TestingData/model126/output_geo_td_pretrained/corr_points/
+save_key_points :  True
 estimated_transform :  [[ 0.15299203  0.75487804 -0.63777137  0.16928601]
  [-0.62307274  0.57461464  0.53065836  0.776314  ]
  [ 0.76705515  0.31619143  0.5582556  -0.31929088]
@@ -79,6 +87,8 @@ RMSE :  0.1916687323553725
 Strict IR :  0.0006686726847208291
 Relaxed IR :  0.01354062186559679
 model 167 i 0 j 1
+intermediate_output_folder :  FullDeformedData/TestingData/model167/output_geo_td_pretrained/corr_points/
+save_key_points :  True
 estimated_transform :  [[-0.94283473 -0.2936547  -0.15757442  1.5500187 ]
  [-0.26454097  0.9470387  -0.18203421  1.101817  ]
  [ 0.20268415 -0.12994325 -0.97058433  1.0695913 ]
@@ -99,6 +109,8 @@ RMSE :  0.10520069229240514
 Strict IR :  0.0
 Relaxed IR :  0.0
 model 207 i 0 j 1
+intermediate_output_folder :  FullDeformedData/TestingData/model207/output_geo_td_pretrained/corr_points/
+save_key_points :  True
 estimated_transform :  [[-0.8325563   0.37450778  0.40816003  0.8669714 ]
  [-0.52675825 -0.30727026 -0.7925344   1.5510137 ]
  [-0.17139469 -0.8748311   0.4530948   0.32290718]
