@@ -2,7 +2,7 @@ import re
 import matplotlib.pyplot as plt
 import numpy as np
 
-data_type = 'full_deformed'
+data_type = 'partial_non_deformed'
 training_data = 'pretrained'
 
 model_numbers = ['002', '042', '085', '126', '167', '207']
@@ -16,12 +16,15 @@ for line in lines:
     if 'model' in line and len(line) < 100:        
         words = line.split(' ')
         current_model = words[1]
+        
+        if data_type == 'full_non_deformed' or data_type == 'partial_non_deformed':
+            current_model = current_model[:len(current_model)-1]
     
     if 'RMSE' in line and current_model:
         list_res = re.findall("\d+\.\d+", line)
         rmse = float(list_res[0])
         final_data[current_model] = rmse
-    
+
 rmse = []
 for model_number in model_numbers:
     rmse.append(final_data[model_number])
