@@ -4,20 +4,22 @@ model_numbers=('002' '042' '085' '126' '167' '207')
 # training_data='pretrained'
 training_data='full_non_deformed'
 
-# current_deformation=True
-current_deformation=False
+current_deformation=True
+# current_deformation=False
 
 # weights="geotransformer-modelnet.pth.tar"
 weights="model_320_full_non_deformed.pth.tar"
 
-filename="/home/aiday.kyzy/code/GeoTransformer/experiments/geotransformer.modelnet.rpmnet.stage4.gse.k3.max.oacl.stage2.sinkhorn/output_geo_full_non_deformed_td_${training_data}.txt"
-rm ${filename}
-touch ${filename}
-folder=output_geo_td_${training_data}
-
 if [ $current_deformation == "False" ]; then
+
+    filename="/home/aiday.kyzy/code/GeoTransformer/experiments/geotransformer.modelnet.rpmnet.stage4.gse.k3.max.oacl.stage2.sinkhorn/output_geo_full_non_deformed_td_${training_data}.txt"
+    rm ${filename}
+    touch ${filename}
+    folder=output_geo_td_${training_data}
+
     for k in ${model_numbers[@]}
     do
+    
         mkdir $base/model$k/${folder}
         mkdir $base/model$k/${folder}/corr_points
         
@@ -50,6 +52,12 @@ if [ $current_deformation == "False" ]; then
 fi
 
 if [ $current_deformation == "True" ]; then
+
+    filename="/home/aiday.kyzy/code/GeoTransformer/experiments/geotransformer.modelnet.rpmnet.stage4.gse.k3.max.oacl.stage2.sinkhorn/output_geo_full_non_deformed_td_${training_data}_current_deformation.txt"
+    rm ${filename}
+    touch ${filename}
+    folder=output_geo_td_${training_data}_current_deformation
+
     for k in ${model_numbers[@]}
     do
         mkdir $base/model$k/${folder}

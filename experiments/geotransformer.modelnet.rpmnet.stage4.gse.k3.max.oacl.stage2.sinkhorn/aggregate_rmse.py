@@ -2,8 +2,11 @@ import re
 import matplotlib.pyplot as plt
 import numpy as np
 
-data_type = 'partial_non_deformed'
-training_data = 'pretrained'
+# data_type = 'partial_non_deformed'
+data_type = 'full_non_deformed'
+
+# training_data = 'pretrained'
+training_data = 'full_non_deformed'
 
 model_numbers = ['002', '042', '085', '126', '167', '207']
 filename = 'output_geo_' + data_type + '_td_' + training_data + '.txt'

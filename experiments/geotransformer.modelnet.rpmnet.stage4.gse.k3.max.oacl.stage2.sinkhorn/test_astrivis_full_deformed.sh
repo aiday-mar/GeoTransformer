@@ -7,13 +7,15 @@ training_data='pretrained'
 current_deformation=True
 # current_deformation=False
 
-filename="/home/aiday.kyzy/code/GeoTransformer/experiments/geotransformer.modelnet.rpmnet.stage4.gse.k3.max.oacl.stage2.sinkhorn/output_geo_full_deformed_td_${training_data}.txt"
-rm ${filename}
-touch ${filename}
-folder=output_geo_td_${training_data}
 save_key_points=True
 
 if [ $current_deformation == "False" ]; then
+
+	filename="/home/aiday.kyzy/code/GeoTransformer/experiments/geotransformer.modelnet.rpmnet.stage4.gse.k3.max.oacl.stage2.sinkhorn/output_geo_full_deformed_td_${training_data}.txt"
+	rm ${filename}
+	touch ${filename}
+	folder=output_geo_td_${training_data}
+
 	for k in ${model_numbers[@]}
 	do
 
@@ -61,6 +63,12 @@ if [ $current_deformation == "False" ]; then
 fi
 
 if [ $current_deformation == "True" ]; then
+
+	filename="/home/aiday.kyzy/code/GeoTransformer/experiments/geotransformer.modelnet.rpmnet.stage4.gse.k3.max.oacl.stage2.sinkhorn/output_geo_full_deformed_td_${training_data}_current_deformation.txt"
+	rm ${filename}
+	touch ${filename}
+	folder=output_geo_td_${training_data}_current_deformation
+
 	for k in ${model_numbers[@]}
 	do
 
