@@ -12,6 +12,8 @@ folder=output_geo_td_${training_data}
 for k in ${model_numbers[@]}
 do
     mkdir $base/model$k/${folder}
+    mkdir $base/model$k/${folder}/corr_points
+    
     touch ${base}/model${k}/${folder}/0_1_se4.h5
     intermediate_output_folder="FullNonDeformedData/TestingData/model${k}/${folder}/corr_points/"
 

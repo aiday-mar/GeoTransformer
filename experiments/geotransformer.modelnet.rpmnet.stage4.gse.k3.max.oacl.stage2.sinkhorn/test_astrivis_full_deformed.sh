@@ -17,6 +17,7 @@ do
 	length_array=${#arr[@]}
 	end=$(($length_array - 1))
 	mkdir $base/model$k/${folder}
+	mkdir $base/model$k/${folder}/corr_points
 
 	for i in $(seq 0 $end); do
 		start=$((i+1))
