@@ -1,0 +1,132 @@
+model 002
+intermediate_output_folder :  PartialNonDeformedData/TestingData/model002/output_geo_td_pretrained/corr_points/
+save_key_points :  False
+estimated_transform :  [[ 0.9799491   0.18800971 -0.06596942  0.39143437]
+ [-0.15967037  0.5429554  -0.8244422   0.225458  ]
+ [-0.11918473  0.81844485  0.5620884  -0.06919423]
+ [ 0.          0.          0.          1.        ]]
+Actual rotation :  [[-0.01511908  0.6490511  -0.76059456]
+ [ 0.47666865  0.67335838  0.56513316]
+ [ 0.87895302 -0.35400729 -0.31956287]]
+Actual translation :  [ 0.93734424 -0.40657474 -0.29944652]
+Predicted rotation :  [[ 0.9799491   0.18800971 -0.06596942]
+ [-0.15967037  0.5429554  -0.8244422 ]
+ [-0.11918473  0.81844485  0.5620884 ]]
+Predicted translation :  [ 0.39143437  0.225458   -0.06919423]
+Relative Rotation Error :  2.4924078421218723
+Relative Translation Error :  0.8663135006086702
+strict inlier ratio threshold :  0.01
+relaxed inlier ratio threshold :  0.03
+RMSE :  0.20837052198659475
+Strict IR :  0.0
+Relaxed IR :  0.0
+model 042
+intermediate_output_folder :  PartialNonDeformedData/TestingData/model042/output_geo_td_pretrained/corr_points/
+save_key_points :  False
+estimated_transform :  [[ 0.2501766   0.5992266   0.760486    0.02037472]
+ [-0.5975349  -0.5224732   0.60825473  0.9960494 ]
+ [ 0.761816   -0.6065881   0.22734821  0.47037357]
+ [ 0.          0.          0.          1.        ]]
+Actual rotation :  [[-0.11586111  0.98316587 -0.14128365]
+ [-0.23037909  0.11176292  0.96666154]
+ [ 0.96617891  0.14454728  0.21355188]]
+Actual translation :  [ 0.37739668  0.30691966 -0.00802446]
+Predicted rotation :  [[ 0.2501766   0.5992266   0.760486  ]
+ [-0.5975349  -0.5224732   0.60825473]
+ [ 0.761816   -0.6065881   0.22734821]]
+Predicted translation :  [0.02037472 0.9960494  0.47037357]
+Relative Rotation Error :  1.150056042585095
+Relative Translation Error :  0.91171769628482
+strict inlier ratio threshold :  0.01
+relaxed inlier ratio threshold :  0.03
+RMSE :  0.08983199485357535
+Strict IR :  0.0
+Relaxed IR :  0.046768893756845564
+model 085
+intermediate_output_folder :  PartialNonDeformedData/TestingData/model085/output_geo_td_pretrained/corr_points/
+save_key_points :  False
+estimated_transform :  [[ 0.11143617 -0.736875    0.6667813   0.6725452 ]
+ [-0.32940888  0.605638    0.72435683  0.39427733]
+ [-0.93758845 -0.30036324 -0.1752434   1.0242621 ]
+ [ 0.          0.          0.          1.        ]]
+Actual rotation :  [[-0.57899306  0.15459214 -0.80054251]
+ [-0.44369772 -0.88348371  0.15029591]
+ [-0.6840317   0.44221917  0.58012312]]
+Actual translation :  [0.3859729  1.90526434 0.1799051 ]
+Predicted rotation :  [[ 0.11143617 -0.736875    0.6667813 ]
+ [-0.32940888  0.605638    0.72435683]
+ [-0.93758845 -0.30036324 -0.1752434 ]]
+Predicted translation :  [0.6725452  0.39427733 1.0242621 ]
+Relative Rotation Error :  2.486035673217363
+Relative Translation Error :  1.7544640497950603
+strict inlier ratio threshold :  0.01
+relaxed inlier ratio threshold :  0.03
+RMSE :  0.1128217068584163
+Strict IR :  0.0
+Relaxed IR :  0.0
+model 126
+intermediate_output_folder :  PartialNonDeformedData/TestingData/model126/output_geo_td_pretrained/corr_points/
+save_key_points :  False
+estimated_transform :  [[-0.26396397  0.78169054 -0.56505126  1.2898159 ]
+ [-0.23598683  0.5156845   0.823638   -0.4493566 ]
+ [ 0.9352184   0.35075548  0.04834646 -0.26490146]
+ [ 0.          0.          0.          1.        ]]
+Actual rotation :  [[ 0.24307924  0.85381521 -0.46033908]
+ [-0.25108054  0.51378222  0.82035748]
+ [ 0.93694773 -0.08382969  0.33926617]]
+Actual translation :  [ 0.76110673 -0.4081355  -0.54307167]
+Predicted rotation :  [[-0.26396397  0.78169054 -0.56505126]
+ [-0.23598683  0.5156845   0.823638  ]
+ [ 0.9352184   0.35075548  0.04834646]]
+Predicted translation :  [ 1.2898159  -0.4493566  -0.26490146]
+Relative Rotation Error :  0.5291247053222878
+Relative Translation Error :  0.5988415800501036
+strict inlier ratio threshold :  0.01
+relaxed inlier ratio threshold :  0.03
+RMSE :  0.10733214952467696
+Strict IR :  0.0
+Relaxed IR :  0.006827982750359367
+model 167
+intermediate_output_folder :  PartialNonDeformedData/TestingData/model167/output_geo_td_pretrained/corr_points/
+save_key_points :  False
+estimated_transform :  [[ 0.61100125  0.09889154 -0.7854283   0.03521618]
+ [-0.6772074   0.5791071  -0.4539001   1.0537937 ]
+ [ 0.40996024  0.80923146  0.42080548 -1.0694114 ]
+ [ 0.          0.          0.          1.        ]]
+Actual rotation :  [[-0.99327492 -0.01998061  0.11404261]
+ [ 0.03301676  0.8952149   0.44440992]
+ [-0.11097222  0.44518654 -0.88853481]]
+Actual translation :  [ 1.44910973 -0.21174583  0.20930933]
+Predicted rotation :  [[ 0.61100125  0.09889154 -0.7854283 ]
+ [-0.6772074   0.5791071  -0.4539001 ]
+ [ 0.40996024  0.80923146  0.42080548]]
+Predicted translation :  [ 0.03521618  1.0537937  -1.0694114 ]
+Relative Rotation Error :  2.391482513346128
+Relative Translation Error :  2.288189651590884
+strict inlier ratio threshold :  0.01
+relaxed inlier ratio threshold :  0.03
+RMSE :  0.10309115448388127
+Strict IR :  0.0
+Relaxed IR :  0.04261291145700434
+model 207
+intermediate_output_folder :  PartialNonDeformedData/TestingData/model207/output_geo_td_pretrained/corr_points/
+save_key_points :  False
+estimated_transform :  [[ 0.81676817  0.535042   -0.21591675 -0.6086017 ]
+ [-0.36808327  0.77138597  0.5191131  -0.29202467]
+ [ 0.4443024  -0.34451973  0.8269834   0.7881806 ]
+ [ 0.          0.          0.          1.        ]]
+Actual rotation :  [[-0.87307663 -0.48120204  0.07862435]
+ [ 0.28082325 -0.36444525  0.88787272]
+ [-0.39859189  0.79726047  0.45332135]]
+Actual translation :  [1.8123437  0.01131148 0.68376541]
+Predicted rotation :  [[ 0.81676817  0.535042   -0.21591675]
+ [-0.36808327  0.77138597  0.5191131 ]
+ [ 0.4443024  -0.34451973  0.8269834 ]]
+Predicted translation :  [-0.6086017  -0.29202467  0.7881806 ]
+Relative Rotation Error :  3.032024381885199
+Relative Translation Error :  2.4421080881103308
+strict inlier ratio threshold :  0.01
+relaxed inlier ratio threshold :  0.03
+RMSE :  0.11483359196272393
+Strict IR :  0.0
+Relaxed IR :  0.050923732828043584

@@ -1,0 +1,120 @@
+model 002 i 0 j 1
+intermediate_output_folder :  PartialDeformedData/TestingData/model002/output_geo_td_pretrained/corr_points/
+save_key_points :  False
+estimated_transform :  [[ 0.41502312 -0.9051515  -0.09196064  0.74657774]
+ [-0.8624869  -0.35924637 -0.3564521   1.218595  ]
+ [ 0.28960657  0.22725064 -0.929777    0.77115524]
+ [ 0.          0.          0.          1.        ]]
+Actual rotation :  [[-0.40974485 -0.0177874  -0.91202674]
+ [ 0.82672423  0.41532003 -0.37952117]
+ [ 0.38553367 -0.90950145 -0.15546996]]
+Actual translation :  [ 1.97322969 -0.31353126  0.18591825]
+Predicted rotation :  [[ 0.41502312 -0.9051515  -0.09196064]
+ [-0.8624869  -0.35924637 -0.3564521 ]
+ [ 0.28960657  0.22725064 -0.929777  ]]
+Predicted translation :  [0.74657774 1.218595   0.77115524]
+Relative Rotation Error :  2.6336786976908306
+Relative Translation Error :  2.048069410665347
+strict inlier ratio threshold :  0.01
+relaxed inlier ratio threshold :  0.03
+model 042 i 0 j 1
+intermediate_output_folder :  PartialDeformedData/TestingData/model042/output_geo_td_pretrained/corr_points/
+save_key_points :  False
+estimated_transform :  [[ 9.5009923e-01  8.3184741e-02  3.0065244e-01 -2.9142654e-01]
+ [-3.0841720e-01  3.9508525e-01  8.6532468e-01  1.7708540e-04]
+ [-4.6801716e-02 -9.1487044e-01  4.0102568e-01  9.9570501e-01]
+ [ 0.0000000e+00  0.0000000e+00  0.0000000e+00  1.0000000e+00]]
+Actual rotation :  [[-0.87462848 -0.4705988  -0.11645507]
+ [ 0.24256895 -0.63279443  0.73534448]
+ [-0.41974435  0.61490485  0.66761269]]
+Actual translation :  [ 1.20593496  0.83257865 -0.4390415 ]
+Predicted rotation :  [[ 0.95009923  0.08318474  0.30065244]
+ [-0.3084172   0.39508525  0.8653247 ]
+ [-0.04680172 -0.91487044  0.40102568]]
+Predicted translation :  [-2.9142654e-01  1.7708540e-04  9.9570501e-01]
+Relative Rotation Error :  2.7774166236428948
+Relative Translation Error :  2.2346098938766046
+strict inlier ratio threshold :  0.01
+relaxed inlier ratio threshold :  0.03
+model 085 i 0 j 1
+intermediate_output_folder :  PartialDeformedData/TestingData/model085/output_geo_td_pretrained/corr_points/
+save_key_points :  False
+estimated_transform :  [[-0.02113421  0.8407339  -0.5410362   0.3839405 ]
+ [ 0.10327716  0.54009765  0.83524156  0.4064198 ]
+ [ 0.99442816 -0.03822443 -0.09824298 -0.16427726]
+ [ 0.          0.          0.          1.        ]]
+Actual rotation :  [[-0.08515318 -0.0477966  -0.99522079]
+ [-0.17928303  0.98328076 -0.03188333]
+ [ 0.98010537  0.17571123 -0.0922986 ]]
+Actual translation :  [ 0.67656808  0.74129062 -0.19986074]
+Predicted rotation :  [[-0.02113421  0.8407339  -0.5410362 ]
+ [ 0.10327716  0.54009765  0.83524156]
+ [ 0.99442816 -0.03822443 -0.09824298]]
+Predicted translation :  [ 0.3839405   0.4064198  -0.16427726]
+Relative Rotation Error :  1.0684406581907255
+Relative Translation Error :  0.44613400099509226
+strict inlier ratio threshold :  0.01
+relaxed inlier ratio threshold :  0.03
+RMSE :  0.3280073454965938
+Strict IR :  0.0
+Relaxed IR :  0.07559145989613388
+model 126 i 0 j 1
+intermediate_output_folder :  PartialDeformedData/TestingData/model126/output_geo_td_pretrained/corr_points/
+save_key_points :  False
+estimated_transform :  [[-2.8097074e-02  6.4720958e-04  9.9960524e-01 -6.2183195e-01]
+ [-9.9231827e-01  1.2051150e-01 -2.7970247e-02  6.6538072e-01]
+ [-1.2048182e-01 -9.9271190e-01 -2.7436987e-03  6.3823843e-01]
+ [ 0.0000000e+00  0.0000000e+00  0.0000000e+00  1.0000000e+00]]
+Actual rotation :  [[-0.81564788 -0.06094346 -0.57532984]
+ [ 0.57678234 -0.16330348 -0.80040871]
+ [-0.04517368 -0.98469176  0.16834925]]
+Actual translation :  [0.89703757 1.00050158 0.50390294]
+Predicted rotation :  [[-2.8097074e-02  6.4720958e-04  9.9960524e-01]
+ [-9.9231827e-01  1.2051150e-01 -2.7970247e-02]
+ [-1.2048182e-01 -9.9271190e-01 -2.7436987e-03]]
+Predicted translation :  [-0.62183195  0.6653807   0.63823843]
+Relative Rotation Error :  2.1769206110797383
+Relative Translation Error :  1.5611907775105458
+strict inlier ratio threshold :  0.01
+relaxed inlier ratio threshold :  0.03
+model 167 i 0 j 1
+intermediate_output_folder :  PartialDeformedData/TestingData/model167/output_geo_td_pretrained/corr_points/
+save_key_points :  False
+estimated_transform :  [[ 0.04728506  0.3520652   0.9347801  -0.4964411 ]
+ [ 0.7229486   0.633709   -0.27524287 -0.18842894]
+ [-0.689282    0.68881255 -0.22456001  0.7292246 ]
+ [ 0.          0.          0.          1.        ]]
+Actual rotation :  [[-0.81029619  0.58572329  0.0186628 ]
+ [ 0.42981428  0.61565456 -0.66047646]
+ [-0.39834628 -0.52716002 -0.75061478]]
+Actual translation :  [0.2961076  0.17846237 1.41276713]
+Predicted rotation :  [[ 0.04728506  0.3520652   0.9347801 ]
+ [ 0.7229486   0.633709   -0.27524287]
+ [-0.689282    0.68881255 -0.22456001]]
+Predicted translation :  [-0.4964411  -0.18842894  0.7292246 ]
+Relative Rotation Error :  1.4967131033111505
+Relative Translation Error :  1.1090414905413628
+strict inlier ratio threshold :  0.01
+relaxed inlier ratio threshold :  0.03
+model 207 i 0 j 1
+intermediate_output_folder :  PartialDeformedData/TestingData/model207/output_geo_td_pretrained/corr_points/
+save_key_points :  False
+estimated_transform :  [[ 0.41827494  0.88339305  0.2113361  -0.46664187]
+ [-0.31504917  0.3593198  -0.8784267   1.3786244 ]
+ [-0.8519332   0.30084264  0.42860663  0.61857903]
+ [ 0.          0.          0.          1.        ]]
+Actual rotation :  [[-0.32787446  0.25529739 -0.9095722 ]
+ [ 0.93634976  0.21570775 -0.27698246]
+ [ 0.12548888 -0.94249319 -0.30977271]]
+Actual translation :  [0.74584319 0.0201462  0.21741575]
+Predicted rotation :  [[ 0.41827494  0.88339305  0.2113361 ]
+ [-0.31504917  0.3593198  -0.8784267 ]
+ [-0.8519332   0.30084264  0.42860663]]
+Predicted translation :  [-0.46664187  1.3786244   0.61857903]
+Relative Rotation Error :  2.499125142472459
+Relative Translation Error :  1.8645415285023765
+strict inlier ratio threshold :  0.01
+relaxed inlier ratio threshold :  0.03
+RMSE :  0.591274984376514
+Strict IR :  0.0007265681763138775
+Relaxed IR :  0.028093969484136595
