@@ -25,8 +25,9 @@ def make_parser():
     parser.add_argument("--target", required=True, help="target point cloud numpy file")
     parser.add_argument("--output", required=True, help="output file where to save transformed src point cloud")
     parser.add_argument("--output_trans", required=True, help="output file where to save the transformation matrix")
-    # parser.add_argument("--gt_file", required=True, help="ground-truth transformation file")
     parser.add_argument("--weights", required=True, help="model weights file")
+    parser.add_argument("--intermediate_output_folder", required=False, help="intermediate output folder")
+    parser.add_argument("--save_key_points", required=False, help="whether to save the intermediate keypoints or not")
     return parser
 
 
