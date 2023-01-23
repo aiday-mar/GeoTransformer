@@ -10,6 +10,8 @@ current_deformation=True
 # weights="geotransformer-modelnet.pth.tar"
 weights="model_320_partial_non_deformed.pth.tar"
 
+save_key_points=True
+
 if [ $current_deformation == "False" ]; then
 
     filename="/home/aiday.kyzy/code/GeoTransformer/experiments/geotransformer.modelnet.rpmnet.stage4.gse.k3.max.oacl.stage2.sinkhorn/output_geo_partial_non_deformed_td_${training_data}.txt"

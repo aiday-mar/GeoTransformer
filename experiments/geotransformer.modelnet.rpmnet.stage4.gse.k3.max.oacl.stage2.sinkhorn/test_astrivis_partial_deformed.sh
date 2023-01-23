@@ -7,6 +7,8 @@ training_data='pretrained'
 current_deformation=True
 # current_deformation=False
 
+save_key_points=True
+
 if [ $current_deformation == "False" ]; then
 
 	filename="/home/aiday.kyzy/code/GeoTransformer/experiments/geotransformer.modelnet.rpmnet.stage4.gse.k3.max.oacl.stage2.sinkhorn/output_geo_partial_deformed_td_${training_data}.txt"
