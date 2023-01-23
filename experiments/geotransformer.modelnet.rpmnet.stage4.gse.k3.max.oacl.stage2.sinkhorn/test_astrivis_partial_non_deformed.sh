@@ -87,7 +87,7 @@ if [ $current_deformation == "True" ]; then
             --file1="${base}/model${k}/transformed/mesh_transformed_0.ply" \
             --file2="${base}/model${k}/transformed/mesh_transformed_1.ply" \
             --landmarks1="${base}/model${k}/${folder}/corr_points/src_corr_points.ply" \
-            --landmarks2="${base}/model${k}/${folder}/corr_points/tgt_corr_points.ply" \
+            --landmarks2="${base}/model${k}/${folder}/corr_points/ref_corr_points.ply" \
             --save_path="${base}/model${k}/${folder}/current_deformation.ply" >> ${filename}
 
             python3 ../../../../code/sfm/python/graphics/mesh/compute_pointcloud_rmse_ir.py \
