@@ -155,7 +155,8 @@ class IterBasedTrainer(BaseTrainer):
         train_loader = CycleLoader(self.train_loader, self.epoch, self.distributed)
         self.before_train()
         self.optimizer.zero_grad()
-        for epoch in range(0, 330):
+
+        for epoch in range(0, 200):
             self.iteration = 0
             # Setting the max_iterations to 160 which is the number of elements in our training dataset
             while self.iteration < self.max_iteration:
@@ -196,7 +197,7 @@ class IterBasedTrainer(BaseTrainer):
             # if self.iteration % self.snapshot_steps == 0:
             # self.epoch = train_loader.last_epoch
             if epoch % 10 == 0:
-                self.save_snapshot(f'model_{epoch}_{training_data}.pth.tar', f'snapshot_{epoch}_{training_data}.pth.tar')
+                self.save_snapshot(f'model_{epoch + 140}_{training_data}.pth.tar', f'snapshot_{epoch + 140}_{training_data}.pth.tar')
             # if not self.save_all_snapshots:
             #    last_snapshot = f'iter_{self.iteration - self.snapshot_steps}.pth.tar'
             #    if osp.exists(last_snapshot):
