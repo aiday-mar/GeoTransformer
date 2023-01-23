@@ -228,6 +228,7 @@ class LocalGlobalRegistration(nn.Module):
             score_mat = score_mat * global_scores.view(-1, 1, 1)
         score_mat = score_mat * corr_mat.float()
 
+        print('Inside forward of global to local registration')
         print('ref_knn_points.shape : ', ref_knn_points.shape)
         print('src_knn_points.shape : ', src_knn_points.shape)
         print('score_mat.shape : ', score_mat.shape)
