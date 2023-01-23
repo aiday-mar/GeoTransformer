@@ -1,12 +1,21 @@
 base='/home/aiday.kyzy/dataset/Synthetic/PartialDeformedData/TestingData'
-model_numbers=('002' '008' '015' '022' '029' '035' '042' '049' '056' '066' '073' '079' '085' '093' '100' '106' '113' '120' '126' '133' '140' '147' '153' '160' '167' '174' '180' '187' '194' '201' '207' '214' '221')
+model_numbers=('002' '042' '085' '126' '167' '207')
 for k in ${model_numbers[@]}
 do
 
-arr=('020' '041' '062' '104' '125' '146' '188' '209' '230')
-mkdir $base/model$k/output_geo
+arr=('020' '104')
 length_array=${#arr[@]}
 end=$(($length_array - 1))
+
+training_data='pretrained'
+# training_data='partial_deformed'
+
+folder=output_geo_td_${training_data}
+mkdir $base/model$k/${folder}
+
+filename="/home/aiday.kyzy/code/GeoTransformer/experiments/geotransformer.modelnet.rpmnet.stage4.gse.k3.max.oacl.stage2.sinkhorn/output_geo_partial_deformed_td_${training_data}.txt"
+rm ${filename}
+touch ${filename}
 
 for i in $(seq 0 $end); do
 	start=$((i+1))
@@ -17,16 +26,28 @@ for i in $(seq 0 $end); do
 		echo "model ${k} i ${i} j ${j}"
 		
 		# 0 -> 1
-		touch ${base}/model${k}/output_geo/${file_number1}_${file_number2}_0_1_se4.h5
-		python3 astrivis-test.py --source="PartialDeformedData/TestingData/model${k}/transformed/${file_number1}_0.ply" --target="PartialDeformedData/TestingData/model${k}/transformed/${file_number2}_1.ply" --output="PartialDeformedData/TestingData/model${k}/output_geo/${file_number1}_${file_number2}_0_1.ply" --output_trans="PartialDeformedData/TestingData/model${k}/output_geo/${file_number1}_${file_number2}_0_1_se4.h5" --weights='../../../../code/GeoTransformer/weights/model-39.pth.tar'
-		python3 ../../../../code/sfm/python/graphics/mesh/compute_relative_transformation_error.py --part1="${base}/model${k}/transformed/${file_number1}_0_se4.h5" --part2="${base}/model${k}/transformed/${file_number2}_1_se4.h5" --pred="${base}/model${k}/output_geo/${file_number1}_${file_number2}_0_1_se4.h5"
-        python3 ../../../../code/sfm/python/graphics/mesh/compute_pointcloud_rmse_ir.py --final="${base}/model${k}/output_geo/${file_number1}_${file_number2}_0_1.ply" --initial="${base}/model${k}/transformed/${file_number1}_0.ply" --part1="${base}/model${k}/transformed/${file_number1}_0_se4.h5" --part2="${base}/model${k}/transformed/${file_number2}_1_se4.h5"
+		touch ${base}/model${k}/${folder}/${file_number1}_${file_number2}_0_1_se4.h5
 
-		# 1 -> 0
-		touch ${base}/model${k}/output/${file_number1}_${file_number2}_1_0_se4.h5
-		python3 astrivis-test.py --source="PartialDeformedData/TestingData/model${k}/transformed/${file_number1}_1.ply" --target="PartialDeformedData/TestingData/model${k}/transformed/${file_number2}_0.ply" --output="PartialDeformedData/TestingData/model${k}/output_geo/${file_number1}_${file_number2}_1_0.ply" --output_trans="PartialDeformedData/TestingData/model${k}/output_geo/${file_number1}_${file_number2}_1_0_se4.h5" --weights='../../../../code/GeoTransformer/weights/model-39.pth.tar'
-		python3 ../../../../code/sfm/python/graphics/mesh/compute_relative_transformation_error.py --part1="${base}/model${k}/transformed/${file_number1}_1_se4.h5" --part2="${base}/model${k}/transformed/${file_number2}_0_se4.h5" --pred="${base}/model${k}/output_geo/${file_number1}_${file_number2}_1_0_se4.h5"
-        python3 ../../../../code/sfm/python/graphics/mesh/compute_pointcloud_rmse_ir.py --final="${base}/model${k}/output_geo/${file_number1}_${file_number2}_1_0.ply" --initial="${base}/model${k}/transformed/${file_number1}_1.ply" --part1="${base}/model${k}/transformed/${file_number1}_1_se4.h5" --part2="${base}/model${k}/transformed/${file_number2}_0_se4.h5"
+		python3 astrivis-test.py \
+		--source="PartialDeformedData/TestingData/model${k}/transformed/${file_number1}_0.ply" \
+		--target="PartialDeformedData/TestingData/model${k}/transformed/${file_number2}_1.ply" \
+		--output="PartialDeformedData/TestingData/model${k}/${folder}/${file_number1}_${file_number2}_0_1.ply" \
+		--output_trans="PartialDeformedData/TestingData/model${k}/${folder}/${file_number1}_${file_number2}_0_1_se4.h5" \
+		--weights='../../../../code/GeoTransformer/weights/geotransformer-modelnet.pth.tar' >> ${filename}
+
+		python3 ../../../../code/sfm/python/graphics/mesh/compute_relative_transformation_error.py \
+		--part1="${base}/model${k}/transformed/${file_number1}_0_se4.h5" \
+		--part2="${base}/model${k}/transformed/${file_number2}_1_se4.h5" \
+		--pred="${base}/model${k}/${folder}/${file_number1}_${file_number2}_0_1_se4.h5" >> ${filename}
+
+        python3 ../../../../code/sfm/python/graphics/mesh/compute_pointcloud_rmse_ir.py \
+		--final="${base}/model${k}/${folder}/${file_number1}_${file_number2}_0_1.ply" \
+		--initial_1="${base}/model${k}/transformed/${file_number1}_0.ply" \
+		--initial_2="${base}/model${k}/transformed/${file_number1}_1.ply" \
+		--matches="${base}/model${k}/matches/${file_number1}_${file_number2}_0_1.npz" \
+		--part1="${base}/model${k}/transformed/${file_number1}_0_se4.h5" \
+		--part2="${base}/model${k}/transformed/${file_number2}_1_se4.h5" >> ${filename}
+
     done
 done
 
