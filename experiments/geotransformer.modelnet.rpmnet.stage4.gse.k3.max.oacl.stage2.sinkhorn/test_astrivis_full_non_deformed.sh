@@ -34,7 +34,7 @@ if [ $current_deformation == "False" ]; then
         --output_trans="FullNonDeformedData/TestingData/model${k}/${folder}/0_1_se4.h5" \
         --intermediate_output_folder="${intermediate_output_folder}" \
         --save_key_points=${save_key_points} \
-        --weights='../../../../code/GeoTransformer/weights/${weights}' >> ${filename}
+        --weights="../../../../code/GeoTransformer/weights/${weights}" >> ${filename}
 
         python3 ../../../../code/sfm/python/graphics/mesh/compute_relative_transformation_error.py \
         --part1="${base}/model${k}/mesh_transformed_0_se4.h5" \
@@ -68,7 +68,7 @@ if [ $current_deformation == "True" ]; then
         --output_trans="FullNonDeformedData/TestingData/model${k}/${folder}/0_1_se4.h5" \
         --intermediate_output_folder="${intermediate_output_folder}" \
         --save_key_points=${save_key_points} \
-        --weights='../../../../code/GeoTransformer/weights/${weights}' >> ${filename}
+        --weights="../../../../code/GeoTransformer/weights/${weights}" >> ${filename}
 
         if [ "$?" != "1" ]; then
             rm "${base}/model${k}/${folder}/current_deformation.ply" >> ${filename}
