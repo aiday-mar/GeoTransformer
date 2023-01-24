@@ -11102,6 +11102,7 @@ INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(PointCl
 strict inlier ratio threshold :  0.01
 relaxed inlier ratio threshold :  0.03
 [1;33m[Open3D WARNING] Read PLY failed: unable to open file: /home/aiday.kyzy/dataset/Synthetic/FullNonDeformedData/TestingData/model042/output_geo_td_full_non_deformed_ivs_0.008_current_deformation/current_deformation.ply[0;m
+
 model 085
 voxel size 0.008
 Inside registration_collate_fn_stack_mode
@@ -13095,6 +13096,7 @@ relaxed inlier ratio threshold :  0.03
 RMSE :  0.11535962222870924
 Strict IR :  0.0
 Relaxed IR :  0.0
+
 model 126
 voxel size 0.008
 Inside registration_collate_fn_stack_mode
