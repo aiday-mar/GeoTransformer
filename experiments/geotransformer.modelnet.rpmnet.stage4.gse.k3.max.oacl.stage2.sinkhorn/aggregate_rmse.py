@@ -2,15 +2,22 @@ import re
 import matplotlib.pyplot as plt
 import numpy as np
 
-data_type = 'partial_non_deformed'
-# data_type = 'full_non_deformed'
+# data_type = 'partial_non_deformed'
+data_type = 'full_non_deformed'
 
-# training_data = 'pretrained'
+training_data = 'pretrained'
 # training_data = 'full_non_deformed'
-training_data = 'partial_non_deformed'
+# training_data = 'partial_non_deformed'
+
+current_deformation = True
+# current_deformation = False
 
 model_numbers = ['002', '042', '085', '126', '167', '207']
-filename = 'output_geo_' + data_type + '_td_' + training_data + '.txt'
+if current_deformation is False:
+    filename = 'output_geo_' + data_type + '_td_' + training_data + '.txt'
+else:
+    filename = 'output_geo_' + data_type + '_td_' + training_data + '_current_deformation.txt'
+
 file = open(filename, 'r')
 lines = file.readlines()
 current_model = None
@@ -40,5 +47,11 @@ plt.xlabel("Model number")
 plt.ylabel("RMSE")
 data_type_mod = data_type.replace('_', ' ').title()
 plt.title(data_type_mod)
-plt.savefig('output_geo_' + data_type + '_td_' + training_data + '.png')
+
+if current_deformation is False:
+    image_filename = 'output_geo_' + data_type + '_td_' + training_data + '.png'
+else:
+    image_filename = 'output_geo_' + data_type + '_td_' + training_data + '_current_deformation.png'
+
+plt.savefig(image_filename)
 
