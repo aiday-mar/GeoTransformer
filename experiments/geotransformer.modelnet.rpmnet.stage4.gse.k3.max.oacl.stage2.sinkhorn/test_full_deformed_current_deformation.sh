@@ -16,10 +16,20 @@ if [ "$training_data" != "full_non_deformed" ]; then
     weights=model_320_full_non_deformed.pth.tar
 fi
 
-initial_voxel_size=0.004
+initial_voxel_size=0.01
 
-filename=output_geo_td_${training_data}_ivs_${initial_voxel_size}.txt
-folder=output_geo_td_${training_data}_ivs_${initial_voxel_size}
+current_deformation=True
+# current_deformation=False
+
+if [ "$current_deformation" != "False" ]; then
+    filename=output_geo_full_deformed_td_${training_data}_ivs_${initial_voxel_size}.txt
+    folder=output_geo_full_deformed_td_${training_data}_ivs_${initial_voxel_size}
+fi
+
+if [ "$current_deformation" != "True" ]; then
+    filename=output_geo_full_deformed_td_${training_data}_ivs_${initial_voxel_size}_current_deformation.txt
+    folder=output_geo_full_deformed_td_${training_data}_ivs_${initial_voxel_size}_current_deformation
+fi
 
 rm ${filename}
 touch ${filename}
@@ -42,7 +52,6 @@ do
     --directory=${base}/model$k/${folder}/ \
     --weights="../../weights/${weights}" >> ${filename}
     
-    if [ "$?" != "1" ]; then
     rm "${base}/model${k}/${folder}/current_deformation.ply"
 
     python3 ../../../sfm/python/learning/fusion/fusion_cli.py \
@@ -56,6 +65,6 @@ do
     --input1="${base}/model${k}/${folder}/current_deformation.ply" \
     --input2="${base}/model${k}/transformed/${file_number2}.ply" \
     --matches="${base}/model${k}/matches/${file_number1}_${file_number2}.npz" >> ${filename}
-    fi
+    
 done
 			

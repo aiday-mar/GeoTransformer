@@ -16,10 +16,20 @@ if [ "$training_data" != "full_non_deformed" ]; then
     weights=model_320_full_non_deformed.pth.tar
 fi
 
-initial_voxel_size=0.004
+initial_voxel_size=0.01
 
-filename=output_geo_td_${training_data}_ivs_${initial_voxel_size}.txt
-folder=output_geo_td_${training_data}_ivs_${initial_voxel_size}
+current_deformation=True
+# current_deformation=False
+
+if [ "$current_deformation" != "False" ]; then
+    filename=output_geo_partial_deformed_td_${training_data}_ivs_${initial_voxel_size}.txt
+    folder=output_geo_partial_deformed_td_${training_data}_ivs_${initial_voxel_size}
+fi
+
+if [ "$current_deformation" != "True" ]; then
+    filename=output_geo_partial_deformed_td_${training_data}_ivs_${initial_voxel_size}_current_deformation.txt
+    folder=output_geo_partial_deformed_td_${training_data}_ivs_${initial_voxel_size}_current_deformation
+fi
 
 rm ${filename}
 touch ${filename}
