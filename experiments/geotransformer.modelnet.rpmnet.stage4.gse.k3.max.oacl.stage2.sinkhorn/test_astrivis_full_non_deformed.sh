@@ -31,7 +31,7 @@ if [ $current_deformation == "False" ]; then
 
     rm ${filename}
     touch ${filename}
-    folder=output_geo_td_${training_data}
+    folder=output_geo_td_${training_data}_ivs_${init_voxel_size}
 
     for k in ${model_numbers[@]}
     do
@@ -79,7 +79,7 @@ if [ $current_deformation == "True" ]; then
 
     rm ${filename}
     touch ${filename}
-    folder=output_geo_td_${training_data}_current_deformation
+    folder=output_geo_td_${training_data}_ivs_${init_voxel_size}_current_deformation
 
     for k in ${model_numbers[@]}
     do
