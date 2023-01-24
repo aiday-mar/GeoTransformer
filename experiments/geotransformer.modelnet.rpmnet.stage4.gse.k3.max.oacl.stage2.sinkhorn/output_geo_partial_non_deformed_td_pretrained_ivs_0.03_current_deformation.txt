@@ -18949,6 +18949,7 @@ relaxed inlier ratio threshold :  0.03
 RMSE :  0.18012617836784128
 Strict IR :  0.0
 Relaxed IR :  0.0
+
 model 085
 voxel size 0.03
 Inside registration_collate_fn_stack_mode
@@ -21758,6 +21759,7 @@ relaxed inlier ratio threshold :  0.03
 RMSE :  0.2592366616957112
 Strict IR :  0.0
 Relaxed IR :  0.0013353681800839375
+
 model 126
 voxel size 0.03
 Inside registration_collate_fn_stack_mode
@@ -31099,6 +31101,7 @@ relaxed inlier ratio threshold :  0.03
 RMSE :  0.09505824827363853
 Strict IR :  0.001786169941311559
 Relaxed IR :  0.052309262566981374
+
 model 207
 voxel size 0.03
 Inside registration_collate_fn_stack_mode
