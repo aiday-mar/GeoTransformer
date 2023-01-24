@@ -2,11 +2,11 @@ import re
 import matplotlib.pyplot as plt
 import numpy as np
 
-data_type = 'partial_non_deformed'
-# data_type = 'full_non_deformed'
+# data_type = 'partial_non_deformed'
+data_type = 'full_non_deformed'
 
-training_data = 'pretrained'
-# training_data = 'full_non_deformed'
+# training_data = 'pretrained'
+training_data = 'full_non_deformed'
 # training_data = 'partial_non_deformed'
 
 current_deformation = True
@@ -46,7 +46,12 @@ for model_number in model_numbers:
     rmse.append(final_data[model_number])
 
 bar = np.array([0, 1, 2, 3, 4, 5])
-plt.axvline(x = 3, color = 'r', ls='--')
+nan_positions = np.where(np.array(rmse) == 0.0)[0]
+
+if nan_positions.size > 0:
+    for nan_position in nan_positions:
+        plt.axvline(x = bar[nan_position], color = 'r', ls='--')
+
 plt.bar(bar, rmse)
 plt.xticks(bar, model_numbers)
 plt.xlabel("Model number")
