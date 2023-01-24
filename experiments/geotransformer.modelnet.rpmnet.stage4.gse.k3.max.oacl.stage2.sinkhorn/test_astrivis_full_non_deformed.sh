@@ -70,7 +70,7 @@ if [ $current_deformation == "True" ]; then
     if [ $one_model == "False" ]; then
         filename="/home/aiday.kyzy/code/GeoTransformer/experiments/geotransformer.modelnet.rpmnet.stage4.gse.k3.max.oacl.stage2.sinkhorn/output_geo_full_non_deformed_td_${training_data}_current_deformation.txt"
     fi
-    if [ $one_model == "False" ]; then
+    if [ $one_model == "True" ]; then
         filename="/home/aiday.kyzy/code/GeoTransformer/experiments/geotransformer.modelnet.rpmnet.stage4.gse.k3.max.oacl.stage2.sinkhorn/output_geo_full_non_deformed_td_${training_data}_current_deformation_one_model_${model_numbers[0]}.txt"
     fi
 
