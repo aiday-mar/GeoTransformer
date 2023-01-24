@@ -22,7 +22,7 @@ save_key_points=True
 if [ $current_deformation == "False" ]; then
 
     if [ $one_model == "False" ]; then
-        filename="/home/aiday.kyzy/code/GeoTransformer/experiments/geotransformer.modelnet.rpmnet.stage4.gse.k3.max.oacl.stage2.sinkhorn/output_geo_full_non_deformed_td_${training_data}_ivs_${init_voxel_size}.txt"
+        filename="/home/aiday.kyzy/code/GeoTransformer/experiments/geotransformer.modelnet.rpmnet.stage4.gse.k3.max.oacl.stage2.sinkhorn/output_geo_partial_non_deformed_td_${training_data}_ivs_${init_voxel_size}.txt"
     fi
 
     if [ $one_model == "True" ]; then
