@@ -131,7 +131,7 @@ def main():
     global_best_index = -1
     rotation_n = 0
         
-    source_superpoints_pcd = np.array([])
+    source_superpoints_pcd = np.empty((0, 3), int)
     transformed_superpoints_pcd = np.array([])
 
     while True:
