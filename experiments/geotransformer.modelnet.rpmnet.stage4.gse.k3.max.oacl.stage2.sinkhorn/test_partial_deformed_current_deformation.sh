@@ -44,14 +44,14 @@ do
     if [ "$?" != "1" ]; then
     rm "${base}/model${k}/${folder}/current_deformation.ply"
     
-    python3 ../../code/sfm/python/learning/fusion/fusion_cli.py \
+    python3 ../../../sfm/python/learning/fusion/fusion_cli.py \
     --file1="${base}/model${k}/transformed/${file_number1}_0.ply" \
     --file2="${base}/model${k}/transformed/${file_number2}_1.ply" \
     --landmarks1="${base}/model${k}/${folder}/initial_pcd.ply" \
     --landmarks2="${base}/model${k}/${folder}/transformed_pcd.ply" \
     --save_path="${base}/model${k}/${folder}/current_deformation.ply" >> ${filename}
 
-    python3 ../../code/sfm/python/graphics/mesh/compute_pointcloud_rmse_ir.py \
+    python3 ../../../sfm/python/graphics/mesh/compute_pointcloud_rmse_ir.py \
     --final="${base}/model${k}/${folder}/current_deformation.ply" \
     --initial_1="${base}/model${k}/transformed/${file_number1}_0.ply" \
     --initial_2="${base}/model${k}/transformed/${file_number2}_1.ply" \
