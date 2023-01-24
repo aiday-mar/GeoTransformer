@@ -20,7 +20,6 @@ def make_parser():
     parser.add_argument("--source", required=True, help="src point cloud numpy file")
     parser.add_argument("--target", required=True, help="target point cloud numpy file")
     parser.add_argument("--output", required=True, help="output file where to save transformed src point cloud")
-    # parser.add_argument("--gt_file", required=True, help="ground-truth transformation file")
     parser.add_argument("--directory", required=True, help="output directory")
     parser.add_argument("--weights", required=True, help="model weights file")
     return parser
@@ -43,11 +42,6 @@ def load_data(args):
         "src_feats": src_feats.astype(np.float32),
     }
 
-    '''
-    if args.gt_file is not None:
-        transform = np.load(args.gt_file)
-        data_dict["transform"] = transform.astype(np.float32)
-    '''
     return data_dict
 
 # The smaller the acceptance radius the better the first say 10 transformations chosen will be to the final point-cloud
@@ -59,16 +53,22 @@ NUMBER_TRANSFORMATIONS_OF_INTEREST = 10
 FILTER_POINTS_ONCE_TRANSFORMATION_FOUND = True
 
 def compute_best_transform(superpoint_src_corr_points, superpoint_ref_corr_points, batch_transforms):
+
     print('Inside of compute_best_transform')
     print('torch.tensor(superpoint_src_corr_points).shape : ', torch.tensor(superpoint_src_corr_points).shape)
     print('batch_transforms.shape : ', torch.tensor(batch_transforms).shape)
+
     batch_aligned_src_corr_points = apply_transform(torch.tensor(superpoint_src_corr_points).unsqueeze(0), torch.tensor(batch_transforms))
+    
     print('batch_aligned_src_corr_points.shape : ', batch_aligned_src_corr_points.shape) 
+
     batch_corr_residuals = torch.linalg.norm(
         torch.tensor(superpoint_ref_corr_points).unsqueeze(0) - batch_aligned_src_corr_points, dim=2
     )
-    batch_inlier_masks = torch.lt(batch_corr_residuals, ACCEPTANCE_RADIUS)  # (P, N)
+    batch_inlier_masks = torch.lt(batch_corr_residuals, ACCEPTANCE_RADIUS)
+    
     print('batch_inlier_masks.shape : ', batch_inlier_masks.shape)
+    
     best_index = batch_inlier_masks.sum(dim=1).argmax()
     return best_index
             
@@ -122,7 +122,6 @@ def main():
     transform_to_superpoint = {}
     copy_superpoint_src_corr_points = superpoint_src_corr_points
     copy_superpoint_ref_corr_points = superpoint_ref_corr_points
-    transformed_superpoints_pcd = np.array([])
     n_rows = 0
     global_best_index = -1
     rotation_n = 0
@@ -131,8 +130,9 @@ def main():
     for f in files:
         os.remove(f)
     
-    # for i in sorted_indices:
-    # transform = batch_transforms[i]
+    source_superpoints_pcd = np.array([])
+    transformed_superpoints_pcd = np.array([])
+
     while True:
         best_index = int(compute_best_transform(copy_superpoint_src_corr_points, copy_superpoint_ref_corr_points, batch_transforms))
         if global_best_index == -1:
@@ -179,9 +179,12 @@ def main():
         else:
             transform_to_superpoint[best_index] = chosen_inliers_src
         
+        source_superpoints_pcd = np.append(source_superpoints_pcd, np.array(chosen_inliers_src), axis=0)
+
         # Transforming the inliers and adding it to the final pcd
         transformed_inliers = apply_transform(torch.tensor(chosen_inliers_src), torch.tensor(transform))
         print('transformed_inliers.dim() : ', transformed_inliers.dim())
+
         if transformed_inliers.dim() == 1:
             transformed_inliers = np.expand_dims(transformed_inliers, axis=0)
         
@@ -193,7 +196,6 @@ def main():
             
         print('len(transformed_superpoints_pcd) : ', len(transformed_superpoints_pcd))
         
-        # Treating the outliers, potentiall making the outlier array smaller by filtering
         copy_superpoint_src_corr_points = copy_superpoint_src_corr_points[indices_outliers]
         copy_superpoint_ref_corr_points = copy_superpoint_ref_corr_points[indices_outliers]
         print('copy_superpoint_src_corr_points.shape : ', copy_superpoint_src_corr_points.shape)
@@ -231,16 +233,23 @@ def main():
     
     print('number of unique points in pcd : ', len(np.unique(superpoint_src_corr_points, axis=0)))
     print('number of rotations used : ', rotation_n)
-    # last points are transformed with the global best transform
-    if n_rows != 0:   
+
+    if n_rows != 0:
+        source_superpoints_pcd = np.append(source_superpoints_pcd, np.array(copy_superpoint_src_corr_points), axis=0)
         transform_to_superpoint[global_best_index] = np.append(transform_to_superpoint[global_best_index], copy_superpoint_src_corr_points, axis=0)
         last_batch = apply_transform(torch.tensor(copy_superpoint_src_corr_points), torch.tensor(estimated_transform))
         transformed_superpoints_pcd = np.append(transformed_superpoints_pcd, np.array(last_batch), axis=0)
-        
+
+    print('source_superpoints_pcd.shape : ', source_superpoints_pcd.shape)    
     print('transformed_superpoints_pcd.shape : ', transformed_superpoints_pcd.shape)
+
+    initial_total_pcd = make_open3d_point_cloud(source_superpoints_pcd)
+    initial_total_pcd.estimate_normals()
+    o3d.io.write_point_cloud(args.directory + '/initial_pcd.ply', initial_total_pcd)
+
     final_total_pcd = make_open3d_point_cloud(transformed_superpoints_pcd)
     final_total_pcd.estimate_normals()
-    o3d.io.write_point_cloud(args.directory + '/multiple-trans-1.ply', final_total_pcd)
+    o3d.io.write_point_cloud(args.directory + '/transformed_pcd.ply', final_total_pcd)
     
     points = np.array(torch.cat((torch.tensor(transformed_superpoints_pcd), torch.tensor(superpoint_ref_corr_points)), 0).cpu())
     lines = [[i, i+transformed_superpoints_pcd.shape[0]] for i in range(0, superpoint_ref_corr_points.shape[0])]
@@ -249,7 +258,6 @@ def main():
         lines=o3d.utility.Vector2iVector(lines),
     )
     o3d.io.write_line_set(args.directory + "/line_set_inliers.ply", line_set)
-    print('Line set updated')
-    
+
 if __name__ == "__main__":
     main()
