@@ -6,7 +6,7 @@ one_model=True
 # model_numbers=('002' '042' '085' '126' '167' '207')
 model_numbers=('002')
 
-init_voxel_size=0.006
+init_voxel_size=0.05
 
 # training_data='pretrained'
 training_data='partial_non_deformed'
