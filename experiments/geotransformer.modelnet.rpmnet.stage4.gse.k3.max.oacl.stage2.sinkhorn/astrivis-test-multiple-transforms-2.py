@@ -149,7 +149,7 @@ def main():
         print('transform.shape : ', transform.shape)
         
         if rotation_n < NUMBER_TRANSFORMATIONS_OF_INTEREST:
-            src_points = o3d.io.read_point_cloud(args.source)
+            src_points = o3d.io.read_point_cloud(args.base + args.source)
             src_points = src_points.transform(transform)
             o3d.io.write_point_cloud(args.directory + '/src_pcd_transformed/src_pcd_transformed_' + str(rotation_n) + '.ply', src_points)
             
