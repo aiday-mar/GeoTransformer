@@ -19,19 +19,24 @@ def make_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument("--source", required=True, help="src point cloud numpy file")
     parser.add_argument("--target", required=True, help="target point cloud numpy file")
-    parser.add_argument("--output", required=True, help="output file where to save transformed src point cloud")
+    parser.add_argument("--base", required=False, help="base path")
     parser.add_argument("--directory", required=True, help="output directory")
     parser.add_argument("--weights", required=True, help="model weights file")
     return parser
 
 
 def load_data(args):
-    src_points = o3d.io.read_point_cloud(args.source)
-    src_points = np.array(src_points.points)
-    print('src_points : ', src_points)
-    ref_points = o3d.io.read_point_cloud(args.target)
-    ref_points = np.array(ref_points.points)
-    print('ref_points : ', ref_points)
+    if args.base:
+        src_points = o3d.io.read_point_cloud(args.base + args.source)
+        src_points = np.array(src_points.points)
+        ref_points = o3d.io.read_point_cloud(args.base + args.target)
+        ref_points = np.array(ref_points.points)
+    else:
+        src_points = o3d.io.read_point_cloud(args.source)
+        src_points = np.array(src_points.points)
+        ref_points = o3d.io.read_point_cloud(args.target)
+        ref_points = np.array(ref_points.points)
+
     src_feats = np.ones_like(src_points[:, :1])
     ref_feats = np.ones_like(ref_points[:, :1])
 
