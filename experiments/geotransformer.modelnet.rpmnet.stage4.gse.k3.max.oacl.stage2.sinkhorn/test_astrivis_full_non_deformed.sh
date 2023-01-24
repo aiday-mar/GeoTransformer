@@ -1,5 +1,10 @@
 base='/home/aiday.kyzy/dataset/Synthetic/FullNonDeformedData/TestingData'
-model_numbers=('002' '042' '085' '126' '167' '207')
+
+one_model=True
+# one_model=False
+
+# model_numbers=('002' '042' '085' '126' '167' '207')
+model_numbers=('042')
 
 training_data='pretrained'
 # training_data='full_non_deformed'
@@ -14,7 +19,14 @@ save_key_points=True
 
 if [ $current_deformation == "False" ]; then
 
-    filename="/home/aiday.kyzy/code/GeoTransformer/experiments/geotransformer.modelnet.rpmnet.stage4.gse.k3.max.oacl.stage2.sinkhorn/output_geo_full_non_deformed_td_${training_data}.txt"
+    if [ $one_model == "False" ]; then
+        filename="/home/aiday.kyzy/code/GeoTransformer/experiments/geotransformer.modelnet.rpmnet.stage4.gse.k3.max.oacl.stage2.sinkhorn/output_geo_full_non_deformed_td_${training_data}.txt"
+    fi
+
+    if [ $one_model == "True" ]; then
+        filename="/home/aiday.kyzy/code/GeoTransformer/experiments/geotransformer.modelnet.rpmnet.stage4.gse.k3.max.oacl.stage2.sinkhorn/output_geo_full_non_deformed_td_${training_data}_one_model_${model_numbers[0]}.txt"
+    fi
+
     rm ${filename}
     touch ${filename}
     folder=output_geo_td_${training_data}
@@ -55,7 +67,13 @@ fi
 
 if [ $current_deformation == "True" ]; then
 
-    filename="/home/aiday.kyzy/code/GeoTransformer/experiments/geotransformer.modelnet.rpmnet.stage4.gse.k3.max.oacl.stage2.sinkhorn/output_geo_full_non_deformed_td_${training_data}_current_deformation.txt"
+    if [ $one_model == "False" ]; then
+        filename="/home/aiday.kyzy/code/GeoTransformer/experiments/geotransformer.modelnet.rpmnet.stage4.gse.k3.max.oacl.stage2.sinkhorn/output_geo_full_non_deformed_td_${training_data}_current_deformation.txt"
+    fi
+    if [ $one_model == "False" ]; then
+        filename="/home/aiday.kyzy/code/GeoTransformer/experiments/geotransformer.modelnet.rpmnet.stage4.gse.k3.max.oacl.stage2.sinkhorn/output_geo_full_non_deformed_td_${training_data}_current_deformation_one_model_${model_numbers[0]}.txt"
+    fi
+
     rm ${filename}
     touch ${filename}
     folder=output_geo_td_${training_data}_current_deformation
