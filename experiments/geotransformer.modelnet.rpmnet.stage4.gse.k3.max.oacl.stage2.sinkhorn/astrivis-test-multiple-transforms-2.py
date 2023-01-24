@@ -130,11 +130,7 @@ def main():
     n_rows = 0
     global_best_index = -1
     rotation_n = 0
-    
-    files = glob.glob(args.directory + '/src_pcd_transformed/*')
-    for f in files:
-        os.remove(f)
-    
+        
     source_superpoints_pcd = np.array([])
     transformed_superpoints_pcd = np.array([])
 
@@ -151,7 +147,7 @@ def main():
         if rotation_n < NUMBER_TRANSFORMATIONS_OF_INTEREST:
             src_points = o3d.io.read_point_cloud(args.base + args.source)
             src_points = src_points.transform(transform)
-            o3d.io.write_point_cloud(args.directory + '/src_pcd_transformed/src_pcd_transformed_' + str(rotation_n) + '.ply', src_points)
+            o3d.io.write_point_cloud(args.directory + '/src_pcd_transformed_' + str(rotation_n) + '.ply', src_points)
             
         # Finding the inlier and outlier indices
         print('copy_superpoint_src_corr_points.shape : ', copy_superpoint_src_corr_points.shape)
@@ -177,7 +173,7 @@ def main():
             # we want to visualize the inliers for the first say 10 transformations
             inlier_pcd = o3d.geometry.PointCloud()
             inlier_pcd.points =  o3d.utility.Vector3dVector(chosen_inliers_src)
-            o3d.io.write_point_cloud(args.directory + '/src_pcd_transformed/inliers_transformation_' + str(rotation_n) + '.ply', inlier_pcd)               
+            o3d.io.write_point_cloud(args.directory + '/inliers_transformation_' + str(rotation_n) + '.ply', inlier_pcd)               
         
         if best_index in transform_to_superpoint:
             transform_to_superpoint[best_index] = np.append(transform_to_superpoint[best_index], chosen_inliers_src, axis=0)
