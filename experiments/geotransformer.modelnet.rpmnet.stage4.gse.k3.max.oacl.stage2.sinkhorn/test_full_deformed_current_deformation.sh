@@ -21,12 +21,12 @@ initial_voxel_size=0.01
 current_deformation=True
 # current_deformation=False
 
-if [ "$current_deformation" != "False" ]; then
+if [ "$current_deformation" == "False" ]; then
     filename=output_geo_full_deformed_td_${training_data}_ivs_${initial_voxel_size}_modified.txt
     folder=output_geo_full_deformed_td_${training_data}_ivs_${initial_voxel_size}_modified
 fi
 
-if [ "$current_deformation" != "True" ]; then
+if [ "$current_deformation" == "True" ]; then
     filename=output_geo_full_deformed_td_${training_data}_ivs_${initial_voxel_size}_modified_current_deformation.txt
     folder=output_geo_full_deformed_td_${training_data}_ivs_${initial_voxel_size}_modified_current_deformation
 fi

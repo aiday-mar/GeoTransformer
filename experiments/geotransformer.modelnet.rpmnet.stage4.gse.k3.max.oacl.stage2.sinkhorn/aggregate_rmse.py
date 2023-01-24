@@ -15,9 +15,9 @@ current_deformation = True
 # current_deformation = False
 
 if current_deformation is True:
-    filename = 'output_geo_' + data_type + '_td_' + training_data + '_ivs_' + initial_voxel_size + '_current_deformation.txt'
+    filename = 'output_geo_' + data_type + '_td_' + training_data + '_ivs_' + initial_voxel_size + '_modified_current_deformation.txt'
 else:
-    filename = 'output_geo_' + data_type + '_td_' + training_data + '_ivs_' + initial_voxel_size + '.txt'
+    filename = 'output_geo_' + data_type + '_td_' + training_data + '_ivs_' + initial_voxel_size + '_modified.txt'
 
 file = open(filename, 'r')
 lines = file.readlines()
