@@ -7,6 +7,8 @@ training_data='pretrained'
 current_deformation=True
 # current_deformation=False
 
+init_voxel_size=0.03
+
 weights="geotransformer-modelnet.pth.tar"
 # weights="model_320_partial_non_deformed.pth.tar"
 
@@ -14,10 +16,10 @@ save_key_points=True
 
 if [ $current_deformation == "False" ]; then
 
-    filename="/home/aiday.kyzy/code/GeoTransformer/experiments/geotransformer.modelnet.rpmnet.stage4.gse.k3.max.oacl.stage2.sinkhorn/output_geo_partial_non_deformed_td_${training_data}.txt"
+    filename="/home/aiday.kyzy/code/GeoTransformer/experiments/geotransformer.modelnet.rpmnet.stage4.gse.k3.max.oacl.stage2.sinkhorn/output_geo_partial_non_deformed_td_${training_data}_ivs_${init_voxel_size}.txt"
     rm ${filename}
     touch ${filename}
-    folder=output_geo_td_${training_data}
+    folder=output_geo_td_${training_data}_ivs_${init_voxel_size}
 
     for k in ${model_numbers[@]}
     do
@@ -29,6 +31,7 @@ if [ $current_deformation == "False" ]; then
 
         echo "model ${k}"
         echo "model ${k}" >> ${filename}
+        echo "voxel size ${init_voxel_size}" >> ${filename}
 
         python3 astrivis-test.py \
         --source="PartialNonDeformedData/TestingData/model${k}/transformed/mesh_transformed_0.ply" \
@@ -55,10 +58,10 @@ fi
 
 if [ $current_deformation == "True" ]; then
 
-    filename="/home/aiday.kyzy/code/GeoTransformer/experiments/geotransformer.modelnet.rpmnet.stage4.gse.k3.max.oacl.stage2.sinkhorn/output_geo_partial_non_deformed_td_${training_data}_current_deformation.txt"
+    filename="/home/aiday.kyzy/code/GeoTransformer/experiments/geotransformer.modelnet.rpmnet.stage4.gse.k3.max.oacl.stage2.sinkhorn/output_geo_partial_non_deformed_td_${training_data}_ivs_${init_voxel_size}_current_deformation.txt"
     rm ${filename}
     touch ${filename}
-    folder=output_geo_td_${training_data}_current_deformation
+    folder=output_geo_td_${training_data}_ivs_${init_voxel_size}_current_deformation
 
     for k in ${model_numbers[@]}
     do
@@ -70,6 +73,7 @@ if [ $current_deformation == "True" ]; then
 
         echo "model ${k}"
         echo "model ${k}" >> ${filename}
+        echo "voxel size ${init_voxel_size}" >> ${filename}
 
         python3 astrivis-test.py \
         --source="PartialNonDeformedData/TestingData/model${k}/transformed/mesh_transformed_0.ply" \
