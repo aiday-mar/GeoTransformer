@@ -12,11 +12,16 @@ training_data = 'pretrained'
 current_deformation = True
 # current_deformation = False
 
+if current_deformation is True:
+    init_voxel_size = 0.004
+else:
+    init_voxel_size = 0.05
+
 model_numbers = ['002', '042', '085', '126', '167', '207']
 if current_deformation is False:
-    filename = 'output_geo_' + data_type + '_td_' + training_data + '.txt'
+    filename = 'output_geo_' + data_type + '_td_' + training_data + '_ivs_' + str(init_voxel_size) + '.txt'
 else:
-    filename = 'output_geo_' + data_type + '_td_' + training_data + '_current_deformation.txt'
+    filename = 'output_geo_' + data_type + '_td_' + training_data + '_ivs_' + str(init_voxel_size) + '_current_deformation.txt'
 
 file = open(filename, 'r')
 lines = file.readlines()
@@ -49,9 +54,9 @@ data_type_mod = data_type.replace('_', ' ').title()
 plt.title(data_type_mod)
 
 if current_deformation is False:
-    image_filename = 'output_geo_' + data_type + '_td_' + training_data + '.png'
+    image_filename = 'output_geo_' + data_type + '_td_' + training_data + '_ivs_' + str(init_voxel_size) + '.png'
 else:
-    image_filename = 'output_geo_' + data_type + '_td_' + training_data + '_current_deformation.png'
+    image_filename = 'output_geo_' + data_type + '_td_' + training_data + '_ivs_' + str(init_voxel_size) + '_current_deformation.png'
 
 plt.savefig(image_filename)
 
