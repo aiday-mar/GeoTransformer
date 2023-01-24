@@ -4,7 +4,7 @@ one_model=True
 # one_model=False
 
 # model_numbers=('002' '042' '085' '126' '167' '207')
-model_numbers=('002')
+model_numbers=('042')
 
 init_voxel_size=0.03
 
