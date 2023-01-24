@@ -1,21 +1,21 @@
 base='/home/aiday.kyzy/dataset/Synthetic/PartialNonDeformedData/TestingData'
 
-one_model=True
-# one_model=False
+# one_model=True
+one_model=False
 
-# model_numbers=('002' '042' '085' '126' '167' '207')
-model_numbers=('126')
+model_numbers=('002' '042' '085' '126' '167' '207')
+# model_numbers=('126')
 
-init_voxel_size=0.075
+init_voxel_size=0.01
 
-training_data='pretrained'
-# training_data='partial_non_deformed'
+# training_data='pretrained'
+training_data='partial_non_deformed'
 
 current_deformation=True
 # current_deformation=False
 
-weights="geotransformer-modelnet.pth.tar"
-# weights="model_320_partial_non_deformed.pth.tar"
+# weights="geotransformer-modelnet.pth.tar"
+weights="model_320_partial_non_deformed.pth.tar"
 
 save_key_points=True
 
