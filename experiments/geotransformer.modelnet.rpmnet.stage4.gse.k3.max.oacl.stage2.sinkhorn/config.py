@@ -81,7 +81,7 @@ _C.optim.grad_acc_steps = 1
 # model - backbone
 _C.backbone = edict()
 _C.backbone.num_stages = 3
-_C.backbone.init_voxel_size = 0.05 # used to be 0.004 # 0.05, seems to change the number of keypoints potentially you can have
+_C.backbone.init_voxel_size = 0.008 # used to be 0.004 # 0.05, seems to change the number of keypoints potentially you can have
 _C.backbone.kernel_size = 15
 _C.backbone.base_radius = 2.5
 _C.backbone.base_sigma = 2.0
