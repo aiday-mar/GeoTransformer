@@ -1,18 +1,17 @@
 model_numbers=('002' '042' '085' '126' '167' '207')
 
-training_data='pretrained'
-# training_data='partial_non_deformed'
-# training_data='full_non_deformed'
+# training_data='pretrained'
+training_data='partial_non_deformed'
 
-if [ "$training_data" != "pretrained" ]; then
+if [ "$training_data" == "pretrained" ]; then
     weights=geotransformer-modelnet.pth.tar
 fi
 
-if [ "$training_data" != "partial_non_deformed" ]; then
+if [ "$training_data" == "partial_non_deformed" ]; then
     weights=model_320_partial_non_deformed.pth.tar
 fi
 
-if [ "$training_data" != "full_non_deformed" ]; then
+if [ "$training_data" == "full_non_deformed" ]; then
     weights=model_320_full_non_deformed.pth.tar
 fi
 
