@@ -5,9 +5,9 @@ import numpy as np
 # data_type = 'partial_deformed'
 data_type = 'full_deformed'
 
-training_data = 'pretrained'
+# training_data = 'pretrained'
 # training_data = 'partial_non_deformed'
-# training_data = 'full_non_deformed'
+training_data = 'full_non_deformed'
 
 initial_voxel_size = '0.01'
 
@@ -56,8 +56,8 @@ data_type_mod = data_type.replace('_', ' ').title()
 plt.title(data_type_mod)
 
 if current_deformation is False:
-    image_filename = 'output_geo_' + data_type + '_td_' + training_data + '_ivs_' + str(initial_voxel_size) + '.png'
+    image_filename = 'output_geo_' + data_type + '_td_' + training_data + '_ivs_' + str(initial_voxel_size) + '_modified.png'
 else:
-    image_filename = 'output_geo_' + data_type + '_td_' + training_data + '_ivs_' + str(initial_voxel_size) + '_current_deformation.png'
+    image_filename = 'output_geo_' + data_type + '_td_' + training_data + '_ivs_' + str(initial_voxel_size) + '_modified_current_deformation.png'
 
 plt.savefig(image_filename)
