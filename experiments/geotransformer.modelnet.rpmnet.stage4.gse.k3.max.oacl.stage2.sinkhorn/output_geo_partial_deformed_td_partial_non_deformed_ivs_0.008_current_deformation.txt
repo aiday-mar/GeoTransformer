@@ -24359,15 +24359,16 @@ relaxed inlier ratio threshold :  0.03
 RMSE :  0.10492901414435801
 Strict IR :  0.0061240112273539165
 Relaxed IR :  0.07450880326613932
+
 model 207 i 0 j 1
-voxel size 0.008
+voxel size 0.005
 Inside registration_collate_fn_stack_mode
 points.shape :  torch.Size([8193, 3])
-points_c.shape :  torch.Size([159, 3])
-ref_points_c.shape :  torch.Size([81, 3])
-src_points_c.shape :  torch.Size([78, 3])
-ref_node_masks.shape :  torch.Size([81])
-src_node_masks.shape :  torch.Size([78])
+points_c.shape :  torch.Size([380, 3])
+ref_points_c.shape :  torch.Size([191, 3])
+src_points_c.shape :  torch.Size([189, 3])
+ref_node_masks.shape :  torch.Size([191])
+src_node_masks.shape :  torch.Size([189])
 ref_corr_indices.shape :  torch.Size([2000])
 src_corr_indices.shape :  torch.Size([2000])
 Inside forward of global to local registration
@@ -24375,1181 +24376,908 @@ ref_knn_points.shape :  torch.Size([2000, 5, 3])
 src_knn_points.shape :  torch.Size([2000, 5, 3])
 score_mat.shape :  torch.Size([2000, 5, 5])
 corr_mat.shape :  torch.Size([2000, 5, 5])
-intermediate_output_folder :  PartialDeformedData/TestingData/model207/output_geo_td_partial_non_deformed_ivs_0.008_current_deformation/corr_points/
+intermediate_output_folder :  PartialDeformedData/TestingData/model207/output_geo_td_partial_non_deformed_ivs_0.005_current_deformation/corr_points/
 save_key_points :  True
-shape of src_corr_points :  torch.Size([22184, 3])
-estimated_transform :  [[ 0.59916633  0.5117942   0.6156841  -0.72595036]
- [-0.3526737   0.85909325 -0.37091872  1.1500785 ]
- [-0.7187638   0.00510633  0.6952357   0.43912703]
+shape of src_corr_points :  torch.Size([20043, 3])
+estimated_transform :  [[-0.5507255   0.01330918  0.8345805   0.3195846 ]
+ [-0.75618654 -0.4312804  -0.4921169   1.7577591 ]
+ [ 0.35338855 -0.90211976  0.24758139 -0.22886601]
  [ 0.          0.          0.          1.        ]]
 INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(AlignAndNonRigidMerge) {
-VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L167:#points1: 22184
-VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L168:#points2: 22184
-VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L169:#matches: 22184
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L167:#points1: 20043
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L168:#points2: 20043
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L169:#matches: 20043
 Before Run of ransac
 INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(SquentialRANSAC) {
-num_inliers : 2332
-num_inliers : 3150
-num_inliers : 981
-num_inliers : 1081
-num_inliers : 624
-num_inliers : 1987
-num_inliers : 2533
-num_inliers : 961
-num_inliers : 4554
-num_inliers : 1272
-num_inliers : 3617
-num_inliers : 3088
-num_inliers : 1520
-num_inliers : 3957
-num_inliers : 3453
-num_inliers : 2258
-num_inliers : 941
-num_inliers : 1500
-num_inliers : 303
-num_inliers : 2939
-num_inliers : 2070
-num_inliers : 646
-num_inliers : 1697
-num_inliers : 1131
-num_inliers : 2470
-num_inliers : 1447
-num_inliers : 1055
-num_inliers : 1863
-num_inliers : 1002
-num_inliers : 1439
-num_inliers : 1031
-num_inliers : 1082
-num_inliers : 4074
-num_inliers : 3039
-num_inliers : 1161
-num_inliers : 4503
-num_inliers : 1997
-num_inliers : 576
-num_inliers : 1936
-num_inliers : 727
-num_inliers : 3611
-num_inliers : 2401
-num_inliers : 1695
-num_inliers : 1118
-num_inliers : 3865
-num_inliers : 1262
-num_inliers : 721
-num_inliers : 5028
-num_inliers : 2150
-num_inliers : 5097
-num_inliers : 1271
-num_inliers : 3555
-num_inliers : 552
-num_inliers : 1840
-num_inliers : 3944
-num_inliers : 2297
-num_inliers : 3023
-num_inliers : 1390
-num_inliers : 3514
-num_inliers : 4224
-num_inliers : 799
-num_inliers : 3847
-num_inliers : 2405
-num_inliers : 2082
-num_inliers : 2866
-num_inliers : 1410
-num_inliers : 987
-num_inliers : 3551
-num_inliers : 3128
-num_inliers : 2099
-num_inliers : 4717
-num_inliers : 811
-num_inliers : 1840
-num_inliers : 505
-num_inliers : 520
-num_inliers : 893
-num_inliers : 1865
-num_inliers : 2374
-num_inliers : 2288
-num_inliers : 2058
-num_inliers : 4353
-num_inliers : 2735
-num_inliers : 1725
-num_inliers : 1786
-num_inliers : 2004
-num_inliers : 1814
-num_inliers : 2616
-num_inliers : 2051
-num_inliers : 4291
-num_inliers : 1163
-num_inliers : 562
-num_inliers : 2625
-num_inliers : 3962
-num_inliers : 121
-num_inliers : 554
-num_inliers : 2068
-num_inliers : 3470
-num_inliers : 2529
-num_inliers : 678
-num_inliers : 3206
-num_inliers : 1351
-num_inliers : 1543
-num_inliers : 986
-num_inliers : 3172
-num_inliers : 1701
-num_inliers : 1446
-num_inliers : 3757
-num_inliers : 699
-num_inliers : 1679
-num_inliers : 2821
-num_inliers : 2968
-num_inliers : 2800
-num_inliers : 376
-num_inliers : 1649
-num_inliers : 2451
-num_inliers : 1720
-num_inliers : 751
-num_inliers : 2780
-num_inliers : 1295
-num_inliers : 1569
-num_inliers : 519
-num_inliers : 2527
-num_inliers : 1665
-num_inliers : 1468
-num_inliers : 321
-num_inliers : 1218
-num_inliers : 1375
-num_inliers : 1228
-num_inliers : 945
-num_inliers : 2504
-num_inliers : 2371
-num_inliers : 559
-num_inliers : 1397
-num_inliers : 987
-num_inliers : 2570
-num_inliers : 3592
-num_inliers : 604
-num_inliers : 859
-num_inliers : 455
-num_inliers : 3494
-num_inliers : 1057
-num_inliers : 562
-num_inliers : 2869
-num_inliers : 1639
-num_inliers : 1383
-num_inliers : 3599
-num_inliers : 1146
-num_inliers : 1472
-num_inliers : 2144
-num_inliers : 4456
-num_inliers : 2009
-num_inliers : 1521
-num_inliers : 2323
-num_inliers : 3504
-num_inliers : 1671
-num_inliers : 411
-num_inliers : 887
-num_inliers : 980
-num_inliers : 2924
-num_inliers : 3101
-num_inliers : 1931
-num_inliers : 2796
-num_inliers : 2749
-num_inliers : 673
-num_inliers : 2507
-num_inliers : 3042
-num_inliers : 814
-num_inliers : 1098
-num_inliers : 614
-num_inliers : 761
-num_inliers : 1756
-num_inliers : 3784
-num_inliers : 2310
-num_inliers : 2889
-num_inliers : 2681
-num_inliers : 1992
-num_inliers : 1464
-num_inliers : 1925
-num_inliers : 502
-num_inliers : 1896
-num_inliers : 2491
-num_inliers : 3000
-num_inliers : 833
-num_inliers : 1326
-num_inliers : 4584
-num_inliers : 1042
-num_inliers : 1585
-num_inliers : 2226
-num_inliers : 1934
-num_inliers : 810
-num_inliers : 1575
-num_inliers : 1473
-num_inliers : 2730
-num_inliers : 4327
-num_inliers : 3224
-num_inliers : 3005
-num_inliers : 1478
-num_inliers : 867
-num_inliers : 2732
-num_inliers : 519
-num_inliers : 1839
-num_inliers : 2311
-num_inliers : 2090
-num_inliers : 1747
-num_inliers : 1467
-num_inliers : 552
-num_inliers : 3715
-num_inliers : 1395
-num_inliers : 3584
-num_inliers : 1480
-num_inliers : 1965
-num_inliers : 307
-num_inliers : 2810
-num_inliers : 2552
-num_inliers : 1176
-num_inliers : 895
-num_inliers : 1969
-num_inliers : 1078
-num_inliers : 153
-num_inliers : 483
-num_inliers : 2175
-num_inliers : 1417
-num_inliers : 2170
-num_inliers : 1083
-num_inliers : 3094
-num_inliers : 2814
-num_inliers : 601
-num_inliers : 2375
-num_inliers : 1141
-num_inliers : 1166
-num_inliers : 1277
-num_inliers : 1102
-num_inliers : 3251
-num_inliers : 1384
-num_inliers : 1945
-num_inliers : 2100
-num_inliers : 557
-num_inliers : 1420
-num_inliers : 1345
-num_inliers : 796
-num_inliers : 1853
-num_inliers : 769
-num_inliers : 2210
-num_inliers : 384
-num_inliers : 3148
-num_inliers : 1993
-num_inliers : 1686
-num_inliers : 1434
-num_inliers : 1400
-num_inliers : 1647
-num_inliers : 3054
-num_inliers : 3102
-num_inliers : 1110
-num_inliers : 921
-num_inliers : 1738
-num_inliers : 4465
-num_inliers : 1971
-num_inliers : 456
-num_inliers : 2603
-num_inliers : 626
-num_inliers : 1391
-num_inliers : 1994
-num_inliers : 1233
-num_inliers : 2223
-num_inliers : 2226
-num_inliers : 2364
-num_inliers : 1909
-num_inliers : 2522
-num_inliers : 2569
-num_inliers : 2279
-num_inliers : 943
-num_inliers : 3379
-num_inliers : 1329
-num_inliers : 2606
-num_inliers : 639
-num_inliers : 2482
-num_inliers : 2240
-num_inliers : 1124
-num_inliers : 1688
-num_inliers : 3084
-num_inliers : 1797
-num_inliers : 372
-num_inliers : 2476
-num_inliers : 732
-num_inliers : 1326
-num_inliers : 2115
-num_inliers : 2444
-num_inliers : 1017
-num_inliers : 836
-num_inliers : 1448
-num_inliers : 634
-num_inliers : 2979
-num_inliers : 2166
-num_inliers : 1728
-num_inliers : 2406
-num_inliers : 2421
-num_inliers : 815
-num_inliers : 698
-num_inliers : 4651
-num_inliers : 3593
-num_inliers : 968
-num_inliers : 3900
-num_inliers : 3317
-num_inliers : 735
-num_inliers : 2821
-num_inliers : 2098
-num_inliers : 1700
-num_inliers : 917
-num_inliers : 3308
-num_inliers : 3423
-num_inliers : 2332
-num_inliers : 919
-num_inliers : 3233
-num_inliers : 1584
-num_inliers : 2181
-num_inliers : 301
-num_inliers : 1220
-num_inliers : 2407
-num_inliers : 620
-num_inliers : 3205
-num_inliers : 1693
-num_inliers : 1351
-num_inliers : 2260
-num_inliers : 2149
-num_inliers : 3555
-num_inliers : 1266
-num_inliers : 1521
-num_inliers : 4309
-num_inliers : 2576
-num_inliers : 2505
-num_inliers : 2346
-num_inliers : 1094
-num_inliers : 2161
-num_inliers : 1291
-num_inliers : 2920
-num_inliers : 415
-num_inliers : 1152
-num_inliers : 977
-num_inliers : 2184
-num_inliers : 1488
-num_inliers : 2620
-num_inliers : 697
-num_inliers : 4743
-num_inliers : 1404
-num_inliers : 2619
-num_inliers : 2347
-num_inliers : 928
-num_inliers : 1010
-num_inliers : 1000
-num_inliers : 945
-num_inliers : 1741
-num_inliers : 736
-num_inliers : 557
-num_inliers : 2154
-num_inliers : 2565
-num_inliers : 1571
-num_inliers : 949
-num_inliers : 1332
-num_inliers : 1662
-num_inliers : 2017
-num_inliers : 1204
-num_inliers : 4171
-num_inliers : 1245
-num_inliers : 1059
-num_inliers : 1274
-num_inliers : 4823
-num_inliers : 1649
-num_inliers : 1541
-num_inliers : 3377
-num_inliers : 1690
-num_inliers : 1200
-num_inliers : 787
-num_inliers : 1859
-num_inliers : 527
-num_inliers : 2300
-num_inliers : 1109
-num_inliers : 1857
-num_inliers : 1961
-num_inliers : 1470
-num_inliers inside of Run : 5097
-num_inliers : 1981
-num_inliers : 1293
-num_inliers : 2412
-num_inliers : 922
-num_inliers : 2193
-num_inliers : 992
-num_inliers : 1323
-num_inliers : 1923
-num_inliers : 128
-num_inliers : 1851
-num_inliers : 4059
-num_inliers : 2267
-num_inliers : 1657
-num_inliers : 2198
-num_inliers : 1463
-num_inliers : 722
-num_inliers : 1319
-num_inliers : 1397
-num_inliers : 741
-num_inliers : 2149
-num_inliers : 3104
-num_inliers : 1373
-num_inliers : 3889
-num_inliers : 1171
-num_inliers : 1689
-num_inliers : 1454
-num_inliers : 3288
-num_inliers : 3766
-num_inliers : 1652
-num_inliers : 109
-num_inliers : 1801
-num_inliers : 1525
-num_inliers : 915
-num_inliers : 767
-num_inliers : 2638
-num_inliers : 1754
-num_inliers : 3119
-num_inliers : 1425
-num_inliers : 408
-num_inliers : 2398
-num_inliers : 1561
-num_inliers : 3148
-num_inliers : 1250
-num_inliers : 2756
-num_inliers : 1845
-num_inliers : 1119
-num_inliers : 468
-num_inliers : 3326
-num_inliers : 737
-num_inliers : 2726
-num_inliers : 1380
-num_inliers : 760
-num_inliers : 864
-num_inliers : 3371
-num_inliers : 2561
-num_inliers : 633
-num_inliers : 1271
-num_inliers : 2098
-num_inliers : 970
+num_inliers : 3020
+num_inliers : 2519
 num_inliers : 2437
-num_inliers : 1061
-num_inliers : 1586
-num_inliers : 3460
-num_inliers : 2029
-num_inliers : 889
-num_inliers : 1177
-num_inliers : 956
-num_inliers : 1740
-num_inliers : 607
-num_inliers : 745
-num_inliers : 2958
-num_inliers : 2618
-num_inliers : 538
-num_inliers : 299
-num_inliers : 1510
-num_inliers : 1684
+num_inliers : 1781
+num_inliers : 4720
+num_inliers : 3225
+num_inliers : 1528
 num_inliers : 1026
-num_inliers : 2090
-num_inliers : 2469
-num_inliers : 2758
-num_inliers : 1776
-num_inliers : 2864
-num_inliers : 911
-num_inliers : 625
-num_inliers : 913
-num_inliers : 1759
-num_inliers : 628
-num_inliers : 2023
-num_inliers : 1000
-num_inliers : 2541
-num_inliers : 1976
-num_inliers : 838
-num_inliers : 350
-num_inliers : 2119
-num_inliers : 1227
-num_inliers : 2318
-num_inliers : 1446
-num_inliers : 555
-num_inliers : 1462
-num_inliers : 2026
-num_inliers : 2012
-num_inliers : 716
-num_inliers : 1608
-num_inliers : 1516
-num_inliers : 1085
-num_inliers : 2628
-num_inliers : 594
-num_inliers : 2567
-num_inliers : 3157
-num_inliers : 1529
-num_inliers : 1282
-num_inliers : 687
-num_inliers : 1021
-num_inliers : 1285
-num_inliers : 1669
-num_inliers : 3558
-num_inliers : 1706
-num_inliers : 1424
-num_inliers : 3926
-num_inliers : 2111
-num_inliers : 761
-num_inliers : 814
-num_inliers : 647
-num_inliers : 1566
-num_inliers : 2180
-num_inliers : 1061
-num_inliers : 2493
-num_inliers : 1436
-num_inliers : 706
-num_inliers : 176
-num_inliers : 867
-num_inliers : 747
-num_inliers : 3259
-num_inliers : 1950
-num_inliers : 2871
-num_inliers : 3077
-num_inliers : 3381
-num_inliers : 1785
-num_inliers : 1467
-num_inliers : 1068
-num_inliers : 1205
-num_inliers : 2596
-num_inliers : 3426
-num_inliers : 811
-num_inliers : 2010
-num_inliers : 2222
-num_inliers : 1721
-num_inliers : 2677
-num_inliers : 1492
-num_inliers : 1240
-num_inliers : 851
-num_inliers : 1231
-num_inliers : 1081
-num_inliers : 1398
-num_inliers : 895
-num_inliers : 1478
-num_inliers : 1911
-num_inliers : 1135
-num_inliers : 2465
-num_inliers : 4102
-num_inliers : 1511
-num_inliers : 4076
-num_inliers : 4673
-num_inliers : 2090
-num_inliers : 901
-num_inliers : 2460
-num_inliers : 2429
-num_inliers : 3602
-num_inliers : 1759
-num_inliers : 2139
-num_inliers : 2958
-num_inliers : 1401
-num_inliers : 3884
-num_inliers : 2012
-num_inliers : 140
-num_inliers : 3036
-num_inliers : 1665
-num_inliers : 1314
-num_inliers : 2966
-num_inliers : 1425
-num_inliers : 932
-num_inliers : 717
-num_inliers : 2120
-num_inliers : 1285
-num_inliers : 1859
-num_inliers : 2284
-num_inliers : 1853
-num_inliers : 960
-num_inliers : 1814
-num_inliers : 1706
-num_inliers : 967
-num_inliers : 86
-num_inliers : 2218
-num_inliers : 825
-num_inliers : 659
-num_inliers : 1895
-num_inliers : 1179
-num_inliers : 1323
-num_inliers : 3678
-num_inliers : 2327
-num_inliers : 2623
-num_inliers : 938
-num_inliers : 3400
-num_inliers : 1222
-num_inliers : 1819
-num_inliers : 2244
-num_inliers : 1650
-num_inliers : 3122
-num_inliers : 1844
-num_inliers : 2636
-num_inliers : 619
-num_inliers : 1542
-num_inliers : 1962
-num_inliers : 1802
-num_inliers : 2127
-num_inliers : 930
-num_inliers : 1231
-num_inliers : 907
-num_inliers : 1448
-num_inliers : 1885
-num_inliers : 4542
-num_inliers : 359
-num_inliers : 1673
-num_inliers : 3420
-num_inliers inside of Run : 4673
-num_inliers : 212
-num_inliers : 1744
-num_inliers : 2286
-num_inliers : 118
-num_inliers : 740
-num_inliers : 1027
-num_inliers : 1182
-num_inliers : 800
-num_inliers : 757
-num_inliers : 2056
-num_inliers : 586
-num_inliers : 588
-num_inliers : 1041
-num_inliers : 2611
-num_inliers : 457
-num_inliers : 549
-num_inliers : 321
-num_inliers : 412
-num_inliers : 461
-num_inliers : 797
-num_inliers : 739
-num_inliers : 829
-num_inliers : 1736
-num_inliers : 1885
-num_inliers : 792
-num_inliers : 2180
-num_inliers : 1245
-num_inliers : 1213
-num_inliers : 1002
-num_inliers : 590
-num_inliers : 1092
-num_inliers : 661
-num_inliers : 1877
-num_inliers : 260
-num_inliers : 373
-num_inliers : 195
-num_inliers : 1225
-num_inliers : 732
-num_inliers : 1152
-num_inliers : 2191
-num_inliers : 65
-num_inliers : 615
-num_inliers : 474
-num_inliers : 340
-num_inliers : 1212
-num_inliers : 400
-num_inliers : 695
-num_inliers : 1940
-num_inliers : 727
-num_inliers : 1165
-num_inliers : 1460
-num_inliers : 739
-num_inliers : 334
-num_inliers : 956
-num_inliers : 401
-num_inliers : 275
-num_inliers : 2239
-num_inliers : 1172
-num_inliers : 1623
-num_inliers : 563
-num_inliers : 59
-num_inliers : 3536
-num_inliers : 769
-num_inliers : 521
-num_inliers : 1494
-num_inliers : 696
-num_inliers : 1515
-num_inliers : 904
-num_inliers : 500
-num_inliers : 1264
-num_inliers : 1516
-num_inliers : 1324
-num_inliers : 850
-num_inliers : 1130
-num_inliers : 1142
-num_inliers : 497
-num_inliers : 1621
-num_inliers : 582
-num_inliers : 975
-num_inliers : 998
-num_inliers : 878
-num_inliers : 1131
-num_inliers : 441
-num_inliers : 1717
-num_inliers : 536
-num_inliers : 2380
-num_inliers : 971
-num_inliers : 1887
-num_inliers : 726
-num_inliers : 1385
-num_inliers : 1847
-num_inliers : 1875
-num_inliers : 343
-num_inliers : 282
-num_inliers : 1302
-num_inliers : 438
-num_inliers : 1891
-num_inliers : 679
-num_inliers : 492
-num_inliers : 1045
-num_inliers : 1013
-num_inliers : 117
-num_inliers : 1104
-num_inliers : 2638
-num_inliers : 1973
-num_inliers : 1691
-num_inliers : 497
-num_inliers : 1154
-num_inliers : 1576
-num_inliers : 1602
-num_inliers : 1767
-num_inliers : 315
-num_inliers : 714
-num_inliers : 2071
-num_inliers : 422
-num_inliers : 131
-num_inliers : 3332
-num_inliers : 791
-num_inliers : 1285
-num_inliers : 342
-num_inliers : 877
-num_inliers : 1131
-num_inliers : 389
-num_inliers : 504
-num_inliers : 569
+num_inliers : 1341
+num_inliers : 2779
+num_inliers : 4932
+num_inliers : 2724
+num_inliers : 3054
 num_inliers : 915
-num_inliers : 1010
-num_inliers : 931
-num_inliers : 1291
-num_inliers : 910
-num_inliers : 526
-num_inliers : 235
-num_inliers : 984
-num_inliers : 1230
-num_inliers : 1086
-num_inliers : 1458
-num_inliers : 161
-num_inliers : 225
-num_inliers : 140
-num_inliers : 1468
-num_inliers : 1448
-num_inliers : 199
-num_inliers : 696
-num_inliers : 1858
-num_inliers : 1134
-num_inliers : 655
-num_inliers : 2135
-num_inliers : 1589
-num_inliers : 520
-num_inliers : 936
-num_inliers : 891
-num_inliers : 1302
-num_inliers : 833
-num_inliers : 2646
-num_inliers : 234
-num_inliers : 1313
-num_inliers : 948
-num_inliers : 113
-num_inliers : 1832
-num_inliers : 310
-num_inliers : 414
-num_inliers : 718
-num_inliers : 917
-num_inliers : 199
-num_inliers : 1294
-num_inliers : 1049
-num_inliers : 661
-num_inliers : 1032
-num_inliers : 1595
-num_inliers : 337
-num_inliers : 1616
-num_inliers : 731
-num_inliers : 1653
-num_inliers : 724
-num_inliers : 1504
-num_inliers : 796
-num_inliers : 900
-num_inliers : 973
-num_inliers : 1335
-num_inliers : 2154
-num_inliers : 855
-num_inliers : 1808
-num_inliers : 125
-num_inliers : 1317
-num_inliers : 768
-num_inliers : 1402
-num_inliers : 884
-num_inliers : 1197
-num_inliers : 1023
-num_inliers : 704
-num_inliers : 1541
-num_inliers : 732
-num_inliers : 320
-num_inliers : 1321
-num_inliers : 635
-num_inliers : 1248
-num_inliers : 1369
-num_inliers : 958
-num_inliers inside of Run : 3536
-num_inliers : 1171
-num_inliers : 429
-num_inliers : 545
-num_inliers : 669
-num_inliers : 1075
-num_inliers : 452
-num_inliers : 984
-num_inliers : 1006
-num_inliers : 784
-num_inliers : 1101
-num_inliers : 746
-num_inliers : 374
-num_inliers : 1111
-num_inliers : 311
-num_inliers : 300
-num_inliers : 1098
-num_inliers : 454
-num_inliers : 310
-num_inliers : 577
-num_inliers : 218
-num_inliers : 515
-num_inliers : 1253
-num_inliers : 1246
-num_inliers : 1240
-num_inliers : 532
-num_inliers : 373
-num_inliers : 21
-num_inliers : 863
-num_inliers : 1483
-num_inliers : 679
-num_inliers : 907
-num_inliers : 1054
-num_inliers : 959
-num_inliers : 1088
-num_inliers : 623
-num_inliers : 765
-num_inliers : 890
-num_inliers : 1122
-num_inliers : 352
 num_inliers : 1310
-num_inliers : 527
-num_inliers : 430
-num_inliers : 565
-num_inliers : 1107
-num_inliers : 393
-num_inliers : 868
-num_inliers : 301
-num_inliers : 623
-num_inliers : 1440
-num_inliers : 753
-num_inliers : 191
-num_inliers : 1411
-num_inliers : 1960
-num_inliers : 264
-num_inliers : 64
-num_inliers : 609
-num_inliers : 583
-num_inliers : 603
-num_inliers : 766
-num_inliers : 141
-num_inliers : 1065
-num_inliers : 1768
-num_inliers : 1577
-num_inliers : 729
-num_inliers : 1563
-num_inliers : 739
-num_inliers : 1119
-num_inliers : 1198
-num_inliers : 227
-num_inliers : 1086
-num_inliers : 234
-num_inliers : 597
-num_inliers : 589
-num_inliers : 923
-num_inliers : 295
-num_inliers : 951
-num_inliers : 397
-num_inliers : 1177
-num_inliers : 1699
-num_inliers : 976
-num_inliers : 637
-num_inliers : 1571
-num_inliers : 1085
-num_inliers : 118
-num_inliers : 864
-num_inliers : 775
-num_inliers : 283
-num_inliers : 345
-num_inliers : 554
-num_inliers : 1368
-num_inliers : 1036
-num_inliers : 326
-num_inliers : 1146
-num_inliers : 1352
-num_inliers : 1485
-num_inliers : 615
-num_inliers : 183
-num_inliers : 388
-num_inliers : 188
-num_inliers : 711
-num_inliers : 1534
-num_inliers : 804
-num_inliers : 460
-num_inliers : 275
-num_inliers : 823
-num_inliers : 818
-num_inliers : 367
-num_inliers : 975
-num_inliers : 518
-num_inliers : 2029
-num_inliers : 825
-num_inliers : 2559
-num_inliers : 204
-num_inliers : 1267
-num_inliers : 627
-num_inliers : 2053
-num_inliers : 991
-num_inliers : 957
-num_inliers : 683
-num_inliers : 332
-num_inliers : 542
-num_inliers : 1133
-num_inliers : 1105
-num_inliers : 640
-num_inliers : 608
 num_inliers : 1455
-num_inliers : 599
-num_inliers : 2070
-num_inliers : 514
-num_inliers : 1191
-num_inliers : 1191
-num_inliers : 535
-num_inliers : 667
-num_inliers : 1915
-num_inliers : 254
-num_inliers : 1573
-num_inliers : 779
-num_inliers : 524
-num_inliers : 1947
-num_inliers : 1070
-num_inliers : 1051
-num_inliers : 1050
-num_inliers : 479
-num_inliers : 964
-num_inliers : 850
-num_inliers : 938
-num_inliers : 170
-num_inliers : 661
-num_inliers : 1592
-num_inliers : 184
-num_inliers : 186
-num_inliers : 1568
-num_inliers : 375
-num_inliers : 1307
-num_inliers : 866
-num_inliers : 514
-num_inliers : 534
-num_inliers : 191
-num_inliers : 320
-num_inliers : 79
-num_inliers : 858
-num_inliers : 1423
-num_inliers : 2420
-num_inliers : 986
-num_inliers : 541
-num_inliers : 631
-num_inliers : 431
-num_inliers : 304
-num_inliers : 921
-num_inliers : 721
-num_inliers : 968
-num_inliers : 1053
-num_inliers : 1402
-num_inliers : 701
-num_inliers : 1829
-num_inliers : 1936
-num_inliers : 1714
-num_inliers : 781
-num_inliers : 580
-num_inliers : 173
-num_inliers : 306
-num_inliers : 989
-num_inliers : 1015
-num_inliers : 340
-num_inliers : 745
-num_inliers : 1140
-num_inliers : 623
-num_inliers : 529
-num_inliers : 929
-num_inliers : 863
-num_inliers : 891
-num_inliers inside of Run : 2559
-num_inliers : 190
-num_inliers : 1053
-num_inliers : 1674
-num_inliers : 962
-num_inliers : 1219
-num_inliers : 1579
-num_inliers : 1330
-num_inliers : 1493
-num_inliers : 843
-num_inliers : 1070
-num_inliers : 43
-num_inliers : 1292
-num_inliers : 520
-num_inliers : 1601
-num_inliers : 676
-num_inliers : 1038
-num_inliers : 1287
-num_inliers : 1567
-num_inliers : 1707
-num_inliers : 712
-num_inliers : 408
-num_inliers : 1193
-num_inliers : 272
-num_inliers : 1668
-num_inliers : 1771
-num_inliers : 598
-num_inliers : 121
-num_inliers : 621
-num_inliers : 855
-num_inliers : 862
-num_inliers : 522
-num_inliers : 1360
-num_inliers : 1372
-num_inliers : 2159
-num_inliers : 975
-num_inliers : 1562
-num_inliers : 903
-num_inliers : 508
-num_inliers : 2384
-num_inliers : 817
-num_inliers : 322
-num_inliers : 701
-num_inliers : 1084
-num_inliers : 2174
-num_inliers : 1978
-num_inliers : 1256
+num_inliers : 857
+num_inliers : 1822
+num_inliers : 1876
+num_inliers : 1986
+num_inliers : 1116
+num_inliers : 4311
+num_inliers : 2666
+num_inliers : 4071
+num_inliers : 800
+num_inliers : 626
+num_inliers : 5172
+num_inliers : 2745
+num_inliers : 4633
+num_inliers : 3906
+num_inliers : 3539
+num_inliers : 3322
+num_inliers : 1857
+num_inliers : 2261
+num_inliers : 910
+num_inliers : 5900
+num_inliers : 4055
+num_inliers : 1456
+num_inliers : 3096
+num_inliers : 1583
+num_inliers : 1100
+num_inliers : 6415
+num_inliers : 2537
+num_inliers : 2407
+num_inliers : 2758
+num_inliers : 7009
+num_inliers : 4216
 num_inliers : 1337
-num_inliers : 1279
-num_inliers : 1459
-num_inliers : 253
-num_inliers : 240
-num_inliers : 433
-num_inliers : 817
-num_inliers : 756
-num_inliers : 581
-num_inliers : 803
-num_inliers : 1693
-num_inliers : 665
-num_inliers : 1218
-num_inliers : 1665
-num_inliers : 819
-num_inliers : 458
+num_inliers : 4100
+num_inliers : 1970
+num_inliers : 3277
+num_inliers : 1750
+num_inliers : 1180
+num_inliers : 769
+num_inliers : 1144
+num_inliers : 1596
+num_inliers : 5185
+num_inliers : 2910
+num_inliers : 3229
+num_inliers : 2204
+num_inliers : 791
+num_inliers : 2616
+num_inliers : 711
+num_inliers : 1879
+num_inliers : 1146
+num_inliers : 1481
+num_inliers : 1786
+num_inliers : 2025
+num_inliers : 2922
+num_inliers : 6297
+num_inliers : 2256
+num_inliers : 5588
+num_inliers : 3417
+num_inliers : 3478
+num_inliers : 1894
+num_inliers : 1286
+num_inliers : 2582
+num_inliers : 1569
+num_inliers : 1162
+num_inliers : 3319
+num_inliers : 4967
+num_inliers : 3648
+num_inliers : 1632
+num_inliers : 1030
+num_inliers : 2273
+num_inliers : 2170
+num_inliers : 1180
+num_inliers : 2809
+num_inliers : 486
+num_inliers : 301
+num_inliers : 4872
+num_inliers : 5658
+num_inliers : 2960
+num_inliers : 3095
+num_inliers : 1893
+num_inliers : 1220
+num_inliers : 1484
+num_inliers : 1978
+num_inliers : 1772
+num_inliers : 2962
+num_inliers : 1569
+num_inliers : 408
+num_inliers : 1961
+num_inliers : 3159
+num_inliers : 1718
+num_inliers : 3269
+num_inliers : 1202
+num_inliers inside of Run : 7009
+num_inliers : 2144
+num_inliers : 802
+num_inliers : 498
+num_inliers : 3545
+num_inliers : 1224
+num_inliers : 1714
+num_inliers : 1614
+num_inliers : 4917
+num_inliers : 1095
+num_inliers : 1960
+num_inliers : 6406
+num_inliers : 4822
+num_inliers : 4452
+num_inliers : 1140
+num_inliers : 3125
+num_inliers : 2913
+num_inliers : 4244
+num_inliers : 1076
+num_inliers : 1157
+num_inliers : 1499
+num_inliers : 547
+num_inliers : 3716
+num_inliers : 1467
+num_inliers : 2559
+num_inliers : 1513
+num_inliers : 4455
+num_inliers : 6161
+num_inliers : 667
+num_inliers : 4463
+num_inliers : 1134
+num_inliers : 1835
+num_inliers : 1119
+num_inliers : 465
+num_inliers : 4921
+num_inliers : 67
+num_inliers : 2892
+num_inliers : 1470
+num_inliers : 1720
 num_inliers : 1018
+num_inliers : 876
+num_inliers : 462
+num_inliers : 874
+num_inliers : 1916
+num_inliers : 1679
+num_inliers : 1857
+num_inliers : 2335
+num_inliers : 1130
+num_inliers : 1114
+num_inliers : 3396
+num_inliers : 1482
+num_inliers : 764
+num_inliers : 1335
+num_inliers : 1813
+num_inliers : 1002
+num_inliers : 2234
+num_inliers : 6257
+num_inliers : 1894
+num_inliers : 3331
+num_inliers : 1523
+num_inliers : 3438
+num_inliers : 1100
+num_inliers : 6254
+num_inliers : 2376
+num_inliers : 1725
+num_inliers : 498
+num_inliers : 2175
+num_inliers : 789
+num_inliers : 4920
+num_inliers : 94
+num_inliers : 879
+num_inliers : 784
+num_inliers : 5420
+num_inliers : 5017
+num_inliers : 3556
+num_inliers : 980
+num_inliers : 914
+num_inliers : 2980
+num_inliers : 867
+num_inliers : 907
+num_inliers : 6013
+num_inliers : 1959
+num_inliers : 3598
+num_inliers : 938
+num_inliers : 4494
+num_inliers : 2045
+num_inliers : 3517
+num_inliers : 864
+num_inliers : 1184
+num_inliers : 649
+num_inliers : 2244
+num_inliers : 4760
+num_inliers : 862
+num_inliers : 254
+num_inliers : 3831
+num_inliers : 4327
+num_inliers : 2207
+num_inliers : 5034
+num_inliers : 3838
+num_inliers : 4937
+num_inliers : 216
+num_inliers : 4431
+num_inliers inside of Run : 6406
+num_inliers : 376
+num_inliers : 667
+num_inliers : 548
+num_inliers : 690
 num_inliers : 1060
-num_inliers : 589
-num_inliers : 459
-num_inliers : 428
-num_inliers : 1340
-num_inliers : 1098
-num_inliers : 1263
-num_inliers : 657
-num_inliers : 1194
-num_inliers : 999
-num_inliers : 843
-num_inliers : 502
-num_inliers : 1153
-num_inliers : 412
-num_inliers : 334
-num_inliers : 1453
-num_inliers : 1846
-num_inliers : 816
-num_inliers : 934
-num_inliers : 892
-num_inliers : 1314
-num_inliers : 595
-num_inliers : 1843
-num_inliers : 156
-num_inliers : 1156
+num_inliers : 238
+num_inliers : 461
+num_inliers : 50
+num_inliers : 206
+num_inliers : 277
+num_inliers : 640
+num_inliers : 463
+num_inliers : 649
+num_inliers : 433
+num_inliers : 853
+num_inliers : 677
+num_inliers : 421
+num_inliers : 398
+num_inliers : 227
+num_inliers : 77
+num_inliers : 613
+num_inliers : 326
+num_inliers : 697
+num_inliers : 481
+num_inliers : 668
+num_inliers : 386
+num_inliers : 316
+num_inliers : 780
+num_inliers : 98
+num_inliers : 431
+num_inliers : 258
+num_inliers : 653
+num_inliers : 499
+num_inliers : 244
+num_inliers : 830
+num_inliers : 452
+num_inliers : 206
+num_inliers : 1222
+num_inliers : 598
+num_inliers : 197
+num_inliers : 472
+num_inliers : 819
+num_inliers : 737
+num_inliers : 449
+num_inliers : 713
+num_inliers : 1058
+num_inliers : 671
+num_inliers : 310
+num_inliers : 748
+num_inliers : 42
+num_inliers : 279
+num_inliers : 662
 num_inliers : 1349
-num_inliers : 497
-num_inliers : 1175
-num_inliers : 960
-num_inliers : 407
-num_inliers : 2233
-num_inliers : 816
-num_inliers : 1186
-num_inliers : 2111
-num_inliers : 763
-num_inliers : 837
-num_inliers : 625
+num_inliers : 322
+num_inliers : 836
+num_inliers : 521
+num_inliers : 205
+num_inliers : 330
+num_inliers : 448
+num_inliers : 804
+num_inliers : 934
+num_inliers : 817
+num_inliers : 556
+num_inliers : 94
+num_inliers : 704
+num_inliers : 1233
+num_inliers : 840
+num_inliers : 698
+num_inliers : 823
+num_inliers : 426
+num_inliers : 698
+num_inliers : 172
+num_inliers : 562
+num_inliers : 533
+num_inliers : 474
+num_inliers : 225
+num_inliers : 433
+num_inliers : 643
+num_inliers : 777
+num_inliers : 1040
+num_inliers : 1039
+num_inliers : 627
+num_inliers : 196
+num_inliers : 204
+num_inliers : 575
+num_inliers : 552
+num_inliers : 951
+num_inliers : 527
+num_inliers : 386
+num_inliers : 610
+num_inliers : 202
+num_inliers : 512
+num_inliers : 680
+num_inliers : 339
+num_inliers : 938
+num_inliers : 879
+num_inliers : 1539
+num_inliers : 688
+num_inliers : 471
+num_inliers : 213
+num_inliers : 273
+num_inliers : 511
+num_inliers : 311
+num_inliers : 681
+num_inliers : 367
+num_inliers : 384
+num_inliers : 84
+num_inliers : 410
+num_inliers : 1236
+num_inliers : 699
+num_inliers : 158
+num_inliers : 396
+num_inliers : 765
+num_inliers : 370
+num_inliers : 145
+num_inliers : 128
+num_inliers : 1506
+num_inliers : 286
+num_inliers : 371
+num_inliers : 1238
+num_inliers : 315
+num_inliers : 765
+num_inliers : 1039
+num_inliers : 416
+num_inliers : 410
+num_inliers : 511
+num_inliers : 349
+num_inliers : 168
+num_inliers : 345
+num_inliers : 198
+num_inliers : 649
+num_inliers : 25
+num_inliers : 332
+num_inliers : 55
 num_inliers : 563
-num_inliers inside of Run : 2384
-INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (SquentialRANSAC) [0.284626 s]
- 0.0311848  -0.190112  -0.197454   0.298295
- 0.0914964  -0.180109   0.187862   0.698092
- -0.258377 -0.0867254  0.0426941   0.308969
+num_inliers : 869
+num_inliers : 541
+num_inliers : 247
+num_inliers : 458
+num_inliers : 111
+num_inliers : 961
+num_inliers : 549
+num_inliers : 420
+num_inliers : 202
+num_inliers : 658
+num_inliers : 594
+num_inliers : 184
+num_inliers : 554
+num_inliers : 185
+num_inliers : 255
+num_inliers : 383
+num_inliers : 384
+num_inliers : 167
+num_inliers : 468
+num_inliers : 248
+num_inliers : 231
+num_inliers : 351
+num_inliers : 343
+num_inliers : 329
+num_inliers : 620
+num_inliers : 752
+num_inliers : 548
+num_inliers : 890
+num_inliers : 501
+num_inliers : 695
+num_inliers : 751
+num_inliers : 430
+num_inliers : 686
+num_inliers : 437
+num_inliers : 563
+num_inliers : 301
+num_inliers : 971
+num_inliers : 208
+num_inliers : 759
+num_inliers : 269
+num_inliers : 63
+num_inliers : 264
+num_inliers : 428
+num_inliers : 697
+num_inliers : 437
+num_inliers : 665
+num_inliers : 469
+num_inliers : 404
+num_inliers : 428
+num_inliers : 741
+num_inliers : 1097
+num_inliers : 386
+num_inliers : 425
+num_inliers : 1187
+num_inliers : 856
+num_inliers : 936
+num_inliers : 120
+num_inliers : 867
+num_inliers : 366
+num_inliers : 399
+num_inliers : 437
+num_inliers : 590
+num_inliers : 350
+num_inliers : 881
+num_inliers : 536
+num_inliers : 377
+num_inliers : 914
+num_inliers : 1220
+num_inliers : 124
+num_inliers : 508
+num_inliers : 335
+num_inliers : 996
+num_inliers : 393
+num_inliers : 378
+num_inliers : 761
+num_inliers : 583
+num_inliers : 462
+num_inliers : 1340
+num_inliers : 724
+num_inliers : 594
+num_inliers : 576
+num_inliers : 664
+num_inliers : 389
+num_inliers : 256
+num_inliers : 451
+num_inliers : 812
+num_inliers : 631
+num_inliers : 238
+num_inliers : 667
+num_inliers : 327
+num_inliers : 322
+num_inliers : 755
+num_inliers : 403
+num_inliers : 453
+num_inliers : 615
+num_inliers : 224
+num_inliers : 762
+num_inliers : 230
+num_inliers : 495
+num_inliers : 739
+num_inliers : 473
+num_inliers : 865
+num_inliers : 763
+num_inliers : 631
+num_inliers : 754
+num_inliers : 721
+num_inliers : 647
+num_inliers : 186
+num_inliers : 603
+num_inliers : 278
+num_inliers : 333
+num_inliers : 336
+num_inliers : 350
+num_inliers : 328
+num_inliers : 538
+num_inliers : 285
+num_inliers : 358
+num_inliers : 235
+num_inliers : 54
+num_inliers : 152
+num_inliers : 793
+num_inliers : 358
+num_inliers : 784
+num_inliers : 287
+num_inliers : 740
+num_inliers : 1207
+num_inliers : 940
+num_inliers : 470
+num_inliers : 237
+num_inliers : 213
+num_inliers : 857
+num_inliers : 232
+num_inliers : 86
+num_inliers : 205
+num_inliers : 845
+num_inliers : 177
+num_inliers : 174
+num_inliers : 330
+num_inliers : 806
+num_inliers : 912
+num_inliers : 504
+num_inliers : 1010
+num_inliers : 431
+num_inliers : 534
+num_inliers : 300
+num_inliers : 624
+num_inliers : 504
+num_inliers : 321
+num_inliers : 699
+num_inliers : 361
+num_inliers : 438
+num_inliers : 839
+num_inliers : 645
+num_inliers : 96
+num_inliers : 537
+num_inliers : 388
+num_inliers : 351
+num_inliers : 314
+num_inliers : 487
+num_inliers : 496
+num_inliers : 292
+num_inliers : 419
+num_inliers : 225
+num_inliers : 677
+num_inliers : 155
+num_inliers : 909
+num_inliers : 899
+num_inliers : 1177
+num_inliers : 569
+num_inliers : 666
+num_inliers : 234
+num_inliers : 622
+num_inliers : 747
+num_inliers : 574
+num_inliers : 505
+num_inliers : 104
+num_inliers : 398
+num_inliers : 1315
+num_inliers : 656
+num_inliers : 979
+num_inliers : 302
+num_inliers : 110
+num_inliers : 406
+num_inliers : 539
+num_inliers : 693
+num_inliers : 953
+num_inliers : 795
+num_inliers : 333
+num_inliers : 145
+num_inliers : 495
+num_inliers : 611
+num_inliers : 168
+num_inliers : 436
+num_inliers : 747
+num_inliers : 833
+num_inliers : 554
+num_inliers : 853
+num_inliers : 191
+num_inliers : 630
+num_inliers : 393
+num_inliers : 188
+num_inliers : 481
+num_inliers : 279
+num_inliers : 619
+num_inliers : 232
+num_inliers : 205
+num_inliers : 685
+num_inliers : 340
+num_inliers : 585
+num_inliers : 1539
+num_inliers : 203
+num_inliers : 158
+num_inliers : 133
+num_inliers : 833
+num_inliers : 601
+num_inliers : 679
+num_inliers : 373
+num_inliers : 580
+num_inliers : 174
+num_inliers : 1136
+num_inliers : 533
+num_inliers : 480
+num_inliers : 431
+num_inliers : 81
+num_inliers : 538
+num_inliers : 551
+num_inliers : 572
+num_inliers : 522
+num_inliers : 1021
+num_inliers : 310
+num_inliers : 610
+num_inliers : 545
+num_inliers inside of Run : 1539
+num_inliers : 789
+num_inliers : 560
+num_inliers : 195
+num_inliers : 734
+num_inliers : 471
+num_inliers : 667
+num_inliers : 253
+num_inliers : 547
+num_inliers : 441
+num_inliers : 496
+num_inliers : 800
+num_inliers : 308
+num_inliers : 506
+num_inliers : 655
+num_inliers : 339
+num_inliers : 743
+num_inliers : 307
+num_inliers : 725
+num_inliers : 666
+num_inliers : 372
+num_inliers : 327
+num_inliers : 457
+num_inliers : 550
+num_inliers : 245
+num_inliers : 631
+num_inliers : 611
+num_inliers : 607
+num_inliers : 197
+num_inliers : 480
+num_inliers : 506
+num_inliers : 529
+num_inliers : 895
+num_inliers : 529
+num_inliers : 446
+num_inliers : 493
+num_inliers : 506
+num_inliers : 837
+num_inliers : 481
+num_inliers : 247
+num_inliers : 578
+num_inliers : 890
+num_inliers : 670
+num_inliers : 73
+num_inliers : 750
+num_inliers : 160
+num_inliers : 1638
+num_inliers : 149
+num_inliers : 90
+num_inliers : 377
+num_inliers : 382
+num_inliers : 416
+num_inliers : 309
+num_inliers : 359
+num_inliers : 999
+num_inliers : 265
+num_inliers : 300
+num_inliers : 817
+num_inliers : 298
+num_inliers : 461
+num_inliers : 710
+num_inliers : 668
+num_inliers : 511
+num_inliers : 702
+num_inliers : 1499
+num_inliers : 538
+num_inliers : 783
+num_inliers : 360
+num_inliers : 613
+num_inliers : 569
+num_inliers : 398
+num_inliers : 379
+num_inliers : 831
+num_inliers : 430
+num_inliers : 249
+num_inliers : 802
+num_inliers : 368
+num_inliers : 620
+num_inliers : 762
+num_inliers : 1066
+num_inliers : 433
+num_inliers : 638
+num_inliers : 765
+num_inliers : 445
+num_inliers : 1479
+num_inliers : 642
+num_inliers : 117
+num_inliers : 486
+num_inliers : 157
+num_inliers : 819
+num_inliers : 551
+num_inliers : 677
+num_inliers : 297
+num_inliers : 677
+num_inliers : 587
+num_inliers : 360
+num_inliers : 501
+num_inliers : 381
+num_inliers : 1456
+num_inliers : 696
+num_inliers : 450
+num_inliers : 504
+num_inliers : 725
+num_inliers : 440
+num_inliers : 694
+num_inliers : 363
+num_inliers : 58
+num_inliers : 641
+num_inliers : 444
+num_inliers : 677
+num_inliers : 1269
+num_inliers : 74
+num_inliers : 576
+num_inliers : 594
+num_inliers : 662
+num_inliers : 453
+num_inliers : 444
+num_inliers : 516
+num_inliers : 392
+num_inliers : 58
+num_inliers : 652
+num_inliers : 528
+num_inliers : 234
+num_inliers : 333
+num_inliers : 442
+num_inliers : 651
+num_inliers : 232
+num_inliers : 556
+num_inliers : 732
+num_inliers : 503
+num_inliers : 687
+num_inliers : 1198
+num_inliers : 327
+num_inliers : 1206
+num_inliers : 589
+num_inliers : 564
+num_inliers : 466
+num_inliers : 447
+num_inliers inside of Run : 1638
+num_inliers : 537
+num_inliers : 227
+num_inliers : 471
+num_inliers : 282
+num_inliers : 324
+num_inliers : 162
+num_inliers : 923
+num_inliers : 385
+num_inliers : 659
+num_inliers : 414
+num_inliers : 805
+num_inliers : 1355
+num_inliers : 163
+num_inliers : 436
+num_inliers : 330
+num_inliers : 174
+num_inliers : 209
+num_inliers : 382
+num_inliers : 118
+num_inliers : 184
+num_inliers : 639
+num_inliers : 346
+num_inliers : 247
+num_inliers : 291
+num_inliers : 734
+num_inliers : 113
+num_inliers : 573
+num_inliers : 250
+num_inliers : 848
+num_inliers : 92
+num_inliers : 550
+num_inliers : 102
+num_inliers : 460
+num_inliers : 671
+num_inliers : 179
+num_inliers : 356
+num_inliers : 294
+num_inliers : 1163
+num_inliers : 437
+num_inliers : 478
+num_inliers : 487
+num_inliers : 380
+num_inliers : 225
+num_inliers : 647
+num_inliers : 372
+num_inliers : 591
+num_inliers : 177
+num_inliers : 1021
+num_inliers : 902
+num_inliers : 1376
+num_inliers : 99
+num_inliers : 138
+num_inliers : 302
+num_inliers : 235
+num_inliers : 307
+num_inliers : 572
+num_inliers : 473
+num_inliers : 510
+num_inliers : 314
+num_inliers : 409
+num_inliers : 295
+num_inliers : 731
+num_inliers : 481
+num_inliers : 251
+num_inliers : 321
+num_inliers : 612
+num_inliers : 232
+num_inliers : 1462
+num_inliers : 455
+num_inliers : 218
+num_inliers : 398
+num_inliers : 280
+num_inliers : 363
+num_inliers : 542
+num_inliers : 482
+num_inliers : 329
+num_inliers : 319
+num_inliers : 339
+num_inliers : 394
+num_inliers : 43
+num_inliers : 569
+num_inliers : 482
+num_inliers : 199
+num_inliers : 678
+num_inliers : 1313
+num_inliers : 181
+num_inliers : 221
+num_inliers : 127
+num_inliers : 266
+num_inliers : 191
+num_inliers : 307
+num_inliers : 76
+num_inliers : 543
+num_inliers : 462
+num_inliers : 358
+num_inliers : 249
+num_inliers : 350
+num_inliers : 392
+num_inliers : 226
+num_inliers : 343
+num_inliers : 375
+num_inliers inside of Run : 1462
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (SquentialRANSAC) [0.111655 s]
+   -0.142642   -0.0824447    0.0667135     0.273568
+   -0.106055     0.110539   -0.0901551     0.954946
+-0.000328349     0.112154     0.137898   -0.0326719
+           0            0            0            1
+  0.137154   0.134505  0.0274347 -0.0659411
+ -0.111158  0.0860648   0.133761   0.840277
+ 0.0805483  -0.110258   0.137879  -0.078954
          0          0          0          1
- -0.121795   0.405769 -0.0223022   0.156471
- -0.130435 -0.0610835  -0.399043    1.10165
-  -0.38488  -0.107704   0.142292   0.367589
+  0.195059  0.0213238    0.11099  -0.187931
+-0.0895681   0.164184   0.125867   0.788626
+-0.0689277  -0.153004   0.150533  0.0733519
          0          0          0          1
- -0.128924   0.194289   0.190404     0.1103
- -0.262596  -0.143902 -0.0309665    1.16706
- 0.0710316  -0.179352   0.231108 -0.0986768
+  0.103483 -0.0616801  -0.305959   0.173447
+  0.266905    0.18458  0.0530638   0.469244
+  0.161793  -0.265047   0.108155 -0.0971597
          0          0          0          1
--0.188324 -0.146022 -0.152198  0.422344
- 0.210665 -0.120213 -0.145333  0.659346
- 0.010347 -0.210188  0.188856 0.0874915
-        0         0         0         1
- -0.232521 0.00399506  -0.264779   0.361904
- 0.0204803   0.351582 -0.0126804   0.726805
-  0.264016 -0.0237545  -0.232209  -0.103377
-         0          0          0          1
+ -0.0260778 -0.00365476   0.0758864    0.223992
+ -0.0304939   0.0739895 -0.00691563     0.81951
+  -0.069586   -0.031054  -0.0254084    0.152899
+          0           0           0           1
 INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(DenseGaussNewton::optimize()) {
 VERBOSE: /home/aiday.kyzy/code/sfm/src/./vision/geometry/dense_gauss_newton.h:L118:# parameters: 7
 VERBOSE: /home/aiday.kyzy/code/sfm/src/./vision/geometry/dense_gauss_newton.h:L119:# residuals: 4129
 INFO: /home/aiday.kyzy/code/sfm/src/./vision/geometry/dense_gauss_newton.h:L238:Gauss-Newton gradient threshold reached.
 INFO: /home/aiday.kyzy/code/sfm/src/./vision/geometry/dense_gauss_newton.h:L240:Gauss-Newton gradient max norm 0.000000e+00 <= 1.000000e-06
-INFO: /home/aiday.kyzy/code/sfm/src/./vision/geometry/dense_gauss_newton.h:L241:Gauss-Newton convergence #iters: 6
+INFO: /home/aiday.kyzy/code/sfm/src/./vision/geometry/dense_gauss_newton.h:L241:Gauss-Newton convergence #iters: 1
 INFO: /home/aiday.kyzy/code/sfm/src/./vision/geometry/dense_gauss_newton.h:L242:Gauss-Newton converged.
-INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (DenseGaussNewton::optimize()) [0.012005 s]
-Affine transform: -0.000128335 -0.000414535  -0.00138208    -0.128504
--0.000605533  -0.00124397  0.000429338    0.0586825
-  -0.0013097  0.000615761 -6.30743e-05    0.0853333
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (DenseGaussNewton::optimize()) [0.007480 s]
+Affine transform:   -0.0335563    0.0123836    0.0200238      3.73608
+   0.0138087    0.0385892 -0.000724237      6.01315
+  -0.0190689   0.00615244   -0.0357611     -6.64841
            0            0            0            1
 VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L232:#models: 5
-VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L91:#model 0 | #inliers 5097
-VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L91:#model 1 | #inliers 4673
-VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L91:#model 2 | #inliers 3536
-VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L91:#model 3 | #inliers 2559
-VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L91:#model 4 | #inliers 2384
-VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L235:#inilers: 18249
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L91:#model 0 | #inliers 7009
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L91:#model 1 | #inliers 6406
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L91:#model 2 | #inliers 1539
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L91:#model 3 | #inliers 1638
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L91:#model 4 | #inliers 1462
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L235:#inilers: 18054
 VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L257:Mesh1: #vertices: 4064
 VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L258:Mesh2: #vertices: 4129
 INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(Registration2::Register) {
 VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L784:SampleDeformationNodes
 INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(PointCloudSampling::PoissonSphereSampling) {
-INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (PointCloudSampling::PoissonSphereSampling) [0.003371 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (PointCloudSampling::PoissonSphereSampling) [0.003998 s]
 VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L790:Create balltree...
 VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L797:Build kdtree...
 VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L804:Create matches...
-VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L826:#matches / #inliers: 22184/22184
-VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L827:Mesh1: #points | #normals: 18249 | 18249
-VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L828:Mesh2: #points | #normals: 18249 | 18249
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L826:#matches / #inliers: 20043/20043
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L827:Mesh1: #points | #normals: 18054 | 18054
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L828:Mesh2: #points | #normals: 18054 | 18054
 INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(SetupRegistrationProblem) {
-INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (SetupRegistrationProblem) [0.009818 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (SetupRegistrationProblem) [0.015367 s]
 INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(SolveCeresProblem) {
-INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (SolveCeresProblem) [0.004183 s]
+iter      cost      cost_change  |gradient|   |step|    tr_ratio  tr_radius  ls_iter  iter_time  total_time
+   0  3.932268e+00    0.00e+00    1.20e+00   0.00e+00   0.00e+00  1.00e+04        0    7.83e-02    8.53e-02
+   1  9.458850e-03    3.92e+00    8.17e-02   2.06e+01   1.65e+00  3.00e+04        1    1.19e-01    2.04e-01
+   2  1.144518e-03    8.31e-03    3.26e-02   1.29e+00   9.56e-01  9.00e+04        1    9.58e-02    3.00e-01
+   3  2.648165e-03   -1.50e-03    3.26e-02   2.39e+00  -2.79e+00  4.50e+04        1    1.19e-02    3.12e-01
+   4  1.157328e-03   -1.28e-05    3.26e-02   1.62e+00  -2.43e-02  1.12e+04        1    1.13e-02    3.23e-01
+   5  6.873776e-04    4.57e-04    1.01e-02   7.46e-01   9.29e-01  3.04e+04        1    9.62e-02    4.20e-01
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (SolveCeresProblem) [0.420545 s]
 VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L881:Summary: 
 Solver Summary (v 2.1.0-eigen-(3.3.4)-lapack-suitesparse-(5.1.2)-cxsparse-(3.1.9)-eigensparse-no_openmp-cuda-(11030))
 
                                      Original                  Reduced
-Parameter blocks                            1                        1
-Parameters                                  6                        6
-Residual blocks                         18249                    18249
-Residuals                               18249                    18249
+Parameter blocks                            5                        5
+Parameters                                 30                       30
+Residual blocks                         18074                    18074
+Residuals                               18114                    18114
 
 Minimizer                        TRUST_REGION
 
@@ -25559,34 +25287,386 @@ Trust region strategy     LEVENBERG_MARQUARDT
                                         Given                     Used
 Linear solver          SPARSE_NORMAL_CHOLESKY   SPARSE_NORMAL_CHOLESKY
 Threads                                    16                       16
-Linear solver ordering              AUTOMATIC                        1
+Linear solver ordering              AUTOMATIC                        5
 
 Cost:
-Initial                         -1.000000e+00
+Initial                          3.932268e+00
+Final                            6.873776e-04
+Change                           3.931581e+00
 
-Minimizer iterations                        0
-Successful steps                            0
+Minimizer iterations                        6
+Successful steps                            4
+Unsuccessful steps                          2
+
+Time (in seconds):
+Preprocessor                         0.006995
+
+  Residual only evaluation           0.009718 (5)
+  Jacobian & residual evaluation     0.325186 (4)
+  Linear solver                      0.066591 (5)
+Minimizer                            0.412606
+
+Postprocessor                        0.000396
+Total                                0.420009
+
+Termination:                   NO_CONVERGENCE (Maximum number of iterations reached. Number of iterations: 5.)
+
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(Update nodes) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (Update nodes) [0.000006 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (Registration2::Register) [0.466989 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(PointCloudSampling::PoissonSphereSampling) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (PointCloudSampling::PoissonSphereSampling) [0.004919 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(PointCloudSampling::PoissonSphereSampling) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (PointCloudSampling::PoissonSphereSampling) [0.003386 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(meshing) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(PointCloudTsdf) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(ComputeGridExtrinsics) {
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/meshing/meshing.cc:L159:Set automatic grid position
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(ComputePointDensity) {
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_utils.cc:L400:Size / SubsetSize : 128 / 2
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (ComputePointDensity) [0.000025 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/meshing/meshing.cc:L174:Set automatic grid resolution
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/meshing/meshing.cc:L179:Set automatic grid scale
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/meshing/meshing.cc:L192:Resolution: [9, 13, 11], Margin: 3
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/meshing/meshing.cc:L193:Scale: [460.582184, 460.582184, 460.582184]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/meshing/meshing.cc:L194:Position: [0.117377, 0.803007, 0.031663]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/meshing/meshing.cc:L195:Orientation: [0.000000, 0.000000, 0.000000]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (ComputeGridExtrinsics) [0.000050 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/meshing/meshing.cc:L225:trace_distance: 3
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(GridErode) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (GridErode) [0.000538 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/meshing/meshing.cc:L329:Extract single surface mesh
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(ExtractMeshUniqueVertices) {
+VERBOSE: /home/aiday.kyzy/code/sfm/src/./graphics/meshing/generic_mc_unique_vertices.h:L281:Using array for vertex_list and edge_vertex_ids
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (ExtractMeshUniqueVertices) [0.000023 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(Mesh2Utils::FixMesh) {
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_utils.cc:L844:Build vertex lookup table
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_utils.cc:L873:Check for broken edges
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (Mesh2Utils::FixMesh) [0.000021 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(ComputeVertexNormals) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (ComputeVertexNormals) [0.000005 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/meshing/meshing.cc:L346:Mesh2::CheckConsistency
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/meshing/meshing.cc:L352:Meshing:: Mesh2Transform::ComputeNormals(.)
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(FaceNormals) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (FaceNormals) [0.000004 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(ComputeVertexNormals) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (ComputeVertexNormals) [0.000004 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/meshing/meshing.cc:L370:MeshRepair::PlanarHoleFilling
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(PlanarHoleFilling) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(FindHoles) {
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_utils.cc:L1106:#holes: 2
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (FindHoles) [0.000008 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L123:Fill holes, #holes: 2
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L125:Filling hole: 0 / 2 | Size: 3
+WARN: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L217:Skip remaining hole edges due to too large angles
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L218:======================== SKIP ==================== 
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L313:--------------------------------------------------------
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L125:Filling hole: 1 / 2 | Size: 3
+WARN: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L217:Skip remaining hole edges due to too large angles
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L218:======================== SKIP ==================== 
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L313:--------------------------------------------------------
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (PlanarHoleFilling) [0.000049 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (PointCloudTsdf) [0.000793 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (meshing) [0.000871 s]
+DEBUG: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L318:Template mesh #vertices: 6
+DEBUG: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L319:Template mesh #faces: 2
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L333:iteration: # 1 / 5
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(Registration2::Register) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(FaceNormals) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (FaceNormals) [0.000004 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(PointCloudSampling::PoissonSphereSampling) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (PointCloudSampling::PoissonSphereSampling) [0.000008 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L414:Absolute threshold: 0.000244
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(SetupRegistrationProblem) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (SetupRegistrationProblem) [0.000010 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(SolveCeresProblem) {
+iter      cost      cost_change  |gradient|   |step|    tr_ratio  tr_radius  ls_iter  iter_time  total_time
+   0  0.000000e+00    0.00e+00    0.00e+00   0.00e+00   0.00e+00  1.00e+04        0    7.92e-05    5.83e-04
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (SolveCeresProblem) [0.000639 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L736:Summary: 
+Solver Summary (v 2.1.0-eigen-(3.3.4)-lapack-suitesparse-(5.1.2)-cxsparse-(3.1.9)-eigensparse-no_openmp-cuda-(11030))
+
+                                     Original                  Reduced
+Parameter blocks                            2                        2
+Parameters                                 12                       12
+Residual blocks                             2                        2
+Residuals                                   6                        6
+
+Minimizer                        TRUST_REGION
+
+Sparse linear algebra library    SUITE_SPARSE
+Trust region strategy     LEVENBERG_MARQUARDT
+
+                                        Given                     Used
+Linear solver          SPARSE_NORMAL_CHOLESKY   SPARSE_NORMAL_CHOLESKY
+Threads                                    16                       16
+Linear solver ordering              AUTOMATIC                        2
+
+Cost:
+Initial                          0.000000e+00
+Final                            0.000000e+00
+Change                           0.000000e+00
+
+Minimizer iterations                        1
+Successful steps                            1
 Unsuccessful steps                          0
 
 Time (in seconds):
-Preprocessor                         0.003193
+Preprocessor                         0.000501
 
   Residual only evaluation           0.000000 (0)
-  Jacobian & residual evaluation     0.000561 (1)
+  Jacobian & residual evaluation     0.000059 (1)
   Linear solver                      0.000000 (0)
-Minimizer                            0.000647
+Minimizer                            0.000111
 
-Postprocessor                        0.000121
-Total                                0.003975
+Postprocessor                        0.000005
+Total                                0.000627
 
-Termination:                          FAILURE (Residual and Jacobian evaluation failed.)
+Termination:                      CONVERGENCE (Gradient tolerance reached. Gradient max norm: 0.000000e+00 <= 1.000000e-10)
+
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(Update nodes) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (Update nodes) [0.000004 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (Registration2::Register) [0.003135 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L333:iteration: # 2 / 5
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(Registration2::Register) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(FaceNormals) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (FaceNormals) [0.000004 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(PointCloudSampling::PoissonSphereSampling) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (PointCloudSampling::PoissonSphereSampling) [0.000008 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L414:Absolute threshold: 0.000244
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(SetupRegistrationProblem) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (SetupRegistrationProblem) [0.000007 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(SolveCeresProblem) {
+iter      cost      cost_change  |gradient|   |step|    tr_ratio  tr_radius  ls_iter  iter_time  total_time
+   0  0.000000e+00    0.00e+00    0.00e+00   0.00e+00   0.00e+00  1.00e+04        0    4.60e-05    3.61e-04
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (SolveCeresProblem) [0.000408 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L736:Summary: 
+Solver Summary (v 2.1.0-eigen-(3.3.4)-lapack-suitesparse-(5.1.2)-cxsparse-(3.1.9)-eigensparse-no_openmp-cuda-(11030))
+
+                                     Original                  Reduced
+Parameter blocks                            2                        2
+Parameters                                 12                       12
+Residual blocks                             2                        2
+Residuals                                   6                        6
+
+Minimizer                        TRUST_REGION
+
+Sparse linear algebra library    SUITE_SPARSE
+Trust region strategy     LEVENBERG_MARQUARDT
+
+                                        Given                     Used
+Linear solver          SPARSE_NORMAL_CHOLESKY   SPARSE_NORMAL_CHOLESKY
+Threads                                    16                       16
+Linear solver ordering              AUTOMATIC                        2
+
+Cost:
+Initial                          0.000000e+00
+Final                            0.000000e+00
+Change                           0.000000e+00
+
+Minimizer iterations                        1
+Successful steps                            1
+Unsuccessful steps                          0
+
+Time (in seconds):
+Preprocessor                         0.000311
+
+  Residual only evaluation           0.000000 (0)
+  Jacobian & residual evaluation     0.000029 (1)
+  Linear solver                      0.000000 (0)
+Minimizer                            0.000073
+
+Postprocessor                        0.000005
+Total                                0.000399
+
+Termination:                      CONVERGENCE (Gradient tolerance reached. Gradient max norm: 0.000000e+00 <= 1.000000e-10)
+
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(Update nodes) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (Update nodes) [0.000004 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (Registration2::Register) [0.002922 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L333:iteration: # 3 / 5
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(Registration2::Register) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(FaceNormals) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (FaceNormals) [0.000005 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(PointCloudSampling::PoissonSphereSampling) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (PointCloudSampling::PoissonSphereSampling) [0.000013 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L414:Absolute threshold: 0.000244
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(SetupRegistrationProblem) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (SetupRegistrationProblem) [0.000010 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(SolveCeresProblem) {
+iter      cost      cost_change  |gradient|   |step|    tr_ratio  tr_radius  ls_iter  iter_time  total_time
+   0  0.000000e+00    0.00e+00    0.00e+00   0.00e+00   0.00e+00  1.00e+04        0    4.98e-05    4.03e-04
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (SolveCeresProblem) [0.000458 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L736:Summary: 
+Solver Summary (v 2.1.0-eigen-(3.3.4)-lapack-suitesparse-(5.1.2)-cxsparse-(3.1.9)-eigensparse-no_openmp-cuda-(11030))
+
+                                     Original                  Reduced
+Parameter blocks                            2                        2
+Parameters                                 12                       12
+Residual blocks                             2                        2
+Residuals                                   6                        6
+
+Minimizer                        TRUST_REGION
+
+Sparse linear algebra library    SUITE_SPARSE
+Trust region strategy     LEVENBERG_MARQUARDT
+
+                                        Given                     Used
+Linear solver          SPARSE_NORMAL_CHOLESKY   SPARSE_NORMAL_CHOLESKY
+Threads                                    16                       16
+Linear solver ordering              AUTOMATIC                        2
+
+Cost:
+Initial                          0.000000e+00
+Final                            0.000000e+00
+Change                           0.000000e+00
+
+Minimizer iterations                        1
+Successful steps                            1
+Unsuccessful steps                          0
+
+Time (in seconds):
+Preprocessor                         0.000349
+
+  Residual only evaluation           0.000000 (0)
+  Jacobian & residual evaluation     0.000030 (1)
+  Linear solver                      0.000000 (0)
+Minimizer                            0.000080
+
+Postprocessor                        0.000006
+Total                                0.000447
+
+Termination:                      CONVERGENCE (Gradient tolerance reached. Gradient max norm: 0.000000e+00 <= 1.000000e-10)
 
 INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(Update nodes) {
 INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (Update nodes) [0.000005 s]
-INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (Registration2::Register) [0.036839 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (Registration2::Register) [0.003210 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L333:iteration: # 4 / 5
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(Registration2::Register) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(FaceNormals) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (FaceNormals) [0.000004 s]
 INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(PointCloudSampling::PoissonSphereSampling) {
-INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (PointCloudSampling::PoissonSphereSampling) [0.004761 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (PointCloudSampling::PoissonSphereSampling) [0.000009 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L414:Absolute threshold: 0.000244
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(SetupRegistrationProblem) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (SetupRegistrationProblem) [0.000007 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(SolveCeresProblem) {
+iter      cost      cost_change  |gradient|   |step|    tr_ratio  tr_radius  ls_iter  iter_time  total_time
+   0  0.000000e+00    0.00e+00    0.00e+00   0.00e+00   0.00e+00  1.00e+04        0    4.01e-05    3.38e-04
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (SolveCeresProblem) [0.000384 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L736:Summary: 
+Solver Summary (v 2.1.0-eigen-(3.3.4)-lapack-suitesparse-(5.1.2)-cxsparse-(3.1.9)-eigensparse-no_openmp-cuda-(11030))
+
+                                     Original                  Reduced
+Parameter blocks                            2                        2
+Parameters                                 12                       12
+Residual blocks                             2                        2
+Residuals                                   6                        6
+
+Minimizer                        TRUST_REGION
+
+Sparse linear algebra library    SUITE_SPARSE
+Trust region strategy     LEVENBERG_MARQUARDT
+
+                                        Given                     Used
+Linear solver          SPARSE_NORMAL_CHOLESKY   SPARSE_NORMAL_CHOLESKY
+Threads                                    16                       16
+Linear solver ordering              AUTOMATIC                        2
+
+Cost:
+Initial                          0.000000e+00
+Final                            0.000000e+00
+Change                           0.000000e+00
+
+Minimizer iterations                        1
+Successful steps                            1
+Unsuccessful steps                          0
+
+Time (in seconds):
+Preprocessor                         0.000295
+
+  Residual only evaluation           0.000000 (0)
+  Jacobian & residual evaluation     0.000023 (1)
+  Linear solver                      0.000000 (0)
+Minimizer                            0.000065
+
+Postprocessor                        0.000004
+Total                                0.000374
+
+Termination:                      CONVERGENCE (Gradient tolerance reached. Gradient max norm: 0.000000e+00 <= 1.000000e-10)
+
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(Update nodes) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (Update nodes) [0.000004 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (Registration2::Register) [0.002694 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L333:iteration: # 5 / 5
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(Registration2::Register) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(FaceNormals) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (FaceNormals) [0.000004 s]
 INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(PointCloudSampling::PoissonSphereSampling) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (PointCloudSampling::PoissonSphereSampling) [0.000008 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L414:Absolute threshold: 0.000244
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(SetupRegistrationProblem) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (SetupRegistrationProblem) [0.000006 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(SolveCeresProblem) {
+iter      cost      cost_change  |gradient|   |step|    tr_ratio  tr_radius  ls_iter  iter_time  total_time
+   0  0.000000e+00    0.00e+00    0.00e+00   0.00e+00   0.00e+00  1.00e+04        0    3.98e-05    3.70e-04
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (SolveCeresProblem) [0.000416 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L736:Summary: 
+Solver Summary (v 2.1.0-eigen-(3.3.4)-lapack-suitesparse-(5.1.2)-cxsparse-(3.1.9)-eigensparse-no_openmp-cuda-(11030))
+
+                                     Original                  Reduced
+Parameter blocks                            2                        2
+Parameters                                 12                       12
+Residual blocks                             2                        2
+Residuals                                   6                        6
+
+Minimizer                        TRUST_REGION
+
+Sparse linear algebra library    SUITE_SPARSE
+Trust region strategy     LEVENBERG_MARQUARDT
+
+                                        Given                     Used
+Linear solver          SPARSE_NORMAL_CHOLESKY   SPARSE_NORMAL_CHOLESKY
+Threads                                    16                       16
+Linear solver ordering              AUTOMATIC                        2
+
+Cost:
+Initial                          0.000000e+00
+Final                            0.000000e+00
+Change                           0.000000e+00
+
+Minimizer iterations                        1
+Successful steps                            1
+Unsuccessful steps                          0
+
+Time (in seconds):
+Preprocessor                         0.000326
+
+  Residual only evaluation           0.000000 (0)
+  Jacobian & residual evaluation     0.000024 (1)
+  Linear solver                      0.000000 (0)
+Minimizer                            0.000066
+
+Postprocessor                        0.000004
+Total                                0.000406
+
+Termination:                      CONVERGENCE (Gradient tolerance reached. Gradient max norm: 0.000000e+00 <= 1.000000e-10)
+
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(Update nodes) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (Update nodes) [0.000004 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (Registration2::Register) [0.002733 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (AlignAndNonRigidMerge) [0.612392 s]
+FLAGS.base :  
+FLAGS.file1 :  /home/aiday.kyzy/dataset/Synthetic/PartialDeformedData/TestingData/model207/transformed/020_0.ply
+FLAGS.landmarks1 :  /home/aiday.kyzy/dataset/Synthetic/PartialDeformedData/TestingData/model207/output_geo_td_partial_non_deformed_ivs_0.005_current_deformation/corr_points/src_corr_points.ply
 strict inlier ratio threshold :  0.01
 relaxed inlier ratio threshold :  0.03
-[1;33m[Open3D WARNING] Read PLY failed: unable to open file: /home/aiday.kyzy/dataset/Synthetic/PartialDeformedData/TestingData/model207/output_geo_td_partial_non_deformed_ivs_0.008_current_deformation/current_deformation.ply[0;m
+RMSE :  0.06663697065442994
+Strict IR :  0.0
+Relaxed IR :  0.05691450714458707
