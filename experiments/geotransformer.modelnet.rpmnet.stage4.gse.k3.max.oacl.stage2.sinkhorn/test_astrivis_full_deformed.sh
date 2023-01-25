@@ -7,7 +7,7 @@ training_data='full_non_deformed'
 current_deformation=True
 # current_deformation=False
 
-init_voxel_size=0.008
+init_voxel_size=0.004
 
 # weights="geotransformer-modelnet.pth.tar"
 weights="model_320_full_non_deformed.pth.tar"
