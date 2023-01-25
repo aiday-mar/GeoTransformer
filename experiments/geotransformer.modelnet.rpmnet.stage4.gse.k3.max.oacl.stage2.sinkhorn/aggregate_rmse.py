@@ -15,7 +15,7 @@ current_deformation = True
 # current_deformation = False
 
 if current_deformation is True:
-    init_voxel_size = 0.008
+    init_voxel_size = 0.007
 else:
     init_voxel_size = 0.05
 
