@@ -1,0 +1,24 @@
+model 002 i 0 j 1
+voxel size 0.006
+Inside registration_collate_fn_stack_mode
+points.shape :  torch.Size([18797, 3])
+model 042 i 0 j 1
+voxel size 0.006
+Inside registration_collate_fn_stack_mode
+points.shape :  torch.Size([18222, 3])
+model 085 i 0 j 1
+voxel size 0.006
+Inside registration_collate_fn_stack_mode
+points.shape :  torch.Size([9700, 3])
+model 126 i 0 j 1
+voxel size 0.006
+Inside registration_collate_fn_stack_mode
+points.shape :  torch.Size([17495, 3])
+model 167 i 0 j 1
+voxel size 0.006
+Inside registration_collate_fn_stack_mode
+points.shape :  torch.Size([8014, 3])
+model 207 i 0 j 1
+voxel size 0.006
+Inside registration_collate_fn_stack_mode
+points.shape :  torch.Size([8193, 3])
