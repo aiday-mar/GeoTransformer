@@ -15,7 +15,7 @@ if [ "$training_data" == "full_non_deformed" ]; then
     weights=model_320_full_non_deformed.pth.tar
 fi
 
-initial_voxel_size=0.008
+initial_voxel_size=0.006
 
 current_deformation=True
 # current_deformation=False
