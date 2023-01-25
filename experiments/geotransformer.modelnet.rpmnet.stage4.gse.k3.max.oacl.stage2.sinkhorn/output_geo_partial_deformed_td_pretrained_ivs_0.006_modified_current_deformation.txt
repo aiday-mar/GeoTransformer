@@ -2255,6 +2255,7 @@ relaxed inlier ratio threshold :  0.03
 RMSE :  0.15394807430197865
 Strict IR :  0.0
 Relaxed IR :  0.025
+
 model 042
 Entered into precompute_data_stack_mode
 points.shape :  torch.Size([18222, 3])
@@ -8665,6 +8666,7 @@ INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(PointCl
 strict inlier ratio threshold :  0.01
 relaxed inlier ratio threshold :  0.03
 [1;33m[Open3D WARNING] Read PLY failed: unable to open file: /home/aiday.kyzy/dataset/Synthetic/PartialDeformedData/TestingData//model126/output_geo_partial_deformed_td_pretrained_ivs_0.006_modified_current_deformation/current_deformation.ply[0;m
+
 model 167
 Entered into precompute_data_stack_mode
 points.shape :  torch.Size([8014, 3])
@@ -10849,6 +10851,7 @@ relaxed inlier ratio threshold :  0.03
 RMSE :  0.04120782590019413
 Strict IR :  0.008420515437611636
 Relaxed IR :  0.2230160755294718
+
 model 207
 Entered into precompute_data_stack_mode
 points.shape :  torch.Size([8193, 3])
