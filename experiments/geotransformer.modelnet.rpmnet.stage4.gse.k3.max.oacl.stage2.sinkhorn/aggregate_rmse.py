@@ -2,14 +2,14 @@ import re
 import matplotlib.pyplot as plt
 import numpy as np
 
-data_type = 'full_deformed'
-# data_type = 'partial_deformed'
+# data_type = 'full_deformed'
+data_type = 'partial_deformed'
 # data_type = 'partial_non_deformed'
 # data_type = 'full_non_deformed'
 
 # training_data = 'pretrained'
-training_data = 'full_non_deformed'
-# training_data = 'partial_non_deformed'
+# training_data = 'full_non_deformed'
+training_data = 'partial_non_deformed'
 
 current_deformation = True
 # current_deformation = False
