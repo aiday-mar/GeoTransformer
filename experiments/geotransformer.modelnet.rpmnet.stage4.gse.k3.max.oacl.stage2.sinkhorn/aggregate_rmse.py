@@ -2,8 +2,8 @@ import re
 import matplotlib.pyplot as plt
 import numpy as np
 
-# data_type = 'full_deformed'
-data_type = 'partial_deformed'
+data_type = 'full_deformed'
+# data_type = 'partial_deformed'
 # data_type = 'partial_non_deformed'
 # data_type = 'full_non_deformed'
 
@@ -15,7 +15,7 @@ current_deformation = True
 # current_deformation = False
 
 if current_deformation is True:
-    init_voxel_size = 0.009
+    init_voxel_size = 0.01
 else:
     init_voxel_size = 0.05
 
