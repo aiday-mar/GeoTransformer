@@ -9,7 +9,7 @@ training_data = 'pretrained'
 # training_data = 'partial_non_deformed'
 # training_data = 'full_non_deformed'
 
-initial_voxel_size = '0.01'
+initial_voxel_size = '0.008'
 
 current_deformation = True
 # current_deformation = False
