@@ -5219,6 +5219,7 @@ relaxed inlier ratio threshold :  0.03
 RMSE :  0.15467920591163462
 Strict IR :  0.0010177541558294696
 Relaxed IR :  0.025556937690828903
+
 model 085
 Entered into precompute_data_stack_mode
 points.shape :  torch.Size([9700, 3])
@@ -7507,6 +7508,7 @@ relaxed inlier ratio threshold :  0.03
 RMSE :  0.11388218587739185
 Strict IR :  0.00019234468166955183
 Relaxed IR :  0.058280438545874204
+
 model 126
 Entered into precompute_data_stack_mode
 points.shape :  torch.Size([17495, 3])
