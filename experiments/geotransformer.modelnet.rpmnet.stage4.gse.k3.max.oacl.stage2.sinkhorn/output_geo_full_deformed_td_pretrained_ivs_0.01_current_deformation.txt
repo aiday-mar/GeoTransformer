@@ -5684,14 +5684,14 @@ Strict IR :  0.001226993865030675
 Relaxed IR :  0.015337423312883436
 
 model 042 i 0 j 1
-voxel size 0.01
+voxel size 0.006
 Inside registration_collate_fn_stack_mode
 points.shape :  torch.Size([16247, 3])
-points_c.shape :  torch.Size([236, 3])
-ref_points_c.shape :  torch.Size([112, 3])
-src_points_c.shape :  torch.Size([124, 3])
-ref_node_masks.shape :  torch.Size([112])
-src_node_masks.shape :  torch.Size([124])
+points_c.shape :  torch.Size([685, 3])
+ref_points_c.shape :  torch.Size([342, 3])
+src_points_c.shape :  torch.Size([343, 3])
+ref_node_masks.shape :  torch.Size([342])
+src_node_masks.shape :  torch.Size([343])
 ref_corr_indices.shape :  torch.Size([2000])
 src_corr_indices.shape :  torch.Size([2000])
 Inside forward of global to local registration
@@ -5699,2534 +5699,1957 @@ ref_knn_points.shape :  torch.Size([2000, 5, 3])
 src_knn_points.shape :  torch.Size([2000, 5, 3])
 score_mat.shape :  torch.Size([2000, 5, 5])
 corr_mat.shape :  torch.Size([2000, 5, 5])
-intermediate_output_folder :  FullDeformedData/TestingData/model042/output_geo_td_pretrained_ivs_0.01_current_deformation/corr_points/
+intermediate_output_folder :  FullDeformedData/TestingData/model042/output_geo_td_pretrained_ivs_0.006_current_deformation/corr_points/
 save_key_points :  True
-shape of src_corr_points :  torch.Size([22010, 3])
-estimated_transform :  [[-0.10504355 -0.9819106   0.15753517  0.9498963 ]
- [ 0.09174278 -0.1673043  -0.9816276   1.0653627 ]
- [ 0.99022675 -0.0886611   0.10765752 -0.07936376]
+shape of src_corr_points :  torch.Size([22880, 3])
+estimated_transform :  [[ 0.8702251   0.22711754  0.43717983 -0.3463242 ]
+ [-0.29669043  0.95003194  0.09702756  0.7438847 ]
+ [-0.39329806 -0.21414296  0.8941251   0.8685263 ]
  [ 0.          0.          0.          1.        ]]
 INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(AlignAndNonRigidMerge) {
-VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L167:#points1: 22010
-VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L168:#points2: 22010
-VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L169:#matches: 22010
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L167:#points1: 22880
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L168:#points2: 22880
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L169:#matches: 22880
 Before Run of ransac
 INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(SquentialRANSAC) {
-num_inliers : 174
-num_inliers : 1355
-num_inliers : 2018
-num_inliers : 1156
-num_inliers : 395
-num_inliers : 480
-num_inliers : 1561
-num_inliers : 836
-num_inliers : 577
-num_inliers : 1354
-num_inliers : 2084
-num_inliers : 3687
-num_inliers : 1345
-num_inliers : 290
-num_inliers : 440
-num_inliers : 85
-num_inliers : 225
-num_inliers : 248
-num_inliers : 923
-num_inliers : 851
-num_inliers : 1377
-num_inliers : 466
-num_inliers : 654
-num_inliers : 669
-num_inliers : 739
-num_inliers : 87
-num_inliers : 1117
-num_inliers : 132
-num_inliers : 559
-num_inliers : 3693
-num_inliers : 525
-num_inliers : 272
-num_inliers : 587
-num_inliers : 270
-num_inliers : 426
-num_inliers : 336
-num_inliers : 368
-num_inliers : 481
-num_inliers : 304
-num_inliers : 1098
-num_inliers : 1131
-num_inliers : 239
-num_inliers : 1137
-num_inliers : 826
-num_inliers : 522
-num_inliers : 1006
-num_inliers : 1253
-num_inliers : 248
-num_inliers : 699
-num_inliers : 1376
-num_inliers : 580
-num_inliers : 1802
-num_inliers : 255
-num_inliers : 1526
-num_inliers : 729
-num_inliers : 40
-num_inliers : 1398
-num_inliers : 1025
-num_inliers : 155
-num_inliers : 665
-num_inliers : 637
-num_inliers : 129
-num_inliers : 362
-num_inliers : 350
-num_inliers : 670
-num_inliers : 1000
-num_inliers : 1080
-num_inliers : 3099
-num_inliers : 1239
-num_inliers : 628
-num_inliers : 1187
-num_inliers : 1295
-num_inliers : 1506
-num_inliers : 268
-num_inliers : 638
-num_inliers : 539
-num_inliers : 621
-num_inliers : 121
-num_inliers : 0
-num_inliers : 2331
-num_inliers : 510
-num_inliers : 1275
-num_inliers : 1335
-num_inliers : 504
-num_inliers : 132
-num_inliers : 605
-num_inliers : 1248
-num_inliers : 1873
-num_inliers : 395
-num_inliers : 269
-num_inliers : 267
-num_inliers : 566
-num_inliers : 260
-num_inliers : 698
-num_inliers : 373
-num_inliers : 523
-num_inliers : 77
-num_inliers : 216
-num_inliers : 1560
-num_inliers : 1188
-num_inliers : 1180
-num_inliers : 397
-num_inliers : 742
-num_inliers : 724
-num_inliers : 649
-num_inliers : 123
-num_inliers : 450
-num_inliers : 3198
-num_inliers : 1578
-num_inliers : 1014
-num_inliers : 877
-num_inliers : 1124
-num_inliers : 155
-num_inliers : 2863
-num_inliers : 694
-num_inliers : 425
-num_inliers : 290
-num_inliers : 728
-num_inliers : 1184
-num_inliers : 212
-num_inliers : 242
-num_inliers : 949
-num_inliers : 625
-num_inliers : 441
-num_inliers : 490
-num_inliers : 550
-num_inliers : 1082
-num_inliers : 508
-num_inliers : 1058
-num_inliers : 397
-num_inliers : 766
-num_inliers : 3956
-num_inliers : 467
-num_inliers : 1137
-num_inliers : 780
-num_inliers : 869
-num_inliers : 936
-num_inliers : 529
-num_inliers : 680
-num_inliers : 563
-num_inliers : 378
-num_inliers : 419
-num_inliers : 1893
-num_inliers : 814
-num_inliers : 636
-num_inliers : 778
-num_inliers : 627
-num_inliers : 518
-num_inliers : 2533
-num_inliers : 761
-num_inliers : 1195
-num_inliers : 958
-num_inliers : 3118
-num_inliers : 454
-num_inliers : 867
-num_inliers : 520
-num_inliers : 1563
-num_inliers : 563
-num_inliers : 743
-num_inliers : 663
-num_inliers : 559
-num_inliers : 586
-num_inliers : 1039
-num_inliers : 416
-num_inliers : 1348
-num_inliers : 1681
-num_inliers : 740
-num_inliers : 727
-num_inliers : 924
-num_inliers : 884
-num_inliers : 2020
-num_inliers : 266
-num_inliers : 2161
-num_inliers : 2114
-num_inliers : 782
-num_inliers : 1073
-num_inliers : 487
-num_inliers : 834
-num_inliers : 251
-num_inliers : 1450
-num_inliers : 916
-num_inliers : 1138
-num_inliers : 636
-num_inliers : 2689
-num_inliers : 366
-num_inliers : 457
-num_inliers : 1234
-num_inliers : 1119
-num_inliers : 155
-num_inliers : 805
-num_inliers : 295
-num_inliers : 335
-num_inliers : 1190
-num_inliers : 837
-num_inliers : 2830
-num_inliers : 491
-num_inliers : 430
-num_inliers : 2567
-num_inliers : 668
-num_inliers : 2431
-num_inliers : 803
-num_inliers : 1252
-num_inliers : 271
-num_inliers : 143
-num_inliers : 640
-num_inliers : 534
-num_inliers : 274
-num_inliers : 322
-num_inliers : 172
-num_inliers : 1043
-num_inliers : 780
-num_inliers : 594
-num_inliers : 670
-num_inliers : 788
-num_inliers : 1548
-num_inliers : 973
-num_inliers : 617
-num_inliers : 693
-num_inliers : 384
-num_inliers : 1316
-num_inliers : 245
-num_inliers : 240
-num_inliers : 1044
-num_inliers : 110
-num_inliers : 442
-num_inliers : 918
-num_inliers : 520
-num_inliers : 1630
-num_inliers : 1246
-num_inliers : 691
-num_inliers : 2045
-num_inliers : 250
-num_inliers : 926
-num_inliers : 107
-num_inliers : 569
-num_inliers : 500
-num_inliers : 255
-num_inliers : 244
-num_inliers : 334
-num_inliers : 526
-num_inliers : 188
-num_inliers : 186
-num_inliers : 1678
-num_inliers : 951
-num_inliers : 888
-num_inliers : 52
-num_inliers : 2099
-num_inliers : 1252
-num_inliers : 247
-num_inliers : 791
-num_inliers : 323
-num_inliers : 1314
-num_inliers : 1382
-num_inliers : 885
-num_inliers : 2243
-num_inliers : 341
-num_inliers : 563
-num_inliers : 1908
-num_inliers : 308
-num_inliers : 272
-num_inliers : 1636
-num_inliers : 4819
-num_inliers : 1002
-num_inliers : 1071
-num_inliers : 436
-num_inliers : 569
-num_inliers : 1810
-num_inliers : 602
-num_inliers : 648
-num_inliers : 605
-num_inliers : 434
-num_inliers : 1623
-num_inliers : 1381
-num_inliers : 573
-num_inliers : 601
-num_inliers : 873
-num_inliers : 871
-num_inliers : 865
-num_inliers : 324
-num_inliers : 106
-num_inliers : 330
-num_inliers : 722
-num_inliers : 1680
-num_inliers : 1691
-num_inliers : 641
-num_inliers : 2202
-num_inliers : 1095
-num_inliers : 1130
-num_inliers : 506
-num_inliers : 334
-num_inliers : 581
-num_inliers : 171
-num_inliers : 1066
-num_inliers : 761
-num_inliers : 671
-num_inliers : 1248
-num_inliers : 783
-num_inliers : 1628
-num_inliers : 2207
-num_inliers : 1277
-num_inliers : 453
-num_inliers : 809
-num_inliers : 1096
-num_inliers : 1532
-num_inliers : 379
-num_inliers : 2081
-num_inliers : 391
-num_inliers : 1537
-num_inliers : 1305
-num_inliers : 662
-num_inliers : 2871
-num_inliers : 1806
-num_inliers : 126
-num_inliers : 1083
-num_inliers : 2661
-num_inliers : 800
-num_inliers : 407
-num_inliers : 390
-num_inliers : 111
-num_inliers : 604
-num_inliers : 568
-num_inliers : 1337
-num_inliers : 894
-num_inliers : 710
-num_inliers : 1573
-num_inliers : 510
-num_inliers : 246
-num_inliers : 797
-num_inliers : 468
-num_inliers : 456
-num_inliers : 1512
-num_inliers : 467
-num_inliers : 2016
-num_inliers : 1323
-num_inliers : 1570
-num_inliers : 630
-num_inliers : 1015
-num_inliers : 939
-num_inliers : 672
-num_inliers : 399
-num_inliers : 1965
-num_inliers : 371
-num_inliers : 2280
-num_inliers : 299
-num_inliers : 185
-num_inliers : 471
-num_inliers : 381
-num_inliers : 465
-num_inliers : 2044
-num_inliers : 179
-num_inliers : 544
-num_inliers : 78
-num_inliers : 822
-num_inliers : 2348
-num_inliers : 510
-num_inliers : 4720
-num_inliers : 430
-num_inliers : 1838
-num_inliers : 463
-num_inliers : 369
-num_inliers : 167
-num_inliers : 258
-num_inliers : 1640
-num_inliers : 1036
-num_inliers : 1144
-num_inliers : 697
-num_inliers : 345
-num_inliers : 536
-num_inliers : 475
-num_inliers : 661
-num_inliers : 1198
-num_inliers : 1127
-num_inliers : 674
-num_inliers : 595
-num_inliers : 369
-num_inliers : 2604
-num_inliers : 1135
-num_inliers : 841
-num_inliers : 104
-num_inliers : 430
-num_inliers : 1356
-num_inliers : 550
-num_inliers : 528
-num_inliers : 997
-num_inliers : 1013
-num_inliers : 93
-num_inliers : 889
-num_inliers : 704
-num_inliers : 337
-num_inliers : 124
-num_inliers : 750
-num_inliers : 838
-num_inliers : 670
-num_inliers : 290
-num_inliers : 1155
-num_inliers : 2546
-num_inliers : 1070
-num_inliers : 396
-num_inliers : 337
-num_inliers : 576
-num_inliers : 1886
-num_inliers : 518
-num_inliers : 557
-num_inliers : 701
-num_inliers : 301
-num_inliers : 875
-num_inliers : 445
-num_inliers : 265
-num_inliers : 1028
-num_inliers : 166
-num_inliers : 1097
-num_inliers : 841
-num_inliers : 123
-num_inliers : 1501
-num_inliers : 624
-num_inliers : 119
-num_inliers : 801
-num_inliers : 2873
-num_inliers : 400
-num_inliers : 530
-num_inliers : 857
-num_inliers : 710
-num_inliers : 328
-num_inliers : 157
-num_inliers : 2643
-num_inliers : 793
-num_inliers : 1007
-num_inliers : 544
-num_inliers : 435
-num_inliers : 835
-num_inliers : 696
-num_inliers : 1318
-num_inliers : 560
-num_inliers : 1549
-num_inliers : 1608
-num_inliers : 308
-num_inliers : 650
-num_inliers : 911
-num_inliers inside of Run : 4819
-num_inliers : 548
-num_inliers : 616
-num_inliers : 113
-num_inliers : 1262
-num_inliers : 2956
-num_inliers : 581
-num_inliers : 456
-num_inliers : 660
-num_inliers : 820
-num_inliers : 1366
-num_inliers : 1102
-num_inliers : 465
-num_inliers : 276
-num_inliers : 1331
-num_inliers : 795
-num_inliers : 353
-num_inliers : 3261
-num_inliers : 1002
-num_inliers : 681
-num_inliers : 135
-num_inliers : 1462
-num_inliers : 778
-num_inliers : 265
-num_inliers : 614
-num_inliers : 565
-num_inliers : 511
-num_inliers : 563
-num_inliers : 350
-num_inliers : 683
-num_inliers : 510
-num_inliers : 386
-num_inliers : 459
-num_inliers : 727
-num_inliers : 812
-num_inliers : 195
-num_inliers : 361
-num_inliers : 536
-num_inliers : 1083
-num_inliers : 344
-num_inliers : 1577
-num_inliers : 3836
-num_inliers : 3542
-num_inliers : 471
-num_inliers : 641
-num_inliers : 102
-num_inliers : 278
-num_inliers : 650
-num_inliers : 242
-num_inliers : 346
-num_inliers : 385
-num_inliers : 30
-num_inliers : 3032
-num_inliers : 539
-num_inliers : 261
-num_inliers : 212
-num_inliers : 2873
-num_inliers : 771
-num_inliers : 342
-num_inliers : 739
-num_inliers : 191
-num_inliers : 1752
-num_inliers : 479
-num_inliers : 1125
-num_inliers : 2048
-num_inliers : 3692
-num_inliers : 1624
-num_inliers : 1181
-num_inliers : 1615
-num_inliers : 1310
-num_inliers : 1847
-num_inliers : 480
-num_inliers : 92
-num_inliers : 519
-num_inliers : 520
-num_inliers : 680
-num_inliers : 450
-num_inliers : 950
-num_inliers : 415
-num_inliers : 490
-num_inliers : 106
-num_inliers : 168
-num_inliers : 592
-num_inliers : 265
-num_inliers : 348
-num_inliers : 791
-num_inliers : 333
-num_inliers : 216
-num_inliers : 249
-num_inliers : 915
-num_inliers : 829
-num_inliers : 597
-num_inliers : 535
-num_inliers : 213
-num_inliers : 388
-num_inliers : 1105
-num_inliers : 380
-num_inliers : 149
-num_inliers : 511
-num_inliers : 104
-num_inliers : 303
-num_inliers : 809
-num_inliers : 1103
-num_inliers : 293
-num_inliers : 436
-num_inliers : 554
-num_inliers : 560
-num_inliers : 128
-num_inliers : 447
-num_inliers : 165
-num_inliers : 2133
-num_inliers : 3761
-num_inliers : 86
-num_inliers : 1065
-num_inliers : 240
-num_inliers : 534
-num_inliers : 789
-num_inliers : 935
-num_inliers : 298
-num_inliers : 2079
-num_inliers : 3905
-num_inliers : 1711
-num_inliers : 560
-num_inliers : 666
-num_inliers : 862
-num_inliers : 962
-num_inliers : 349
-num_inliers : 1623
-num_inliers : 1596
-num_inliers : 754
-num_inliers : 346
-num_inliers : 1269
-num_inliers : 720
-num_inliers : 208
-num_inliers : 500
-num_inliers : 324
-num_inliers : 1443
-num_inliers : 358
-num_inliers : 2276
-num_inliers : 515
-num_inliers : 507
-num_inliers : 496
-num_inliers : 722
-num_inliers : 849
-num_inliers : 893
-num_inliers : 1487
-num_inliers : 362
-num_inliers : 348
-num_inliers : 864
-num_inliers : 1139
-num_inliers : 716
-num_inliers : 303
-num_inliers : 229
-num_inliers : 872
-num_inliers : 2000
-num_inliers : 262
-num_inliers : 795
-num_inliers : 52
-num_inliers : 2275
-num_inliers : 135
-num_inliers : 211
-num_inliers : 398
-num_inliers : 126
-num_inliers : 1038
-num_inliers : 1261
-num_inliers : 555
-num_inliers : 242
-num_inliers : 405
-num_inliers : 341
-num_inliers : 523
-num_inliers : 1479
-num_inliers : 833
-num_inliers : 215
-num_inliers : 948
-num_inliers : 351
-num_inliers : 1575
-num_inliers : 404
-num_inliers : 311
-num_inliers : 562
-num_inliers : 491
-num_inliers : 479
-num_inliers : 276
-num_inliers : 132
-num_inliers : 937
-num_inliers : 278
-num_inliers : 385
-num_inliers : 359
-num_inliers : 442
-num_inliers : 867
-num_inliers : 221
-num_inliers : 294
-num_inliers : 1822
-num_inliers : 719
-num_inliers : 805
-num_inliers : 706
-num_inliers : 931
-num_inliers : 38
-num_inliers : 317
-num_inliers : 496
-num_inliers : 273
-num_inliers : 1024
-num_inliers : 572
-num_inliers : 1181
-num_inliers : 1423
-num_inliers : 1147
-num_inliers : 2352
-num_inliers : 444
-num_inliers : 595
-num_inliers : 461
-num_inliers : 460
-num_inliers : 31
-num_inliers : 3721
-num_inliers : 538
-num_inliers : 1257
-num_inliers : 461
-num_inliers : 3334
-num_inliers : 180
-num_inliers : 1590
-num_inliers : 688
-num_inliers : 888
-num_inliers : 740
-num_inliers : 331
-num_inliers : 950
-num_inliers : 2978
-num_inliers : 262
-num_inliers : 503
-num_inliers : 3190
-num_inliers : 1231
-num_inliers : 1306
-num_inliers : 243
-num_inliers : 304
-num_inliers : 358
-num_inliers : 79
-num_inliers : 1306
-num_inliers : 520
-num_inliers : 1044
-num_inliers : 3626
-num_inliers : 588
-num_inliers : 701
-num_inliers : 282
-num_inliers : 3735
-num_inliers : 236
-num_inliers : 1492
-num_inliers : 1188
-num_inliers : 433
-num_inliers : 137
-num_inliers : 188
-num_inliers : 3314
-num_inliers : 447
-num_inliers : 862
-num_inliers : 819
-num_inliers : 527
-num_inliers : 1350
-num_inliers : 2120
-num_inliers : 89
-num_inliers : 296
-num_inliers : 2290
-num_inliers : 1414
-num_inliers : 1779
-num_inliers : 133
-num_inliers : 93
-num_inliers : 554
-num_inliers : 309
-num_inliers : 630
-num_inliers : 790
-num_inliers : 52
-num_inliers : 286
-num_inliers : 303
-num_inliers : 995
-num_inliers : 1654
-num_inliers : 667
-num_inliers : 915
-num_inliers : 529
-num_inliers : 648
-num_inliers : 3293
-num_inliers : 903
-num_inliers : 485
-num_inliers : 385
-num_inliers : 708
-num_inliers : 539
-num_inliers : 731
-num_inliers : 709
-num_inliers : 173
-num_inliers : 166
-num_inliers : 227
-num_inliers : 208
-num_inliers : 437
-num_inliers : 693
-num_inliers : 286
-num_inliers : 322
-num_inliers : 3074
-num_inliers : 409
-num_inliers : 785
-num_inliers : 461
-num_inliers : 512
-num_inliers : 977
-num_inliers : 1764
-num_inliers : 999
-num_inliers : 3292
-num_inliers : 1231
-num_inliers : 385
-num_inliers : 957
-num_inliers : 313
-num_inliers : 720
-num_inliers : 414
-num_inliers : 2979
-num_inliers : 188
-num_inliers : 356
-num_inliers : 1502
-num_inliers : 189
-num_inliers : 379
-num_inliers : 120
-num_inliers : 389
-num_inliers : 54
-num_inliers : 890
-num_inliers : 784
-num_inliers : 830
-num_inliers : 83
-num_inliers : 1101
-num_inliers : 2311
-num_inliers : 2373
-num_inliers : 254
-num_inliers : 436
-num_inliers : 330
-num_inliers : 361
-num_inliers : 2055
-num_inliers : 3843
-num_inliers : 228
-num_inliers : 1229
-num_inliers : 36
-num_inliers : 581
-num_inliers : 648
-num_inliers : 425
-num_inliers : 400
-num_inliers : 3444
-num_inliers : 309
-num_inliers : 922
-num_inliers : 41
-num_inliers : 128
-num_inliers : 839
-num_inliers : 244
-num_inliers : 534
-num_inliers : 236
-num_inliers : 385
-num_inliers : 314
-num_inliers : 640
-num_inliers : 436
-num_inliers : 1130
-num_inliers : 342
-num_inliers : 407
-num_inliers : 706
-num_inliers : 1088
-num_inliers : 349
-num_inliers : 238
-num_inliers : 724
-num_inliers : 532
-num_inliers : 37
-num_inliers : 864
-num_inliers : 497
-num_inliers : 305
-num_inliers : 874
-num_inliers : 626
-num_inliers : 12
-num_inliers : 347
-num_inliers : 888
-num_inliers : 113
-num_inliers : 171
-num_inliers : 2443
-num_inliers : 621
-num_inliers : 420
-num_inliers : 723
-num_inliers : 777
-num_inliers : 957
-num_inliers : 115
-num_inliers : 233
-num_inliers : 1133
-num_inliers : 77
-num_inliers : 182
-num_inliers : 846
-num_inliers : 963
-num_inliers : 353
-num_inliers : 904
-num_inliers : 495
-num_inliers : 2557
-num_inliers : 485
-num_inliers : 261
-num_inliers : 865
-num_inliers : 2750
-num_inliers : 590
-num_inliers : 377
-num_inliers : 1643
-num_inliers : 1390
-num_inliers : 98
-num_inliers inside of Run : 3905
-num_inliers : 525
-num_inliers : 498
-num_inliers : 774
-num_inliers : 173
-num_inliers : 552
-num_inliers : 158
-num_inliers : 1010
-num_inliers : 128
-num_inliers : 710
-num_inliers : 738
-num_inliers : 269
-num_inliers : 351
-num_inliers : 276
-num_inliers : 370
-num_inliers : 205
-num_inliers : 407
-num_inliers : 450
-num_inliers : 470
-num_inliers : 34
-num_inliers : 101
-num_inliers : 221
-num_inliers : 1913
-num_inliers : 228
-num_inliers : 390
-num_inliers : 169
-num_inliers : 331
-num_inliers : 884
-num_inliers : 46
-num_inliers : 562
-num_inliers : 939
-num_inliers : 1105
-num_inliers : 733
-num_inliers : 756
-num_inliers : 244
-num_inliers : 486
-num_inliers : 662
-num_inliers : 103
-num_inliers : 507
-num_inliers : 1100
-num_inliers : 119
-num_inliers : 447
-num_inliers : 229
-num_inliers : 226
-num_inliers : 10
-num_inliers : 306
-num_inliers : 291
-num_inliers : 598
-num_inliers : 390
-num_inliers : 448
-num_inliers : 569
-num_inliers : 455
-num_inliers : 686
-num_inliers : 74
-num_inliers : 1167
-num_inliers : 363
-num_inliers : 642
-num_inliers : 542
-num_inliers : 1331
-num_inliers : 435
-num_inliers : 364
-num_inliers : 49
-num_inliers : 691
-num_inliers : 649
-num_inliers : 535
-num_inliers : 217
-num_inliers : 136
-num_inliers : 67
-num_inliers : 454
-num_inliers : 48
-num_inliers : 455
-num_inliers : 184
-num_inliers : 1632
-num_inliers : 161
-num_inliers : 668
-num_inliers : 468
-num_inliers : 2009
-num_inliers : 1479
-num_inliers : 171
-num_inliers : 775
-num_inliers : 139
-num_inliers : 425
-num_inliers : 775
-num_inliers : 1084
-num_inliers : 96
-num_inliers : 506
-num_inliers : 677
-num_inliers : 614
-num_inliers : 1198
-num_inliers : 1160
-num_inliers : 897
-num_inliers : 928
-num_inliers : 678
-num_inliers : 321
-num_inliers : 544
-num_inliers : 495
-num_inliers : 348
-num_inliers : 176
-num_inliers : 209
-num_inliers : 1066
-num_inliers : 375
-num_inliers : 587
-num_inliers : 93
-num_inliers : 704
-num_inliers : 382
-num_inliers : 220
-num_inliers : 678
-num_inliers : 281
-num_inliers : 341
-num_inliers : 481
-num_inliers : 1435
-num_inliers : 368
-num_inliers : 760
-num_inliers : 150
-num_inliers : 138
-num_inliers : 340
-num_inliers : 419
-num_inliers : 1469
-num_inliers : 2391
-num_inliers : 1733
-num_inliers : 572
-num_inliers : 418
-num_inliers : 1219
-num_inliers : 285
-num_inliers : 830
-num_inliers : 281
-num_inliers : 472
-num_inliers : 1942
-num_inliers : 536
-num_inliers : 609
-num_inliers : 529
-num_inliers : 289
-num_inliers : 1527
-num_inliers : 230
-num_inliers : 598
-num_inliers : 273
-num_inliers : 700
-num_inliers : 309
-num_inliers : 2740
-num_inliers : 884
-num_inliers : 595
-num_inliers : 1478
-num_inliers : 404
-num_inliers : 421
-num_inliers : 356
-num_inliers : 268
-num_inliers : 337
-num_inliers : 340
-num_inliers : 641
-num_inliers : 437
-num_inliers : 930
-num_inliers : 213
-num_inliers : 343
-num_inliers : 2938
-num_inliers : 318
-num_inliers : 98
-num_inliers : 702
-num_inliers : 517
-num_inliers : 715
-num_inliers : 590
-num_inliers : 630
-num_inliers : 501
-num_inliers : 373
-num_inliers : 259
-num_inliers : 255
-num_inliers : 253
-num_inliers : 1935
-num_inliers : 1104
-num_inliers : 335
-num_inliers : 387
-num_inliers : 581
-num_inliers : 306
-num_inliers : 390
-num_inliers : 60
-num_inliers : 717
-num_inliers : 409
-num_inliers : 1362
-num_inliers : 464
-num_inliers : 337
-num_inliers : 237
-num_inliers : 363
-num_inliers : 555
-num_inliers : 1545
-num_inliers : 189
-num_inliers : 217
-num_inliers : 351
-num_inliers : 346
-num_inliers : 331
-num_inliers : 355
-num_inliers : 552
-num_inliers : 811
-num_inliers : 154
-num_inliers : 444
-num_inliers : 275
-num_inliers : 594
-num_inliers : 796
-num_inliers : 523
-num_inliers : 628
-num_inliers : 1725
-num_inliers : 431
-num_inliers : 50
-num_inliers : 298
-num_inliers : 661
-num_inliers : 427
-num_inliers : 132
-num_inliers : 333
-num_inliers : 92
-num_inliers : 211
-num_inliers : 477
-num_inliers : 235
-num_inliers : 559
-num_inliers : 57
-num_inliers : 601
-num_inliers : 314
-num_inliers : 1325
-num_inliers : 114
-num_inliers : 1481
-num_inliers : 482
-num_inliers : 423
-num_inliers : 572
-num_inliers : 501
-num_inliers : 419
-num_inliers : 161
-num_inliers : 1827
-num_inliers : 264
-num_inliers : 338
-num_inliers : 937
-num_inliers : 140
-num_inliers : 1440
-num_inliers : 235
-num_inliers : 251
-num_inliers : 160
-num_inliers : 469
-num_inliers : 3014
-num_inliers : 566
-num_inliers : 364
-num_inliers : 1145
-num_inliers : 534
-num_inliers : 557
-num_inliers : 608
-num_inliers : 707
-num_inliers : 72
-num_inliers : 959
-num_inliers : 96
-num_inliers : 879
-num_inliers : 1009
-num_inliers : 719
-num_inliers : 385
-num_inliers : 420
-num_inliers : 954
-num_inliers : 1945
-num_inliers : 1259
-num_inliers : 909
-num_inliers : 48
-num_inliers : 241
-num_inliers : 587
-num_inliers : 556
-num_inliers : 762
-num_inliers : 52
-num_inliers : 354
-num_inliers : 377
-num_inliers : 241
-num_inliers : 338
-num_inliers : 250
-num_inliers : 161
-num_inliers : 138
-num_inliers : 694
-num_inliers : 385
-num_inliers : 1247
-num_inliers : 2518
-num_inliers : 334
-num_inliers : 57
-num_inliers : 17
-num_inliers : 379
-num_inliers : 936
-num_inliers : 418
-num_inliers : 711
-num_inliers : 238
-num_inliers : 671
-num_inliers : 682
-num_inliers : 683
-num_inliers : 724
-num_inliers : 457
-num_inliers : 449
-num_inliers : 549
-num_inliers : 110
-num_inliers : 505
-num_inliers : 744
-num_inliers : 438
-num_inliers : 1585
-num_inliers : 279
-num_inliers : 45
-num_inliers : 309
-num_inliers : 1567
-num_inliers : 407
-num_inliers : 218
-num_inliers : 691
-num_inliers : 177
-num_inliers : 908
-num_inliers : 2414
-num_inliers : 297
-num_inliers : 386
-num_inliers : 263
-num_inliers : 177
-num_inliers : 1048
-num_inliers : 2161
-num_inliers : 1103
-num_inliers : 308
-num_inliers : 989
-num_inliers : 387
-num_inliers : 904
-num_inliers : 815
-num_inliers : 474
-num_inliers : 2058
-num_inliers : 896
-num_inliers : 857
-num_inliers : 114
-num_inliers : 679
-num_inliers : 694
-num_inliers : 1214
-num_inliers : 273
-num_inliers : 293
-num_inliers : 400
-num_inliers : 681
-num_inliers : 497
-num_inliers : 618
-num_inliers : 895
-num_inliers : 170
-num_inliers : 480
-num_inliers : 493
-num_inliers : 322
-num_inliers : 362
-num_inliers : 323
-num_inliers : 379
-num_inliers : 36
-num_inliers : 936
-num_inliers : 122
-num_inliers : 1384
-num_inliers : 535
-num_inliers : 313
-num_inliers : 977
-num_inliers : 1364
-num_inliers : 397
-num_inliers : 225
-num_inliers : 2030
-num_inliers : 317
-num_inliers : 649
-num_inliers : 851
-num_inliers : 427
-num_inliers : 152
-num_inliers : 81
-num_inliers : 97
-num_inliers : 1178
-num_inliers : 508
-num_inliers : 302
-num_inliers : 2974
-num_inliers : 1165
-num_inliers : 64
-num_inliers : 558
-num_inliers : 463
-num_inliers : 787
-num_inliers : 994
-num_inliers : 90
-num_inliers : 153
-num_inliers : 508
-num_inliers : 593
-num_inliers : 602
-num_inliers : 243
-num_inliers : 824
-num_inliers : 399
-num_inliers : 1442
-num_inliers : 405
-num_inliers : 553
-num_inliers : 647
-num_inliers : 509
-num_inliers : 853
-num_inliers : 1150
-num_inliers : 1612
-num_inliers : 274
-num_inliers : 423
-num_inliers : 335
-num_inliers : 368
-num_inliers : 937
-num_inliers : 253
-num_inliers : 391
-num_inliers : 1057
-num_inliers : 93
-num_inliers : 694
-num_inliers : 628
-num_inliers : 1413
-num_inliers : 568
-num_inliers : 1830
-num_inliers : 113
-num_inliers : 134
-num_inliers : 724
-num_inliers inside of Run : 3014
-num_inliers : 654
-num_inliers : 972
-num_inliers : 400
-num_inliers : 382
-num_inliers : 667
-num_inliers : 210
-num_inliers : 223
-num_inliers : 875
-num_inliers : 266
-num_inliers : 197
-num_inliers : 549
-num_inliers : 207
-num_inliers : 308
-num_inliers : 810
-num_inliers : 351
-num_inliers : 211
-num_inliers : 332
-num_inliers : 1271
-num_inliers : 77
-num_inliers : 17
-num_inliers : 116
-num_inliers : 821
-num_inliers : 90
-num_inliers : 268
-num_inliers : 331
-num_inliers : 236
-num_inliers : 416
-num_inliers : 271
-num_inliers : 815
-num_inliers : 208
-num_inliers : 397
-num_inliers : 890
-num_inliers : 182
-num_inliers : 470
-num_inliers : 122
-num_inliers : 457
-num_inliers : 593
-num_inliers : 810
-num_inliers : 240
-num_inliers : 652
-num_inliers : 789
-num_inliers : 231
-num_inliers : 474
-num_inliers : 668
-num_inliers : 535
-num_inliers : 420
-num_inliers : 225
-num_inliers : 354
-num_inliers : 529
-num_inliers : 497
-num_inliers : 1063
-num_inliers : 715
-num_inliers : 333
-num_inliers : 444
-num_inliers : 59
-num_inliers : 313
-num_inliers : 322
-num_inliers : 430
-num_inliers : 201
-num_inliers : 453
-num_inliers : 234
-num_inliers : 655
-num_inliers : 349
-num_inliers : 357
-num_inliers : 573
-num_inliers : 246
-num_inliers : 128
-num_inliers : 687
-num_inliers : 132
-num_inliers : 172
-num_inliers : 938
-num_inliers : 186
-num_inliers : 471
-num_inliers : 239
-num_inliers : 1048
-num_inliers : 244
-num_inliers : 593
-num_inliers : 190
-num_inliers : 255
-num_inliers : 157
-num_inliers : 391
-num_inliers : 216
-num_inliers : 774
-num_inliers : 139
-num_inliers : 942
-num_inliers : 523
-num_inliers : 827
-num_inliers : 676
-num_inliers : 102
-num_inliers : 635
-num_inliers : 695
-num_inliers : 242
-num_inliers : 208
-num_inliers : 1949
-num_inliers : 295
-num_inliers : 1036
-num_inliers : 91
-num_inliers : 561
-num_inliers : 140
-num_inliers : 187
-num_inliers : 754
-num_inliers : 146
-num_inliers : 106
-num_inliers : 83
-num_inliers : 149
-num_inliers : 325
-num_inliers : 512
-num_inliers : 1824
-num_inliers : 55
-num_inliers : 78
-num_inliers : 1299
-num_inliers : 101
-num_inliers : 462
-num_inliers : 431
-num_inliers : 574
-num_inliers : 120
-num_inliers : 979
-num_inliers : 442
-num_inliers : 521
-num_inliers : 309
-num_inliers : 1032
-num_inliers : 84
-num_inliers : 305
-num_inliers : 970
-num_inliers : 651
-num_inliers : 149
-num_inliers : 1083
-num_inliers : 166
-num_inliers : 1160
-num_inliers : 344
-num_inliers : 138
-num_inliers : 164
-num_inliers : 54
-num_inliers : 580
-num_inliers : 1218
-num_inliers : 242
-num_inliers : 177
-num_inliers : 321
-num_inliers : 602
-num_inliers : 876
-num_inliers : 303
-num_inliers : 658
-num_inliers : 165
-num_inliers : 406
-num_inliers : 124
-num_inliers : 435
-num_inliers : 305
-num_inliers : 960
-num_inliers : 363
-num_inliers : 222
-num_inliers : 296
-num_inliers : 453
-num_inliers : 582
-num_inliers : 281
-num_inliers : 116
-num_inliers : 567
-num_inliers : 153
-num_inliers : 385
-num_inliers : 158
-num_inliers : 390
-num_inliers : 223
-num_inliers : 231
-num_inliers : 111
-num_inliers : 468
-num_inliers : 97
-num_inliers : 301
-num_inliers : 574
-num_inliers : 284
-num_inliers : 452
-num_inliers : 1269
-num_inliers : 203
-num_inliers : 466
-num_inliers : 413
-num_inliers : 680
-num_inliers : 305
-num_inliers : 533
-num_inliers : 76
-num_inliers : 122
-num_inliers : 155
-num_inliers : 627
-num_inliers : 343
-num_inliers : 1353
-num_inliers : 462
-num_inliers : 308
-num_inliers : 595
-num_inliers : 411
-num_inliers : 924
-num_inliers : 1028
-num_inliers : 159
-num_inliers : 379
-num_inliers : 233
-num_inliers : 235
-num_inliers : 236
-num_inliers : 135
-num_inliers : 837
-num_inliers : 150
-num_inliers : 1672
-num_inliers : 611
-num_inliers : 219
-num_inliers : 372
-num_inliers : 672
-num_inliers : 197
-num_inliers : 1157
-num_inliers : 414
-num_inliers : 237
-num_inliers : 1253
-num_inliers : 331
-num_inliers : 1155
-num_inliers : 204
-num_inliers : 296
-num_inliers : 827
-num_inliers : 748
-num_inliers : 331
-num_inliers : 162
-num_inliers : 763
-num_inliers : 149
-num_inliers : 610
-num_inliers : 433
-num_inliers : 506
-num_inliers : 666
-num_inliers : 454
-num_inliers : 780
-num_inliers : 43
-num_inliers : 46
-num_inliers : 116
-num_inliers : 157
-num_inliers : 440
-num_inliers : 438
-num_inliers : 369
-num_inliers : 692
-num_inliers : 293
-num_inliers : 114
-num_inliers : 713
-num_inliers : 434
-num_inliers : 176
-num_inliers : 952
-num_inliers : 166
-num_inliers : 502
-num_inliers : 559
-num_inliers : 304
-num_inliers : 283
-num_inliers : 59
-num_inliers : 157
-num_inliers : 581
-num_inliers : 108
-num_inliers : 747
-num_inliers : 445
-num_inliers : 164
-num_inliers : 452
-num_inliers : 303
-num_inliers : 153
-num_inliers : 507
-num_inliers : 633
-num_inliers : 352
-num_inliers : 20
-num_inliers : 217
-num_inliers : 1063
-num_inliers : 313
-num_inliers : 399
-num_inliers : 197
-num_inliers : 326
-num_inliers : 899
-num_inliers : 199
-num_inliers : 162
-num_inliers : 437
-num_inliers : 1089
-num_inliers : 366
-num_inliers : 805
-num_inliers : 911
-num_inliers : 301
-num_inliers : 140
-num_inliers : 1077
-num_inliers : 156
-num_inliers : 322
-num_inliers : 536
-num_inliers : 403
-num_inliers : 787
-num_inliers : 609
-num_inliers : 731
-num_inliers : 152
-num_inliers : 98
-num_inliers : 97
-num_inliers : 574
-num_inliers : 131
-num_inliers : 394
-num_inliers : 1493
-num_inliers : 407
-num_inliers : 887
-num_inliers : 548
-num_inliers : 400
-num_inliers : 513
-num_inliers : 209
-num_inliers : 112
-num_inliers : 600
-num_inliers : 383
-num_inliers : 743
-num_inliers : 419
-num_inliers : 643
-num_inliers : 17
-num_inliers : 548
-num_inliers : 128
-num_inliers : 353
-num_inliers : 269
-num_inliers : 272
-num_inliers : 321
-num_inliers : 275
-num_inliers : 474
-num_inliers : 230
-num_inliers : 541
-num_inliers : 779
-num_inliers : 638
-num_inliers : 346
-num_inliers : 190
-num_inliers : 1283
-num_inliers : 774
-num_inliers : 746
-num_inliers : 89
-num_inliers : 421
-num_inliers : 426
-num_inliers : 210
-num_inliers : 507
-num_inliers : 234
+num_inliers : 1303
 num_inliers : 320
-num_inliers : 56
-num_inliers : 196
-num_inliers : 172
-num_inliers : 624
-num_inliers : 1318
-num_inliers : 308
-num_inliers : 157
-num_inliers : 1007
-num_inliers : 244
-num_inliers : 600
-num_inliers : 120
-num_inliers : 1004
-num_inliers : 691
-num_inliers : 489
-num_inliers : 91
-num_inliers : 163
-num_inliers : 200
-num_inliers : 432
-num_inliers : 319
-num_inliers : 1280
-num_inliers : 702
-num_inliers : 264
-num_inliers : 702
-num_inliers : 696
-num_inliers : 655
-num_inliers : 650
-num_inliers : 936
-num_inliers : 368
-num_inliers : 468
-num_inliers : 672
-num_inliers : 448
-num_inliers : 470
-num_inliers : 749
-num_inliers : 128
-num_inliers : 325
-num_inliers : 217
-num_inliers : 125
-num_inliers : 368
-num_inliers : 1155
-num_inliers : 345
-num_inliers : 33
-num_inliers : 26
-num_inliers : 266
-num_inliers : 305
-num_inliers : 500
-num_inliers : 31
-num_inliers : 294
-num_inliers : 950
-num_inliers : 707
-num_inliers : 163
-num_inliers : 79
-num_inliers : 1728
-num_inliers : 529
-num_inliers : 343
-num_inliers : 218
-num_inliers : 87
-num_inliers : 788
-num_inliers : 417
-num_inliers : 47
-num_inliers : 1749
-num_inliers : 478
-num_inliers : 200
-num_inliers : 530
-num_inliers : 453
-num_inliers : 112
-num_inliers : 379
-num_inliers : 229
-num_inliers : 216
-num_inliers : 392
-num_inliers : 422
-num_inliers : 242
-num_inliers : 681
-num_inliers : 623
-num_inliers : 452
-num_inliers : 1414
-num_inliers : 901
-num_inliers : 743
-num_inliers : 44
-num_inliers : 778
-num_inliers : 1048
-num_inliers : 496
-num_inliers : 241
-num_inliers : 1118
-num_inliers : 410
-num_inliers : 227
-num_inliers : 216
-num_inliers : 484
-num_inliers : 332
-num_inliers : 184
-num_inliers : 181
-num_inliers : 1294
-num_inliers : 214
-num_inliers : 884
-num_inliers : 222
-num_inliers : 964
-num_inliers : 471
-num_inliers : 604
-num_inliers : 105
-num_inliers : 272
-num_inliers : 188
-num_inliers : 436
-num_inliers : 1045
-num_inliers : 629
-num_inliers : 923
-num_inliers : 231
-num_inliers : 769
-num_inliers : 191
-num_inliers : 162
-num_inliers : 338
-num_inliers : 788
-num_inliers : 1383
-num_inliers : 1249
-num_inliers : 1490
-num_inliers : 1565
-num_inliers : 540
-num_inliers : 306
-num_inliers : 903
-num_inliers : 505
 num_inliers : 607
-num_inliers : 207
-num_inliers : 333
-num_inliers : 79
-num_inliers : 437
-num_inliers : 850
-num_inliers : 349
-num_inliers : 90
-num_inliers : 122
-num_inliers : 325
-num_inliers : 1170
-num_inliers : 84
-num_inliers : 438
-num_inliers : 237
-num_inliers : 620
-num_inliers : 0
-num_inliers : 549
-num_inliers : 365
-num_inliers : 289
-num_inliers : 1281
-num_inliers : 712
-num_inliers : 591
-num_inliers : 353
-num_inliers : 90
-num_inliers : 890
-num_inliers : 457
-num_inliers : 203
-num_inliers : 440
-num_inliers : 375
-num_inliers : 1237
-num_inliers : 229
-num_inliers : 723
-num_inliers : 207
-num_inliers : 973
-num_inliers : 489
-num_inliers : 1263
-num_inliers : 995
-num_inliers : 68
-num_inliers : 1076
-num_inliers : 493
-num_inliers : 1545
-num_inliers : 208
-num_inliers : 883
-num_inliers : 537
-num_inliers : 859
-num_inliers : 152
-num_inliers : 46
-num_inliers : 930
-num_inliers : 181
-num_inliers : 154
-num_inliers : 710
-num_inliers : 513
-num_inliers : 250
-num_inliers : 580
-num_inliers : 291
-num_inliers : 366
-num_inliers : 203
-num_inliers : 430
-num_inliers : 57
-num_inliers : 301
-num_inliers : 781
-num_inliers : 452
-num_inliers : 496
-num_inliers : 461
-num_inliers : 952
-num_inliers : 519
-num_inliers : 871
-num_inliers : 280
-num_inliers : 447
-num_inliers : 106
-num_inliers : 808
-num_inliers : 959
-num_inliers : 488
-num_inliers : 1077
-num_inliers : 264
-num_inliers : 398
-num_inliers : 239
-num_inliers : 213
-num_inliers : 500
-num_inliers : 262
-num_inliers : 175
-num_inliers : 381
-num_inliers : 1433
-num_inliers : 574
-num_inliers : 708
-num_inliers : 1245
-num_inliers : 755
-num_inliers : 1374
-num_inliers : 281
-num_inliers : 1535
-num_inliers : 477
-num_inliers : 880
-num_inliers : 304
-num_inliers : 468
-num_inliers : 161
-num_inliers : 129
-num_inliers : 1363
-num_inliers : 198
-num_inliers : 1116
-num_inliers : 627
-num_inliers : 665
-num_inliers : 1296
-num_inliers : 379
-num_inliers : 342
-num_inliers : 414
-num_inliers : 443
-num_inliers : 1051
-num_inliers : 957
-num_inliers : 383
-num_inliers : 938
-num_inliers : 819
-num_inliers : 401
-num_inliers : 452
-num_inliers : 552
-num_inliers : 394
-num_inliers : 894
-num_inliers : 240
-num_inliers : 791
-num_inliers : 338
-num_inliers : 1309
-num_inliers : 299
-num_inliers : 683
-num_inliers : 188
-num_inliers : 605
-num_inliers : 231
-num_inliers : 497
-num_inliers : 229
-num_inliers : 142
-num_inliers : 1164
-num_inliers : 1074
-num_inliers : 513
-num_inliers : 680
-num_inliers : 509
-num_inliers : 1206
-num_inliers : 706
-num_inliers : 436
-num_inliers : 1068
-num_inliers : 756
-num_inliers : 600
-num_inliers : 356
-num_inliers : 351
-num_inliers : 592
-num_inliers : 306
-num_inliers : 491
-num_inliers : 648
-num_inliers : 656
-num_inliers : 1173
-num_inliers : 1200
-num_inliers : 360
-num_inliers : 584
-num_inliers : 516
-num_inliers : 542
-num_inliers : 698
-num_inliers : 585
-num_inliers : 45
-num_inliers : 368
-num_inliers : 451
-num_inliers : 111
-num_inliers : 238
-num_inliers : 894
-num_inliers : 1335
-num_inliers : 214
-num_inliers : 355
-num_inliers : 38
-num_inliers : 582
-num_inliers : 162
-num_inliers : 210
-num_inliers : 360
-num_inliers : 273
-num_inliers : 130
-num_inliers : 817
-num_inliers : 276
-num_inliers : 619
-num_inliers : 922
-num_inliers : 569
-num_inliers : 888
-num_inliers : 422
-num_inliers : 90
-num_inliers : 126
-num_inliers : 204
-num_inliers : 597
-num_inliers : 143
-num_inliers : 138
-num_inliers : 675
-num_inliers : 836
-num_inliers : 1472
-num_inliers : 414
-num_inliers : 338
-num_inliers : 490
-num_inliers : 95
-num_inliers : 500
-num_inliers : 410
-num_inliers : 330
-num_inliers : 561
-num_inliers : 1455
-num_inliers : 239
-num_inliers : 544
-num_inliers : 304
-num_inliers : 130
-num_inliers : 65
-num_inliers : 1025
-num_inliers : 132
-num_inliers : 121
-num_inliers : 328
-num_inliers : 70
-num_inliers : 376
-num_inliers : 377
-num_inliers : 426
-num_inliers : 252
-num_inliers : 163
-num_inliers : 762
-num_inliers : 1358
-num_inliers : 1375
-num_inliers : 1117
-num_inliers : 172
-num_inliers : 66
-num_inliers : 589
-num_inliers : 638
-num_inliers : 39
-num_inliers : 350
-num_inliers : 450
-num_inliers : 544
-num_inliers : 142
-num_inliers : 1768
-num_inliers : 597
-num_inliers : 366
-num_inliers : 756
-num_inliers : 463
-num_inliers : 627
-num_inliers : 286
-num_inliers : 519
-num_inliers : 1750
-num_inliers inside of Run : 1949
-num_inliers : 632
-num_inliers : 218
-num_inliers : 33
-num_inliers : 406
-num_inliers : 424
-num_inliers : 646
-num_inliers : 49
-num_inliers : 323
-num_inliers : 405
-num_inliers : 587
-num_inliers : 77
-num_inliers : 165
-num_inliers : 284
-num_inliers : 406
-num_inliers : 314
-num_inliers : 438
-num_inliers : 298
-num_inliers : 93
-num_inliers : 228
-num_inliers : 929
-num_inliers : 370
-num_inliers : 247
-num_inliers : 61
-num_inliers : 262
-num_inliers : 202
-num_inliers : 285
-num_inliers : 168
-num_inliers : 369
-num_inliers : 119
-num_inliers : 460
-num_inliers : 163
-num_inliers : 34
-num_inliers : 212
-num_inliers : 456
-num_inliers : 360
-num_inliers : 279
-num_inliers : 383
-num_inliers : 195
-num_inliers : 160
-num_inliers : 96
-num_inliers : 175
-num_inliers : 412
-num_inliers : 296
-num_inliers : 97
-num_inliers : 371
-num_inliers : 409
-num_inliers : 335
-num_inliers : 331
-num_inliers : 1436
-num_inliers : 225
-num_inliers : 558
-num_inliers : 378
-num_inliers : 467
-num_inliers : 535
-num_inliers : 993
-num_inliers : 527
-num_inliers : 250
-num_inliers : 1238
-num_inliers : 1029
-num_inliers : 33
-num_inliers : 286
-num_inliers : 324
-num_inliers : 627
-num_inliers : 342
-num_inliers : 370
-num_inliers : 309
-num_inliers : 616
-num_inliers : 225
-num_inliers : 334
-num_inliers : 208
-num_inliers : 98
-num_inliers : 444
-num_inliers : 184
-num_inliers : 348
-num_inliers : 703
-num_inliers : 531
-num_inliers : 234
-num_inliers : 575
-num_inliers : 390
-num_inliers : 139
-num_inliers : 84
-num_inliers : 381
-num_inliers : 111
-num_inliers : 153
-num_inliers : 199
-num_inliers : 150
-num_inliers : 316
-num_inliers : 166
-num_inliers : 216
-num_inliers : 221
-num_inliers : 332
-num_inliers : 234
-num_inliers : 302
-num_inliers : 406
-num_inliers : 86
-num_inliers : 314
-num_inliers : 468
-num_inliers : 96
-num_inliers : 64
-num_inliers : 337
-num_inliers : 303
-num_inliers : 83
-num_inliers : 480
-num_inliers : 510
+num_inliers : 961
+num_inliers : 1427
+num_inliers : 4791
 num_inliers : 1140
-num_inliers : 174
-num_inliers : 212
-num_inliers : 630
-num_inliers : 510
-num_inliers : 549
-num_inliers : 322
-num_inliers : 344
-num_inliers : 248
-num_inliers : 241
-num_inliers : 252
-num_inliers : 551
-num_inliers : 101
-num_inliers : 429
-num_inliers : 266
-num_inliers : 411
-num_inliers : 96
-num_inliers : 261
-num_inliers : 162
-num_inliers : 920
-num_inliers : 168
-num_inliers : 264
-num_inliers : 1214
-num_inliers : 399
-num_inliers : 667
-num_inliers : 487
-num_inliers : 123
-num_inliers : 1290
-num_inliers : 1023
-num_inliers : 449
-num_inliers : 206
-num_inliers : 476
-num_inliers : 176
-num_inliers : 812
-num_inliers : 181
-num_inliers : 250
-num_inliers : 602
-num_inliers : 186
-num_inliers : 792
-num_inliers : 353
-num_inliers : 1517
-num_inliers : 322
-num_inliers : 1205
-num_inliers : 836
-num_inliers : 77
-num_inliers : 241
-num_inliers : 385
-num_inliers : 289
-num_inliers : 508
-num_inliers : 244
-num_inliers : 541
-num_inliers : 200
-num_inliers : 861
-num_inliers : 521
-num_inliers : 313
-num_inliers : 209
-num_inliers : 176
-num_inliers : 263
-num_inliers : 374
-num_inliers : 512
-num_inliers : 815
-num_inliers : 167
-num_inliers : 63
-num_inliers : 164
-num_inliers : 404
-num_inliers : 263
-num_inliers : 1032
-num_inliers : 571
-num_inliers : 86
-num_inliers : 471
-num_inliers : 409
-num_inliers : 18
-num_inliers : 1232
-num_inliers : 212
-num_inliers : 687
-num_inliers : 743
-num_inliers : 678
-num_inliers : 269
-num_inliers : 502
-num_inliers : 89
-num_inliers : 118
-num_inliers : 326
-num_inliers : 196
-num_inliers : 279
-num_inliers : 182
-num_inliers : 402
-num_inliers : 525
-num_inliers : 58
-num_inliers : 152
-num_inliers : 454
-num_inliers : 417
-num_inliers : 105
-num_inliers : 122
-num_inliers : 346
-num_inliers : 216
-num_inliers : 293
-num_inliers : 303
-num_inliers : 215
-num_inliers : 255
-num_inliers : 229
-num_inliers : 434
-num_inliers : 1088
-num_inliers : 226
-num_inliers : 557
-num_inliers : 985
-num_inliers : 250
-num_inliers : 136
-num_inliers : 573
-num_inliers : 301
-num_inliers : 111
-num_inliers : 581
-num_inliers : 160
-num_inliers : 627
-num_inliers : 151
-num_inliers : 92
-num_inliers : 455
-num_inliers : 495
-num_inliers : 81
-num_inliers : 342
-num_inliers : 338
-num_inliers : 310
-num_inliers : 154
-num_inliers : 100
-num_inliers : 456
-num_inliers : 60
-num_inliers : 108
-num_inliers : 459
-num_inliers : 130
-num_inliers : 332
-num_inliers : 474
-num_inliers : 268
-num_inliers : 144
-num_inliers : 259
-num_inliers : 358
-num_inliers : 1045
-num_inliers : 327
-num_inliers : 211
-num_inliers : 485
-num_inliers : 86
-num_inliers : 343
+num_inliers : 1153
+num_inliers : 1159
+num_inliers : 1790
+num_inliers : 1177
 num_inliers : 288
-num_inliers : 400
-num_inliers : 193
-num_inliers : 37
-num_inliers : 198
-num_inliers : 113
-num_inliers : 186
-num_inliers : 171
-num_inliers : 186
-num_inliers : 130
-num_inliers : 1372
-num_inliers : 863
-num_inliers : 1181
-num_inliers : 508
-num_inliers : 190
-num_inliers : 111
-num_inliers : 347
-num_inliers : 244
-num_inliers : 187
-num_inliers : 140
-num_inliers : 951
-num_inliers : 1143
-num_inliers : 267
-num_inliers : 53
-num_inliers : 298
-num_inliers : 238
-num_inliers : 223
-num_inliers : 359
-num_inliers : 739
-num_inliers : 755
-num_inliers : 394
-num_inliers : 282
-num_inliers : 858
-num_inliers : 319
-num_inliers : 1080
-num_inliers : 130
-num_inliers : 364
-num_inliers : 632
-num_inliers : 295
-num_inliers : 175
-num_inliers : 92
-num_inliers : 346
-num_inliers : 700
-num_inliers : 72
-num_inliers : 611
-num_inliers : 255
-num_inliers : 921
-num_inliers : 475
-num_inliers : 133
-num_inliers : 688
-num_inliers : 122
-num_inliers : 332
-num_inliers : 163
-num_inliers : 54
-num_inliers : 665
-num_inliers : 610
-num_inliers : 115
-num_inliers : 370
-num_inliers : 277
-num_inliers : 487
-num_inliers : 342
-num_inliers : 448
-num_inliers : 185
-num_inliers : 195
-num_inliers : 182
-num_inliers : 40
-num_inliers : 492
-num_inliers : 195
-num_inliers : 1178
-num_inliers : 786
-num_inliers : 70
-num_inliers : 321
-num_inliers : 714
-num_inliers : 333
-num_inliers : 244
-num_inliers : 167
-num_inliers : 97
-num_inliers : 238
-num_inliers : 48
-num_inliers : 71
-num_inliers : 525
-num_inliers : 408
-num_inliers : 254
-num_inliers : 746
-num_inliers : 289
-num_inliers : 213
-num_inliers : 389
-num_inliers : 178
-num_inliers : 207
-num_inliers : 423
-num_inliers : 53
-num_inliers : 110
-num_inliers : 559
-num_inliers : 470
-num_inliers : 696
-num_inliers : 237
-num_inliers : 708
-num_inliers : 403
-num_inliers : 190
-num_inliers : 90
-num_inliers : 438
-num_inliers : 471
-num_inliers : 1486
-num_inliers : 340
-num_inliers : 630
-num_inliers : 182
-num_inliers : 1504
-num_inliers : 297
-num_inliers : 311
-num_inliers : 355
-num_inliers : 873
-num_inliers : 176
-num_inliers : 257
-num_inliers : 194
-num_inliers : 247
-num_inliers : 154
-num_inliers : 467
-num_inliers : 531
-num_inliers : 60
-num_inliers : 562
-num_inliers : 579
-num_inliers : 207
-num_inliers : 223
-num_inliers : 50
-num_inliers : 794
+num_inliers : 645
+num_inliers : 1433
+num_inliers : 1016
 num_inliers : 655
-num_inliers : 342
-num_inliers : 955
-num_inliers : 50
-num_inliers : 1064
-num_inliers : 649
-num_inliers : 1045
-num_inliers : 758
-num_inliers : 213
-num_inliers : 312
-num_inliers : 244
-num_inliers : 244
-num_inliers : 251
-num_inliers : 150
-num_inliers : 55
-num_inliers : 324
-num_inliers : 445
-num_inliers : 177
-num_inliers : 244
-num_inliers : 677
-num_inliers : 349
-num_inliers : 328
-num_inliers : 537
-num_inliers : 269
-num_inliers : 482
-num_inliers : 529
-num_inliers : 193
-num_inliers : 830
-num_inliers : 524
-num_inliers : 229
-num_inliers : 270
-num_inliers : 139
-num_inliers : 802
-num_inliers : 246
-num_inliers : 257
-num_inliers : 408
-num_inliers : 407
-num_inliers : 288
-num_inliers : 1074
-num_inliers : 299
-num_inliers : 272
-num_inliers : 431
-num_inliers : 216
-num_inliers : 207
-num_inliers : 1668
-num_inliers : 104
-num_inliers : 336
-num_inliers : 706
-num_inliers : 531
-num_inliers : 453
-num_inliers : 156
-num_inliers : 119
-num_inliers : 341
-num_inliers : 432
-num_inliers : 91
-num_inliers : 276
-num_inliers : 270
-num_inliers : 370
-num_inliers : 146
-num_inliers : 417
-num_inliers : 550
-num_inliers : 35
-num_inliers : 989
-num_inliers : 1690
-num_inliers : 214
-num_inliers : 110
-num_inliers : 365
-num_inliers : 382
-num_inliers : 610
-num_inliers : 525
-num_inliers : 560
-num_inliers : 1065
-num_inliers : 575
-num_inliers : 594
-num_inliers : 383
-num_inliers : 185
-num_inliers : 322
-num_inliers : 146
-num_inliers : 377
-num_inliers : 336
-num_inliers : 410
-num_inliers : 709
-num_inliers : 323
-num_inliers : 477
-num_inliers : 395
-num_inliers : 1025
-num_inliers : 866
-num_inliers : 96
-num_inliers : 150
-num_inliers : 923
-num_inliers : 231
-num_inliers : 206
-num_inliers : 193
-num_inliers : 113
-num_inliers : 181
-num_inliers : 272
-num_inliers : 246
-num_inliers : 521
-num_inliers : 140
-num_inliers : 543
-num_inliers : 873
-num_inliers : 62
-num_inliers : 1162
-num_inliers : 93
-num_inliers : 219
-num_inliers : 293
-num_inliers : 217
-num_inliers : 258
-num_inliers : 309
-num_inliers : 269
-num_inliers : 248
-num_inliers : 222
-num_inliers : 710
-num_inliers : 158
-num_inliers : 211
-num_inliers : 646
-num_inliers : 188
-num_inliers : 714
-num_inliers : 511
-num_inliers : 131
-num_inliers : 64
-num_inliers : 298
-num_inliers : 331
-num_inliers : 263
-num_inliers : 144
-num_inliers : 268
-num_inliers : 239
-num_inliers : 273
-num_inliers : 663
-num_inliers : 1224
-num_inliers : 130
-num_inliers : 272
-num_inliers : 109
-num_inliers : 288
-num_inliers : 373
-num_inliers : 373
-num_inliers : 454
-num_inliers : 276
-num_inliers : 969
-num_inliers : 557
-num_inliers : 253
-num_inliers : 470
-num_inliers : 108
-num_inliers : 166
-num_inliers : 354
-num_inliers : 833
-num_inliers : 57
-num_inliers : 184
-num_inliers : 172
-num_inliers : 201
-num_inliers : 657
-num_inliers : 727
-num_inliers : 50
 num_inliers : 245
-num_inliers : 293
-num_inliers : 168
-num_inliers : 475
-num_inliers : 299
+num_inliers : 1155
+num_inliers : 193
+num_inliers : 673
+num_inliers : 996
+num_inliers : 352
+num_inliers : 1559
+num_inliers : 327
+num_inliers : 343
+num_inliers : 106
+num_inliers : 766
+num_inliers : 833
+num_inliers : 138
+num_inliers : 1735
+num_inliers : 509
+num_inliers : 343
+num_inliers : 596
+num_inliers : 1501
+num_inliers : 1873
+num_inliers : 2496
+num_inliers : 2052
+num_inliers : 1063
+num_inliers : 3769
+num_inliers : 246
+num_inliers : 1152
+num_inliers : 1382
+num_inliers : 560
+num_inliers : 853
+num_inliers : 2266
+num_inliers : 182
+num_inliers : 2464
+num_inliers : 1278
+num_inliers : 183
+num_inliers : 1008
+num_inliers : 156
+num_inliers : 762
+num_inliers : 3057
+num_inliers : 525
+num_inliers : 860
+num_inliers : 1153
+num_inliers : 2533
+num_inliers : 726
+num_inliers : 1014
+num_inliers : 1815
+num_inliers : 774
+num_inliers : 1251
+num_inliers : 924
+num_inliers : 2154
+num_inliers : 1589
+num_inliers : 884
+num_inliers : 1752
+num_inliers : 148
+num_inliers : 779
+num_inliers : 2329
+num_inliers : 725
+num_inliers : 900
+num_inliers : 1014
+num_inliers : 198
+num_inliers : 1183
+num_inliers : 1497
+num_inliers : 1680
+num_inliers : 1156
+num_inliers : 1737
+num_inliers : 1302
+num_inliers : 1511
+num_inliers : 1875
+num_inliers : 708
+num_inliers : 965
+num_inliers : 392
+num_inliers : 1157
+num_inliers : 1848
+num_inliers : 199
+num_inliers : 908
+num_inliers : 1487
+num_inliers : 873
+num_inliers : 802
+num_inliers : 881
+num_inliers : 1930
+num_inliers : 254
+num_inliers : 782
+num_inliers : 1511
+num_inliers : 639
+num_inliers : 145
+num_inliers : 575
+num_inliers : 1130
+num_inliers : 188
+num_inliers : 1504
+num_inliers : 840
+num_inliers : 988
+num_inliers : 4359
+num_inliers : 386
+num_inliers : 1203
+num_inliers : 108
+num_inliers : 1248
+num_inliers : 495
+num_inliers : 1381
+num_inliers : 416
+num_inliers : 1003
+num_inliers : 305
+num_inliers : 1094
+num_inliers : 976
+num_inliers : 1614
+num_inliers : 1410
+num_inliers : 2636
+num_inliers : 2232
+num_inliers : 2405
+num_inliers : 1447
+num_inliers : 239
+num_inliers : 657
+num_inliers : 2301
+num_inliers : 608
+num_inliers : 456
+num_inliers : 1956
+num_inliers : 782
+num_inliers : 193
+num_inliers : 796
+num_inliers : 1485
+num_inliers : 523
+num_inliers : 2000
+num_inliers : 826
+num_inliers : 1106
+num_inliers : 365
+num_inliers : 507
+num_inliers : 1172
+num_inliers : 245
+num_inliers : 921
+num_inliers : 2351
+num_inliers : 739
+num_inliers : 262
+num_inliers : 1224
+num_inliers : 348
+num_inliers : 1083
+num_inliers : 1125
+num_inliers : 2113
+num_inliers : 849
+num_inliers : 634
+num_inliers : 2205
+num_inliers : 1196
+num_inliers : 1332
+num_inliers : 1091
+num_inliers : 1048
+num_inliers : 2472
+num_inliers : 414
+num_inliers : 2665
+num_inliers : 310
+num_inliers : 424
+num_inliers : 380
+num_inliers : 621
+num_inliers : 320
+num_inliers : 819
+num_inliers : 1070
+num_inliers : 1398
+num_inliers : 898
+num_inliers : 1092
+num_inliers : 1214
+num_inliers : 544
+num_inliers : 950
+num_inliers : 509
+num_inliers : 1582
+num_inliers : 1674
+num_inliers : 615
+num_inliers : 725
+num_inliers : 1102
+num_inliers : 1511
+num_inliers : 2345
+num_inliers : 1206
+num_inliers : 961
+num_inliers : 2151
+num_inliers : 3280
+num_inliers : 133
+num_inliers : 578
+num_inliers : 805
+num_inliers : 468
+num_inliers : 4217
+num_inliers : 1013
+num_inliers : 423
+num_inliers : 1147
+num_inliers : 756
+num_inliers : 573
+num_inliers : 381
+num_inliers : 1060
+num_inliers : 1197
+num_inliers : 48
+num_inliers : 660
+num_inliers : 2357
+num_inliers : 1545
+num_inliers : 817
+num_inliers : 1090
+num_inliers : 1234
+num_inliers : 1978
+num_inliers : 577
+num_inliers : 477
+num_inliers : 857
+num_inliers : 234
+num_inliers : 1806
+num_inliers : 2207
+num_inliers : 574
+num_inliers : 399
+num_inliers : 1724
+num_inliers : 545
+num_inliers : 239
+num_inliers : 1889
+num_inliers : 628
+num_inliers : 304
+num_inliers : 2043
+num_inliers : 1615
+num_inliers : 276
+num_inliers : 896
+num_inliers : 742
+num_inliers : 878
+num_inliers : 243
+num_inliers : 1869
+num_inliers : 1066
+num_inliers : 2219
+num_inliers : 1188
+num_inliers : 1723
+num_inliers : 618
+num_inliers : 513
+num_inliers : 930
+num_inliers : 129
+num_inliers : 1231
+num_inliers : 2101
+num_inliers : 1139
+num_inliers : 822
+num_inliers : 378
+num_inliers : 239
+num_inliers : 516
+num_inliers : 1131
+num_inliers : 843
+num_inliers : 805
+num_inliers : 1150
+num_inliers : 1458
+num_inliers : 558
+num_inliers : 1270
+num_inliers : 1834
+num_inliers : 1616
+num_inliers : 1382
+num_inliers : 1018
+num_inliers : 583
+num_inliers : 745
+num_inliers : 1144
+num_inliers : 2979
+num_inliers : 1516
+num_inliers : 2332
+num_inliers : 499
+num_inliers : 1546
+num_inliers : 537
+num_inliers : 1072
+num_inliers : 690
+num_inliers : 505
+num_inliers : 516
+num_inliers : 452
+num_inliers : 440
+num_inliers : 201
+num_inliers : 1964
+num_inliers : 199
+num_inliers : 1177
+num_inliers : 1551
+num_inliers : 1082
 num_inliers : 490
-num_inliers : 261
-num_inliers : 151
-num_inliers : 285
-num_inliers : 548
-num_inliers : 776
-num_inliers : 273
-num_inliers : 554
-num_inliers : 489
-num_inliers : 166
-num_inliers : 299
-num_inliers : 16
-num_inliers : 1675
-num_inliers : 284
-num_inliers : 214
-num_inliers : 411
+num_inliers : 918
+num_inliers : 1696
+num_inliers : 294
+num_inliers : 325
+num_inliers : 1747
+num_inliers : 944
+num_inliers : 2024
+num_inliers : 2090
+num_inliers : 576
+num_inliers : 113
+num_inliers : 276
+num_inliers : 2477
+num_inliers : 427
+num_inliers : 1977
+num_inliers : 491
+num_inliers : 459
+num_inliers : 1063
+num_inliers : 246
+num_inliers : 286
+num_inliers : 229
+num_inliers : 1312
+num_inliers : 666
+num_inliers : 5154
+num_inliers : 1427
+num_inliers : 515
+num_inliers : 5587
+num_inliers : 1183
+num_inliers : 404
+num_inliers : 624
+num_inliers : 3548
+num_inliers : 2077
+num_inliers : 1286
 num_inliers : 643
-num_inliers : 115
+num_inliers : 1888
+num_inliers : 3572
+num_inliers : 910
+num_inliers : 4337
+num_inliers : 55
+num_inliers : 548
+num_inliers inside of Run : 5587
+num_inliers : 2058
+num_inliers : 1115
+num_inliers : 952
+num_inliers : 1106
+num_inliers : 595
+num_inliers : 167
+num_inliers : 437
+num_inliers : 294
+num_inliers : 1303
+num_inliers : 586
+num_inliers : 63
+num_inliers : 216
+num_inliers : 480
+num_inliers : 347
+num_inliers : 2627
+num_inliers : 431
+num_inliers : 2348
+num_inliers : 196
+num_inliers : 424
+num_inliers : 649
+num_inliers : 318
+num_inliers : 1110
+num_inliers : 2280
+num_inliers : 1195
+num_inliers : 183
+num_inliers : 396
+num_inliers : 1215
+num_inliers : 2750
+num_inliers : 1603
+num_inliers : 400
+num_inliers : 1686
+num_inliers : 627
+num_inliers : 1130
+num_inliers : 153
+num_inliers : 1878
+num_inliers : 270
+num_inliers : 598
+num_inliers : 2956
+num_inliers : 407
+num_inliers : 441
+num_inliers : 2155
+num_inliers : 53
+num_inliers : 599
+num_inliers : 799
+num_inliers : 116
+num_inliers : 154
+num_inliers : 261
+num_inliers : 936
+num_inliers : 753
+num_inliers : 1165
+num_inliers : 1630
+num_inliers : 1183
+num_inliers : 334
+num_inliers : 456
+num_inliers : 687
+num_inliers : 156
+num_inliers : 3015
+num_inliers : 397
+num_inliers : 1213
+num_inliers : 1535
+num_inliers : 659
+num_inliers : 395
+num_inliers : 956
+num_inliers : 1489
+num_inliers : 2880
+num_inliers : 848
+num_inliers : 1175
+num_inliers : 1362
+num_inliers : 637
+num_inliers : 321
+num_inliers : 1339
+num_inliers : 2432
+num_inliers : 1792
+num_inliers : 835
+num_inliers : 936
+num_inliers : 1176
+num_inliers : 783
+num_inliers : 2717
+num_inliers : 545
+num_inliers : 510
+num_inliers : 473
+num_inliers : 451
+num_inliers : 207
+num_inliers : 1026
+num_inliers : 317
+num_inliers : 1297
+num_inliers : 1247
+num_inliers : 1774
+num_inliers : 805
+num_inliers : 498
+num_inliers : 1302
+num_inliers : 742
+num_inliers : 529
+num_inliers : 508
+num_inliers : 1438
+num_inliers : 263
+num_inliers : 191
+num_inliers : 1275
+num_inliers : 1466
+num_inliers : 227
+num_inliers : 183
+num_inliers : 452
+num_inliers : 335
+num_inliers : 3051
+num_inliers : 141
+num_inliers : 1184
+num_inliers : 1156
+num_inliers : 899
+num_inliers : 2147
+num_inliers : 830
+num_inliers : 451
+num_inliers : 805
+num_inliers : 925
+num_inliers : 1790
+num_inliers : 499
+num_inliers : 941
+num_inliers : 693
+num_inliers : 1913
+num_inliers : 1022
+num_inliers : 2021
+num_inliers : 251
+num_inliers : 442
+num_inliers : 966
+num_inliers : 673
+num_inliers : 1846
+num_inliers : 2681
+num_inliers : 851
+num_inliers : 1000
+num_inliers : 1199
+num_inliers : 466
+num_inliers : 576
+num_inliers : 1194
+num_inliers : 1996
+num_inliers : 1474
+num_inliers : 557
+num_inliers : 932
+num_inliers : 1061
+num_inliers : 74
+num_inliers : 111
+num_inliers : 615
+num_inliers : 2832
+num_inliers : 221
+num_inliers : 1150
+num_inliers : 821
+num_inliers : 342
+num_inliers : 628
+num_inliers : 1400
+num_inliers : 425
+num_inliers : 436
+num_inliers : 1639
+num_inliers : 924
+num_inliers : 1371
+num_inliers : 271
+num_inliers : 913
+num_inliers : 1591
+num_inliers : 695
 num_inliers : 217
-num_inliers : 472
+num_inliers : 726
+num_inliers : 1512
+num_inliers : 797
+num_inliers : 1511
+num_inliers : 391
+num_inliers : 1128
+num_inliers : 1475
+num_inliers : 588
+num_inliers : 287
+num_inliers : 540
+num_inliers : 450
+num_inliers : 698
+num_inliers : 626
+num_inliers : 845
+num_inliers : 956
+num_inliers : 390
+num_inliers : 238
+num_inliers : 1015
+num_inliers : 1200
+num_inliers : 201
+num_inliers : 2942
+num_inliers : 380
+num_inliers : 1192
+num_inliers : 259
+num_inliers : 1851
+num_inliers : 914
+num_inliers : 1653
+num_inliers : 2422
+num_inliers : 1352
+num_inliers : 552
+num_inliers : 218
+num_inliers : 304
+num_inliers : 1124
+num_inliers : 488
+num_inliers : 563
+num_inliers : 938
+num_inliers : 1043
+num_inliers : 152
+num_inliers : 2345
+num_inliers : 1019
+num_inliers : 207
+num_inliers : 597
+num_inliers : 1481
+num_inliers : 1274
+num_inliers : 1225
+num_inliers : 100
+num_inliers : 452
+num_inliers : 538
+num_inliers : 898
+num_inliers : 1742
+num_inliers : 643
+num_inliers : 1913
+num_inliers : 407
+num_inliers : 451
+num_inliers : 2258
+num_inliers : 1689
+num_inliers : 966
+num_inliers : 516
+num_inliers : 1318
+num_inliers : 193
+num_inliers : 920
+num_inliers : 607
+num_inliers : 1835
+num_inliers : 1825
+num_inliers : 1506
+num_inliers : 628
+num_inliers : 3204
+num_inliers : 1280
+num_inliers : 2370
+num_inliers : 1784
+num_inliers : 245
+num_inliers : 307
+num_inliers : 1543
+num_inliers : 381
+num_inliers : 658
+num_inliers : 766
+num_inliers : 281
+num_inliers : 2118
+num_inliers : 1136
+num_inliers : 2007
+num_inliers : 979
+num_inliers : 921
+num_inliers : 1266
+num_inliers : 1549
+num_inliers : 464
+num_inliers : 316
+num_inliers : 1300
+num_inliers : 2498
+num_inliers : 1762
+num_inliers : 697
+num_inliers : 431
+num_inliers : 2118
+num_inliers : 547
+num_inliers : 2073
+num_inliers : 457
+num_inliers : 474
+num_inliers : 917
+num_inliers : 664
+num_inliers : 1838
+num_inliers : 192
+num_inliers : 1089
+num_inliers : 1197
+num_inliers : 558
+num_inliers : 1290
+num_inliers : 860
+num_inliers : 1491
+num_inliers : 960
+num_inliers : 970
+num_inliers : 1349
+num_inliers : 869
+num_inliers : 206
+num_inliers : 452
+num_inliers : 2313
+num_inliers : 315
+num_inliers : 1146
+num_inliers : 59
+num_inliers : 1255
+num_inliers : 2058
+num_inliers : 154
+num_inliers : 2231
+num_inliers : 2020
+num_inliers : 675
+num_inliers : 578
+num_inliers : 1068
+num_inliers : 152
+num_inliers : 667
+num_inliers : 1056
+num_inliers : 703
+num_inliers : 2608
+num_inliers : 1007
+num_inliers : 577
+num_inliers : 1618
+num_inliers : 200
+num_inliers : 1799
+num_inliers : 451
+num_inliers : 1516
+num_inliers : 1486
+num_inliers : 433
+num_inliers : 926
+num_inliers : 542
+num_inliers : 218
+num_inliers : 672
+num_inliers : 902
+num_inliers : 562
+num_inliers : 247
+num_inliers : 1411
+num_inliers : 1875
+num_inliers : 843
+num_inliers : 226
+num_inliers : 1120
+num_inliers : 647
+num_inliers : 98
+num_inliers : 738
+num_inliers : 2778
+num_inliers : 2530
+num_inliers : 1573
+num_inliers : 1323
+num_inliers : 659
+num_inliers : 1156
+num_inliers : 1017
+num_inliers : 628
+num_inliers : 596
+num_inliers : 1061
+num_inliers : 754
+num_inliers : 128
+num_inliers : 1524
+num_inliers : 1494
+num_inliers : 1472
+num_inliers : 1385
+num_inliers : 694
+num_inliers : 1306
+num_inliers : 1138
+num_inliers : 1226
+num_inliers : 1073
+num_inliers : 736
+num_inliers : 331
+num_inliers : 760
+num_inliers : 1010
+num_inliers : 1084
+num_inliers : 770
+num_inliers : 251
+num_inliers : 1039
+num_inliers : 470
+num_inliers : 1090
+num_inliers : 1559
+num_inliers : 1329
+num_inliers : 75
+num_inliers : 1701
+num_inliers : 1183
+num_inliers : 2848
+num_inliers : 753
+num_inliers : 1506
+num_inliers : 1027
+num_inliers : 776
+num_inliers : 536
+num_inliers : 624
+num_inliers : 1784
+num_inliers : 223
+num_inliers : 394
+num_inliers : 2073
+num_inliers : 1550
+num_inliers : 247
+num_inliers : 299
+num_inliers : 806
+num_inliers : 1335
+num_inliers : 2173
+num_inliers : 503
+num_inliers : 1738
+num_inliers : 2475
+num_inliers : 1776
+num_inliers : 1072
+num_inliers : 753
+num_inliers : 1311
+num_inliers : 1033
+num_inliers : 1616
+num_inliers : 3077
+num_inliers : 1350
+num_inliers : 162
+num_inliers : 2190
+num_inliers : 849
+num_inliers : 1868
+num_inliers : 570
+num_inliers : 658
+num_inliers : 461
+num_inliers : 678
+num_inliers : 94
+num_inliers : 1268
+num_inliers : 999
+num_inliers : 135
+num_inliers : 1672
+num_inliers : 910
+num_inliers : 1329
+num_inliers : 641
+num_inliers : 1065
+num_inliers : 898
+num_inliers : 1081
+num_inliers : 1063
+num_inliers : 1198
+num_inliers : 370
+num_inliers : 552
+num_inliers : 571
 num_inliers : 146
-num_inliers : 326
-num_inliers inside of Run : 1690
-INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (SquentialRANSAC) [0.531974 s]
-   0.117149   -0.070412 -0.00369774    0.547071
-  0.0152694   0.0183344    0.134634    0.607283
- -0.0688358   -0.115765   0.0235719      0.9287
+num_inliers : 1713
+num_inliers : 1204
+num_inliers : 469
+num_inliers : 697
+num_inliers : 845
+num_inliers : 607
+num_inliers : 558
+num_inliers : 896
+num_inliers : 1102
+num_inliers : 1395
+num_inliers : 491
+num_inliers : 1068
+num_inliers : 894
+num_inliers : 800
+num_inliers : 235
+num_inliers : 815
+num_inliers : 447
+num_inliers : 2060
+num_inliers : 2102
+num_inliers : 1401
+num_inliers : 559
+num_inliers : 661
+num_inliers : 1180
+num_inliers : 602
+num_inliers : 2013
+num_inliers : 276
+num_inliers : 667
+num_inliers : 978
+num_inliers : 1789
+num_inliers : 2463
+num_inliers : 796
+num_inliers : 2207
+num_inliers : 612
+num_inliers : 675
+num_inliers : 1528
+num_inliers : 396
+num_inliers : 442
+num_inliers : 672
+num_inliers : 338
+num_inliers : 788
+num_inliers : 282
+num_inliers : 768
+num_inliers : 941
+num_inliers : 868
+num_inliers : 869
+num_inliers : 935
+num_inliers : 455
+num_inliers : 843
+num_inliers : 397
+num_inliers : 1133
+num_inliers : 1655
+num_inliers : 1200
+num_inliers : 2267
+num_inliers : 1315
+num_inliers : 1019
+num_inliers : 1098
+num_inliers : 1263
+num_inliers : 1010
+num_inliers : 821
+num_inliers : 653
+num_inliers : 1334
+num_inliers : 2627
+num_inliers : 1070
+num_inliers : 288
+num_inliers : 2578
+num_inliers : 558
+num_inliers : 943
+num_inliers : 450
+num_inliers : 3089
+num_inliers : 1239
+num_inliers : 1147
+num_inliers : 488
+num_inliers : 883
+num_inliers : 1086
+num_inliers : 836
+num_inliers : 426
+num_inliers : 713
+num_inliers : 587
+num_inliers : 2122
+num_inliers : 396
+num_inliers : 1824
+num_inliers : 1169
+num_inliers : 2069
+num_inliers : 641
+num_inliers : 588
+num_inliers : 112
+num_inliers : 2478
+num_inliers : 674
+num_inliers : 360
+num_inliers : 698
+num_inliers : 583
+num_inliers : 877
+num_inliers : 1294
+num_inliers : 496
+num_inliers : 576
+num_inliers : 126
+num_inliers : 680
+num_inliers : 1190
+num_inliers : 556
+num_inliers : 255
+num_inliers : 934
+num_inliers : 1369
+num_inliers : 419
+num_inliers : 1766
+num_inliers : 196
+num_inliers : 250
+num_inliers : 1796
+num_inliers : 612
+num_inliers : 150
+num_inliers : 1596
+num_inliers : 1629
+num_inliers : 374
+num_inliers : 1932
+num_inliers : 187
+num_inliers : 1054
+num_inliers : 330
+num_inliers : 370
+num_inliers : 370
+num_inliers : 900
+num_inliers : 448
+num_inliers : 499
+num_inliers : 1153
+num_inliers : 1002
+num_inliers : 2441
+num_inliers : 874
+num_inliers : 99
+num_inliers : 1106
+num_inliers : 720
+num_inliers : 697
+num_inliers : 840
+num_inliers : 855
+num_inliers : 1832
+num_inliers : 1184
+num_inliers : 490
+num_inliers : 2143
+num_inliers : 951
+num_inliers : 1601
+num_inliers : 263
+num_inliers : 2244
+num_inliers : 1175
+num_inliers : 635
+num_inliers : 1645
+num_inliers : 730
+num_inliers : 476
+num_inliers : 390
+num_inliers : 516
+num_inliers : 255
+num_inliers : 813
+num_inliers : 316
+num_inliers : 127
+num_inliers : 1992
+num_inliers : 556
+num_inliers : 1937
+num_inliers : 358
+num_inliers : 350
+num_inliers : 1930
+num_inliers : 841
+num_inliers : 261
+num_inliers : 245
+num_inliers : 1210
+num_inliers : 708
+num_inliers : 444
+num_inliers : 2430
+num_inliers : 450
+num_inliers : 642
+num_inliers : 494
+num_inliers : 637
+num_inliers : 1364
+num_inliers : 732
+num_inliers : 1375
+num_inliers : 519
+num_inliers : 622
+num_inliers : 1517
+num_inliers : 728
+num_inliers : 1840
+num_inliers : 1362
+num_inliers : 280
+num_inliers : 637
+num_inliers : 822
+num_inliers : 1701
+num_inliers : 820
+num_inliers : 804
+num_inliers : 1047
+num_inliers : 478
+num_inliers : 206
+num_inliers : 1470
+num_inliers : 731
+num_inliers : 2079
+num_inliers : 238
+num_inliers : 1363
+num_inliers : 175
+num_inliers : 125
+num_inliers : 48
+num_inliers : 1723
+num_inliers : 558
+num_inliers : 324
+num_inliers : 1435
+num_inliers : 1104
+num_inliers : 685
+num_inliers : 2552
+num_inliers : 900
+num_inliers : 1381
+num_inliers : 179
+num_inliers : 1062
+num_inliers : 573
+num_inliers : 2323
+num_inliers : 894
+num_inliers : 415
+num_inliers : 680
+num_inliers : 272
+num_inliers : 362
+num_inliers : 186
+num_inliers : 766
+num_inliers : 70
+num_inliers : 515
+num_inliers : 640
+num_inliers : 1988
+num_inliers : 209
+num_inliers : 1295
+num_inliers : 1089
+num_inliers : 1663
+num_inliers : 493
+num_inliers : 199
+num_inliers : 1588
+num_inliers : 1395
+num_inliers : 3054
+num_inliers : 1249
+num_inliers : 1109
+num_inliers : 1430
+num_inliers : 2882
+num_inliers : 689
+num_inliers : 510
+num_inliers : 587
+num_inliers : 2028
+num_inliers : 710
+num_inliers : 1546
+num_inliers : 605
+num_inliers : 1504
+num_inliers : 126
+num_inliers : 628
+num_inliers : 1179
+num_inliers : 262
+num_inliers : 802
+num_inliers : 1326
+num_inliers : 1119
+num_inliers : 1605
+num_inliers : 252
+num_inliers : 412
+num_inliers : 1229
+num_inliers : 675
+num_inliers : 90
+num_inliers : 77
+num_inliers : 772
+num_inliers : 970
+num_inliers : 1481
+num_inliers : 1532
+num_inliers : 505
+num_inliers : 2203
+num_inliers : 2595
+num_inliers : 1668
+num_inliers : 1275
+num_inliers : 511
+num_inliers : 2752
+num_inliers : 354
+num_inliers : 602
+num_inliers : 651
+num_inliers : 350
+num_inliers : 723
+num_inliers : 769
+num_inliers : 1257
+num_inliers : 379
+num_inliers : 92
+num_inliers : 1453
+num_inliers : 869
+num_inliers : 379
+num_inliers : 1497
+num_inliers : 1190
+num_inliers : 875
+num_inliers : 138
+num_inliers : 783
+num_inliers : 922
+num_inliers : 1057
+num_inliers : 612
+num_inliers : 533
+num_inliers : 960
+num_inliers : 719
+num_inliers : 1664
+num_inliers : 1176
+num_inliers : 1375
+num_inliers : 2271
+num_inliers : 1731
+num_inliers : 157
+num_inliers : 255
+num_inliers : 1815
+num_inliers : 1198
+num_inliers : 655
+num_inliers : 737
+num_inliers : 476
+num_inliers : 976
+num_inliers : 1176
+num_inliers : 458
+num_inliers : 2410
+num_inliers : 669
+num_inliers : 329
+num_inliers : 423
+num_inliers : 442
+num_inliers : 241
+num_inliers : 369
+num_inliers : 746
+num_inliers : 377
+num_inliers : 1046
+num_inliers : 631
+num_inliers : 787
+num_inliers : 1043
+num_inliers : 614
+num_inliers : 2601
+num_inliers : 2773
+num_inliers : 1611
+num_inliers : 935
+num_inliers : 174
+num_inliers : 499
+num_inliers : 1622
+num_inliers : 674
+num_inliers : 656
+num_inliers inside of Run : 3204
+num_inliers : 1475
+num_inliers : 2309
+num_inliers : 558
+num_inliers : 1247
+num_inliers : 541
+num_inliers : 1961
+num_inliers : 1750
+num_inliers : 769
+num_inliers : 2090
+num_inliers : 2077
+num_inliers : 172
+num_inliers : 610
+num_inliers : 529
+num_inliers : 919
+num_inliers : 678
+num_inliers : 433
+num_inliers : 1151
+num_inliers : 1171
+num_inliers : 1310
+num_inliers : 943
+num_inliers : 174
+num_inliers : 1707
+num_inliers : 1250
+num_inliers : 1878
+num_inliers : 619
+num_inliers : 623
+num_inliers : 922
+num_inliers : 2063
+num_inliers : 1386
+num_inliers : 959
+num_inliers : 878
+num_inliers : 1241
+num_inliers : 2263
+num_inliers : 695
+num_inliers : 542
+num_inliers : 2869
+num_inliers : 529
+num_inliers : 2797
+num_inliers : 1519
+num_inliers : 266
+num_inliers : 87
+num_inliers : 990
+num_inliers : 900
+num_inliers : 1451
+num_inliers : 624
+num_inliers : 2009
+num_inliers : 68
+num_inliers : 2250
+num_inliers : 2342
+num_inliers : 951
+num_inliers : 457
+num_inliers : 653
+num_inliers : 1983
+num_inliers : 560
+num_inliers : 565
+num_inliers : 1828
+num_inliers : 1602
+num_inliers : 683
+num_inliers : 1407
+num_inliers : 1511
+num_inliers : 426
+num_inliers : 299
+num_inliers : 2046
+num_inliers : 221
+num_inliers : 926
+num_inliers : 577
+num_inliers : 824
+num_inliers : 2028
+num_inliers : 1070
+num_inliers : 168
+num_inliers : 653
+num_inliers : 12
+num_inliers : 1276
+num_inliers : 264
+num_inliers : 1811
+num_inliers : 1882
+num_inliers : 1000
+num_inliers : 1724
+num_inliers : 1216
+num_inliers : 439
+num_inliers : 1815
+num_inliers : 1031
+num_inliers : 1023
+num_inliers : 1178
+num_inliers : 1429
+num_inliers : 614
+num_inliers : 1121
+num_inliers : 1085
+num_inliers : 510
+num_inliers : 1110
+num_inliers : 310
+num_inliers : 2028
+num_inliers : 993
+num_inliers : 1013
+num_inliers : 1034
+num_inliers : 187
+num_inliers : 864
+num_inliers : 925
+num_inliers : 1616
+num_inliers : 2575
+num_inliers : 528
+num_inliers : 1766
+num_inliers : 621
+num_inliers : 500
+num_inliers : 1246
+num_inliers : 461
+num_inliers : 1652
+num_inliers : 951
+num_inliers : 784
+num_inliers : 504
+num_inliers : 861
+num_inliers : 1418
+num_inliers : 474
+num_inliers : 1276
+num_inliers : 589
+num_inliers : 2295
+num_inliers : 1694
+num_inliers : 1195
+num_inliers : 1791
+num_inliers : 863
+num_inliers : 489
+num_inliers : 390
+num_inliers : 1762
+num_inliers : 164
+num_inliers : 538
+num_inliers : 1203
+num_inliers : 1523
+num_inliers : 1245
+num_inliers : 376
+num_inliers : 912
+num_inliers : 398
+num_inliers : 729
+num_inliers : 1905
+num_inliers : 1960
+num_inliers : 1715
+num_inliers : 2569
+num_inliers : 399
+num_inliers : 976
+num_inliers : 1038
+num_inliers : 581
+num_inliers : 1029
+num_inliers : 1040
+num_inliers : 193
+num_inliers : 874
+num_inliers : 843
+num_inliers : 1018
+num_inliers : 616
+num_inliers : 1011
+num_inliers : 304
+num_inliers : 745
+num_inliers : 1439
+num_inliers : 2445
+num_inliers : 750
+num_inliers : 1063
+num_inliers : 2195
+num_inliers : 1457
+num_inliers : 1470
+num_inliers : 733
+num_inliers : 1897
+num_inliers : 1388
+num_inliers : 1794
+num_inliers : 1127
+num_inliers : 1178
+num_inliers : 238
+num_inliers : 1007
+num_inliers : 110
+num_inliers : 753
+num_inliers : 508
+num_inliers : 1287
+num_inliers : 2701
+num_inliers : 713
+num_inliers : 1440
+num_inliers : 756
+num_inliers : 751
+num_inliers : 1682
+num_inliers : 356
+num_inliers : 123
+num_inliers : 511
+num_inliers : 425
+num_inliers : 1274
+num_inliers : 825
+num_inliers : 1932
+num_inliers : 779
+num_inliers : 978
+num_inliers : 1059
+num_inliers : 2282
+num_inliers : 544
+num_inliers : 1509
+num_inliers : 1216
+num_inliers : 627
+num_inliers : 1318
+num_inliers : 457
+num_inliers : 905
+num_inliers : 973
+num_inliers : 1432
+num_inliers : 2253
+num_inliers : 2191
+num_inliers : 1885
+num_inliers : 58
+num_inliers : 1473
+num_inliers : 687
+num_inliers : 1345
+num_inliers : 707
+num_inliers : 2128
+num_inliers : 1158
+num_inliers : 340
+num_inliers : 1482
+num_inliers : 1202
+num_inliers : 965
+num_inliers : 1102
+num_inliers : 1242
+num_inliers : 250
+num_inliers : 1203
+num_inliers : 1566
+num_inliers : 2280
+num_inliers : 510
+num_inliers : 1280
+num_inliers : 607
+num_inliers : 755
+num_inliers : 566
+num_inliers : 898
+num_inliers : 241
+num_inliers : 304
+num_inliers : 1370
+num_inliers : 293
+num_inliers : 1333
+num_inliers : 1106
+num_inliers : 2039
+num_inliers : 1840
+num_inliers : 865
+num_inliers : 1290
+num_inliers : 2438
+num_inliers : 1505
+num_inliers : 1656
+num_inliers : 939
+num_inliers : 1556
+num_inliers : 1028
+num_inliers : 1795
+num_inliers : 2148
+num_inliers : 258
+num_inliers : 554
+num_inliers : 1064
+num_inliers : 2268
+num_inliers : 480
+num_inliers : 287
+num_inliers : 660
+num_inliers : 244
+num_inliers : 882
+num_inliers : 1448
+num_inliers : 1591
+num_inliers : 1904
+num_inliers : 1135
+num_inliers : 803
+num_inliers : 1447
+num_inliers : 693
+num_inliers : 309
+num_inliers : 1821
+num_inliers : 908
+num_inliers : 842
+num_inliers : 1911
+num_inliers : 357
+num_inliers : 472
+num_inliers : 729
+num_inliers : 1183
+num_inliers : 477
+num_inliers : 1088
+num_inliers : 848
+num_inliers : 604
+num_inliers : 2629
+num_inliers : 370
+num_inliers : 315
+num_inliers : 1355
+num_inliers : 436
+num_inliers : 1244
+num_inliers : 1506
+num_inliers : 1561
+num_inliers : 1343
+num_inliers : 1455
+num_inliers : 386
+num_inliers : 863
+num_inliers : 2608
+num_inliers : 1018
+num_inliers : 1354
+num_inliers : 211
+num_inliers : 924
+num_inliers : 867
+num_inliers : 772
+num_inliers : 463
+num_inliers : 1063
+num_inliers : 594
+num_inliers : 1901
+num_inliers : 738
+num_inliers : 606
+num_inliers : 1298
+num_inliers : 1853
+num_inliers : 514
+num_inliers : 1450
+num_inliers : 639
+num_inliers : 604
+num_inliers : 122
+num_inliers : 1648
+num_inliers : 881
+num_inliers : 2568
+num_inliers : 1142
+num_inliers : 1598
+num_inliers : 399
+num_inliers : 1308
+num_inliers : 541
+num_inliers : 2781
+num_inliers : 1608
+num_inliers : 1657
+num_inliers : 268
+num_inliers : 1153
+num_inliers : 1281
+num_inliers : 1163
+num_inliers : 444
+num_inliers : 702
+num_inliers : 321
+num_inliers : 372
+num_inliers : 1503
+num_inliers : 2265
+num_inliers : 747
+num_inliers : 815
+num_inliers : 1364
+num_inliers : 1031
+num_inliers : 949
+num_inliers : 495
+num_inliers : 83
+num_inliers : 1240
+num_inliers : 1931
+num_inliers : 1776
+num_inliers : 659
+num_inliers : 1504
+num_inliers : 1037
+num_inliers : 272
+num_inliers : 1285
+num_inliers : 810
+num_inliers : 569
+num_inliers : 1664
+num_inliers : 486
+num_inliers : 1473
+num_inliers : 1209
+num_inliers : 889
+num_inliers : 1181
+num_inliers : 447
+num_inliers : 950
+num_inliers : 921
+num_inliers : 2329
+num_inliers : 789
+num_inliers : 796
+num_inliers : 423
+num_inliers : 1101
+num_inliers : 1910
+num_inliers : 1435
+num_inliers : 1406
+num_inliers : 928
+num_inliers : 1860
+num_inliers : 257
+num_inliers : 588
+num_inliers : 1507
+num_inliers : 2133
+num_inliers : 1119
+num_inliers : 802
+num_inliers : 130
+num_inliers : 2237
+num_inliers : 1793
+num_inliers : 427
+num_inliers : 1001
+num_inliers : 830
+num_inliers : 349
+num_inliers : 1365
+num_inliers : 810
+num_inliers : 700
+num_inliers : 291
+num_inliers : 730
+num_inliers : 2552
+num_inliers : 359
+num_inliers : 588
+num_inliers : 588
+num_inliers : 2061
+num_inliers : 1175
+num_inliers : 368
+num_inliers : 1406
+num_inliers : 1782
+num_inliers : 967
+num_inliers : 730
+num_inliers : 1234
+num_inliers : 383
+num_inliers : 1582
+num_inliers : 462
+num_inliers : 1283
+num_inliers : 1172
+num_inliers : 997
+num_inliers : 1603
+num_inliers : 1624
+num_inliers : 871
+num_inliers : 235
+num_inliers : 1158
+num_inliers : 3261
+num_inliers inside of Run : 3261
+num_inliers : 736
+num_inliers : 803
+num_inliers : 192
+num_inliers : 524
+num_inliers : 874
+num_inliers : 797
+num_inliers : 210
+num_inliers : 1173
+num_inliers : 804
+num_inliers : 588
+num_inliers : 767
+num_inliers : 1224
+num_inliers : 32
+num_inliers : 1386
+num_inliers : 106
+num_inliers : 115
+num_inliers : 662
+num_inliers : 946
+num_inliers : 1151
+num_inliers : 336
+num_inliers : 680
+num_inliers : 1835
+num_inliers : 1296
+num_inliers : 1503
+num_inliers : 290
+num_inliers : 392
+num_inliers : 356
+num_inliers : 429
+num_inliers : 719
+num_inliers : 138
+num_inliers : 335
+num_inliers : 1228
+num_inliers : 1308
+num_inliers : 1245
+num_inliers : 828
+num_inliers : 609
+num_inliers : 610
+num_inliers : 373
+num_inliers : 1797
+num_inliers : 424
+num_inliers : 718
+num_inliers : 231
+num_inliers : 622
+num_inliers : 600
+num_inliers : 854
+num_inliers : 649
+num_inliers : 2453
+num_inliers : 1855
+num_inliers : 1774
+num_inliers : 958
+num_inliers : 233
+num_inliers : 261
+num_inliers : 608
+num_inliers : 842
+num_inliers : 1430
+num_inliers : 543
+num_inliers : 700
+num_inliers : 559
+num_inliers : 812
+num_inliers : 317
+num_inliers : 1308
+num_inliers : 861
+num_inliers : 453
+num_inliers : 456
+num_inliers : 585
+num_inliers : 248
+num_inliers : 1110
+num_inliers : 1729
+num_inliers : 149
+num_inliers : 322
+num_inliers : 605
+num_inliers : 1645
+num_inliers : 973
+num_inliers : 554
+num_inliers : 794
+num_inliers : 1965
+num_inliers : 937
+num_inliers : 723
+num_inliers : 568
+num_inliers : 102
+num_inliers : 980
+num_inliers : 365
+num_inliers : 2477
+num_inliers : 1028
+num_inliers : 484
+num_inliers : 317
+num_inliers : 1911
+num_inliers : 1016
+num_inliers : 277
+num_inliers : 1293
+num_inliers : 530
+num_inliers : 585
+num_inliers : 1146
+num_inliers : 1519
+num_inliers : 978
+num_inliers : 1026
+num_inliers : 174
+num_inliers : 517
+num_inliers : 665
+num_inliers : 330
+num_inliers : 818
+num_inliers : 332
+num_inliers : 371
+num_inliers : 176
+num_inliers : 1293
+num_inliers : 479
+num_inliers : 1560
+num_inliers : 877
+num_inliers : 615
+num_inliers : 764
+num_inliers : 75
+num_inliers : 2098
+num_inliers : 730
+num_inliers : 831
+num_inliers : 899
+num_inliers : 1457
+num_inliers : 950
+num_inliers : 949
+num_inliers : 2455
+num_inliers : 275
+num_inliers : 211
+num_inliers : 387
+num_inliers : 1096
+num_inliers : 423
+num_inliers : 748
+num_inliers : 407
+num_inliers : 649
+num_inliers : 555
+num_inliers : 378
+num_inliers : 874
+num_inliers : 522
+num_inliers : 943
+num_inliers : 160
+num_inliers : 975
+num_inliers : 463
+num_inliers : 269
+num_inliers : 80
+num_inliers : 532
+num_inliers : 318
+num_inliers : 2906
+num_inliers : 408
+num_inliers : 848
+num_inliers : 1540
+num_inliers : 2201
+num_inliers : 1815
+num_inliers : 1208
+num_inliers : 698
+num_inliers : 921
+num_inliers : 1643
+num_inliers : 319
+num_inliers : 1365
+num_inliers : 687
+num_inliers : 1507
+num_inliers : 973
+num_inliers : 561
+num_inliers : 1000
+num_inliers : 384
+num_inliers : 846
+num_inliers : 295
+num_inliers : 2454
+num_inliers : 465
+num_inliers : 847
+num_inliers : 420
+num_inliers : 778
+num_inliers : 1422
+num_inliers : 1038
+num_inliers : 1062
+num_inliers : 1279
+num_inliers : 655
+num_inliers : 2253
+num_inliers : 374
+num_inliers : 1091
+num_inliers : 482
+num_inliers : 1634
+num_inliers : 1424
+num_inliers : 473
+num_inliers : 425
+num_inliers : 699
+num_inliers : 821
+num_inliers : 634
+num_inliers : 1007
+num_inliers : 219
+num_inliers : 2550
+num_inliers : 190
+num_inliers : 1008
+num_inliers : 1620
+num_inliers : 564
+num_inliers : 300
+num_inliers : 827
+num_inliers : 143
+num_inliers : 737
+num_inliers : 743
+num_inliers : 2212
+num_inliers : 781
+num_inliers : 1103
+num_inliers : 1802
+num_inliers : 375
+num_inliers : 907
+num_inliers : 407
+num_inliers : 363
+num_inliers : 431
+num_inliers : 1077
+num_inliers : 1421
+num_inliers : 131
+num_inliers : 709
+num_inliers : 1678
+num_inliers : 230
+num_inliers : 1479
+num_inliers : 884
+num_inliers : 753
+num_inliers : 570
+num_inliers : 1576
+num_inliers : 487
+num_inliers : 1597
+num_inliers : 738
+num_inliers : 644
+num_inliers : 575
+num_inliers : 1765
+num_inliers : 592
+num_inliers : 710
+num_inliers : 1856
+num_inliers : 769
+num_inliers : 784
+num_inliers : 2076
+num_inliers : 972
+num_inliers : 1955
+num_inliers : 2510
+num_inliers : 816
+num_inliers : 730
+num_inliers : 2980
+num_inliers inside of Run : 2980
+num_inliers : 546
+num_inliers : 284
+num_inliers : 1090
+num_inliers : 448
+num_inliers : 275
+num_inliers : 186
+num_inliers : 1007
+num_inliers : 139
+num_inliers : 501
+num_inliers : 159
+num_inliers : 189
+num_inliers : 524
+num_inliers : 388
+num_inliers : 241
+num_inliers : 1236
+num_inliers : 338
+num_inliers : 278
+num_inliers : 547
+num_inliers : 264
+num_inliers : 77
+num_inliers : 256
+num_inliers : 400
+num_inliers : 154
+num_inliers : 187
+num_inliers : 180
+num_inliers : 448
+num_inliers : 204
+num_inliers : 512
+num_inliers : 297
+num_inliers : 241
+num_inliers : 77
+num_inliers : 684
+num_inliers : 611
+num_inliers : 471
+num_inliers : 401
+num_inliers : 678
+num_inliers : 991
+num_inliers : 623
+num_inliers : 255
+num_inliers : 509
+num_inliers : 1744
+num_inliers : 308
+num_inliers : 174
+num_inliers : 233
+num_inliers : 329
+num_inliers : 431
+num_inliers : 202
+num_inliers : 336
+num_inliers : 680
+num_inliers : 83
+num_inliers : 25
+num_inliers : 293
+num_inliers : 648
+num_inliers : 341
+num_inliers : 198
+num_inliers : 206
+num_inliers : 310
+num_inliers : 613
+num_inliers : 819
+num_inliers : 962
+num_inliers : 644
+num_inliers : 475
+num_inliers : 845
+num_inliers : 521
+num_inliers : 239
+num_inliers : 314
+num_inliers : 180
+num_inliers : 1237
+num_inliers : 774
+num_inliers : 619
+num_inliers : 433
+num_inliers : 232
+num_inliers : 609
+num_inliers : 595
+num_inliers : 398
+num_inliers : 502
+num_inliers : 551
+num_inliers : 212
+num_inliers : 771
+num_inliers : 578
+num_inliers : 123
+num_inliers : 901
+num_inliers : 645
+num_inliers : 516
+num_inliers : 324
+num_inliers : 264
+num_inliers : 174
+num_inliers : 354
+num_inliers : 828
+num_inliers : 621
+num_inliers : 667
+num_inliers : 293
+num_inliers : 1284
+num_inliers : 1023
+num_inliers : 210
+num_inliers : 361
+num_inliers : 407
+num_inliers : 346
+num_inliers : 276
+num_inliers : 356
+num_inliers : 644
+num_inliers : 95
+num_inliers : 936
+num_inliers : 812
+num_inliers : 480
+num_inliers : 626
+num_inliers : 658
+num_inliers : 532
+num_inliers : 2240
+num_inliers : 488
+num_inliers : 139
+num_inliers : 526
+num_inliers : 426
+num_inliers : 1907
+num_inliers : 233
+num_inliers : 225
+num_inliers : 245
+num_inliers : 311
+num_inliers : 580
+num_inliers : 201
+num_inliers : 323
+num_inliers : 63
+num_inliers : 530
+num_inliers : 94
+num_inliers : 720
+num_inliers : 480
+num_inliers : 436
+num_inliers : 748
+num_inliers : 206
+num_inliers : 131
+num_inliers : 77
+num_inliers : 593
+num_inliers : 1146
+num_inliers : 197
+num_inliers : 179
+num_inliers : 585
+num_inliers : 69
+num_inliers : 318
+num_inliers : 460
+num_inliers : 699
+num_inliers : 537
+num_inliers : 183
+num_inliers : 439
+num_inliers : 90
+num_inliers : 696
+num_inliers : 143
+num_inliers : 424
+num_inliers : 117
+num_inliers : 245
+num_inliers : 1497
+num_inliers : 254
+num_inliers : 304
+num_inliers : 753
+num_inliers : 812
+num_inliers : 693
+num_inliers : 360
+num_inliers : 956
+num_inliers : 664
+num_inliers : 199
+num_inliers : 283
+num_inliers : 312
+num_inliers : 161
+num_inliers : 301
+num_inliers : 935
+num_inliers : 323
+num_inliers : 100
+num_inliers : 78
+num_inliers : 474
+num_inliers : 253
+num_inliers : 1312
+num_inliers : 100
+num_inliers : 1296
+num_inliers : 862
+num_inliers : 463
+num_inliers : 1064
+num_inliers : 140
+num_inliers : 150
+num_inliers : 886
+num_inliers : 1079
+num_inliers : 379
+num_inliers : 511
+num_inliers : 1169
+num_inliers : 441
+num_inliers : 129
+num_inliers : 831
+num_inliers : 471
+num_inliers : 300
+num_inliers : 180
+num_inliers : 371
+num_inliers : 395
+num_inliers : 365
+num_inliers : 137
+num_inliers : 419
+num_inliers : 345
+num_inliers : 461
+num_inliers : 410
+num_inliers : 2228
+num_inliers inside of Run : 2240
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (SquentialRANSAC) [0.470380 s]
+   -0.13347    0.174072  -0.0836253    0.839641
+-0.00518164   0.0983896    0.213075    0.728645
+   0.193048    0.122991  -0.0520978     0.60063
           0           0           0           1
- 0.125723 -0.200564 -0.133877  0.727802
- 0.240105 0.0901397 0.0904418  0.580251
--0.022327 -0.160013  0.218752  0.788084
-        0         0         0         1
-  0.189091 -0.0267045  -0.135086   0.431918
- 0.0254012  -0.218772  0.0788045   0.740429
- -0.135337 -0.0783725   -0.17395     1.0472
+  0.264715  0.0989365 -0.0655261   0.428198
+ 0.0846148  -0.269677 -0.0653498   0.692384
+-0.0832011  0.0405196   -0.27494    1.00036
          0          0          0          1
- 0.297567 0.0587036  0.161774  0.376301
- 0.133357 -0.282902 -0.142638  0.841647
-  0.10878  0.186235 -0.267669   0.71638
-        0         0         0         1
--0.199775 -0.413682  0.246034  0.839914
- 0.122834  0.213745   0.45913  0.432422
--0.465378     0.234  0.015568    1.1916
-        0         0         0         1
+-0.0667815  0.0296875 -0.0399414   0.679941
+ 0.0186124  0.0768918  0.0260322   0.783828
+-0.0461546 -0.0119477  0.0682894   0.747876
+         0          0          0          1
+  0.135065  -0.131048   0.223845   0.485631
+ -0.242972   0.024426   0.160906   0.906622
+-0.0908012  -0.260293 -0.0975983   0.961024
+         0          0          0          1
+-0.00235959    0.109677    0.132669    0.613033
+ 0.00910611    0.132575   -0.109438    0.821803
+  -0.171893  0.00551767 -0.00761867    0.871071
+          0           0           0           1
 INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(DenseGaussNewton::optimize()) {
 VERBOSE: /home/aiday.kyzy/code/sfm/src/./vision/geometry/dense_gauss_newton.h:L118:# parameters: 7
 VERBOSE: /home/aiday.kyzy/code/sfm/src/./vision/geometry/dense_gauss_newton.h:L119:# residuals: 8193
-INFO: /home/aiday.kyzy/code/sfm/src/./vision/geometry/dense_gauss_newton.h:L238:Gauss-Newton gradient threshold reached.
-INFO: /home/aiday.kyzy/code/sfm/src/./vision/geometry/dense_gauss_newton.h:L240:Gauss-Newton gradient max norm 0.000000e+00 <= 1.000000e-06
-INFO: /home/aiday.kyzy/code/sfm/src/./vision/geometry/dense_gauss_newton.h:L241:Gauss-Newton convergence #iters: 6
-INFO: /home/aiday.kyzy/code/sfm/src/./vision/geometry/dense_gauss_newton.h:L242:Gauss-Newton converged.
-INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (DenseGaussNewton::optimize()) [0.028325 s]
-Affine transform:  0.000361792 -0.000227554 -0.000110957     0.207903
- 7.63007e-05 -8.65245e-05  0.000426237    0.0967347
--0.000241393   -0.0003684  -3.1572e-05      -1.1184
-           0            0            0            1
+INFO: /home/aiday.kyzy/code/sfm/src/./vision/geometry/dense_gauss_newton.h:L258:Gauss-Newton max iterations: #20 reached.
+INFO: /home/aiday.kyzy/code/sfm/src/./vision/geometry/dense_gauss_newton.h:L259:Gauss-Newton did not converge.
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (DenseGaussNewton::optimize()) [0.061553 s]
+Affine transform:  -0.104284  0.0616934  -0.101097   0.860777
+ 0.0964415   0.122422 -0.0247751   0.731145
+ 0.0687439 -0.0781581  -0.118606    0.80596
+         0          0          0          1
 VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L232:#models: 5
-VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L91:#model 0 | #inliers 4819
-VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L91:#model 1 | #inliers 3905
-VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L91:#model 2 | #inliers 3014
-VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L91:#model 3 | #inliers 1949
-VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L91:#model 4 | #inliers 1690
-VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L235:#inilers: 15377
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L91:#model 0 | #inliers 5587
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L91:#model 1 | #inliers 3204
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L91:#model 2 | #inliers 3261
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L91:#model 3 | #inliers 2980
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L91:#model 4 | #inliers 2240
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L235:#inilers: 17272
 VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L257:Mesh1: #vertices: 8054
 VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L258:Mesh2: #vertices: 8193
 INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(Registration2::Register) {
 VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L784:SampleDeformationNodes
 INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(PointCloudSampling::PoissonSphereSampling) {
-INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (PointCloudSampling::PoissonSphereSampling) [0.007643 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (PointCloudSampling::PoissonSphereSampling) [0.008107 s]
 VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L790:Create balltree...
 VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L797:Build kdtree...
 VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L804:Create matches...
-VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L826:#matches / #inliers: 22010/22010
-VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L827:Mesh1: #points | #normals: 15377 | 15377
-VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L828:Mesh2: #points | #normals: 15377 | 15377
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L826:#matches / #inliers: 22880/22880
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L827:Mesh1: #points | #normals: 17272 | 17272
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L828:Mesh2: #points | #normals: 17272 | 17272
 INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(SetupRegistrationProblem) {
-INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (SetupRegistrationProblem) [0.008442 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (SetupRegistrationProblem) [0.015835 s]
 INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(SolveCeresProblem) {
-INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (SolveCeresProblem) [0.003683 s]
+iter      cost      cost_change  |gradient|   |step|    tr_ratio  tr_radius  ls_iter  iter_time  total_time
+   0  2.774832e-03    0.00e+00    2.79e-03   0.00e+00   0.00e+00  1.00e+04        0    7.47e-02    8.22e-02
+   1  1.507120e-03    1.27e-03    5.01e-04   2.31e+01   6.64e-01  1.04e+04        1    1.68e-01    2.51e-01
+   2  2.107942e-02   -1.96e-02    5.01e-04   3.47e+01  -2.07e+01  5.18e+03        1    2.04e-02    2.71e-01
+   3  1.166212e-02   -1.02e-02    5.01e-04   2.90e+01  -1.07e+01  1.30e+03        1    2.76e-02    2.99e-01
+   4  2.670124e-03   -1.16e-03    5.01e-04   2.18e+01  -1.23e+00  1.62e+02        1    3.05e-02    3.29e-01
+   5  1.037524e-03    4.70e-04    8.08e-04   1.70e+01   5.00e-01  1.62e+02        1    1.73e-01    5.03e-01
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (SolveCeresProblem) [0.503527 s]
 VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L881:Summary: 
 Solver Summary (v 2.1.0-eigen-(3.3.4)-lapack-suitesparse-(5.1.2)-cxsparse-(3.1.9)-eigensparse-no_openmp-cuda-(11030))
 
                                      Original                  Reduced
-Parameter blocks                            1                        1
-Parameters                                  6                        6
-Residual blocks                         15377                    15377
-Residuals                               15377                    15377
+Parameter blocks                          173                      173
+Parameters                               1038                     1038
+Residual blocks                         18137                    18137
+Residuals                               19867                    19867
 
 Minimizer                        TRUST_REGION
 
@@ -8236,37 +7659,956 @@ Trust region strategy     LEVENBERG_MARQUARDT
                                         Given                     Used
 Linear solver          SPARSE_NORMAL_CHOLESKY   SPARSE_NORMAL_CHOLESKY
 Threads                                    16                       16
-Linear solver ordering              AUTOMATIC                        1
+Linear solver ordering              AUTOMATIC                      173
 
 Cost:
-Initial                         -1.000000e+00
+Initial                          2.774832e-03
+Final                            1.037524e-03
+Change                           1.737308e-03
 
-Minimizer iterations                        0
-Successful steps                            0
+Minimizer iterations                        6
+Successful steps                            3
+Unsuccessful steps                          3
+
+Time (in seconds):
+Preprocessor                         0.007471
+
+  Residual only evaluation           0.035908 (5)
+  Jacobian & residual evaluation     0.333731 (3)
+  Linear solver                      0.115710 (5)
+Minimizer                            0.495130
+
+Postprocessor                        0.000401
+Total                                0.503013
+
+Termination:                   NO_CONVERGENCE (Maximum number of iterations reached. Number of iterations: 5.)
+
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(Update nodes) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (Update nodes) [0.000027 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (Registration2::Register) [0.576092 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(PointCloudSampling::PoissonSphereSampling) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (PointCloudSampling::PoissonSphereSampling) [0.010097 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(PointCloudSampling::PoissonSphereSampling) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (PointCloudSampling::PoissonSphereSampling) [0.019342 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(meshing) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(PointCloudTsdf) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(ComputeGridExtrinsics) {
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/meshing/meshing.cc:L159:Set automatic grid position
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(ComputePointDensity) {
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_utils.cc:L400:Size / SubsetSize : 5142 / 52
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (ComputePointDensity) [0.000717 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/meshing/meshing.cc:L174:Set automatic grid resolution
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/meshing/meshing.cc:L179:Set automatic grid scale
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/meshing/meshing.cc:L192:Resolution: [75, 58, 45], Margin: 3
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/meshing/meshing.cc:L193:Scale: [236.662552, 236.662552, 236.662552]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/meshing/meshing.cc:L194:Position: [0.719720, 0.760871, 0.817232]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/meshing/meshing.cc:L195:Orientation: [0.000000, 0.000000, 0.000000]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (ComputeGridExtrinsics) [0.000780 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/meshing/meshing.cc:L225:trace_distance: 3
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(GridErode) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (GridErode) [0.005842 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/meshing/meshing.cc:L329:Extract single surface mesh
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(ExtractMeshUniqueVertices) {
+VERBOSE: /home/aiday.kyzy/code/sfm/src/./graphics/meshing/generic_mc_unique_vertices.h:L281:Using array for vertex_list and edge_vertex_ids
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (ExtractMeshUniqueVertices) [0.001884 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(Mesh2Utils::FixMesh) {
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_utils.cc:L844:Build vertex lookup table
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_utils.cc:L873:Check for broken edges
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_utils.cc:L885:Expected #vertices: 4 | Actual #vertices: 2
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_utils.cc:L886:Fix vertex: 784
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_utils.cc:L885:Expected #vertices: 5 | Actual #vertices: 3
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_utils.cc:L886:Fix vertex: 800
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+ERROR: /home/aiday.kyzy/code/sfm/src/./graphics/mesh2/vertex2_iterators.h:L140:Sanity check failed: next.opposite() invalid.
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (Mesh2Utils::FixMesh) [0.001599 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(ComputeVertexNormals) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (ComputeVertexNormals) [0.000337 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/meshing/meshing.cc:L346:Mesh2::CheckConsistency
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/meshing/meshing.cc:L352:Meshing:: Mesh2Transform::ComputeNormals(.)
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(FaceNormals) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (FaceNormals) [0.000076 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(ComputeVertexNormals) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (ComputeVertexNormals) [0.000216 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/meshing/meshing.cc:L370:MeshRepair::PlanarHoleFilling
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(PlanarHoleFilling) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(FindHoles) {
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_utils.cc:L1106:#holes: 23
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (FindHoles) [0.000305 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L123:Fill holes, #holes: 23
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L125:Filling hole: 0 / 23 | Size: 3
+WARN: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L217:Skip remaining hole edges due to too large angles
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L218:======================== SKIP ==================== 
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L313:--------------------------------------------------------
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L125:Filling hole: 1 / 23 | Size: 3
+WARN: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L217:Skip remaining hole edges due to too large angles
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L218:======================== SKIP ==================== 
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L313:--------------------------------------------------------
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L125:Filling hole: 2 / 23 | Size: 3
+WARN: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L217:Skip remaining hole edges due to too large angles
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L218:======================== SKIP ==================== 
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L313:--------------------------------------------------------
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L125:Filling hole: 3 / 23 | Size: 3
+WARN: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L217:Skip remaining hole edges due to too large angles
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L218:======================== SKIP ==================== 
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L313:--------------------------------------------------------
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L125:Filling hole: 4 / 23 | Size: 3
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L313:--------------------------------------------------------
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L125:Filling hole: 5 / 23 | Size: 3
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L313:--------------------------------------------------------
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L125:Filling hole: 6 / 23 | Size: 3
+WARN: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L217:Skip remaining hole edges due to too large angles
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L218:======================== SKIP ==================== 
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L313:--------------------------------------------------------
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L125:Filling hole: 7 / 23 | Size: 4
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L313:--------------------------------------------------------
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L125:Filling hole: 8 / 23 | Size: 4
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L313:--------------------------------------------------------
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L125:Filling hole: 9 / 23 | Size: 4
+WARN: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L217:Skip remaining hole edges due to too large angles
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L218:======================== SKIP ==================== 
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L313:--------------------------------------------------------
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L125:Filling hole: 10 / 23 | Size: 4
+WARN: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L217:Skip remaining hole edges due to too large angles
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L218:======================== SKIP ==================== 
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L313:--------------------------------------------------------
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L125:Filling hole: 11 / 23 | Size: 4
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L313:--------------------------------------------------------
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L125:Filling hole: 12 / 23 | Size: 4
+WARN: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L217:Skip remaining hole edges due to too large angles
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L218:======================== SKIP ==================== 
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L313:--------------------------------------------------------
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L125:Filling hole: 13 / 23 | Size: 5
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L313:--------------------------------------------------------
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L125:Filling hole: 14 / 23 | Size: 5
+WARN: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L217:Skip remaining hole edges due to too large angles
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L218:======================== SKIP ==================== 
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L313:--------------------------------------------------------
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L125:Filling hole: 15 / 23 | Size: 5
+WARN: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L217:Skip remaining hole edges due to too large angles
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L218:======================== SKIP ==================== 
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L313:--------------------------------------------------------
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L125:Filling hole: 16 / 23 | Size: 6
+WARN: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L217:Skip remaining hole edges due to too large angles
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L218:======================== SKIP ==================== 
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L313:--------------------------------------------------------
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L125:Filling hole: 17 / 23 | Size: 7
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L313:--------------------------------------------------------
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L125:Filling hole: 18 / 23 | Size: 8
+ERROR: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2.cc:L410:HalfEdge exists HalfEdge: 857 -> 856
+ERROR: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2.cc:L411:No face added
+ERROR: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L235:Adding invalid, triangle not added!
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L313:--------------------------------------------------------
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L125:Filling hole: 19 / 23 | Size: 13
+WARN: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L217:Skip remaining hole edges due to too large angles
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L218:======================== SKIP ==================== 
+VERBOSE: /home/aiday.kyzy/code/sfm/src/graphics/mesh2/mesh2_repair.cc:L313:--------------------------------------------------------
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (PlanarHoleFilling) [0.000550 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (PointCloudTsdf) [0.012581 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (meshing) [0.012726 s]
+DEBUG: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L318:Template mesh #vertices: 903
+DEBUG: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L319:Template mesh #faces: 1353
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L333:iteration: # 1 / 5
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(Registration2::Register) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(FaceNormals) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (FaceNormals) [0.000078 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(PointCloudSampling::PoissonSphereSampling) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (PointCloudSampling::PoissonSphereSampling) [0.001067 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L414:Absolute threshold: 0.006188
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(SetupRegistrationProblem) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (SetupRegistrationProblem) [0.001207 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(SolveCeresProblem) {
+iter      cost      cost_change  |gradient|   |step|    tr_ratio  tr_radius  ls_iter  iter_time  total_time
+   0  7.514400e-06    0.00e+00    4.81e-04   0.00e+00   0.00e+00  1.00e+04        0    1.42e-03    2.42e-03
+   1  2.517943e-07    7.26e-06    6.48e-05   5.05e+00   9.71e-01  3.00e+04        1    5.01e-02    5.26e-02
+   2  2.372509e-08    2.28e-07    1.08e-05   2.38e+00   9.69e-01  9.00e+04        1    3.43e-02    8.70e-02
+   3  1.499711e-08    8.73e-09    3.27e-06   1.96e+00   9.49e-01  2.70e+05        1    3.45e-02    1.21e-01
+   4  1.409300e-08    9.04e-10    9.81e-07   9.46e-01   1.06e+00  8.10e+05        1    3.55e-02    1.57e-01
+   5  1.399634e-08    9.67e-11    2.25e-07   5.26e-01   1.33e+00  2.43e+06        1    3.61e-02    1.93e-01
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (SolveCeresProblem) [0.193254 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L736:Summary: 
+Solver Summary (v 2.1.0-eigen-(3.3.4)-lapack-suitesparse-(5.1.2)-cxsparse-(3.1.9)-eigensparse-no_openmp-cuda-(11030))
+
+                                     Original                  Reduced
+Parameter blocks                          413                      413
+Parameters                               2478                     2478
+Residual blocks                          2083                     2083
+Residuals                                6213                     6213
+
+Minimizer                        TRUST_REGION
+
+Sparse linear algebra library    SUITE_SPARSE
+Trust region strategy     LEVENBERG_MARQUARDT
+
+                                        Given                     Used
+Linear solver          SPARSE_NORMAL_CHOLESKY   SPARSE_NORMAL_CHOLESKY
+Threads                                    16                       16
+Linear solver ordering              AUTOMATIC                      413
+
+Cost:
+Initial                          7.514400e-06
+Final                            1.399634e-08
+Change                           7.500404e-06
+
+Minimizer iterations                        6
+Successful steps                            6
 Unsuccessful steps                          0
 
 Time (in seconds):
-Preprocessor                         0.002690
+Preprocessor                         0.000998
 
-  Residual only evaluation           0.000000 (0)
-  Jacobian & residual evaluation     0.000618 (1)
-  Linear solver                      0.000000 (0)
-Minimizer                            0.000685
+  Residual only evaluation           0.003559 (5)
+  Jacobian & residual evaluation     0.016700 (6)
+  Linear solver                      0.169709 (5)
+Minimizer                            0.192154
 
-Postprocessor                        0.000119
-Total                                0.003507
+Postprocessor                        0.000031
+Total                                0.193195
 
-Termination:                          FAILURE (Residual and Jacobian evaluation failed.)
+Termination:                   NO_CONVERGENCE (Maximum number of iterations reached. Number of iterations: 5.)
 
 INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(Update nodes) {
-INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (Update nodes) [0.000006 s]
-INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (Registration2::Register) [0.042747 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (Update nodes) [0.000064 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (Registration2::Register) [0.225563 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L333:iteration: # 2 / 5
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(Registration2::Register) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(FaceNormals) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (FaceNormals) [0.000093 s]
 INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(PointCloudSampling::PoissonSphereSampling) {
-INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (PointCloudSampling::PoissonSphereSampling) [0.010023 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (PointCloudSampling::PoissonSphereSampling) [0.001118 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L414:Absolute threshold: 0.006027
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(SetupRegistrationProblem) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (SetupRegistrationProblem) [0.001325 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(SolveCeresProblem) {
+iter      cost      cost_change  |gradient|   |step|    tr_ratio  tr_radius  ls_iter  iter_time  total_time
+   0  2.438805e-06    0.00e+00    1.29e-04   0.00e+00   0.00e+00  1.00e+04        0    4.66e-03    5.88e-03
+   1  2.118789e-07    2.23e-06    4.22e-05   5.17e+00   9.44e-01  3.00e+04        1    6.98e-01    7.04e-01
+   2  6.456836e-08    1.47e-07    1.11e-05   3.43e+00   9.48e-01  9.00e+04        1    7.54e-01    1.46e+00
+   3  5.346003e-08    1.11e-08    1.86e-06   1.48e+00   9.70e-01  2.70e+05        1    3.16e-02    1.49e+00
+   4  5.243226e-08    1.03e-09    6.54e-07   5.93e-01   9.72e-01  8.10e+05        1    5.35e-02    1.54e+00
+   5  5.202461e-08    4.08e-10    2.51e-07   4.16e-01   1.05e+00  2.43e+06        1    2.11e-01    1.75e+00
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (SolveCeresProblem) [1.754539 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L736:Summary: 
+Solver Summary (v 2.1.0-eigen-(3.3.4)-lapack-suitesparse-(5.1.2)-cxsparse-(3.1.9)-eigensparse-no_openmp-cuda-(11030))
+
+                                     Original                  Reduced
+Parameter blocks                          414                      414
+Parameters                               2484                     2484
+Residual blocks                          2122                     2122
+Residuals                                6262                     6262
+
+Minimizer                        TRUST_REGION
+
+Sparse linear algebra library    SUITE_SPARSE
+Trust region strategy     LEVENBERG_MARQUARDT
+
+                                        Given                     Used
+Linear solver          SPARSE_NORMAL_CHOLESKY   SPARSE_NORMAL_CHOLESKY
+Threads                                    16                       16
+Linear solver ordering              AUTOMATIC                      414
+
+Cost:
+Initial                          2.438805e-06
+Final                            5.202461e-08
+Change                           2.386781e-06
+
+Minimizer iterations                        6
+Successful steps                            6
+Unsuccessful steps                          0
+
+Time (in seconds):
+Preprocessor                         0.001219
+
+  Residual only evaluation           0.003734 (5)
+  Jacobian & residual evaluation     0.068687 (6)
+  Linear solver                      1.678555 (5)
+Minimizer                            1.753179
+
+Postprocessor                        0.000032
+Total                                1.754443
+
+Termination:                   NO_CONVERGENCE (Maximum number of iterations reached. Number of iterations: 5.)
+
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(Update nodes) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (Update nodes) [0.000069 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (Registration2::Register) [1.792400 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L333:iteration: # 3 / 5
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(Registration2::Register) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(FaceNormals) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (FaceNormals) [0.000094 s]
 INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(PointCloudSampling::PoissonSphereSampling) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (PointCloudSampling::PoissonSphereSampling) [0.001200 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L414:Absolute threshold: 0.005810
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(SetupRegistrationProblem) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (SetupRegistrationProblem) [0.001360 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(SolveCeresProblem) {
+iter      cost      cost_change  |gradient|   |step|    tr_ratio  tr_radius  ls_iter  iter_time  total_time
+   0  1.885552e-06    0.00e+00    8.54e-05   0.00e+00   0.00e+00  1.00e+04        0    4.59e-03    5.80e-03
+   1  8.695122e-08    1.80e-06    6.23e-06   4.76e+00   9.90e-01  3.00e+04        1    8.76e-01    8.81e-01
+   2  6.126334e-08    2.57e-08    2.21e-06   2.45e+00   9.17e-01  7.16e+04        1    3.23e-02    9.14e-01
+   3  5.786177e-08    3.40e-09    1.15e-06   1.08e+00   8.65e-01  1.17e+05        1    6.65e-02    9.80e-01
+   4  5.715744e-08    7.04e-10    4.26e-07   5.78e-01   7.20e-01  1.28e+05        1    8.98e-02    1.07e+00
+   5  5.688639e-08    2.71e-10    2.66e-07   2.77e-01   6.46e-01  1.31e+05        1    2.18e-01    1.29e+00
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (SolveCeresProblem) [1.288504 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L736:Summary: 
+Solver Summary (v 2.1.0-eigen-(3.3.4)-lapack-suitesparse-(5.1.2)-cxsparse-(3.1.9)-eigensparse-no_openmp-cuda-(11030))
+
+                                     Original                  Reduced
+Parameter blocks                          406                      406
+Parameters                               2436                     2436
+Residual blocks                          2097                     2097
+Residuals                                6157                     6157
+
+Minimizer                        TRUST_REGION
+
+Sparse linear algebra library    SUITE_SPARSE
+Trust region strategy     LEVENBERG_MARQUARDT
+
+                                        Given                     Used
+Linear solver          SPARSE_NORMAL_CHOLESKY   SPARSE_NORMAL_CHOLESKY
+Threads                                    16                       16
+Linear solver ordering              AUTOMATIC                      406
+
+Cost:
+Initial                          1.885552e-06
+Final                            5.688639e-08
+Change                           1.828666e-06
+
+Minimizer iterations                        6
+Successful steps                            6
+Unsuccessful steps                          0
+
+Time (in seconds):
+Preprocessor                         0.001198
+
+  Residual only evaluation           0.003835 (5)
+  Jacobian & residual evaluation     0.062008 (6)
+  Linear solver                      1.218982 (5)
+Minimizer                            1.287192
+
+Postprocessor                        0.000031
+Total                                1.288434
+
+Termination:                   NO_CONVERGENCE (Maximum number of iterations reached. Number of iterations: 5.)
+
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(Update nodes) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (Update nodes) [0.000065 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (Registration2::Register) [1.327924 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L333:iteration: # 4 / 5
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(Registration2::Register) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(FaceNormals) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (FaceNormals) [0.000094 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(PointCloudSampling::PoissonSphereSampling) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (PointCloudSampling::PoissonSphereSampling) [0.001179 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L414:Absolute threshold: 0.005744
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(SetupRegistrationProblem) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (SetupRegistrationProblem) [0.001614 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(SolveCeresProblem) {
+iter      cost      cost_change  |gradient|   |step|    tr_ratio  tr_radius  ls_iter  iter_time  total_time
+   0  1.119620e-06    0.00e+00    6.74e-05   0.00e+00   0.00e+00  1.00e+04        0    5.20e-03    6.38e-03
+   1  1.659097e-07    9.54e-07    3.94e-05   3.78e+00   9.52e-01  3.00e+04        1    8.00e-01    8.07e-01
+   2  8.703518e-08    7.89e-08    5.05e-06   1.50e+00   9.81e-01  9.00e+04        1    2.95e-02    8.36e-01
+   3  8.389851e-08    3.14e-09    3.15e-07   5.91e-01   9.38e-01  2.70e+05        1    2.93e-02    8.66e-01
+   4  8.339252e-08    5.06e-10    5.17e-07   5.16e-01   6.58e-01  2.79e+05        1    7.54e-01    1.62e+00
+   5  8.327783e-08    1.15e-10    4.96e-07   4.30e-01   2.10e-01  2.33e+05        1    8.25e-02    1.70e+00
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (SolveCeresProblem) [1.702711 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L736:Summary: 
+Solver Summary (v 2.1.0-eigen-(3.3.4)-lapack-suitesparse-(5.1.2)-cxsparse-(3.1.9)-eigensparse-no_openmp-cuda-(11030))
+
+                                     Original                  Reduced
+Parameter blocks                          399                      399
+Parameters                               2394                     2394
+Residual blocks                          2085                     2085
+Residuals                                6075                     6075
+
+Minimizer                        TRUST_REGION
+
+Sparse linear algebra library    SUITE_SPARSE
+Trust region strategy     LEVENBERG_MARQUARDT
+
+                                        Given                     Used
+Linear solver          SPARSE_NORMAL_CHOLESKY   SPARSE_NORMAL_CHOLESKY
+Threads                                    16                       16
+Linear solver ordering              AUTOMATIC                      399
+
+Cost:
+Initial                          1.119620e-06
+Final                            8.327783e-08
+Change                           1.036342e-06
+
+Minimizer iterations                        6
+Successful steps                            6
+Unsuccessful steps                          0
+
+Time (in seconds):
+Preprocessor                         0.001176
+
+  Residual only evaluation           0.003030 (5)
+  Jacobian & residual evaluation     0.061891 (6)
+  Linear solver                      1.634702 (5)
+Minimizer                            1.701447
+
+Postprocessor                        0.000022
+Total                                1.702657
+
+Termination:                   NO_CONVERGENCE (Maximum number of iterations reached. Number of iterations: 5.)
+
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(Update nodes) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (Update nodes) [0.000045 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (Registration2::Register) [1.754555 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/point_cloud_non_rigid_merge.cc:L333:iteration: # 5 / 5
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(Registration2::Register) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(FaceNormals) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (FaceNormals) [0.000097 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(PointCloudSampling::PoissonSphereSampling) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (PointCloudSampling::PoissonSphereSampling) [0.001152 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L414:Absolute threshold: 0.005754
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(SetupRegistrationProblem) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (SetupRegistrationProblem) [0.001537 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(SolveCeresProblem) {
+iter      cost      cost_change  |gradient|   |step|    tr_ratio  tr_radius  ls_iter  iter_time  total_time
+   0  7.707497e-07    0.00e+00    3.24e-05   0.00e+00   0.00e+00  1.00e+04        0    4.79e-03    6.04e-03
+   1  7.390346e-08    6.97e-07    7.01e-06   3.11e+00   9.87e-01  3.00e+04        1    6.43e-01    6.49e-01
+   2  5.650834e-08    1.74e-08    9.21e-07   8.01e-01   9.96e-01  9.00e+04        1    3.33e-02    6.82e-01
+   3  5.570576e-08    8.03e-10    2.54e-07   3.00e-01   1.26e+00  2.70e+05        1    6.33e-01    1.32e+00
+   4  5.542542e-08    2.80e-10    2.99e-07   1.89e-01   1.59e+00  8.10e+05        1    1.38e-01    1.45e+00
+   5  5.526521e-08    1.60e-10    1.82e-07   1.27e-01   1.68e+00  2.43e+06        1    5.49e-01    2.00e+00
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (SolveCeresProblem) [2.003362 s]
+VERBOSE: /home/aiday.kyzy/code/sfm/src/vision/point_cloud/registration/non_rigid_registration.cc:L736:Summary: 
+Solver Summary (v 2.1.0-eigen-(3.3.4)-lapack-suitesparse-(5.1.2)-cxsparse-(3.1.9)-eigensparse-no_openmp-cuda-(11030))
+
+                                     Original                  Reduced
+Parameter blocks                          398                      398
+Parameters                               2388                     2388
+Residual blocks                          2090                     2090
+Residuals                                6070                     6070
+
+Minimizer                        TRUST_REGION
+
+Sparse linear algebra library    SUITE_SPARSE
+Trust region strategy     LEVENBERG_MARQUARDT
+
+                                        Given                     Used
+Linear solver          SPARSE_NORMAL_CHOLESKY   SPARSE_NORMAL_CHOLESKY
+Threads                                    16                       16
+Linear solver ordering              AUTOMATIC                      398
+
+Cost:
+Initial                          7.707497e-07
+Final                            5.526521e-08
+Change                           7.154844e-07
+
+Minimizer iterations                        6
+Successful steps                            6
+Unsuccessful steps                          0
+
+Time (in seconds):
+Preprocessor                         0.001251
+
+  Residual only evaluation           0.004144 (5)
+  Jacobian & residual evaluation     0.070470 (6)
+  Linear solver                      1.924780 (5)
+Minimizer                            2.001957
+
+Postprocessor                        0.000032
+Total                                2.003252
+
+Termination:                   NO_CONVERGENCE (Maximum number of iterations reached. Number of iterations: 5.)
+
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L87:ScopedTimer(Update nodes) {
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (Update nodes) [0.000063 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (Registration2::Register) [2.041471 s]
+INFO: /home/aiday.kyzy/code/sfm/src/base/scoped_timer.cc:L74:} // ScopedTimer (AlignAndNonRigidMerge) [8.296229 s]
+FLAGS.base :  
+FLAGS.file1 :  /home/aiday.kyzy/dataset/Synthetic/FullDeformedData/TestingData/model042/transformed/020.ply
+FLAGS.landmarks1 :  /home/aiday.kyzy/dataset/Synthetic/FullDeformedData/TestingData/model042/output_geo_td_pretrained_ivs_0.006_current_deformation/corr_points/src_corr_points.ply
 strict inlier ratio threshold :  0.01
 relaxed inlier ratio threshold :  0.03
-[1;33m[Open3D WARNING] Read PLY failed: unable to open file: /home/aiday.kyzy/dataset/Synthetic/FullDeformedData/TestingData/model042/output_geo_td_pretrained_ivs_0.01_current_deformation/current_deformation.ply[0;m
+RMSE :  0.11004655093600374
+Strict IR :  0.001905165114309907
+Relaxed IR :  0.03513971210838273
+
 model 085 i 0 j 1
 voxel size 0.01
 Inside registration_collate_fn_stack_mode
