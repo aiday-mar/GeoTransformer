@@ -2,14 +2,14 @@ import re
 import matplotlib.pyplot as plt
 import numpy as np
 
-data_type = 'partial_deformed'
-# data_type = 'full_deformed'
+# data_type = 'partial_deformed'
+data_type = 'full_deformed'
 
 training_data = 'pretrained'
 # training_data = 'partial_non_deformed'
 # training_data = 'full_non_deformed'
 
-initial_voxel_size = '0.008'
+initial_voxel_size = '0.01'
 
 current_deformation = True
 # current_deformation = False
@@ -21,9 +21,21 @@ else:
 
 file = open(filename, 'r')
 lines = file.readlines()
+
+if data_type == 'full_deformed':
+    file_initial = 'output_geo_' + data_type + '_td_' + training_data + '_ivs_0.01_current_deformation.txt'
+elif data_type == 'partial_deformed':
+    file_initial = 'output_geo_' + data_type + '_td_' + training_data + '_ivs_0.009_current_deformation.txt'
+else:
+    raise Exception()
+
+file_initial = open(file_initial, 'r')
+lines_initial = file_initial.readlines()
+
 current_model = None
 model_numbers = ['002', '042', '085', '126', '167', '207']
 final_data = {model_number : 0.0 for model_number in model_numbers}
+final_data_initial = {model_number : 0.0 for model_number in model_numbers}
 
 for line in lines:
     if 'model' in line and len(line) < 100:        
@@ -37,9 +49,28 @@ for line in lines:
         rmse = float(list_res[0])
         final_data[current_model] = rmse
 
+current_model = None
+
+for line in lines_initial:
+    if 'model' in line and len(line) < 100:        
+        words = line.split(' ')
+        current_model = words[1]
+    
+    if 'RMSE' in line and current_model:
+        list_res = re.findall("\d+\.\d+", line)
+        rmse = float(list_res[0])
+        final_data_initial[current_model] = rmse
+
 rmse = []
 for model_number in model_numbers:
     rmse.append(final_data[model_number])
+
+rmse_initial = []
+for model_number in model_numbers:
+    rmse_initial.append(final_data_initial[model_number])
+
+print(rmse)
+print(rmse_initial)
 
 bar = np.array([0, 1, 2, 3, 4, 5])
 nan_positions = np.where(np.array(rmse) == 0.0)[0]
@@ -49,6 +80,7 @@ if nan_positions.size > 0:
         plt.axvline(x = bar[nan_position], color = 'r', ls='--')
 
 plt.bar(bar, rmse)
+plt.bar(bar, rmse_initial, fill=False, linestyle='--')
 plt.xticks(bar, model_numbers)
 plt.xlabel("Model number")
 plt.ylabel("RMSE")
