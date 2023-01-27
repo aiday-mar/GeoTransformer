@@ -88,7 +88,7 @@ _C.optim.grad_acc_steps = 1
 # model - backbone
 _C.backbone = edict()
 _C.backbone.num_stages = 3 # Does not work when smaller than 3
-_C.backbone.init_voxel_size = 0.009 # voxel size used in initial grid downsampling, was 0.004
+_C.backbone.init_voxel_size = 0.01 # voxel size used in initial grid downsampling, was 0.004
 _C.backbone.kernel_size = 15
 _C.backbone.base_radius = 2.5
 _C.backbone.base_sigma = 2.0
