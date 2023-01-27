@@ -1,16 +1,16 @@
 base='/home/aiday.kyzy/dataset/Synthetic/FullDeformedData/TestingData'
 model_numbers=('002' '042' '085' '126' '167' '207')
 
-# training_data='pretrained'
-training_data='full_non_deformed'
+training_data='pretrained'
+# training_data='full_non_deformed'
 
 current_deformation=True
 # current_deformation=False
 
-init_voxel_size=0.009
+init_voxel_size=0.01
 
-# weights="geotransformer-modelnet.pth.tar"
-weights="model_320_full_non_deformed.pth.tar"
+weights="geotransformer-modelnet.pth.tar"
+# weights="model_320_full_non_deformed.pth.tar"
 
 save_key_points=True
 
