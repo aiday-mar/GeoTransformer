@@ -4,10 +4,14 @@ GeoTransformer/experiments/geotransformer.modelnet.rpmnet.stage4.gse.k3.max.oacl
 
 And run the following command:
 
+```
 python astrivis-train.py
+```
 
 Otionally if resuming the training use the resume flag:
 
+```
 python astrivis-train.py --resume='<weights>'
-  
+```
+
 The weights file is in the weights folder.
